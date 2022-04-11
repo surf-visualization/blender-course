@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+
+.md-grid {
+    /* make context area a bit wider */
+    max-width: 1440px; 
+}
+
+.md-header 
+{
+    /* #EE7628 */
+	background-color: rgb(238, 118, 40);
+    font-family: 'Nunito', sans-serif;
+}
+
+.md-tabs
+{
+	background-color: rgb(252, 142, 76);
+    color:  white;
+    font-family: 'Nunito', sans-serif;
+}
+
+.md-tabs__link--active 
+{
+	font-weight: bold;
+}
+
+.md-nav__link--active
+{
+	font-weight: bold;
+}
+
+.md-nav
+{
+    font-family: 'Source Sans Pro', Roboto, sans-serif;
+}
+
+.md-typeset h1
+{
+    font-family: 'Nunito', sans-serif;
+	color: rgb(238, 118, 40);
+}
+
+.md-typeset h2
+{
+    font-family: 'Nunito', sans-serif;
+	color: rgb(238, 118, 40);
+}
+
+.md-typeset h3
+{
+    font-family: 'Nunito', sans-serif;
+	color: rgb(243, 114, 35);
+}
+
+.md-header__button.md-logo
+{
+	padding: 0px;
+}
+
+.md-header__button.md-logo img
+{
+	width: 2.5rem;
+	height: 2.5rem;
+}
+
+.md-header__button
+{
+	margin: 0px;
+}
+
+.md-typeset .admonition
+{
+    font-size: 15px;
+}
+
+body
+{
+    font-family: 'Source Sans Pro', Roboto, sans-serif;
+}
+

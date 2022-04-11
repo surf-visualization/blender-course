@@ -1,0 +1,1992 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://surf-visualization.github.io/blender-course/advanced/advanced_materials/advanced_materials_assignment/">
+      
+      <link rel="icon" href="../../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+    
+    
+      
+        <title>💻 The Shader Editor and advanced material topics - Introduction to Scientific Visualization with Blender</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.120efc48.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-shader-editor-and-advanced-material-topics" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Introduction to Scientific Visualization with Blender" class="md-header__button md-logo" aria-label="Introduction to Scientific Visualization with Blender" data-md-component="logo">
+      
+  <img src="../../../images/surf-logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introduction to Scientific Visualization with Blender
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              💻 The Shader Editor and advanced material topics
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        Home
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../overview/introduction/" class="md-tabs__link">
+        Course overview
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../basics/blender_fundamentals/introduction/" class="md-tabs__link">
+        Basics
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../python_scripting/1_api_basics/" class="md-tabs__link md-tabs__link--active">
+        Advanced
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../references/interface/" class="md-tabs__link">
+        References
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Introduction to Scientific Visualization with Blender" class="md-nav__button md-logo" aria-label="Introduction to Scientific Visualization with Blender" data-md-component="logo">
+      
+  <img src="../../../images/surf-logo.svg" alt="logo">
+
+    </a>
+    Introduction to Scientific Visualization with Blender
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Home
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Home" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Home
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Course overview
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Course overview" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Course overview
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../overview/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../overview/setup/" class="md-nav__link">
+        Course setup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../overview/schedule/" class="md-nav__link">
+        Schedule
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../overview/conventions/" class="md-nav__link">
+        Text conventions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../overview/about/" class="md-nav__link">
+        About us
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Basics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Basics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Fundamentals
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Fundamentals" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Fundamentals
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/blender_fundamentals/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/blender_fundamentals/first_steps/" class="md-nav__link">
+        First steps in the user interface
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/blender_fundamentals/1_assignment_interaction_selections/" class="md-nav__link">
+        💻 Interaction, selections, outliner
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/blender_fundamentals/transformations/" class="md-nav__link">
+        Transformations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/blender_fundamentals/objects_3d_cursor_undo/" class="md-nav__link">
+        Objects, 3D cursor, Undo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/blender_fundamentals/2_assignment_transformations/" class="md-nav__link">
+        💻 Transformations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/blender_fundamentals/cameras_and_views/" class="md-nav__link">
+        Cameras and views
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/blender_fundamentals/3_assignment_camera_and_views/" class="md-nav__link">
+        💻 Cameras and views
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/blender_fundamentals/ui/" class="md-nav__link">
+        User interface configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/blender_fundamentals/scene_hierarchy/" class="md-nav__link">
+        Scene hierarchy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Importing data
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Importing data" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Importing data
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/importing_data/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/importing_data/exercise_vertex_colors/" class="md-nav__link">
+        💻 Vertex colors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/importing_data/exercise_your_data/" class="md-nav__link">
+        💻 Your own data
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Simple mesh editing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Simple mesh editing" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Simple mesh editing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/simple_mesh_editing/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/simple_mesh_editing/sme_assignment/" class="md-nav__link">
+        💻 Simple mesh editing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Rendering, lighting & materials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Rendering, lighting & materials" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Rendering, lighting & materials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/rendering_lighting_materials/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/rendering_lighting_materials/rlm_assignment/" class="md-nav__link">
+        💻 Rendering, lighting and materials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/rendering_lighting_materials/composition/" class="md-nav__link">
+        Composition
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          Animation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Animation" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Animation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/animation/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/animation/exercise_manual_camera_orbit/" class="md-nav__link">
+        💻 Orbiting an object manually
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/animation/exercise_parented_camera_orbit/" class="md-nav__link">
+        💻 Camera orbiting using parenting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/animation/exercise_track_to/" class="md-nav__link">
+        💻 Track To constraint
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/animation/everything/" class="md-nav__link">
+        Animating everything
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/animation/tradeoffs_settings_output/" class="md-nav__link">
+        Trade-offs, settings and output
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../basics/animation/example_flipbook_animation/" class="md-nav__link">
+        💻 Flipbook animation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Advanced
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Advanced" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Advanced
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          Python scripting
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python scripting" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Python scripting
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_scripting/1_api_basics/" class="md-nav__link">
+        Blender API basics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_scripting/2_accessing_data/" class="md-nav__link">
+        Accessing Blender data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_scripting/3_geometry_colors_and_materials/" class="md-nav__link">
+        Creating geometry, colors and materials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_scripting/4_volumetric_data/" class="md-nav__link">
+        Visualizing volumetric data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../python_scripting/api_summary/" class="md-nav__link">
+        The Blender API in detail
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Node-based materials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Node-based materials" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Node-based materials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          💻 The Shader Editor and advanced material topics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        💻 The Shader Editor and advanced material topics
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-fish" class="md-nav__link">
+    The fish
+  </a>
+  
+    <nav class="md-nav" aria-label="The fish">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shader-editor-materials-coloring-the-scene" class="md-nav__link">
+    Shader editor materials - Coloring the scene
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#texture-mapping-placing-the-fish-on-a-picknick-table" class="md-nav__link">
+    Texture mapping - Placing the fish on a picknick table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-materials-one-object-window-to-the-inside-of-the-fish" class="md-nav__link">
+    Multiple materials one object - Window to the inside of the fish
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-from-view-uv-mapping-add-actual-skin-to-the-fish" class="md-nav__link">
+    Project from view UV-mapping - Add actual skin to the fish.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-moon-exercise" class="md-nav__link">
+    The moon (EXERCISE)
+  </a>
+  
+    <nav class="md-nav" aria-label="The moon (EXERCISE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-basic-scene-sphere-sun-and-the-darkness-of-space" class="md-nav__link">
+    The basic scene - Sphere, sun and the darkness of space
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applying-a-material-and-texturing-the-moon-thats-one-small-step" class="md-nav__link">
+    Applying a material and texturing the moon - That's one small step...
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adaptive-displacement-revealing-the-craters-mooore-details" class="md-nav__link">
+    Adaptive displacement - Revealing the craters! Mooore details!
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vertex_colors/" class="md-nav__link">
+        Visualizing vertex colors with the Attribute node
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../node-wrangler/" class="md-nav__link">
+        Node-wrangler reference
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Animation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Animation" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Animation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../animation/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../animation/2_assignment_cars/" class="md-nav__link">
+        💻 "Cars": the movie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../animation/3_assignment_flipbook/" class="md-nav__link">
+        💻 Flipbook animation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../animation/shape_keys/" class="md-nav__link">
+        Shape keys
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4">
+          Mesh edit mode
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mesh edit mode" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Mesh edit mode
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mesh_editing/introduction/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mesh_editing/mesh_editing_assignment/" class="md-nav__link">
+        💻 Mesh Editing with the Edit mode
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" type="checkbox" id="__nav_4_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_5">
+          Final project
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Final project" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          Final project
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../final_project/final_project/" class="md-nav__link">
+        💻 Final project: making a visualization of your own data
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          References
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="References" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          References
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/interface/" class="md-nav__link">
+        User Interface elements
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/cheat_sheet/" class="md-nav__link">
+        Cheat sheet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/official/" class="md-nav__link">
+        Official sources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/community/" class="md-nav__link">
+        Community resources
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/scene/" class="md-nav__link">
+        Scene resources (3D models, materials, textures)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-fish" class="md-nav__link">
+    The fish
+  </a>
+  
+    <nav class="md-nav" aria-label="The fish">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shader-editor-materials-coloring-the-scene" class="md-nav__link">
+    Shader editor materials - Coloring the scene
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#texture-mapping-placing-the-fish-on-a-picknick-table" class="md-nav__link">
+    Texture mapping - Placing the fish on a picknick table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-materials-one-object-window-to-the-inside-of-the-fish" class="md-nav__link">
+    Multiple materials one object - Window to the inside of the fish
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-from-view-uv-mapping-add-actual-skin-to-the-fish" class="md-nav__link">
+    Project from view UV-mapping - Add actual skin to the fish.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-moon-exercise" class="md-nav__link">
+    The moon (EXERCISE)
+  </a>
+  
+    <nav class="md-nav" aria-label="The moon (EXERCISE)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-basic-scene-sphere-sun-and-the-darkness-of-space" class="md-nav__link">
+    The basic scene - Sphere, sun and the darkness of space
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applying-a-material-and-texturing-the-moon-thats-one-small-step" class="md-nav__link">
+    Applying a material and texturing the moon - That's one small step...
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adaptive-displacement-revealing-the-craters-mooore-details" class="md-nav__link">
+    Adaptive displacement - Revealing the craters! Mooore details!
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="the-shader-editor-and-advanced-material-topics">💻 The Shader Editor and advanced material topics<a class="headerlink" href="#the-shader-editor-and-advanced-material-topics" title="Permanent link">&para;</a></h1>
+<p>In this exercise you will use the Blender Shader Editor on the familiar iso-surface of a CT scan of a fish from the basic course and try to make a visualization by using an advanced node setup. After that you will make a render of the moon with the high resolution textures of NASA with adaptive subdivision.</p>
+<h2 id="the-fish">The fish<a class="headerlink" href="#the-fish" title="Permanent link">&para;</a></h2>
+<p>When you opened the exercise blend file <strong><code>advanced_materials_assignment.blend</code></strong> you'll see the white fish iso-surface above a plane white plane. We are going to pimp this scene with advanced materials.</p>
+<h3 id="shader-editor-materials-coloring-the-scene">Shader editor materials - Coloring the scene<a class="headerlink" href="#shader-editor-materials-coloring-the-scene" title="Permanent link">&para;</a></h3>
+<p>First we will add materials and give each object a different color.</p>
+<ol>
+<li>First activate the Rendered shading to see what kind of materials we are actually applying by pressing <strong><code>Z</code></strong> in the <em>3D Viewport</em> panel and selecting <strong><code>Rendered</code></strong> from the radial pie-menu.</li>
+<li>Select the <em>fishskin</em> object and add a new material by clicking the <strong><code>New</code></strong> button in the middle of the top bar of the <em>Shader Editor</em> <img alt="" src="../../images/shadereditoricon.png" style="height:30px;width:30px" /> panel.</li>
+<li>Now we see a graph appearing with 2 nodes a <em>Principled BSDF</em>-node and a <em>Material output</em>-node also in the side panel you will see the familiar material settings. Change the <strong><code>Base Color</code></strong> to an appropriate color of a fish.</li>
+<li>Repeat step 2 and 3 for each 3D object in the scene (see <em>Outliner</em>) and give them a color of your choice.</li>
+</ol>
+<h3 id="texture-mapping-placing-the-fish-on-a-picknick-table">Texture mapping - Placing the fish on a picknick table<a class="headerlink" href="#texture-mapping-placing-the-fish-on-a-picknick-table" title="Permanent link">&para;</a></h3>
+<p>Now that the scene has some color we can start applying some realistic colors and texture to the ground plane or should we say table? We will do that by adding wood textures to the ground plane and connecting those textures to their appropriate parameters of the Principle BSDF.</p>
+<ol>
+<li>Select the <code>groundplane</code> 3D object.</li>
+<li>Add a <em>Image texture</em>-node to the Shader Editor graph of the groundplane with <strong><code>Shift-A &gt; Texture &gt; Image Texture</code></strong>.</li>
+<li>Connect the <code>Color</code> output of this node to the <code>Base color</code> input of the <em>Principled BSDF</em>-node.</li>
+<li>Now the groundplane doesn't look anything like a picknick table, its pink. This pink color comes from the fact that an image is missing from the <em>Image Texture</em>-node. Open an image by pressing the <strong><code>Open</code></strong>-button on the <em>Image Texture</em>-node, this will open a file browser window. Now select the <code>blue_painted_planks_diff_4k.png</code> image from the <code>data/wood_textures/</code> directory and press <strong><code>Open Image</code></strong>.</li>
+</ol>
+<p>Now we have our first image mapped on an object! Although you might have noticed that the fish is really small or rather the planks are very big. We are gonna solve that by scaling the texture coordinates.</p>
+<ol start="5">
+<li>Before we can do that we first need to add the texture coordinates to the graph with <strong><code>Shift-A &gt; Input &gt; Texture Coordinates</code></strong> and connect the <code>UV</code> output to the <code>Vector</code> input of the <em>Image Texture</em>-node.</li>
+<li>Nothing changed because we didn't apply the scaling yet. Now add a <em>Mapping</em> node with <strong><code>Shift-A &gt; Vector &gt; Mapping</code></strong> and drag it on top of the edge between the <em>Texture Coordinate</em>-node and the <em>Image Texture</em>-node and let it go. As you can see it is automatically connected in between the nodes.</li>
+<li>Now on the <em>Mapping</em>-node change the <strong><code>Scale</code></strong> parameter <code>x</code>,<code>y</code> and <code>z</code> to <strong><code>2</code></strong>. As you can see that reduced the planks to a smaller and better size.</li>
+</ol>
+<p><strong>Tip!</strong>: With the <strong>Node Wrangler</strong> Blender add-on you can just select a texture node and press <strong><code>CTRL+T</code></strong> to automatically add the <em>Texture Coordinate</em> and <em>Mapping</em> node. <strong>Node Wrangler</strong> can be added with: <strong><code>Menu-bar Edit &gt; Preferences &gt; Add-ons tab &gt; Type 'Node Wranger' in search &gt; check Node Wrangler add-on to activate</code></strong>.</p>
+<p>Now we'll roughen the planks a bit with a <em>Roughness map</em>, a texture that will be use to change the <code>Roughness</code> parameter of the Principled BSDF.</p>
+<ol start="8">
+<li>Select the previously added <em>Image Texture</em>-node and press <strong><code>SHIFT-D</code></strong> and place the new duplicated node underneath the other <em>Image Texture</em>-node.</li>
+<li>Connect its <code>Vector</code> input to the <code>Vector</code> output of the <em>Mapping</em>-node just like the other <em>Image Texture</em>-node and connect the <code>Color</code> output to the <code>Roughness</code> input of the <em>Principled BSDF</em>-node.</li>
+<li>As you can see became shiny, which wood is not (rotate the view around the object in the 3D Viewport to see the plane from different angles). This is because we haven't changed the texture yet. In this new <em>Image Texture</em>-node <strong><code>Open</code></strong> the <code>blue_painted_planks_rough_4k.png</code> from <code>data/wood_textures</code>.</li>
+<li>Now it is still a bit too shiny for wood. This is because the output is interpreted as an <code>sRGB</code> value. We need to change the <strong><code>Color Space</code></strong> parameter of this <em>Image Texture</em>-node to <strong><code>Non-color</code></strong>. Now the ground plane has the right rough look like wood.</li>
+</ol>
+<p>The look of the wood is still very "flat" (the light still bounces of it at a straight angle), this is because we didn't add a normal map to the material yet. This normal map will accentuate all the nooks and crannies naturally present in wood which normally catch light to.</p>
+<ol start="12">
+<li>As the previous <code>Image Texture</code>-node we again need to make a new one by duplicating (see step <strong>8</strong>).</li>
+<li>Again the <em>Mapping</em>-node <code>Vector</code> output needs to be connected to the new <em>Image Texture</em>-node <code>Vector</code> input. The <code>Color</code> output however needs to go to a <em>Normal Map</em>-node.</li>
+<li>Add a <em>Normal Map</em>-node with <strong><code>Shift-A &gt; Vector &gt; Normal Map</code></strong> and connect the <em>Image Texture</em>-node <code>Color</code> output to the <em>Normal Map</em>-node <code>Color input</code> and connect the <em>Normal Map</em>-node <code>Normal</code> output to the <em>Principled BSDF</em>-node <code>Normal</code> input.</li>
+<li>Again this is also not a color so the <strong><code>Color Space</code></strong> needs to be set to <strong><code>Non-color</code></strong>.</li>
+</ol>
+<p>Now you have a fully textured wooden ground plane! To see the full effect, rotate the view around it and see the light bounce off the surface based on the different texture types you just applied.</p>
+<h3 id="multiple-materials-one-object-window-to-the-inside-of-the-fish">Multiple materials one object - Window to the inside of the fish<a class="headerlink" href="#multiple-materials-one-object-window-to-the-inside-of-the-fish" title="Permanent link">&para;</a></h3>
+<p>We only see the fish, not the fish bones. In the Blender Basics course we learned how to reveal the bones on the inside by using a Boolean modifier, but we can achieve the same with just materials!</p>
+<ol>
+<li>Select the <code>fishskin</code> 3D object.</li>
+<li>If everything in the first couple of assignments the fish should already have one material called <em>Material</em>. For administrative reasons lets <strong><code>rename</code></strong> the material by clicking its name <em>Material</em> in the middle of the top bar of the <em>Shader Editor</em> <img alt="" src="../../images/shadereditoricon.png" style="height:30px;width:30px" /> panel and typing the new name called <strong><code>fishskinmat</code></strong>.</li>
+<li>Now left next to the <em>rename</em> box you have drop-down menu called <strong><code>Slot 1</code></strong> when you click this you will see the material slots menu. In our case its only one material called <em>fishskinmat</em>.</li>
+<li>Now add a new <em>Material slot</em> by clicking the <strong><code>plus icon</code></strong> in this menu. The added material slot is still empty and needs a second material.</li>
+<li>Add a new material by clicking the <strong><code>New</code></strong> button in the middle of the top bar of the <em>Shader Editor</em> <img alt="" src="../../images/shadereditoricon.png" style="height:30px;width:30px" /> panel.</li>
+<li>Rename this material to <strong><code>fishskintransparentmat</code></strong>.</li>
+</ol>
+<p>Now as you can see adjusting any value on the <em>Principled BSDF</em>-node doesn't seem to do anything. This is because there aren't any <em>vertices</em> assigned to this material slot yet (by default all vertices are assigned to the first material slot).</p>
+<ol start="7">
+<li>To assign vertices we need to be able to select them and this can be done in the <strong><code>Edit Mode</code></strong> of the <strong><code>3D Viewport</code></strong>-panel. With the <em>fishskin</em> 3D object selected and the focus on the <em>3D Viewport</em>-panel (hovering over the 3D Viewport panel with your mouse) press <strong><code>TAB</code></strong>.</li>
+<li>First press <strong>1</strong> to see the vertices and then select a window of vertices on the side of the fish with the <strong><code>Border select</code></strong> tool by pressing <strong><code>B</code></strong> in the <em>3D Viewport</em>-panel and dragging over the area you want to select.</li>
+<li>With these vertices selected press the <strong><code>Material slots</code></strong> button, select the <strong><code>fishskintransparentmat</code></strong>-material and press the <strong><code>Assign</code></strong>-button. </li>
+</ol>
+<p>Now you can see the selected <em>faces</em> in that selection look different! This is because they are assigned to the second material. Now we'll make the <strong><code>fishskintransparentmat</code></strong> actually transparent with a combination of the <em>Transparent BSDF</em> and <em>Principled BSDF</em> through a <strong><code>Mix Shader</code></strong>. That way we can control the amount of transparency!</p>
+<ol start="10">
+<li>In the <em>Shader editor</em> add a <strong><code>Mix Shader</code></strong>-node with <strong><code>Shift-A &gt; Shader &gt; Mix Shader</code></strong>.</li>
+<li>Drag this <em>Mix Shader</em>-node over the edge connecting the <em>Principled BSDF</em>-node and the <em>Material Output</em>-node to place it connected in between.</li>
+<li>Now add a <strong><code>Transparent BSDF</code></strong> with <strong><code>Shift-A &gt; Shader &gt; Transparent BSDF</code></strong>.</li>
+<li>Connect the <code>BSDF</code> output to the <em>Mix Shader</em>-node <code>Shader</code> input.</li>
+<li>Now the material is half shaded by the <em>Transparent BSDF</em>-node and half by the <em>Principled BSDF</em>-node. Experiment with the <em>Mix shader</em>-node's <strong><code>fac</code></strong> parameter to see how it changes the transparency of the <em>fishskintransparentmat</em>.</li>
+</ol>
+<p>Now you have a window looking inside the fish! Now it's time to give the fish some actually fishy colors with the <em>Project from view</em> UV-mapping!</p>
+<p><strong>Bonus</strong> (Only when you have time left): As you can see the bones also contain the <em>swim bladder</em> which looks the same as the bones because the same material is assigned to it. Try to select the swim bladders vertices and assign a different more fitting material to the swim bladder.</p>
+<h3 id="project-from-view-uv-mapping-add-actual-skin-to-the-fish">Project from view UV-mapping - Add actual skin to the fish.<a class="headerlink" href="#project-from-view-uv-mapping-add-actual-skin-to-the-fish" title="Permanent link">&para;</a></h3>
+<p>To add a real fish texture, or actually a photo from a carp, to the <code>fishskin</code> 3D object you can use the technique called <strong><code>Project from view</code></strong> UV-mapping. For this we introduce a new panel called the <strong><code>UV Editor</code></strong>. Before we go to the <strong><code>UV Editor</code></strong> we need to add a <em>Image Texture</em>-node to the <code>fishskinmat</code>. </p>
+<ol>
+<li>In the <em>Shader Editor</em> select the <code>fishskinmat</code> (slot 1) from the Material slot menu in the middle left of the top bar of the <em>Shader Editor</em>.</li>
+<li>Add a <em>Image Texture</em>-node to the material with <strong><code>Shift-A &gt; Texture &gt; Image Texture</code></strong> and connect the <code>Color</code> output to the <em>Principled BSDF</em>-node <code>Base Color</code> input and open the <code>carp.jpg</code> texture from the <code>data/</code> directory.</li>
+<li>Next add a <em>Texture Coordinate</em> node with <strong><code>Shift-A &gt; Input &gt; Texture Coordinates</code></strong> and connect the <code>UV</code> output to the <em>Image texture</em>-node <code>Vector</code> input.</li>
+</ol>
+<p>This fish is now black because the <code>UV</code> coordinates are not defined yet. That is what we will do in the <strong><code>UV Editor</code></strong>.</p>
+<ol start="4">
+<li>Now that we do not need the <strong><code>Shader editor</code></strong> anymore we can replace it with the <strong><code>UV Editor</code></strong>. In the corner of the panel click the <em>Editor Type-button</em> <img alt="" src="../../images/shadereditoricon.png" style="height:30px;width:30px" /> and select the <strong><code>UV Editor</code></strong> from the list.</li>
+<li>Before we can start UV-mapping we need to be in <strong><code>Edit mode</code></strong> in the <em>3D viewport</em>. In the <em>3D viewport</em> panel press <strong><code>TAB</code></strong> to enter edit mode.</li>
+<li>Now select all geometry by pressing <strong><code>A</code></strong>.</li>
+</ol>
+<p>To properly project from view you have to choose the right view to project from. We are gonna map a photo of a carp which has been taken from the side. In order to properly map the photo on the 3D object we also need to look at it from the side.</p>
+<ol start="7">
+<li>Press <strong><code>BACK-TICK</code></strong> to open the view radial pie-menu and select <strong><code>Right</code></strong> or through the 3D Viewport menu in the header (<strong><code>View &gt; Viewpoint &gt; Camera</code></strong>).</li>
+<li>Now press <strong><code>U</code></strong> to open the <em>UV-mapping</em>-menu and select <strong><code>Project from view</code></strong>.</li>
+</ol>
+<p>Now you can see the <code>UV</code> coordinates are mapped in the <strong><code>UV Editor</code></strong> but they are not properly scaled to fit the photo of the carp.</p>
+<ol start="9">
+<li>Make sure that everything is still selected and then within the <strong><code>UV Editor</code></strong> press <strong><code>S</code></strong> and scale the UV-coordinates until they aligns with the photo of the carp. </li>
+<li>Scaling it alone is not enough. The UV-coordinates need to be moved a bit, use <strong><code>G</code></strong> to grab the UV-coordinates and translate them to better match the photo.</li>
+</ol>
+<p>As you might have noticed it is not possible to completely match the photo without deforming the UV-coordinates.</p>
+<ol start="11">
+<li>Before we start deforming parts of the UV-coordinates you need to activate <em>Proportional editing</em> by pressing the <strong><code>Proportional editing</code></strong> button <img alt="" src="../../images/proportionaleditingicon.png" style="height:30px;width:30px" /> in the top bar of the <strong><code>UV Editor</code></strong>. This proportional editing moves all UV-coordinates in the adjacent defined radius along with the currently selected UV-coordinates.</li>
+<li>Now select a UV-coordinate in the <em>UV Editor</em> that needs to be moved and press <strong><code>G</code></strong>.</li>
+<li>While grabbing, scroll with you mouse wheel to decrease or increase the <em>Proportional editing</em> radius and move your mouse to see the effect.</li>
+<li>Now with this <strong><code>Proportional editing</code></strong> try to match the UV-coordinates to the photo of the carp as good as possible.</li>
+</ol>
+<p><strong>Tip!</strong>: Whenever you are editing the UV-map in the <em>UV editor</em> it can be difficult to see how the texture is mapped on the 3D-object because of the visibility of all vertices, edges and faces because of the activated <em>Edit mode</em>. You can toggle between <em>Edit mode</em> and <em>Object mode</em> in the 3D Viewport panel to have a better look at the mapped texture.</p>
+<h2 id="the-moon-exercise">The moon (EXERCISE)<a class="headerlink" href="#the-moon-exercise" title="Permanent link">&para;</a></h2>
+<p>The moon exercise doesn't have a prepared blend file because you are gonna make it all by yourself! So open a new blend file and start to make the moon.</p>
+<h3 id="the-basic-scene-sphere-sun-and-the-darkness-of-space">The basic scene - Sphere, sun and the darkness of space<a class="headerlink" href="#the-basic-scene-sphere-sun-and-the-darkness-of-space" title="Permanent link">&para;</a></h3>
+<p>To create the moon we first need to prepare a very simple scene.</p>
+<ol>
+<li>First off we need to remove the <em>Default cube</em> (the cube that comes with a new blend file which only function is to be removed :'( ).</li>
+<li>Add a <strong><code>UV Sphere</code></strong> instead with <strong><code>Shift-A &gt; Mesh &gt; UV sphere</code></strong>.</li>
+<li>Set the <strong><code>UV Sphere</code></strong>'s shading to smooth through the 3D Viewport menu in at the top of the <code>3D Viewport</code> (<strong><code>Object &gt; Shade Smooth</code></strong>).</li>
+<li>Select the default <strong><code>Light</code></strong> object in the <em>Outliner</em> and change it to a <em>Sun</em> light in the <em>Light</em>-tab <img alt="" src="../../images/lighticon.png" style="height:30px;width:30px" /> in the <em>Properties</em>-panel on the right.</li>
+<li>Now change the shading in the <em>3D viewport</em> to <strong><code>Rendered</code></strong> by pressing <strong><code>Z</code></strong> and then select <strong><code>Rendered</code></strong>. This rendered view is by default set to <em>Eevee</em>, to change that to <em>Cycles</em> for more realistic lighting go to the <em>Render Properties</em>-tab <img alt="" src="../../images/rendericon.png" style="height:30px;width:30px" /> in the <em>Properties</em>-panel and change the <strong><code>Render Engine</code></strong> to <em>Cycles</em>.</li>
+<li>As you can see the sun is now way too bright. Lower the <strong><code>Strength</code></strong> of the sun from 1000 to <strong><code>10</code></strong> in the <em>Light</em>-tab in the <em>Properties</em>-panel. No need to have the power of a 1000 suns.</li>
+<li>Now that we have the sun we need to disable the <em>World</em>-lighting (the grey ambient light) since we only need the sun as a direct light source like it is in space. Go to the <em>World properties</em>-tab in the <em>Properties</em>-panel and set the <strong><code>Color</code></strong> in the <em>Surface</em>-section all the way to black.</li>
+</ol>
+<p>Now we have the basic scene of a sphere in space, now we are gonna make it look like the moon by adding textures.</p>
+<h3 id="applying-a-material-and-texturing-the-moon-thats-one-small-step">Applying a material and texturing the moon - That's one small step...<a class="headerlink" href="#applying-a-material-and-texturing-the-moon-thats-one-small-step" title="Permanent link">&para;</a></h3>
+<p>Before we can edit the material we need to open the <em>Shader Editor</em>. For this we need to slightly modify the interface.</p>
+<ol>
+<li>Grab the edge between the <em>3D viewport</em>-panel and the <em>Timeline</em>-panel by hovering above the edge until you see resize cursor <img alt="" src="../../images/verticalresize.png" style="height:30px;width:30px" /> then click and drag the edge until half of the Blender window.</li>
+<li>Now click the upper left <em>Editor type</em> dropdown menu (now the <em>Timeline</em>-icon <img alt="" src="../../images/timelineicon.png" style="height:30px;width:30px" />) and select the <em>Shader Editor</em>.</li>
+<li>In the <em>Shader Editor</em> add a new material.</li>
+<li>In this material add <strong><code>2</code></strong> <em>Image Texture</em>-nodes, <strong><code>1</code></strong> <em>Texture Coordinate</em>-node and <strong><code>1</code></strong> <em>Displacement</em>-node (<strong><code>Shift-A &gt; Vector &gt; Displacement</code></strong>).</li>
+<li>Connect the <em>Texture Coordinate</em>-node <code>UV</code> output to both <em>Image Texture</em>-nodes <code>Vector</code> inputs.</li>
+<li>Connect one of the <em>Image Texture</em>-nodes <code>Color</code> output to the <em>Principled BSDF</em>-node <code>Base Color</code> input and the others <code>Color</code> output to the <em>Displacement</em>-node <code>Height</code> input. </li>
+<li>Finally connect the <em>Displacement</em>-node <code>Displacement</code> output to the <em>Material output</em>-node <code>Displacement</code> input.</li>
+<li>Open the <code>data/moon_textures/lroc_color_poles_8k.tif</code> in the <em>Image Texture</em>-node that is connected to the <code>Principled BSDF</code>-node <code>Base Color</code>.</li>
+<li>Open the <code>data/moon_textures/ldem_16.tif</code> in the <em>Image Texture</em>-node that is connected to the <em>Displacement</em>-node <code>Height</code> input.</li>
+<li>Then finaly set the <em>Image Texture</em>-node <strong><code>Color Space</code></strong>-parameter of the node with the displacement texture to **<code>Non-Color</code>. </li>
+<li>Initially the <em>Displacement</em>-node <code>Scale</code> parameter is set way too high making the moon look horrible. Set this parameter to <strong><code>0.001</code></strong>.</li>
+</ol>
+<p>As you can see it already looks quite like the moon but with some final tweaking you will get even more realism.</p>
+<h3 id="adaptive-displacement-revealing-the-craters-mooore-details">Adaptive displacement - Revealing the craters! Mooore details!<a class="headerlink" href="#adaptive-displacement-revealing-the-craters-mooore-details" title="Permanent link">&para;</a></h3>
+<p>Everything we have seen until now has been rendered in the default EEVEE rendering engine, which is for visualization purposes very powerful, but if you want to add that extra little realism with adaptive displacement you have to use the Cycles rendering engine.</p>
+<ol>
+<li>Active the <code>Cycles</code> rendering engine with the <strong><code>Render Engine</code></strong> setting in the <em>Rendering properties</em>-tab <img alt="" src="../../images/rendericon.png" style="height:30px;width:30px" /> of the <em>Properties</em>-panel. </li>
+</ol>
+<p>While we are there, to be able to use adaptive displacement, we need to activate the Cycles experimental feature set.</p>
+<ol start="2">
+<li>Set the <strong><code>Feature Set</code></strong> to <strong><code>Experimental</code></strong>.</li>
+<li>This <em>Experimental</em> feature set added an extra section in the current properties panel tab called <strong><code>Subdivision</code></strong>. In this section set <strong><code>Viewport</code></strong> to <strong><code>2</code></strong>.</li>
+</ol>
+<p>Now we need to add a <strong><code>Subdivision modifier</code></strong> that also got a new setting from the <em>Experimental</em> feature set that enables the <em>adaptive displacement</em>. </p>
+<ol start="4">
+<li>Add a <strong><code>Subdivision modfier</code></strong> in the <em>Modifier properties</em>-tab <img alt="" src="../../images/modifiersicon.png" style="height:30px;width:30px" /> of the <em>Properties</em>-panel.</li>
+<li>Enable the <em>Adaptive Subdivision</em> setting in this modifier.</li>
+</ol>
+<p>Until now you only saw some slight differences because there is only one setting that has to be changed to make all of this worth it.</p>
+<ol start="6">
+<li>Change the <strong><code>Displacement</code></strong> setting to <strong><code>Displacement Only</code></strong> in the <em>Properties</em>-panel &gt; <em>Material properties</em>-tab <img alt="" src="../../images/materialsicon.png" style="height:30px;width:30px" /> &gt; <em>Settings</em>-section &gt; <em>Surface</em>-subsection.</li>
+<li>Now zoom in and toggle to the <em>Edit mode</em> and back, which re-triggers the adaptive subdivision computations, and see the craters in their full glory.</li>
+</ol>
+<p><strong>Bonus</strong>: For an artists rendition of the moon change the <em>Displacement</em>-node <code>Scale</code> parameter to a higher value and see how the craters get more noticeable (although less realistic).</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 11, 2022 19:38:35</span>
+      
+    
+  </small>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../introduction/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Introduction
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../vertex_colors/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Visualizing vertex colors with the Attribute node
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018-2022 SURF
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+        <a href="https://www.surf.nl"><img style="height:48px" src=../../../images/surf-logo.svg></a>
+        <a href="https://prace-ri.eu/"><img style="height:48px" src=../../../images/prace-logo.png></a>                            
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/SURF_onderzoek" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+        <span style="; font-size:75%"><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.              </span>
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      
+    
+  </body>
+</html>

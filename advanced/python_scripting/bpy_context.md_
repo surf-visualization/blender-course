@@ -1,0 +1,12 @@
+## A note on `bpy.context`
+
+http://localhost:8000/modules/advanced/python_scripting/2_accessing_data/#some-notes-on-bpycontext-and-bpyops
+
+The `bpy.context` value and its attributes is a bit weird. As its name suggests it provides the current context, which implies the values it gives access to depend on that context. A lot of `bpy.context` attributes are always available, the so-called [global context](https://docs.blender.org/api/2.92/bpy.context.html#global-context), and includes `bpy.context.scene` and `bpy,context.mode` (current object mode). But depending on the context that script code is running in some attributes may or may not be available. For example, when running a Python script from a text block there will be a `bpy.context.edit_text` attribute, referencing the text block containing the script. But this attribute is missing when working in the Python Console. Similarly, `bpy.context.active_object` is available in the Python Console, when running a script from a text block, but not when creating  
+
+XXX [`bpy.context`](https://docs.blender.org/api/current/bpy.context.html)
+
+>>> bpy.context.window.scene
+bpy.data.scenes['Scene.001']
+
+https://blender.stackexchange.com/questions/204074/python-bpy-context-object-vs-bpy-context-active-object
