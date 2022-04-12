@@ -550,15 +550,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fundamentals" class="md-nav__link">
-    Fundamentals
+  <a href="#user-interface-fundamentals" class="md-nav__link">
+    User interface fundamentals
   </a>
+  
+    <nav class="md-nav" aria-label="User interface fundamentals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#some-user-interface-tips" class="md-nav__link">
+    Some user interface tips
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#changes-to-default-preferences" class="md-nav__link">
-    Changes to default preferences
+  <a href="#changes-to-default-preference-settings" class="md-nav__link">
+    Changes to default preference settings
   </a>
   
 </li>
@@ -712,6 +725,20 @@
     <li class="md-nav__item">
       <a href="../scene_hierarchy/" class="md-nav__link">
         Scene hierarchy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../avoiding_data_loss/" class="md-nav__link">
+        ⚠️ Avoiding data loss
       </a>
     </li>
   
@@ -1634,15 +1661,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fundamentals" class="md-nav__link">
-    Fundamentals
+  <a href="#user-interface-fundamentals" class="md-nav__link">
+    User interface fundamentals
   </a>
+  
+    <nav class="md-nav" aria-label="User interface fundamentals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#some-user-interface-tips" class="md-nav__link">
+    Some user interface tips
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#changes-to-default-preferences" class="md-nav__link">
-    Changes to default preferences
+  <a href="#changes-to-default-preference-settings" class="md-nav__link">
+    Changes to default preference settings
   </a>
   
 </li>
@@ -1718,61 +1758,71 @@ console window using the <strong><code>Window &gt; Toggle System Console</code><
 <p>See <a href="https://docs.blender.org/manual/en/latest/advanced/command_line/launch/index.html">this section</a>
 in the Blender manual for more details on starting Blender from the command line
 and details specific for each operating system.</p>
-<h2 id="fundamentals">Fundamentals<a class="headerlink" href="#fundamentals" title="Permanent link">&para;</a></h2>
+<h2 id="user-interface-fundamentals">User interface fundamentals<a class="headerlink" href="#user-interface-fundamentals" title="Permanent link">&para;</a></h2>
 <p>We will go over fundamentals of the user interface in terms of interaction and areas, specifically
 the 3D view and Outliner. We also touch on a number of often-performed operations, such as rendering an image
 and changing the set of selected objects. We also look a bit closer into keyboard shortcuts and menus.</p>
 <p>It's probably best to follow along in Blender on your own system while viewing the video. The files
 used in the video can be found under <strong><code>data/blender_basics</code></strong>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Slow 3D interaction</p>
+<p>If the interaction in the 3D view isn't smooth (as seen in the video) on your PC/laptop something might be wrong in the setup of your system. 
+Please contact us if this appears to be the case.</p>
+</div>
 <iframe width="800" height="450" src="https://www.youtube.com/embed/GiHDcvoP60s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>If the interaction in the 3D view isn't smooth on your PC/laptop something might be wrong in the setup of your system. 
-Please contact us if this appears to be the case.</p>
-</div>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
+<p class="admonition-title">Accidental 'Edit mode'</p>
 <p>If the 3D view (or some of the other areas) suddenly appear to behave strangely, or you now
 see your mesh with all kinds of dots or lines then you might have accidentally entered the so-called
-"Edit Mode" or any of the other modes available. Check the menu in the upper left of the 3D view, which
-should read <strong><code>Object Mode</code></strong>:</p>
-<p><img alt="" src="../../../images/object-mode.png" /></p>
+"Edit Mode" or any of the other modes available (<strong><code>Tab</code></strong> and <strong><code>Ctrl-Tab</code></strong> are used for this). 
+Check the menu in the upper left of the 3D view, which should read <strong><code>Object Mode</code></strong>:</p>
+<p><img alt="" src="../../images/object-mode.png" /></p>
 <p>In this course we will use only Object Mode (and briefly use Vertex Paint mode
 in one of the exercises). You can use the drop-down menu shown above (or the <strong><code>Ctrl-Tab</code></strong> menu in the 3D view) and 
 pick <strong><code>Object Mode</code></strong> to get back to the correct mode.   </p>
 </div>
-<p>Summary of 3D view navigation (see also the <a href="../../../../references/cheat_sheet">cheat sheet</a> under Navigation):</p>
-<ul>
-<li><strong><code>MMB</code></strong> = rotate view</li>
-<li><strong><code>Scrollwheel</code></strong> or <strong><code>Ctrl+MMB</code></strong> = zoom view</li>
-<li><strong><code>Shift+MMB</code></strong> = translate view</li>
-<li><strong><code>Home</code></strong> = zoom out to show all objects</li>
-</ul>
-<div class="admonition tip">
-<p class="admonition-title">User interface tips</p>
+<div class="admonition hint">
+<p class="admonition-title">Accidental workspace switch</p>
+<p>Another thing that might happen is that you accidentally click one of the tabs at the top of the screen, which then
+completely changes the layout of your user interface. These tabs are used to switch between workspaces, where each workspace
+allows a different layout to focus on a certain task (e.g. 3D modeling, versus shader editing, versus animation). 
+The default workspace is <strong><code>Layout</code></strong> and you might have to switch back to that one:</p>
+<p><img alt="" src="../../images/workspace-tabs.png" /></p>
+</div>
+<h3 id="some-user-interface-tips">Some user interface tips<a class="headerlink" href="#some-user-interface-tips" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p>The keyboard and mouse shortcuts for object selection, editing, view interaction, etc. work mostly the
-same in all Blender editors. So <strong><code>G</code></strong> to grab, <strong><code>X</code></strong> to delete,
-<strong><code>LMB</code></strong> to select, <strong><code>Shift-MMB</code></strong> to translate, <strong><code>Wheel</code></strong>
+<p>To bring up the relevant section of the official Blender manual for (almost) any user interface element, e.g. button, setting or menu, <strong><code>right-click</code></strong> 
+on that element and click <strong><code>Online Manual</code></strong>. This will start a web browser showing the relevant manual page.</p>
+</li>
+<li>
+<p>You can hover with the mouse over pretty much any UI element to get a tooltip with a short description, including shortcut key(s) if available.</p>
+</li>
+<li>
+<p>The keyboard and mouse shortcuts for object selection, editing, view interaction, etc work mostly the
+same in all Blender editors. So <strong><code>G</code></strong> to grab, <strong><code>X</code></strong> to delete,  <strong><code>LMB</code></strong> to select, <strong><code>Shift-MMB</code></strong> to translate, <strong><code>Wheel</code></strong>
 to zoom, etc.</p>
 </li>
 <li>
-<p>You can hover with the mouse over pretty much any UI element to get a tooltip
-with a short description</p>
+<p>The mouse controls the current area in focus and any keyboard actions are applied in the active area first.</p>
+</li>
+<li>
+<p>You can maximize a user interface area by using <strong><code>Ctrl+Spacebar</code></strong> having the mouse in the area you want to maximize. This can sometimes
+be useful to temporarily get a larger area to work with. You can use the same shortcut to toggle the area back to its original size, or use
+the <strong><code>Back to Previous</code></strong> button at the top of the screen.</p>
 </li>
 </ul>
-</div>
-<h2 id="changes-to-default-preferences">Changes to default preferences<a class="headerlink" href="#changes-to-default-preferences" title="Permanent link">&para;</a></h2>
+<h2 id="changes-to-default-preference-settings">Changes to default preference settings<a class="headerlink" href="#changes-to-default-preference-settings" title="Permanent link">&para;</a></h2>
 <p>Here we suggest some preferences settings to change from their default value.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>It's not required to change these defaults, but we find they help us in working with Blender</p>
+<p>It's not required to change these defaults, but we find they help us in working with Blender, and so might be useful for you as well</p>
 </div>
 <p>Under <strong><code>Edit &gt; Preferences</code></strong>, in the <strong><code>Interface</code></strong> tab:</p>
 <ul>
-<li>Under <strong><code>Display</code></strong> disable <strong><code>Splash Screen</code></strong>. This will save you a screen to click away each time you start Blender.</li>
+<li>Under <strong><code>Display</code></strong> disable <strong><code>Splash Screen</code></strong>. This will save you a click to get rid of the splash screen each time you start Blender. If you ever want
+to look at the splash again you can use the Blender logo icon in the top-level of the window and use <strong><code>Splash Screen</code></strong>.</li>
 <li>Under <strong><code>Editors &gt; Temporary Editors</code></strong> set <strong><code>Render In</code></strong> to <strong><code>Image Editor</code></strong>. This will cause the rendered image to be displayed as a replacement of the 3D view, instead of in a separate window. After rendering press <strong><code>Escape</code></strong> to get back the 3D view that was replaced by the rendered output.</li>
 <li>Under <strong><code>Editors &gt; Status Bar</code></strong> enable <strong><code>Scene Statistics</code></strong>, <strong><code>System Memory</code></strong> and <strong><code>Video Memory</code></strong>. This will show extra scene statistics in the status bar. Another way to do this is to right-click on the status bar and enable the same options.</li>
 <li>In case you find that Blender's user interface elements, such as buttons or menu text, are too small you can scale up the UI with a single
@@ -1788,7 +1838,7 @@ making a comparison on your particular system can you really find out if GPU ren
 you might not have a very powerful GPU in your laptop).</p>
 <p>Apart from performance there are some other aspects to consider with GPU rendering:</p>
 <ul>
-<li>When doing a GPU render your desktop environment might become less responsive</li>
+<li>When doing a GPU render your desktop environment might become less responsive, although this has become less of a problem with recent Blender versions</li>
 <li>A GPU usually has less memory available, which might cause problems with really large scenes</li>
 </ul>
 <p>In case you want to try enabling GPU rendering go to the Preferences window (<strong><code>Edit &gt; Preferences</code></strong>) and
@@ -1849,7 +1899,7 @@ in the Blender manual.</p>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 11, 2022 20:46:15</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 12, 2022 22:55:55</span>
       
     
   </small>
