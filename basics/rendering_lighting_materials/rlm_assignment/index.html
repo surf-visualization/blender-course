@@ -873,8 +873,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#camera-setting-the-starting-point-of-the-light-paths" class="md-nav__link">
-    Camera - Setting the starting point of the light paths
+  <a href="#camera-setting-the-starting-point-of-the-light-paths-or-rather-camera-paths" class="md-nav__link">
+    Camera - Setting the starting point of the light paths (or rather camera paths)
   </a>
   
 </li>
@@ -889,6 +889,13 @@
         <li class="md-nav__item">
   <a href="#rendering-creating-your-final-image" class="md-nav__link">
     Rendering - Creating your final image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-speed-up-those-renders" class="md-nav__link">
+    Performance - Speed up those renders
   </a>
   
 </li>
@@ -1164,20 +1171,6 @@
     <li class="md-nav__item">
       <a href="../../../advanced/python_scripting/4_volumetric_data/" class="md-nav__link">
         Visualizing volumetric data
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../advanced/python_scripting/api_summary/" class="md-nav__link">
-        The Blender API in detail
       </a>
     </li>
   
@@ -1581,6 +1574,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/api_summary/" class="md-nav__link">
+        The Python API
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1621,8 +1628,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#camera-setting-the-starting-point-of-the-light-paths" class="md-nav__link">
-    Camera - Setting the starting point of the light paths
+  <a href="#camera-setting-the-starting-point-of-the-light-paths-or-rather-camera-paths" class="md-nav__link">
+    Camera - Setting the starting point of the light paths (or rather camera paths)
   </a>
   
 </li>
@@ -1637,6 +1644,13 @@
         <li class="md-nav__item">
   <a href="#rendering-creating-your-final-image" class="md-nav__link">
     Rendering - Creating your final image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-speed-up-those-renders" class="md-nav__link">
+    Performance - Speed up those renders
   </a>
   
 </li>
@@ -1674,32 +1688,29 @@ in the 3D view</li>
 <li>Try to position and rotate the lights so that they light the objects under a bit of an angle (<strong><code>G</code></strong> and <strong><code>R</code></strong> keys).</li>
 <li>Before we change the appearance of the lights we need to switch to <strong><code>Rendered</code></strong>
 using the <strong><code>Shading</code></strong> pie menu (<strong><code>Z &gt; Rendered</code></strong>)</li>
-<li>Now adjust the <strong><code>Color</code></strong> and <strong><code>Strength</code></strong> settings under the <em>Object Data properties</em> tab <img alt="" src="../../images/lighticon.png" /> in the <em>properties panel</em>, perhaps try to give one the lights a warm yellowish sun-like color and the other a more less strong blueish and cold color.</li>
-<li>In the same properties panel tab, try to adjust the <strong><code>Angle</code></strong> (or <strong><code>Size</code></strong> for the other light types) of the sun light and see how it affects the shadows. Small angles (or sizes) create hard shadows, which are ideal to see minor details and large angles (or sizes) create soft shadows, which is more
-suited to see the overall form of the objects and are less straining on the eye.</li>
+<li>Now adjust the <strong><code>Color</code></strong> and <strong><code>Strength</code></strong> settings under the <em>Object Data properties</em> tab <img alt="" class="iconimg" src="../../images/lighticon.png" /> in the <em>properties panel</em>, perhaps try to give one the lights a warm yellowish sun-like color and the other a more less strong blueish and cold color.</li>
+<li>In the same properties panel tab, try to adjust the <strong><code>Angle</code></strong> (or <strong><code>Radius</code></strong> or <strong><code>Size</code></strong> for the other light types) of the sun light and see how it affects the shadows. Small angles (or radii or sizes) create hard shadows, which are ideal to see minor details and large angles (or radii or sizes) create soft shadows, which is more suited to reduce the overall contrast and make it less straining on the eye.</li>
 <li>Now in the same properties editor tab, try out some different lamp types (<strong><code>Point</code></strong>, <strong><code>Sun</code></strong>, ...) to experiment with the different lighting effects they produce.</li>
 </ol>
-<p><strong>Bonus</strong>: If setting up the lamps is too cumbersome, you can go to the <strong><code>World</code></strong> tab <img alt="" src="../../images/worldicon.png" /> in the properties editor and click the little <em>globe drop-down menu button</em> at the top and select the <strong><code>HDRIWorldLighting</code></strong>. This will enable predefined environment lighting using a 360 image of somebody's living room. Do make sure that you de-activate (<img alt="" src="../../images/outlinereyeicon.png" /> in the <em>Outliner</em>) or remove the lamps to see the full effect.</p>
-<h2 id="camera-setting-the-starting-point-of-the-light-paths">Camera - Setting the starting point of the light paths<a class="headerlink" href="#camera-setting-the-starting-point-of-the-light-paths" title="Permanent link">&para;</a></h2>
+<p><strong>Bonus</strong>: If setting up the lamps is too cumbersome, you can go to the <strong><code>World</code></strong> tab <img alt="" class="iconimg" src="../../images/worldicon.png" /> in the properties editor and click the little <em>globe drop-down menu button</em> at the top and select the <strong><code>HDRIWorldLighting</code></strong>. This will enable predefined environment lighting using a 360 image of somebody's living room. Do make sure that you de-activate (<img alt="" class="iconimg" src="../../images/outlinereyeicon.png" /> in the <em>Outliner</em>) or remove the lamps to see the full effect.</p>
+<h2 id="camera-setting-the-starting-point-of-the-light-paths-or-rather-camera-paths">Camera - Setting the starting point of the light paths (or rather camera paths)<a class="headerlink" href="#camera-setting-the-starting-point-of-the-light-paths-or-rather-camera-paths" title="Permanent link">&para;</a></h2>
 <p>With the lighting setup, we can now see what each of the camera settings does. Or from the light ray paths perspective: configure the starting point of the light rays.</p>
 <ol>
-<li>First you need to be in the camera view to be able to see the changes of the camera settings by selecting with the <strong><code>View</code></strong> pie menu (<strong>`-button</strong>) the <strong><code>View Camera</code></strong> option or through the 3D view menu in the header (<strong><code>View &gt; Viewpoint &gt; Camera</code></strong>).</li>
+<li>First you need to be in the camera view to be able to see the changes of the camera settings by selecting with the <strong><code>View</code></strong> pie menu (<strong>`-button</strong>) the <strong><code>View Camera</code></strong> option or through the 3D view menu in the header (<strong><code>View &gt; Viewpoint &gt; Camera</code></strong>). The former way is a toggle interaction so when you are already in the camera view you will toggle it off.</li>
 <li>Try changing the camera's focal length. For this, select the camera <em>Camera</em>
-and go the <strong><code>Lens</code></strong> settings in the <em>Object Data properties</em> tab <img alt="" src="../../images/cameraicon.png" /> in the <em>properties panel</em>.
+and go the <strong><code>Lens</code></strong> settings in the <em>Object Data properties</em> tab <img alt="" class="iconimg" src="../../images/cameraicon.png" /> in the <em>properties panel</em>.
 There you can find the <strong><code>Focal Length</code></strong> setting, try for example values 18, 50 and 100 and see what effect this has. Notice that when you set the <strong><code>Focal Length</code></strong> to a lower value you might see clipping (the scene is cut off from a certain distance). This can be changed by setting the <strong><code>Clip Start</code></strong> in the same <strong><code>Lens</code></strong> section to a lower value, e.g. 0.01. Finally set the focal length to the desired value.</li>
-<li>Next we are going to bring the focus to a chosen object in the scene with the depth of field settings. For this, select the camera, scroll down in the <em>Object Data properties</em> tab <img alt="" src="../../images/cameraicon.png" /> in the <em>properties</em> panel to the <strong><code>Depth of Field</code></strong> settings. Check the check-box before <strong><code>Depth of Field</code></strong> to activate the depth of field. Now try to set the <strong><code>Focus on Object</code></strong> value to the <strong><code>Suzanne</code></strong> object and test different values for the <strong><code>Aperture &gt; F-Stop</code></strong> setting.</li>
+<li>Next we are going to bring the focus to a chosen object in the scene with the depth of field settings. For this, select the camera, scroll down in the <em>Object Data properties</em> tab <img alt="" class="iconimg" src="../../images/cameraicon.png" /> in the <em>properties</em> panel to the <strong><code>Depth of Field</code></strong> settings. Check the check-box before <strong><code>Depth of Field</code></strong> to activate the depth of field. Now try to set the <strong><code>Focus on Object</code></strong> value to the <strong><code>Suzanne</code></strong> object and test different values for the <strong><code>Aperture &gt; F-Stop</code></strong> setting.</li>
 <li>When you are done, disable depth of field again. This makes the material editing easier.</li>
 </ol>
 <p>If the lighting gives the desired effect looking through the configured camera then you can give the objects the look you want with materials in the next section.</p>
 <h2 id="materials-how-will-the-light-paths-bounce">Materials - How will the light paths bounce?<a class="headerlink" href="#materials-how-will-the-light-paths-bounce" title="Permanent link">&para;</a></h2>
 <p>To design how the light is reflected or refracted off the objects you are going to give each object a different material.</p>
 <ol>
-<li>For each object (including ground plane and plateau):<ul>
-<li>Select the object and go to the <em>Material</em> tab <img alt="" src="../../images/materialsicon.png" /> in the properties editor.</li>
-<li>In the <em>Material</em> tab click the <strong><code>New</code></strong> button.</li>
-<li>Then under the <strong><code>Surface</code></strong> section set the <strong><code>Surface</code></strong> parameter to either <strong><code>Diffuse BSDF</code></strong>, <strong><code>Glossy BSDF</code></strong> or <strong><code>Principled BSDF</code></strong>.</li>
-</ul>
-</li>
+<li>For each object (including ground plane and plateau):
+  - Select the object and go to the <em>Material</em> tab <img alt="" class="iconimg" src="../../images/materialsicon.png" /> in the properties editor.
+  - In the <em>Material</em> tab click the <strong><code>New</code></strong> button.
+  - Then under the <strong><code>Surface</code></strong> section set the <strong><code>Surface</code></strong> parameter to either <strong><code>Diffuse BSDF</code></strong>, <strong><code>Glossy BSDF</code></strong> or <strong><code>Principled BSDF</code></strong>.</li>
 <li>Try to play with the material settings <strong><code>Roughness</code></strong> and <strong><code>Color</code></strong> (the latter is called <strong><code>Base Color</code></strong> for the Principled BSDF)</li>
 </ol>
 <p><strong>Bonus</strong>: When you feel that the roughness and the color alone didn't give you the look that you want with the <strong><code>Principled BSDF</code></strong> then also try and have a look at the other, in the slides, mentioned settings, <strong>Metallic</strong>, <strong>Transmission</strong>, <strong>IOR</strong> and <strong>Subsurface</strong>.</p>
@@ -1707,28 +1718,46 @@ There you can find the <strong><code>Focal Length</code></strong> setting, try f
 <p>Lights, camera, (materials,) set aaaaaaand action!... Now you will set the desired render settings to generate the final image!</p>
 <ol>
 <li>Go to the properties editor and set the following settings:
-  - <em>Render properties</em> tab <img alt="" src="../../images/rendericon.png" /><ul>
+  - <em>Render properties</em> tab <img alt="" class="iconimg" src="../../images/rendericon.png" /><ul>
 <li>Set <strong><code>Device</code></strong> to <strong><code>GPU Compute</code></strong>. If your device doesn't have a (powerful) GPU set it to <strong><code>CPU</code></strong>.</li>
-<li><strong><code>Sampling</code></strong> section: set <strong><code>Render</code></strong> to 128</li>
+<li><strong><code>Sampling</code></strong> section: set <strong><code>Render &gt; Samples</code></strong> to 128</li>
 <li><strong><code>Light Paths</code></strong> section: set <strong><code>Clamping &gt; Indirect Light</code></strong> to 1.0</li>
-<li><em>Output</em> tab <img alt="" src="../../images/outputicon.png" /></li>
-<li><strong><code>Dimensions</code></strong> section: set <strong><code>Resolution</code></strong> to 1920x1080, 100%.</li>
+<li><em>Output</em> tab <img alt="" class="iconimg" src="../../images/outputicon.png" /></li>
+<li><strong><code>Format</code></strong> section: set <strong><code>Resolution</code></strong> to 1920x1080, 100%.</li>
 </ul>
 </li>
 <li>If everything is set, press <strong><code>F12</code></strong>.</li>
 </ol>
-<p>Now the <em>Image</em> editor will replace the 3D view and your image will slowly be rendered in
-small rectangular image parts called "tiles".</p>
-<ol start="3">
+<p>Now the <em>Image</em> editor will replace the 3D view and your image will slowly be rendered in parts called "tiles".</p>
+<ol>
 <li>Finally when the image looks the way you want don't forget to save it! In the <em>Image</em> editor go to the <strong><code>Image</code></strong> menu and click on <strong><code>Save As...</code></strong> and choose a location and save the image.</li>
 </ol>
+<h2 id="performance-speed-up-those-renders">Performance - Speed up those renders<a class="headerlink" href="#performance-speed-up-those-renders" title="Permanent link">&para;</a></h2>
+<p>Now that we know how to improve the look of the scene and save the final render we will improve the speed of the render.</p>
+<ol>
+<li>Write down the render time shown in the upper left corner of the <em>Image</em> editor (Example upper right corner: <code>Frame:1 | Time:00:09:84 | Mem:6.09M, Peak: 164.29M</code>).</li>
+<li>Close the <em>Image</em> editor if it is still open.</li>
+<li>Change the following settings in the <em>Render properties</em> tab <img alt="" class="iconimg" src="../../images/rendericon.png" />:
+  * <strong><code>Sampling</code></strong> section: set <strong><code>Render &gt; Samples</code></strong> to 32
+  * <strong><code>Sampling</code></strong> section: turn on the denoiser with, <strong><code>Render &gt; Denoise</code></strong>.</li>
+<li>Now press <strong><code>F12</code></strong> again to render another image.</li>
+</ol>
+<p>As you can see when comparing the render time of our previous render and this one, this one is significantly faster.</p>
+<div class="admonition warning">
+<p class="admonition-title">Render quality when using denoise features</p>
+</div>
+<p>One thing to keep in mind is that when you are using the denoise feature you will lose a little detail.</p>
+<div class="admonition info">
+<p class="admonition-title">Noise Threshold</p>
+</div>
+<p>Blender 3.0 introduced another feature to reduce the render times called Noise Threshold. Turning it on and giving it a value between 0.1 to 0.001 will prematurely terminated the sampling when a pixel reaches a certain noise threshold and by doing so reduces the render time.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 11, 2022 19:38:35</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 15, 2022 11:18:17</span>
       
     
   </small>

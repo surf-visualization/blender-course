@@ -1184,20 +1184,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../api_summary/" class="md-nav__link">
-        The Blender API in detail
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -1595,6 +1581,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/api_summary/" class="md-nav__link">
+        The Python API
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1737,18 +1737,16 @@ Now the mesh and the object are created, but it does not yet show in the <em>3D 
 <div class="admonition tip">
 <p class="admonition-title">Tips</p>
 <ul>
-<li>
-<p>Note that in general you do not need to explicitly specify edges, as these will be
+<li>Note that in general you do not need to explicitly specify edges, as these will be
 generated automatically based on the faces specified. It's only when you want to have edges that are not connected
-to faces that you need to specify them explicitly.</p>
-</li>
-<li>
-<p>All objects in Blender (and object data of the same type, i.e. all meshes) are enforced to have unique names. When
+to faces that you need to specify them explicitly.</li>
+</ul>
+<ul>
+<li>All objects in Blender (and object data of the same type, i.e. all meshes) are enforced to have unique names. When
 using the Python API this is no different. So if you create an object with <code>bpy.data.objects.new("obj", mesh)</code>
 and there already is an object named "obj" the name of the new object will be automatically set to something else. This can
 become important if you generate many objects (say in a loop) but still want to be able to refer
-to them later by name.</p>
-</li>
+to them later by name.</li>
 </ul>
 </div>
 <h2 id="a-filled-disk-from-scratch">💻 A filled disk from scratch<a class="headerlink" href="#a-filled-disk-from-scratch" title="Permanent link">&para;</a></h2>

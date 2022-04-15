@@ -986,9 +986,40 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          💻 Flipbook animation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         💻 Flipbook animation
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mesh-sequence-cache" class="md-nav__link">
+    Mesh (Sequence) Cache
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1112,20 +1143,6 @@
     <li class="md-nav__item">
       <a href="../../../advanced/python_scripting/4_volumetric_data/" class="md-nav__link">
         Visualizing volumetric data
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../advanced/python_scripting/api_summary/" class="md-nav__link">
-        The Blender API in detail
       </a>
     </li>
   
@@ -1529,6 +1546,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/api_summary/" class="md-nav__link">
+        The Python API
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1554,6 +1585,21 @@
   
     
   
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mesh-sequence-cache" class="md-nav__link">
+    Mesh (Sequence) Cache
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1604,7 +1650,7 @@ of the scripts. This might take a bit of time, depending on the speed
 of your system. By default, only the first 100 steps are loaded. You can increase the
 number of files to the full 300 if you like by updating the variable <strong><code>N</code></strong>
 in both the import script and the animation handler script.</p>
-<ol start="3">
+<ol>
 <li>
 <p>Execute the script that imports the time step meshes from the PLY files. To do
    this step make sure the script called <strong><code>1. import ply files</code></strong> is selected
@@ -1632,10 +1678,10 @@ in both the import script and the animation handler script.</p>
 </ol>
 <p>The playback speed will depend on your system's performance, but
 also on the framerate setting chosen.</p>
-<ol start="7">
+<ol>
 <li>
 <p>Change the <strong><code>Frame Rate</code></strong> value (in the <strong><code>Output</code></strong> properties tab
-   at the right side of the screen, icon <img alt="" src="../../images/outputicon.png" />) to different values to see how your system handles it.
+   at the right side of the screen, icon <img alt="" class="iconimg" src="../../images/outputicon.png" />) to different values to see how your system handles it.
    Is 60 fps feasible?</p>
 </li>
 <li>
@@ -1647,13 +1693,28 @@ also on the framerate setting chosen.</p>
 wave of fluid in a nice way and then render this into animation.</p>
 </li>
 </ol>
+<h2 id="mesh-sequence-cache">Mesh (Sequence) Cache<a class="headerlink" href="#mesh-sequence-cache" title="Permanent link">&para;</a></h2>
+<p>Specifically for the Alembic and USD file formats Blender has support to animate
+a set of meshes stored in a single file. When importing such an animation cache
+file a <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/modify/mesh_sequence_cache.html">Mesh Sequence Cache</a> modifier is automatically added and the animated mesh
+will work as expected in the scene.</p>
+<p>Although it is possible to convert you animated meshes to such a single-file animation cache
+there's a few downsides:</p>
+<ul>
+<li>Storing a large number of mesh animation steps in a single file will potentially lead to
+a very large file, plus it doubles the disk storage needed if you keep the original mesh files around.</li>
+<li>Both Alembic and USD are complex binary formats, and you need some form of library support
+in order to easily write them.</li>
+</ul>
+<p>There is also the <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/modify/mesh_cache.html">Mesh Cache</a> modifier, which has a similar function. Yet, this
+modifier only supports MDD and PC2 files.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 11, 2022 20:46:15</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 15, 2022 14:38:08</span>
       
     
   </small>

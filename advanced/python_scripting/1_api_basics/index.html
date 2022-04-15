@@ -1126,22 +1126,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-scripts-within-the-blender-interface" class="md-nav__link">
-    Run scripts within the Blender interface
+  <a href="#running-scripts-within-the-blender-interface" class="md-nav__link">
+    Running scripts within the Blender interface
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-scripts-from-the-command-line" class="md-nav__link">
-    Run scripts from the command-line
+  <a href="#running-scripts-from-the-command-line" class="md-nav__link">
+    Running scripts from the command-line
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#load-modules-in-blender" class="md-nav__link">
-    Load modules in Blender
+  <a href="#using-modules-and-external-scripts" class="md-nav__link">
+    Using modules and external scripts
+  </a>
+  
+    <nav class="md-nav" aria-label="Using modules and external scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loading-modules-in-blender" class="md-nav__link">
+    Loading modules in Blender
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executing-external-scripts" class="md-nav__link">
+    Executing external scripts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-startup-scripts" class="md-nav__link">
+    Adding startup scripts
   </a>
   
 </li>
@@ -1191,20 +1218,6 @@
     <li class="md-nav__item">
       <a href="../4_volumetric_data/" class="md-nav__link">
         Visualizing volumetric data
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../api_summary/" class="md-nav__link">
-        The Blender API in detail
       </a>
     </li>
   
@@ -1608,6 +1621,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/api_summary/" class="md-nav__link">
+        The Python API
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1675,22 +1702,49 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-scripts-within-the-blender-interface" class="md-nav__link">
-    Run scripts within the Blender interface
+  <a href="#running-scripts-within-the-blender-interface" class="md-nav__link">
+    Running scripts within the Blender interface
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-scripts-from-the-command-line" class="md-nav__link">
-    Run scripts from the command-line
+  <a href="#running-scripts-from-the-command-line" class="md-nav__link">
+    Running scripts from the command-line
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#load-modules-in-blender" class="md-nav__link">
-    Load modules in Blender
+  <a href="#using-modules-and-external-scripts" class="md-nav__link">
+    Using modules and external scripts
+  </a>
+  
+    <nav class="md-nav" aria-label="Using modules and external scripts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loading-modules-in-blender" class="md-nav__link">
+    Loading modules in Blender
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executing-external-scripts" class="md-nav__link">
+    Executing external scripts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#adding-startup-scripts" class="md-nav__link">
+    Adding startup scripts
   </a>
   
 </li>
@@ -1727,6 +1781,11 @@ The <code>bpy</code> module gives access to Blender's data, functions and classe
 <li>Draw in the 3D view using Python.</li>
 </ul>
 <p>All in all, the Python API is very powerful.</p>
+<div class="admonition info">
+<p class="admonition-title">Python API reference</p>
+<p>In these chapters we provide an introduction to the Python API, using a number of examples. After finishing these chapters you
+can find a more extensive description of often-used Python API features in the separate <a href="../../../references/api_summary/">reference</a> page.</p>
+</div>
 <h2 id="good-to-know">Good to know<a class="headerlink" href="#good-to-know" title="Permanent link">&para;</a></h2>
 <p>Before we continue, we list some bits of information and some tricks that are good to know.</p>
 <ul>
@@ -1755,19 +1814,21 @@ The <code>bpy</code> module gives access to Blender's data, functions and classe
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/Applications/Blender.app/Contents/MacOS/Blender
 </code></pre></div>
 </li>
+</ul>
+<ul>
 <li>
 <p>For Linux it would be something like:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>$ &lt;blender installation directory&gt;/blender
 </code></pre></div>
 </li>
-<li>
-<p>On Windows you can start Blender normally (i.e. from the Start menu) and then use <strong><code>Window &gt; Toggle System Console</code></strong> to open the console window from within Blender.</p>
-</li>
+</ul>
+<ul>
+<li>On Windows you can start Blender normally (i.e. from the Start menu) and then use <strong><code>Window &gt; Toggle System Console</code></strong> to open the console window from within Blender.</li>
 </ul>
 <p>More information on where the Blender executable is located on your system and where Blender directories of interest are located see this <a href="https://docs.blender.org/manual/en/dev/advanced/blender_directory_layout.html" target="_BLANK">manual page</a>.</p>
 <h3 id="starting-blender-from-the-console">💻 Starting Blender from the console<a class="headerlink" href="#starting-blender-from-the-console" title="Permanent link">&para;</a></h3>
 <p>Find the Blender executable on your machine. Open Blender through the console. Delete the cube in the default project of Blender, what output is shown in the console?</p>
-<h2 id="run-scripts-within-the-blender-interface">Run scripts within the Blender interface<a class="headerlink" href="#run-scripts-within-the-blender-interface" title="Permanent link">&para;</a></h2>
+<h2 id="running-scripts-within-the-blender-interface">Running scripts within the Blender interface<a class="headerlink" href="#running-scripts-within-the-blender-interface" title="Permanent link">&para;</a></h2>
 <iframe width="640" height="360" src="https://www.youtube.com/embed/u-aQWvSVXVI" frameborder="0" allowfullscreen></iframe>
 
 <p>When scripting inside Blender it is convenient to use the <em>Scripting</em> workspace (Fig. 1: see the arrow). It gives you a <em>Python Console</em> (Fig 1: A) and a <em>Text Editor</em> (Fig 1: B). Running scripts within Blender you have a two main options:</p>
@@ -1776,12 +1837,12 @@ The <code>bpy</code> module gives access to Blender's data, functions and classe
 <li>Use the built-in <em>Text Editor</em> (Fig. 1: B)</li>
 </ul>
 <p>The <em>Python Console</em> is nice for exploring the API using auto-complete (<strong>TAB</strong> in 2.82+, <strong>Ctrl-Space</strong> in older versions) to see what is available. The keyboard shortcuts are a bit different than you might be used to in other text editors. See <a href="https://docs.blender.org/manual/en/latest/editors/python_console.html?highlight=python%20console#interface">this section</a> in the Blender manual for an overview of menu options and shortcut keys.</p>
-<p>Blender also has its own built-in editor which you can use (Fig. 1: B) and directly execute the script by pressing the <img alt="" src="../../images/run_script_button.png" /> button in the top bar. If you want to use your own editor to edit your scripts you can do this by opening the script in both the Blender <em>Text Editor</em> and your own editor. To refresh the Blender <em>Text Editor</em> use <code>Text &gt; Reload</code> or <code>Alt R</code> (or <code>Option R</code> on the Mac). You can also make a script that you open in the Blender <em>Text Editor</em> that executes an external script you edit in your own editor. See for example the script in Fig. 1: B.</p>
+<p>Blender also has its own built-in editor which you can use (Fig. 1: B) and directly execute the script by pressing the <img alt="" class="iconimg" src="../../images/run_script_button.png" /> button in the top bar. If you want to use your own editor to edit your scripts you can do this by opening the script in both the Blender <em>Text Editor</em> and your own editor. To refresh the Blender <em>Text Editor</em> use <code>Text &gt; Reload</code> or <code>Alt R</code> (or <code>Option R</code> on the Mac). You can also make a script that you open in the Blender <em>Text Editor</em> that executes an external script you edit in your own editor. See for example the script in Fig. 1: B.</p>
 <p>
 <figure><img src="../images/running_python_in_blender.png" /><figcaption>Figure 1: The Scripting workspace in Blender</figcaption>
 </figure>
 </p>
-<h2 id="run-scripts-from-the-command-line">Run scripts from the command-line<a class="headerlink" href="#run-scripts-from-the-command-line" title="Permanent link">&para;</a></h2>
+<h2 id="running-scripts-from-the-command-line">Running scripts from the command-line<a class="headerlink" href="#running-scripts-from-the-command-line" title="Permanent link">&para;</a></h2>
 <iframe width="640" height="360" src="https://www.youtube.com/embed/LcaennU5BiI" frameborder="0" allowfullscreen></iframe>
 
 <p>You can also run Python scripts in Blender directly from the command-line interface. An example of executing a script (<code>-P</code>) without opening the Blender GUI (<code>-b</code>, for background) on a Mac would be:</p>
@@ -1791,26 +1852,70 @@ The <code>bpy</code> module gives access to Blender's data, functions and classe
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>blender -b test.blend -o //render_ -F PNG -f <span class="m">1</span>
 </code></pre></div>
 <p>More information on command line arguments is <a href="https://docs.blender.org/manual/en/latest/advanced/command_line/arguments.html" target="_BLANK">here</a>.</p>
-<h2 id="load-modules-in-blender">Load modules in Blender<a class="headerlink" href="#load-modules-in-blender" title="Permanent link">&para;</a></h2>
-<p>You can add startup scripts to your Blender installation. These scripts can then be easily imported into your script. These scripts can be placd here: <code>scripts /startup/</code> in the Blender directory (for example on a Mac: <code>/Applications/Blender.app/Contents/Resources/2.81/scripts /startup/</code>). </p>
-<p>For scripts you want to import for just one project or Blender file you can use
-the normal Python method of editing <code>sys.path</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">import</span> <span class="nn">sys</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;/some_directory/&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">import</span> <span class="nn">python_module</span>
-</code></pre></div>
+<h2 id="using-modules-and-external-scripts">Using modules and external scripts<a class="headerlink" href="#using-modules-and-external-scripts" title="Permanent link">&para;</a></h2>
+<p>As we've shown above there's multiple ways to run Python code within Blender, either from a text block, the Python Console or from the command-line. Usually,
+you want to use Python modules or other scripts from the code you're running. Below we describe some common situations and how to handle them.</p>
+<p>See <a href="https://docs.blender.org/api/current/info_tips_and_tricks.html">this manual page</a> for more tips and tricks related to working with Python scripting in Blender.</p>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<p class="admonition-title">NumPy</p>
 <p>The official binaries of Blender from blender.org include the <code>numpy</code> Python
-module, so <code>import numpy</code> should work out of the box</p>
+module, so if you need NumPy then <code>import numpy</code> should work out of the box.</p>
 </div>
+<h3 id="loading-modules-in-blender">Loading modules in Blender<a class="headerlink" href="#loading-modules-in-blender" title="Permanent link">&para;</a></h3>
+<p>For modules you want to import you can use the normal Python method of editing <code>sys.path</code> (as needed) and importing the module:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Example code run from a text block within Blender</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1"># A path somewhere on your file system</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;/some_directory/&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># Or a path relative to the current blender file</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="n">blendfile_location</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">filepath</span><span class="p">)</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">blendfile_location</span><span class="p">)</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1"># Import module</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="kn">import</span> <span class="nn">my_python_module</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="c1"># Call a function from the module</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="n">my_python_module</span><span class="o">.</span><span class="n">do_something</span><span class="p">()</span>
+</code></pre></div>
+<p>However, suppose you you keep Blender running and edit <code>my_python_module.py</code> to update <code>do_something()</code>. Re-executing the above code will not pick up the changes 
+in the module you're importing. The reason for this is that the Python interpreter doesn't reload a module if it is already loaded. So the <code>import my_python_module</code> has no effect the second time it is called.</p>
+<p>To force a module to get reloaded you can use the <code>importlib</code> module:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">import</span> <span class="nn">my_python_module</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># Force reload</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kn">import</span> <span class="nn">importlib</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">my_python_module</span><span class="p">)</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">my_python_module</span><span class="o">.</span><span class="n">do_something</span><span class="p">()</span>
+</code></pre></div>
+<p>Note that this will re-load the module from disk every time you run the above piece of Python code.</p>
+<h3 id="executing-external-scripts">Executing external scripts<a class="headerlink" href="#executing-external-scripts" title="Permanent link">&para;</a></h3>
+<p>To execute a Python script you can use the following:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Execute script_file </span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">exec</span><span class="p">(</span><span class="nb">compile</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="n">script_file</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="n">script_file</span><span class="p">,</span> <span class="s1">&#39;exec&#39;</span><span class="p">))</span>
+</code></pre></div>
+<p>You could, for example, put this snippet of code in a text block and execute it every time you need to run it (or even paste it in the Python Console).
+This is a fairly simple way of executing externally stored Python code, while still being able to edit the external script as needed. </p>
+<h2 id="adding-startup-scripts">Adding startup scripts<a class="headerlink" href="#adding-startup-scripts" title="Permanent link">&para;</a></h2>
+<p>You might want to permanently run one or more Python scripts when Blender starts. You can add these
+scripts in a special configuration directory. The location to place these scripts is system-dependent (see <a href="https://docs.blender.org/manual/en/latest/advanced/blender_directory_layout.html">this manual page</a>) 
+for details. In general you want to place the scripts within the "USER" location of the platform you're working on:</p>
+<ul>
+<li>Windows: <strong><code>%USERPROFILE%\AppData\Roaming\Blender Foundation\Blender\3.1\</code></strong></li>
+<li>Linux: <strong><code>$HOME/.config/blender/3.1/</code></strong></li>
+<li>macOS: <strong><code>/Users/$USER/Library/Application Support/Blender/3.1/</code></strong></li>
+</ul>
+<p>Inside the above directory create a <strong><code>scripts/startup</code></strong> directory. Any <code>.py</code> files placed there will be automatically executed when Blender starts.
+See <a href="https://docs.blender.org/manual/en/latest/advanced/blender_directory_layout.html#path-layout">this page</a> for other special directories within the system-specific USER directory.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 12, 2022 14:45:34</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 15, 2022 11:46:47</span>
       
     
   </small>

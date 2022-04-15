@@ -1118,20 +1118,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../advanced/python_scripting/api_summary/" class="md-nav__link">
-        The Blender API in detail
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -1529,6 +1515,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/api_summary/" class="md-nav__link">
+        The Python API
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1580,13 +1580,22 @@ guideline for when you want to import your own data.</p>
 
 <p>As mentioned in the presentation the PDF slides for this chapter contain some more reference material on
 getting data from <a href="https://www.paraview.org/">ParaView</a>, <a href="https://wci.llnl.gov/simulation/computer-codes/visit">VisIt</a> and <a href="https://vtk.org/">VTK</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Point cloud primitive (3.1+)</p>
+<p>As shown in the video, one way to render point data is to use instancing for placing a simple primitive like a
+sphere at each point location. Working with such instanced geometry is somewhat limited, as it introduces a hit on
+performance and memory usage, both for interactive work in the user interface, as well as rendering in Cycles.</p>
+<p>Starting with Blender 3.1 Cycles now has <a href="https://wiki.blender.org/wiki/Reference/Release_Notes/3.1/Cycles#Point_Clouds">dedicated support</a> for rendering large numbers (millions) of points as spheres directly.
+However, there is currently in 3.1 no way to directly create a point cloud primitive by importing a file, and the only alternative is using Geometry Nodes
+to generate a point cloud primitive from a vertex-only mesh. But Geometry Nodes are not a topic in this Basics part of the course.</p>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 11, 2022 19:38:35</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 15, 2022 14:21:02</span>
       
     
   </small>

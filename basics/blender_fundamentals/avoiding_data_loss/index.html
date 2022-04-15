@@ -689,16 +689,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#retrieving-lost-work" class="md-nav__link">
-    Retrieving lost work
+  <a href="#unused-data-blocks-in-the-scene-are-not-saved" class="md-nav__link">
+    Unused data-blocks in the scene are not saved
   </a>
   
-    <nav class="md-nav" aria-label="Retrieving lost work">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recovering-lost-work" class="md-nav__link">
+    Recovering lost work
+  </a>
+  
+    <nav class="md-nav" aria-label="Recovering lost work">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#blend1-files" class="md-nav__link">
-    .blend1 files?
+  <a href="#those-blend1-files" class="md-nav__link">
+    Those .blend1 files?
   </a>
   
 </li>
@@ -711,8 +718,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#last-session" class="md-nav__link">
-    Last session
+  <a href="#last-session-accidental-quit-without-saving" class="md-nav__link">
+    Last session (accidental quit without saving)
   </a>
   
 </li>
@@ -726,13 +733,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unused-elements-in-the-scene-are-not-saved" class="md-nav__link">
-    Unused elements in the scene are not saved
-  </a>
   
 </li>
       
@@ -1210,20 +1210,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../advanced/python_scripting/api_summary/" class="md-nav__link">
-        The Blender API in detail
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -1621,6 +1607,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/api_summary/" class="md-nav__link">
+        The Python API
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1674,16 +1674,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#retrieving-lost-work" class="md-nav__link">
-    Retrieving lost work
+  <a href="#unused-data-blocks-in-the-scene-are-not-saved" class="md-nav__link">
+    Unused data-blocks in the scene are not saved
   </a>
   
-    <nav class="md-nav" aria-label="Retrieving lost work">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recovering-lost-work" class="md-nav__link">
+    Recovering lost work
+  </a>
+  
+    <nav class="md-nav" aria-label="Recovering lost work">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#blend1-files" class="md-nav__link">
-    .blend1 files?
+  <a href="#those-blend1-files" class="md-nav__link">
+    Those .blend1 files?
   </a>
   
 </li>
@@ -1696,8 +1703,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#last-session" class="md-nav__link">
-    Last session
+  <a href="#last-session-accidental-quit-without-saving" class="md-nav__link">
+    Last session (accidental quit without saving)
   </a>
   
 </li>
@@ -1711,13 +1718,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unused-elements-in-the-scene-are-not-saved" class="md-nav__link">
-    Unused elements in the scene are not saved
-  </a>
   
 </li>
       
@@ -1737,7 +1737,7 @@
 
 <h1 id="avoiding-data-loss">⚠️ Avoiding data loss<a class="headerlink" href="#avoiding-data-loss" title="Permanent link">&para;</a></h1>
 <p>There are some things to be aware of when working with Blender that might behave a little different from other programs, or
-general expectations, and that can cause you to loose work. </p>
+general expectations, and that can potentially cause you to loose work. </p>
 <h2 id="the-file-overwrite-prompt-is-very-subtle">The file overwrite prompt is very subtle<a class="headerlink" href="#the-file-overwrite-prompt-is-very-subtle" title="Permanent link">&para;</a></h2>
 <p>Suppose we have saved our work to a file <strong><code>scene.blend</code></strong>. We then make some more changes in Blender to create a
 second version of our scene and save this as <strong><code>scene2.blend</code></strong>. Finally, we make a third version and intend to save
@@ -1749,7 +1749,7 @@ file in the current directory.</strong> If we change the file name to something 
 <p><img alt="" src="../../images/overwrite-prompt2.png" /></p>
 <p>The <strong><code>File &gt; Save As</code></strong> workflow (and similar for related file dialogs) is a somewhat double-edged sword:</p>
 <ul>
-<li>If you're aware of the above signal and want to quickly overwrite the current file you can simply press <strong><code>Enter</code></strong> once in the dialog,
+<li>If you're aware of the above signal and intend to quickly overwrite the current file you can simply press <strong><code>Enter</code></strong> once in the dialog,
 and the file will be saved with no "Overwriting are you sure?" prompt is shown. So in this respect the UI stays out of your way and avoids
 an extra confirmation dialog.</li>
 <li>But if you miss the red prompt or are unaware of its meaning then it's easy to accidentally overwrite existing work.</li>
@@ -1757,17 +1757,42 @@ an extra confirmation dialog.</li>
 <h3 id="easy-file-versions">Easy file versions<a class="headerlink" href="#easy-file-versions" title="Permanent link">&para;</a></h3>
 <p>A nice way to save to successive versions of a file is using the <strong><code>+</code></strong> button right of the file name, as shown in the
 pictures above. Using the <strong><code>+</code></strong> (and <strong><code>-</code></strong>) you can easily change the version number at the end of a file name, e.g. <strong><code>scene2.blend</code></strong>
-to <strong><code>scene3.blend</code></strong>. The red verwrite indicator will also update depending on the existence of the chosen file name.</p>
-<h2 id="retrieving-lost-work">Retrieving lost work<a class="headerlink" href="#retrieving-lost-work" title="Permanent link">&para;</a></h2>
-<p>There are several layers of defense in case something goes unexpectedly wrong when saving files, or in case Blender crashes. 
-It depends on the situation you're trying to recover from which one of these options provides the best results, if applicable.</p>
-<p>Please check what each of these features does before deciding how to recover, to make sure you don't accidentally
+to <strong><code>scene3.blend</code></strong>. The red overwrite indicator will also update depending on the existence of the chosen file name.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Using the <strong><code>+</code></strong> button merely increments the number in the file name. It does <strong>not</strong> guarantee that the 
+file does not exist yet (i.e. no check is made with what's on disk).</p>
+</div>
+<h2 id="unused-data-blocks-in-the-scene-are-not-saved">Unused data-blocks in the scene are not saved<a class="headerlink" href="#unused-data-blocks-in-the-scene-are-not-saved" title="Permanent link">&para;</a></h2>
+<p>Suppose you have a 3D scene and have created a material A that you use on some object. You then create a material B and
+assign it to the same object, causing material A to now be unused in the scene. If you save your scene to file at this point <strong>material A 
+will not get saved to the file</strong>, as it is not referenced by anything in the scene. This automatic "garbage collection" feature
+of Blender is somewhat controversial, and it is definitely good to be aware of this behaviour. </p>
+<p>For most scene elements used in the Basics part of this course garbage-collection-on-save does not really cause concern, except for the case
+of Materials (as described in the example above). For materials, and other scene elements, you can see if they are unused by checking for a <strong><code>0</code></strong> 
+next to their name when they appear in a list:</p>
+<p><img alt="" src="../../images/unused-material.png" /></p>
+<p>The quick fix in case you have a material that is currently not used in the scene, but
+that you definitely want to have saved to file, is to use the "Fake User" option by clicking the shield icon (<strong>be sure to enable this option 
+for the right material!</strong>):</p>
+<p><img alt="" src="../../images/fake-user-setting.png" /></p>
+<p>You can verify the material now has a fake user as intended by checking for an <strong><code>F</code></strong> next to its name:</p>
+<p><img alt="" src="../../images/material-with-fake-user.png" /></p>
+<p>Note that you can use the same Fake User option for some other types of scene elements as well.</p>
+<p>We have a more detailed <a href="http://localhost:8000/blender-course/advanced/python_scripting/api_summary/#data-block-users-and-garbage-collection">discussion</a> of the garbage collection system in the advanced course, 
+as the behaviour relates to the data block system that Blender uses internally. But this is out of scope for this Basics course. 
+However, it's good to be aware of the above behaviour.</p>
+<h2 id="recovering-lost-work">Recovering lost work<a class="headerlink" href="#recovering-lost-work" title="Permanent link">&para;</a></h2>
+<p>Murphy's Law usually strikes when you least expect it. Fortunately, there are several layers of defense in 
+case something goes unexpectedly wrong when saving files, or in case Blender crashes. 
+It depends on the situation you're trying to recover from which one of the options below provides the best results, if applicable.</p>
+<p>Please check what each of these features does, to make sure you don't accidentally
 make things worse by using one of the recover options within Blender in the wrong way.</p>
-<h3 id="blend1-files">.blend1 files?<a class="headerlink" href="#blend1-files" title="Permanent link">&para;</a></h3>
+<h3 id="those-blend1-files">Those .blend1 files?<a class="headerlink" href="#those-blend1-files" title="Permanent link">&para;</a></h3>
 <p>You might notice that when you overwrite an existing file, say <strong><code>file.blend</code></strong>, another file called <strong><code>file.blend1</code></strong> will now
 have appeared next to it in the same directory. This is Blender's method for automatically keeping around the previous version of the file you overwrote: it first moves
 the existing <strong><code>file.blend</code></strong> to <strong><code>file.blend1</code></strong>, and only then saves the new <strong><code>file.blend</code></strong>. </p>
-<p>So if you accidentally overwrite a file you can still get to the previous version (i.e. the .blend1 file), <strong>as long as you haven't overwritten more than once</strong>.</p>
+<p>So if you accidentally overwrite a file you can still get to the previous version (the .blend1 file), <strong>as long as you haven't overwritten more than once</strong>.</p>
 <div class="admonition tip">
 <p class="admonition-title">More than 1 previous version</p>
 <p>You can actually have multiple previous versions kept around if you like. The preference setting for this is <strong><code>Save &amp; Load &gt; Save Versions</code></strong>,
@@ -1791,39 +1816,25 @@ file manually, of course, there is nothing special about it).</p>
 <p class="admonition-title">Edit mode data not saved</p>
 <p>If you happend to be in edit (or sculpt) mode at the time Blender does an auto-save, then the current updated state of the mesh will not get saved. This is a limitation of the auto-save feature.</p>
 </div>
-<h3 id="last-session">Last session<a class="headerlink" href="#last-session" title="Permanent link">&para;</a></h3>
-<p>Whenever Blender quits normally (i.e. not a crash) it will save the current scene to a file called <strong><code>quit.blend</code></strong> in your system's temporary directory.
-You can load this file quickly with the <strong><code>File &gt; Recover &gt; Last Session</code></strong> option. </p>
+<h3 id="last-session-accidental-quit-without-saving">Last session (accidental quit without saving)<a class="headerlink" href="#last-session-accidental-quit-without-saving" title="Permanent link">&para;</a></h3>
+<p>Whenever Blender quits normally (i.e. not a crash) it will save the current session state to a file called <strong><code>quit.blend</code></strong> in your system's temporary directory.
+You can easily load this file with the <strong><code>File &gt; Recover &gt; Last Session</code></strong> option (or copy it to a different location and load it as any Blender file).</p>
+<p>One of the cases where this feature might come in handy is if you quit Blender, have unsaved changed, but accidentally click the <strong><code>Don't Save</code></strong> button in the
+<code>Save changes before closing?</code> dialog. <strong>The <code>quit.blend</code> file in this case will contain those unsaved changes</strong>. But be sure to make a copy of it before quitting Blender again, as that will overwrite it.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>Note that there currently is no option to disable this Save-on-Quit feature. So for large scenes this will incur a (usually short) delay when exiting.</p>
+</div>
 <h3 id="blender-crash">Blender crash<a class="headerlink" href="#blender-crash" title="Permanent link">&para;</a></h3>
-<p>In case Blender crashes it usually does not manage to save the current scene to a recover file. So in this case you are hopefully able to recover
+<p>In case Blender crashes it usually does not manage to save the current scene to a recovery file. So in this case you are hopefully able to recover
 any lost work using the data available saved through the features described above.</p>
-<h2 id="unused-elements-in-the-scene-are-not-saved">Unused elements in the scene are not saved<a class="headerlink" href="#unused-elements-in-the-scene-are-not-saved" title="Permanent link">&para;</a></h2>
-<p>Suppose you have a 3D scene and have created a material A that you use on some object. You then create a material B and
-assign it to that object, causing material A to now be unused in the scene. If you save your scene to file at this point <strong>material A 
-will not get saved to the file</strong>, as it is not referenced by anything in the scene. This automatic "garbage collection" feature
-of Blender is somewhat controversial, and it is definitely good to be aware of this behaviour. </p>
-<p>For most scene elements used in the Basics part of this course garbage-collection-on-save does not really interfere, except for the case
-of Materials (as described in the example above). For materials, and other scene elements, you can see if they are unused by checking for a <strong><code>0</code></strong> 
-next to their name when they appear in a list:</p>
-<p><img alt="" src="../../images/unused-material.png" /></p>
-<p>The quick fix in case you have a material that is currently not used in the scene, but
-that you definitely want to have saved to file, is to use the "Fake User" option by clicking the shield icon (<strong>be sure to enable this option 
-for the right material!</strong>):</p>
-<p><img alt="" src="../../images/fake-user.png" /></p>
-<p>Note that you can use the same Fake User option for some other types of scene elements as well. 
-You can verify the intended material now has a fake user by checking for an <strong><code>F</code></strong> next to its name:</p>
-<p><img alt="" src="../../images/material-with-fake-user.png" /></p>
-<p>We have a more detailed <a href="http://localhost:8000/blender-course/advanced/python_scripting/api_summary/#data-block-users-and-garbage-collection">discussion</a> of the garbage collection system in the Python API module of the advanced course, as the behaviour relates
-to the data block system that Blender uses internally, which is out of scope for this Basics course. However, it's good to be
-aware of the above behaviour.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 12, 2022 22:55:55</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 15, 2022 15:00:02</span>
       
     
   </small>

@@ -1106,20 +1106,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../python_scripting/api_summary/" class="md-nav__link">
-        The Blender API in detail
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -1628,6 +1614,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/api_summary/" class="md-nav__link">
+        The Python API
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1757,7 +1757,7 @@
 <p>First we will add materials and give each object a different color.</p>
 <ol>
 <li>First activate the Rendered shading to see what kind of materials we are actually applying by pressing <strong><code>Z</code></strong> in the <em>3D Viewport</em> panel and selecting <strong><code>Rendered</code></strong> from the radial pie-menu.</li>
-<li>Select the <em>fishskin</em> object and add a new material by clicking the <strong><code>New</code></strong> button in the middle of the top bar of the <em>Shader Editor</em> <img alt="" src="../../images/shadereditoricon.png" style="height:30px;width:30px" /> panel.</li>
+<li>Select the <em>fishskin</em> object and add a new material by clicking the <strong><code>New</code></strong> button in the middle of the top bar of the <em>Shader Editor</em> <img alt="" class="iconimg" src="../../images/shadereditoricon.png" /> panel.</li>
 <li>Now we see a graph appearing with 2 nodes a <em>Principled BSDF</em>-node and a <em>Material output</em>-node also in the side panel you will see the familiar material settings. Change the <strong><code>Base Color</code></strong> to an appropriate color of a fish.</li>
 <li>Repeat step 2 and 3 for each 3D object in the scene (see <em>Outliner</em>) and give them a color of your choice.</li>
 </ol>
@@ -1770,21 +1770,21 @@
 <li>Now the groundplane doesn't look anything like a picknick table, its pink. This pink color comes from the fact that an image is missing from the <em>Image Texture</em>-node. Open an image by pressing the <strong><code>Open</code></strong>-button on the <em>Image Texture</em>-node, this will open a file browser window. Now select the <code>blue_painted_planks_diff_4k.png</code> image from the <code>data/wood_textures/</code> directory and press <strong><code>Open Image</code></strong>.</li>
 </ol>
 <p>Now we have our first image mapped on an object! Although you might have noticed that the fish is really small or rather the planks are very big. We are gonna solve that by scaling the texture coordinates.</p>
-<ol start="5">
+<ol>
 <li>Before we can do that we first need to add the texture coordinates to the graph with <strong><code>Shift-A &gt; Input &gt; Texture Coordinates</code></strong> and connect the <code>UV</code> output to the <code>Vector</code> input of the <em>Image Texture</em>-node.</li>
 <li>Nothing changed because we didn't apply the scaling yet. Now add a <em>Mapping</em> node with <strong><code>Shift-A &gt; Vector &gt; Mapping</code></strong> and drag it on top of the edge between the <em>Texture Coordinate</em>-node and the <em>Image Texture</em>-node and let it go. As you can see it is automatically connected in between the nodes.</li>
 <li>Now on the <em>Mapping</em>-node change the <strong><code>Scale</code></strong> parameter <code>x</code>,<code>y</code> and <code>z</code> to <strong><code>2</code></strong>. As you can see that reduced the planks to a smaller and better size.</li>
 </ol>
 <p><strong>Tip!</strong>: With the <strong>Node Wrangler</strong> Blender add-on you can just select a texture node and press <strong><code>CTRL+T</code></strong> to automatically add the <em>Texture Coordinate</em> and <em>Mapping</em> node. <strong>Node Wrangler</strong> can be added with: <strong><code>Menu-bar Edit &gt; Preferences &gt; Add-ons tab &gt; Type 'Node Wranger' in search &gt; check Node Wrangler add-on to activate</code></strong>.</p>
 <p>Now we'll roughen the planks a bit with a <em>Roughness map</em>, a texture that will be use to change the <code>Roughness</code> parameter of the Principled BSDF.</p>
-<ol start="8">
+<ol>
 <li>Select the previously added <em>Image Texture</em>-node and press <strong><code>SHIFT-D</code></strong> and place the new duplicated node underneath the other <em>Image Texture</em>-node.</li>
 <li>Connect its <code>Vector</code> input to the <code>Vector</code> output of the <em>Mapping</em>-node just like the other <em>Image Texture</em>-node and connect the <code>Color</code> output to the <code>Roughness</code> input of the <em>Principled BSDF</em>-node.</li>
 <li>As you can see became shiny, which wood is not (rotate the view around the object in the 3D Viewport to see the plane from different angles). This is because we haven't changed the texture yet. In this new <em>Image Texture</em>-node <strong><code>Open</code></strong> the <code>blue_painted_planks_rough_4k.png</code> from <code>data/wood_textures</code>.</li>
 <li>Now it is still a bit too shiny for wood. This is because the output is interpreted as an <code>sRGB</code> value. We need to change the <strong><code>Color Space</code></strong> parameter of this <em>Image Texture</em>-node to <strong><code>Non-color</code></strong>. Now the ground plane has the right rough look like wood.</li>
 </ol>
 <p>The look of the wood is still very "flat" (the light still bounces of it at a straight angle), this is because we didn't add a normal map to the material yet. This normal map will accentuate all the nooks and crannies naturally present in wood which normally catch light to.</p>
-<ol start="12">
+<ol>
 <li>As the previous <code>Image Texture</code>-node we again need to make a new one by duplicating (see step <strong>8</strong>).</li>
 <li>Again the <em>Mapping</em>-node <code>Vector</code> output needs to be connected to the new <em>Image Texture</em>-node <code>Vector</code> input. The <code>Color</code> output however needs to go to a <em>Normal Map</em>-node.</li>
 <li>Add a <em>Normal Map</em>-node with <strong><code>Shift-A &gt; Vector &gt; Normal Map</code></strong> and connect the <em>Image Texture</em>-node <code>Color</code> output to the <em>Normal Map</em>-node <code>Color input</code> and connect the <em>Normal Map</em>-node <code>Normal</code> output to the <em>Principled BSDF</em>-node <code>Normal</code> input.</li>
@@ -1795,20 +1795,20 @@
 <p>We only see the fish, not the fish bones. In the Blender Basics course we learned how to reveal the bones on the inside by using a Boolean modifier, but we can achieve the same with just materials!</p>
 <ol>
 <li>Select the <code>fishskin</code> 3D object.</li>
-<li>If everything in the first couple of assignments the fish should already have one material called <em>Material</em>. For administrative reasons lets <strong><code>rename</code></strong> the material by clicking its name <em>Material</em> in the middle of the top bar of the <em>Shader Editor</em> <img alt="" src="../../images/shadereditoricon.png" style="height:30px;width:30px" /> panel and typing the new name called <strong><code>fishskinmat</code></strong>.</li>
+<li>If everything in the first couple of assignments the fish should already have one material called <em>Material</em>. For administrative reasons lets <strong><code>rename</code></strong> the material by clicking its name <em>Material</em> in the middle of the top bar of the <em>Shader Editor</em> <img alt="" class="iconimg" src="../../images/shadereditoricon.png" /> panel and typing the new name called <strong><code>fishskinmat</code></strong>.</li>
 <li>Now left next to the <em>rename</em> box you have drop-down menu called <strong><code>Slot 1</code></strong> when you click this you will see the material slots menu. In our case its only one material called <em>fishskinmat</em>.</li>
 <li>Now add a new <em>Material slot</em> by clicking the <strong><code>plus icon</code></strong> in this menu. The added material slot is still empty and needs a second material.</li>
-<li>Add a new material by clicking the <strong><code>New</code></strong> button in the middle of the top bar of the <em>Shader Editor</em> <img alt="" src="../../images/shadereditoricon.png" style="height:30px;width:30px" /> panel.</li>
+<li>Add a new material by clicking the <strong><code>New</code></strong> button in the middle of the top bar of the <em>Shader Editor</em> <img alt="" class="iconimg" src="../../images/shadereditoricon.png" /> panel.</li>
 <li>Rename this material to <strong><code>fishskintransparentmat</code></strong>.</li>
 </ol>
 <p>Now as you can see adjusting any value on the <em>Principled BSDF</em>-node doesn't seem to do anything. This is because there aren't any <em>vertices</em> assigned to this material slot yet (by default all vertices are assigned to the first material slot).</p>
-<ol start="7">
+<ol>
 <li>To assign vertices we need to be able to select them and this can be done in the <strong><code>Edit Mode</code></strong> of the <strong><code>3D Viewport</code></strong>-panel. With the <em>fishskin</em> 3D object selected and the focus on the <em>3D Viewport</em>-panel (hovering over the 3D Viewport panel with your mouse) press <strong><code>TAB</code></strong>.</li>
 <li>First press <strong>1</strong> to see the vertices and then select a window of vertices on the side of the fish with the <strong><code>Border select</code></strong> tool by pressing <strong><code>B</code></strong> in the <em>3D Viewport</em>-panel and dragging over the area you want to select.</li>
 <li>With these vertices selected press the <strong><code>Material slots</code></strong> button, select the <strong><code>fishskintransparentmat</code></strong>-material and press the <strong><code>Assign</code></strong>-button. </li>
 </ol>
 <p>Now you can see the selected <em>faces</em> in that selection look different! This is because they are assigned to the second material. Now we'll make the <strong><code>fishskintransparentmat</code></strong> actually transparent with a combination of the <em>Transparent BSDF</em> and <em>Principled BSDF</em> through a <strong><code>Mix Shader</code></strong>. That way we can control the amount of transparency!</p>
-<ol start="10">
+<ol>
 <li>In the <em>Shader editor</em> add a <strong><code>Mix Shader</code></strong>-node with <strong><code>Shift-A &gt; Shader &gt; Mix Shader</code></strong>.</li>
 <li>Drag this <em>Mix Shader</em>-node over the edge connecting the <em>Principled BSDF</em>-node and the <em>Material Output</em>-node to place it connected in between.</li>
 <li>Now add a <strong><code>Transparent BSDF</code></strong> with <strong><code>Shift-A &gt; Shader &gt; Transparent BSDF</code></strong>.</li>
@@ -1825,24 +1825,24 @@
 <li>Next add a <em>Texture Coordinate</em> node with <strong><code>Shift-A &gt; Input &gt; Texture Coordinates</code></strong> and connect the <code>UV</code> output to the <em>Image texture</em>-node <code>Vector</code> input.</li>
 </ol>
 <p>This fish is now black because the <code>UV</code> coordinates are not defined yet. That is what we will do in the <strong><code>UV Editor</code></strong>.</p>
-<ol start="4">
-<li>Now that we do not need the <strong><code>Shader editor</code></strong> anymore we can replace it with the <strong><code>UV Editor</code></strong>. In the corner of the panel click the <em>Editor Type-button</em> <img alt="" src="../../images/shadereditoricon.png" style="height:30px;width:30px" /> and select the <strong><code>UV Editor</code></strong> from the list.</li>
+<ol>
+<li>Now that we do not need the <strong><code>Shader editor</code></strong> anymore we can replace it with the <strong><code>UV Editor</code></strong>. In the corner of the panel click the <em>Editor Type-button</em> <img alt="" class="iconimg" src="../../images/shadereditoricon.png" /> and select the <strong><code>UV Editor</code></strong> from the list.</li>
 <li>Before we can start UV-mapping we need to be in <strong><code>Edit mode</code></strong> in the <em>3D viewport</em>. In the <em>3D viewport</em> panel press <strong><code>TAB</code></strong> to enter edit mode.</li>
 <li>Now select all geometry by pressing <strong><code>A</code></strong>.</li>
 </ol>
 <p>To properly project from view you have to choose the right view to project from. We are gonna map a photo of a carp which has been taken from the side. In order to properly map the photo on the 3D object we also need to look at it from the side.</p>
-<ol start="7">
+<ol>
 <li>Press <strong><code>BACK-TICK</code></strong> to open the view radial pie-menu and select <strong><code>Right</code></strong> or through the 3D Viewport menu in the header (<strong><code>View &gt; Viewpoint &gt; Camera</code></strong>).</li>
 <li>Now press <strong><code>U</code></strong> to open the <em>UV-mapping</em>-menu and select <strong><code>Project from view</code></strong>.</li>
 </ol>
 <p>Now you can see the <code>UV</code> coordinates are mapped in the <strong><code>UV Editor</code></strong> but they are not properly scaled to fit the photo of the carp.</p>
-<ol start="9">
+<ol>
 <li>Make sure that everything is still selected and then within the <strong><code>UV Editor</code></strong> press <strong><code>S</code></strong> and scale the UV-coordinates until they aligns with the photo of the carp. </li>
 <li>Scaling it alone is not enough. The UV-coordinates need to be moved a bit, use <strong><code>G</code></strong> to grab the UV-coordinates and translate them to better match the photo.</li>
 </ol>
 <p>As you might have noticed it is not possible to completely match the photo without deforming the UV-coordinates.</p>
-<ol start="11">
-<li>Before we start deforming parts of the UV-coordinates you need to activate <em>Proportional editing</em> by pressing the <strong><code>Proportional editing</code></strong> button <img alt="" src="../../images/proportionaleditingicon.png" style="height:30px;width:30px" /> in the top bar of the <strong><code>UV Editor</code></strong>. This proportional editing moves all UV-coordinates in the adjacent defined radius along with the currently selected UV-coordinates.</li>
+<ol>
+<li>Before we start deforming parts of the UV-coordinates you need to activate <em>Proportional editing</em> by pressing the <strong><code>Proportional editing</code></strong> button <img alt="" class="iconimg" src="../../images/proportionaleditingicon.png" /> in the top bar of the <strong><code>UV Editor</code></strong>. This proportional editing moves all UV-coordinates in the adjacent defined radius along with the currently selected UV-coordinates.</li>
 <li>Now select a UV-coordinate in the <em>UV Editor</em> that needs to be moved and press <strong><code>G</code></strong>.</li>
 <li>While grabbing, scroll with you mouse wheel to decrease or increase the <em>Proportional editing</em> radius and move your mouse to see the effect.</li>
 <li>Now with this <strong><code>Proportional editing</code></strong> try to match the UV-coordinates to the photo of the carp as good as possible.</li>
@@ -1856,8 +1856,8 @@
 <li>First off we need to remove the <em>Default cube</em> (the cube that comes with a new blend file which only function is to be removed :'( ).</li>
 <li>Add a <strong><code>UV Sphere</code></strong> instead with <strong><code>Shift-A &gt; Mesh &gt; UV sphere</code></strong>.</li>
 <li>Set the <strong><code>UV Sphere</code></strong>'s shading to smooth through the 3D Viewport menu in at the top of the <code>3D Viewport</code> (<strong><code>Object &gt; Shade Smooth</code></strong>).</li>
-<li>Select the default <strong><code>Light</code></strong> object in the <em>Outliner</em> and change it to a <em>Sun</em> light in the <em>Light</em>-tab <img alt="" src="../../images/lighticon.png" style="height:30px;width:30px" /> in the <em>Properties</em>-panel on the right.</li>
-<li>Now change the shading in the <em>3D viewport</em> to <strong><code>Rendered</code></strong> by pressing <strong><code>Z</code></strong> and then select <strong><code>Rendered</code></strong>. This rendered view is by default set to <em>Eevee</em>, to change that to <em>Cycles</em> for more realistic lighting go to the <em>Render Properties</em>-tab <img alt="" src="../../images/rendericon.png" style="height:30px;width:30px" /> in the <em>Properties</em>-panel and change the <strong><code>Render Engine</code></strong> to <em>Cycles</em>.</li>
+<li>Select the default <strong><code>Light</code></strong> object in the <em>Outliner</em> and change it to a <em>Sun</em> light in the <em>Light</em>-tab <img alt="" class="iconimg" src="../../images/lighticon.png" /> in the <em>Properties</em>-panel on the right.</li>
+<li>Now change the shading in the <em>3D viewport</em> to <strong><code>Rendered</code></strong> by pressing <strong><code>Z</code></strong> and then select <strong><code>Rendered</code></strong>. This rendered view is by default set to <em>Eevee</em>, to change that to <em>Cycles</em> for more realistic lighting go to the <em>Render Properties</em>-tab <img alt="" class="iconimg" src="../../images/rendericon.png" /> in the <em>Properties</em>-panel and change the <strong><code>Render Engine</code></strong> to <em>Cycles</em>.</li>
 <li>As you can see the sun is now way too bright. Lower the <strong><code>Strength</code></strong> of the sun from 1000 to <strong><code>10</code></strong> in the <em>Light</em>-tab in the <em>Properties</em>-panel. No need to have the power of a 1000 suns.</li>
 <li>Now that we have the sun we need to disable the <em>World</em>-lighting (the grey ambient light) since we only need the sun as a direct light source like it is in space. Go to the <em>World properties</em>-tab in the <em>Properties</em>-panel and set the <strong><code>Color</code></strong> in the <em>Surface</em>-section all the way to black.</li>
 </ol>
@@ -1865,8 +1865,8 @@
 <h3 id="applying-a-material-and-texturing-the-moon-thats-one-small-step">Applying a material and texturing the moon - That's one small step...<a class="headerlink" href="#applying-a-material-and-texturing-the-moon-thats-one-small-step" title="Permanent link">&para;</a></h3>
 <p>Before we can edit the material we need to open the <em>Shader Editor</em>. For this we need to slightly modify the interface.</p>
 <ol>
-<li>Grab the edge between the <em>3D viewport</em>-panel and the <em>Timeline</em>-panel by hovering above the edge until you see resize cursor <img alt="" src="../../images/verticalresize.png" style="height:30px;width:30px" /> then click and drag the edge until half of the Blender window.</li>
-<li>Now click the upper left <em>Editor type</em> dropdown menu (now the <em>Timeline</em>-icon <img alt="" src="../../images/timelineicon.png" style="height:30px;width:30px" />) and select the <em>Shader Editor</em>.</li>
+<li>Grab the edge between the <em>3D viewport</em>-panel and the <em>Timeline</em>-panel by hovering above the edge until you see resize cursor <img alt="" class="iconimg" src="../../images/verticalresize.png" /> then click and drag the edge until half of the Blender window.</li>
+<li>Now click the upper left <em>Editor type</em> dropdown menu (now the <em>Timeline</em>-icon <img alt="" class="iconimg" src="../../images/timelineicon.png" />) and select the <em>Shader Editor</em>.</li>
 <li>In the <em>Shader Editor</em> add a new material.</li>
 <li>In this material add <strong><code>2</code></strong> <em>Image Texture</em>-nodes, <strong><code>1</code></strong> <em>Texture Coordinate</em>-node and <strong><code>1</code></strong> <em>Displacement</em>-node (<strong><code>Shift-A &gt; Vector &gt; Displacement</code></strong>).</li>
 <li>Connect the <em>Texture Coordinate</em>-node <code>UV</code> output to both <em>Image Texture</em>-nodes <code>Vector</code> inputs.</li>
@@ -1881,21 +1881,21 @@
 <h3 id="adaptive-displacement-revealing-the-craters-mooore-details">Adaptive displacement - Revealing the craters! Mooore details!<a class="headerlink" href="#adaptive-displacement-revealing-the-craters-mooore-details" title="Permanent link">&para;</a></h3>
 <p>Everything we have seen until now has been rendered in the default EEVEE rendering engine, which is for visualization purposes very powerful, but if you want to add that extra little realism with adaptive displacement you have to use the Cycles rendering engine.</p>
 <ol>
-<li>Active the <code>Cycles</code> rendering engine with the <strong><code>Render Engine</code></strong> setting in the <em>Rendering properties</em>-tab <img alt="" src="../../images/rendericon.png" style="height:30px;width:30px" /> of the <em>Properties</em>-panel. </li>
+<li>Active the <code>Cycles</code> rendering engine with the <strong><code>Render Engine</code></strong> setting in the <em>Rendering properties</em>-tab <img alt="" class="iconimg" src="../../images/rendericon.png" /> of the <em>Properties</em>-panel. </li>
 </ol>
 <p>While we are there, to be able to use adaptive displacement, we need to activate the Cycles experimental feature set.</p>
-<ol start="2">
+<ol>
 <li>Set the <strong><code>Feature Set</code></strong> to <strong><code>Experimental</code></strong>.</li>
 <li>This <em>Experimental</em> feature set added an extra section in the current properties panel tab called <strong><code>Subdivision</code></strong>. In this section set <strong><code>Viewport</code></strong> to <strong><code>2</code></strong>.</li>
 </ol>
 <p>Now we need to add a <strong><code>Subdivision modifier</code></strong> that also got a new setting from the <em>Experimental</em> feature set that enables the <em>adaptive displacement</em>. </p>
-<ol start="4">
-<li>Add a <strong><code>Subdivision modfier</code></strong> in the <em>Modifier properties</em>-tab <img alt="" src="../../images/modifiersicon.png" style="height:30px;width:30px" /> of the <em>Properties</em>-panel.</li>
+<ol>
+<li>Add a <strong><code>Subdivision modfier</code></strong> in the <em>Modifier properties</em>-tab <img alt="" class="iconimg" src="../../images/modifiersicon.png" /> of the <em>Properties</em>-panel.</li>
 <li>Enable the <em>Adaptive Subdivision</em> setting in this modifier.</li>
 </ol>
 <p>Until now you only saw some slight differences because there is only one setting that has to be changed to make all of this worth it.</p>
-<ol start="6">
-<li>Change the <strong><code>Displacement</code></strong> setting to <strong><code>Displacement Only</code></strong> in the <em>Properties</em>-panel &gt; <em>Material properties</em>-tab <img alt="" src="../../images/materialsicon.png" style="height:30px;width:30px" /> &gt; <em>Settings</em>-section &gt; <em>Surface</em>-subsection.</li>
+<ol>
+<li>Change the <strong><code>Displacement</code></strong> setting to <strong><code>Displacement Only</code></strong> in the <em>Properties</em>-panel &gt; <em>Material properties</em>-tab <img alt="" class="iconimg" src="../../images/materialsicon.png" /> &gt; <em>Settings</em>-section &gt; <em>Surface</em>-subsection.</li>
 <li>Now zoom in and toggle to the <em>Edit mode</em> and back, which re-triggers the adaptive subdivision computations, and see the craters in their full glory.</li>
 </ol>
 <p><strong>Bonus</strong>: For an artists rendition of the moon change the <em>Displacement</em>-node <code>Scale</code> parameter to a higher value and see how the craters get more noticeable (although less realistic).</p>
@@ -1905,7 +1905,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 11, 2022 19:38:35</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 15, 2022 11:46:47</span>
       
     
   </small>

@@ -1163,20 +1163,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../advanced/python_scripting/api_summary/" class="md-nav__link">
-        The Blender API in detail
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -1574,6 +1560,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/api_summary/" class="md-nav__link">
+        The Python API
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1644,48 +1644,53 @@
 <h1 id="simple-mesh-editing">💻 Simple mesh editing<a class="headerlink" href="#simple-mesh-editing" title="Permanent link">&para;</a></h1>
 <p>In this exercise you will use some mesh modifiers on an iso-surface of a CT scan of a fish and try to see if you can reveal the insides.</p>
 <p>Once you opened the exercise blend file <strong><code>sme_assignment.blend</code></strong> you'll see the fish iso-surface above a plane.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This exercise uses a somewhat large 3D model, at around 155,000 triangles. On most modern PCs and laptops this should not
+pose a problem, so it is a good test to see if your system is able to handle this (which might indicate some limitation).</p>
+</div>
 <h2 id="decimate-reducing-the-triangles">Decimate - Reducing the triangles<a class="headerlink" href="#decimate-reducing-the-triangles" title="Permanent link">&para;</a></h2>
 <p>The fish 3D model, for your convenience, has been divided into two parts: the fishskin and fishbones. Combined, this model has a large amount of triangles (155k for the fishskin and 573k for the fishbones).
 On lower end devices this can slow everything down to a crawl. In order to be able to add modifiers or edit the meshes with reasonable interactivity you first need to decimate the meshes. The decimation is for reducing the number of triangles, by merging adjacent triangles together into one, iteratively.</p>
 <ol>
 <li>Select the fishskin by clicking on the fishskin with <strong><code>LMB</code></strong>.</li>
-<li>Once selected go the <em>Modifiers</em> tab <img alt="" src="../../images/modifiersicon.png" /> in the properties editor.</li>
+<li>Once selected go the <em>Modifiers</em> tab <img alt="" class="iconimg" src="../../images/modifiersicon.png" /> in the properties editor.</li>
 <li>Click <strong><code>Add Modifier</code></strong> and add the <strong><code>Decimate</code></strong> modifier (it's in the <em>Generate</em> column).</li>
 <li>Keep the decimation type set to <strong><code>Collapse</code></strong>, set the <strong><code>Ratio</code></strong> to <strong><code>0.5</code></strong> and press <strong><code>Enter</code></strong>. The mesh processing will take a couple of seconds but will immediately reduce the number of triangles to ~77k, which is visible in the modifier under <strong><code>Face Count</code></strong>. You can even reduce it to a lower number but it might affect the appearance and shape of the model negatively by creating hard edges on the surface.</li>
-<li>Once you are satisfied with the results press <strong><code>Apply</code></strong>, under the dropdown-menu arrow to the right of Decimate <img alt="" src="../../images/modifiermenu.png" />, or by pressing <strong><code>Ctrl-A</code></strong>, while focused on the Decimate modifier, to make the changes permanent. Again, this can take a few seconds.</li>
-<li>Now that the fishskin triangles have been reduced, select it and press <strong><code>H</code></strong> to hide it or click the <img alt="" src="../../images/outlinereyeicon.png" /> icon in the <em>Outliner</em>. This simultaneously hides the fishskin and reveal the fishbones.</li>
+<li>Once you are satisfied with the results press <strong><code>Apply</code></strong>, under the dropdown-menu arrow to the right of Decimate <img alt="" class="iconimg" src="../../images/modifiermenu.png" />, or by pressing <strong><code>Ctrl-A</code></strong>, while focused on the Decimate modifier, to make the changes permanent. Again, this can take a few seconds.</li>
+<li>Now that the fishskin triangles have been reduced, select it and press <strong><code>H</code></strong> to hide it or click the <img alt="" class="iconimg" src="../../images/outlinereyeicon.png" /> icon in the <em>Outliner</em>. This simultaneously hides the fishskin and reveal the fishbones.</li>
 <li>Preform the same steps the fishbones and try to reduce the triangle count significantly without affecting the appearance of the model.</li>
-<li>Now unhide the fishskin again for the next assignment by clicking the <img alt="" src="../../images/outlinereyeiconclosed.png" /> icon.</li>
+<li>Now unhide the fishskin again for the next assignment by clicking the <img alt="" class="iconimg" src="../../images/outlinereyeiconclosed.png" /> icon.</li>
 </ol>
 <h2 id="smooth-ironing-the-creases">Smooth - Ironing the creases<a class="headerlink" href="#smooth-ironing-the-creases" title="Permanent link">&para;</a></h2>
 <p>The geometry of the fishskin and the fishbones both look a bit rough because of the iso-surface extraction algorithm. If that is not desired, the rough edges can be smoothed out with the <em>Smooth Modifier</em>.</p>
 <ol>
 <li>Select the fishskin model by clicking on the fishskin with <strong><code>LMB</code></strong>.</li>
-<li>Go to the <em>Modifiers</em> tab <img alt="" src="../../images/modifiersicon.png" /> in the properties editor.</li>
+<li>Go to the <em>Modifiers</em> tab <img alt="" class="iconimg" src="../../images/modifiersicon.png" /> in the properties editor.</li>
 <li>Click <strong><code>Add Modifier</code></strong> and add the <strong><code>Smooth</code></strong> modifier (it's in the <em>Deform</em> column).</li>
 <li>Keep the <strong><code>Factor</code></strong> at <strong><code>0.5</code></strong> but increase the <strong><code>Repeat</code></strong> to <strong><code>5</code></strong>. Watch out with using the slider, every change re-triggers the modifier and when you accidentally slide to a high number it will take a while to calculate.</li>
 </ol>
 <p>Unfortunately you will notices that the Smooth modifier creates tears along the skin model, this conveniently revealed that the underlying mesh triangles are not fully connected and are present in connected patches. These patches stems from the creation of this model where the calculation of the geometry was done in multiple processors and each patch was created by a separate process. This can be fixed in the <em>Edit-mode</em> but that will be covered in the advanced course.</p>
-<ol start="5">
+<ol>
 <li>The <strong><code>Factor</code></strong> is good as it is, but changing the value shows what kind of drastic effect it has.</li>
 <li>Once you are satisfied with the smoothness of the fishskin press <strong><code>Apply</code></strong> and try to do the same with the fishbones.</li>
 </ol>
 <h2 id="boolean-slicing-the-geometry">Boolean - Slicing the geometry<a class="headerlink" href="#boolean-slicing-the-geometry" title="Permanent link">&para;</a></h2>
 <p>If you wanna both show the inside of the fish with the context of the outside you can use slice through the fishskin model and reveal the insides of the fish by using a <em>Boolean Modifier</em>.</p>
-<ol start="17">
-<li>Before you add the <em>Boolean Modifier</em> you first need to reveal the <strong><code>fishskin</code></strong> mesh object again by clicking the <img alt="" src="../../images/outlinereyeicon.png" /> icon in the <em>Outliner</em>.</li>
-<li>Select the <strong><code>fishskin</code></strong> mesh object and go to the <em>Modifiers</em> tab <img alt="" src="../../images/modifiersicon.png" /> in the properties editor to add a <strong><code>Boolean</code></strong> modifier (it's in the <em>Generate</em> column).</li>
+<ol>
+<li>Before you add the <em>Boolean Modifier</em> you first need to reveal the <strong><code>fishskin</code></strong> mesh object again by clicking the <img alt="" class="iconimg" src="../../images/outlinereyeicon.png" /> icon in the <em>Outliner</em>.</li>
+<li>Select the <strong><code>fishskin</code></strong> mesh object and go to the <em>Modifiers</em> tab <img alt="" class="iconimg" src="../../images/modifiersicon.png" /> in the properties editor to add a <strong><code>Boolean</code></strong> modifier (it's in the <em>Generate</em> column).</li>
 </ol>
 <p>Now that the <em>Boolean</em> modifier is added we still miss another 3D mesh object to perform the <em>Boolean</em> operation with. You are now gonna prepare the other mesh object.</p>
-<ol start="19">
+<ol>
 <li>Move the mouse into the 3D view and add a new <em>UV sphere</em> with <strong><code>Shift-A &gt; Mesh &gt; UV Sphere</code></strong></li>
 <li>Scale and translate (<strong><code>S</code></strong> and <strong><code>G</code></strong> keys) the <em>UV sphere</em> so that it overlaps a part of the fish which you want to clip away.</li>
-<li>The <em>UV sphere</em> is now shown as a solid surface, which is not desirable when you want to use it for clipping because you want to see through it. You can change the representation of an object in the 3D view using the <em>Object</em> <img alt="" src="../../images/objecticon.png" /> properties under <strong><code>Viewport Display</code></strong>: set <strong><code>Display As</code></strong> to  <strong><code>Wire</code></strong>.</li>
+<li>The <em>UV sphere</em> is now shown as a solid surface, which is not desirable when you want to use it for clipping because you want to see through it. You can change the representation of an object in the 3D view using the <em>Object</em> <img alt="" class="iconimg" src="../../images/objecticon.png" /> properties under <strong><code>Viewport Display</code></strong>: set <strong><code>Display As</code></strong> to  <strong><code>Wire</code></strong>.</li>
 <li>Also when you want to look at the results in Rendered mode you need to make the sphere invisible using the <strong><code>Ray Visibility</code></strong> settings under <strong><code>Visibility</code></strong>: disable all check-boxes (Camera, Diffuse, Glossy, Transmission, Volume Scatter and Shadow)</li>
 </ol>
 <p>Now that you prepared the mesh object to preform the <em>Boolean</em> operation with, you can continue setting up the <em>Boolean</em> modifier.</p>
-<ol start="23">
-<li>Select the <strong><code>fishskin</code></strong> mesh object and go to the <em>Modifiers</em> tab <img alt="" src="../../images/modifiersicon.png" /> in the properties editor to reveal the already added <em>Boolean</em> modifier.</li>
+<ol>
+<li>Select the <strong><code>fishskin</code></strong> mesh object and go to the <em>Modifiers</em> tab <img alt="" class="iconimg" src="../../images/modifiersicon.png" /> in the properties editor to reveal the already added <em>Boolean</em> modifier.</li>
 <li>Now under <strong><code>Object</code></strong>, select the <strong><code>Sphere</code></strong> mesh object.</li>
 <li>Before we want to start moving the clipping Sphere around we want to change the <strong><code>Solver</code></strong> to <strong><code>Fast</code></strong>. This is more simpler and better performing solver and in our case, with the underlying broken patched mesh, also a better option since this solver is able to handle this type of geometry.</li>
 <li>Now if you select the <strong><code>Sphere</code></strong> object and translate and scale it over the <strong><code>fishskin</code></strong> mesh object you can clip away any desired part as the Boolean modifier updates in real time.</li>
@@ -1698,7 +1703,7 @@ On lower end devices this can slow everything down to a crawl. In order to be ab
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 11, 2022 19:38:35</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 15, 2022 11:18:23</span>
       
     
   </small>

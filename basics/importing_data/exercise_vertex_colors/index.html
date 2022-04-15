@@ -1118,20 +1118,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../advanced/python_scripting/api_summary/" class="md-nav__link">
-        The Blender API in detail
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -1529,6 +1515,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../references/api_summary/" class="md-nav__link">
+        The Python API
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1568,6 +1568,8 @@
 
 
 <h1 id="vertex-colors">💻 Vertex colors<a class="headerlink" href="#vertex-colors" title="Permanent link">&para;</a></h1>
+<p>This exercise uses a file exported from the <a href="https://www.paraview.org">ParaView</a> scientific visualization package, and
+uses some of the workflow needed to get it into Blender.</p>
 <ol>
 <li>
 <p>Check if you have a menu option to import X3D format. For this,
@@ -1591,7 +1593,7 @@
 </li>
 <li>
 <p>Make sure Blender is set to use <strong><code>Cycles</code></strong> as the renderer. For this,
-   switch to the Render tab <img alt="" src="../../images/rendericon.png" /> in the properties area.
+   switch to the Render tab <img alt="" class="iconimg" src="../../images/rendericon.png" /> in the properties area.
    Check the <strong><code>Render Engine</code></strong> drop-down, it should be set to <strong><code>Cycles</code></strong>.</p>
 </li>
 <li>
@@ -1611,7 +1613,7 @@ which is a common way to show data values in a visualization.</p>
 <p>There are a few ways to inspect if, and what, vertex colors a model has. First, there is the so-called Vertex Paint mode.
 In this mode vertex colors are shown when they are available and can even be edited.</p>
 <p>To enable Vertex Paint mode:</p>
-<ol start="8">
+<ol>
 <li>Make the 3D arrows in the scene the single selected object</li>
 <li>Open the Mode pie menu with <strong><code>Ctrl-TAB</code></strong> and switch to <strong><code>Vertex Paint</code></strong>. An alternative is
    to use the menu showing <strong><code>Object Mode</code></strong> in the upper-left of the 3D view header.</li>
@@ -1622,29 +1624,29 @@ In this mode vertex colors are shown when they are available and can even be edi
 <p>As this is Vertex <em>Paint</em> mode you can actually <em>alter</em> the vertex colors. This works quite similar to a normal paint program, like Photoshop or the GIMP, 
 but in 3D. Although it may not make much sense to change colors that are based on simulation output (like these CFD results) it can 
 still be interesting to clean up or highlight vertex-colored geometry.</p>
-<ol start="11">
+<ol>
 <li>Experiment with vertex painting: move the cursor over part of the arrow geometry, press and hold <strong><code>LMB</code></strong> and move the mouse. See what happens.</li>
-<li>Switch to the Active Tool and Workspace settings <img alt="" src="../../images/activetoolandworkspacesettingsicon.png" /> tab in the properties area</li>
+<li>Switch to the Active Tool and Workspace settings <img alt="" class="iconimg" src="../../images/activetoolandworkspacesettingsicon.png" /> tab in the properties area</li>
 <li>You can change the color you're painting with with the color wheel.
    Also check out the radius and strength settings.</li>
 <li>Change back to <strong><code>Object Mode</code></strong> using the <strong><code>Ctrl-TAB</code></strong> mode menu when you're done playing around. Note that the
 arrows no longer show the vertex colors.</li>
 </ol>
 <p>The second way to use vertex colors is to apply them during rendering.</p>
-<ol start="15">
+<ol>
 <li>If you've screwed up the vertex colors really badly in the previous steps you might want to reimport the model...</li>
 <li>Make the 3D arrows in the scene the single selected object</li>
-<li>Switch to the <strong><code>Object Data</code></strong> <img alt="" src="../../images/meshicon.png" /> tab in the properties</li>
+<li>Switch to the <strong><code>Object Data</code></strong> <img alt="" class="iconimg" src="../../images/meshicon.png" /> tab in the properties</li>
 <li>Check that there is an entry "Col" in the list under <strong><code>Vertex Colors</code></strong>. A model can have multiple sets of vertex colors, but this file has only one set called "Col"</li>
 </ol>
 <p>Now we will set up a material using the vertex colors stored in the "Col" layer.</p>
-<ol start="19">
-<li>Go to the Material tab <img alt="" src="../../images/materialsicon.png" /></li>
+<ol>
+<li>Go to the Material tab <img alt="" class="iconimg" src="../../images/materialsicon.png" /></li>
 <li>Select the material called "Material" in the drop-down list left of the New button. This set the (grey) material "Material" on the arrows geometry.</li>
 <li>Press <strong><code>F12</code></strong> (or use interactive render) to get a rendered view of the current scene.</li>
 </ol>
 <p>You'll notice that all the geometry is grey/white, i.e. no vertex colors are used. We'll now alter the material to use vertex colors.</p>
-<ol start="22">
+<ol>
 <li>In the settings of the material there is a field called "Base Color" with a white area right of it. This setting controls the color of the geometry.</li>
 <li>Click the button <em>right of the color area</em> (it has a small white circle in it)</li>
 <li>Pick <strong><code>Attribute</code></strong> from the left-most column labeled <strong><code>Input</code></strong>. This specifies that the material color should be based on an attribute value.</li>
@@ -1658,7 +1660,7 @@ arrows no longer show the vertex colors.</li>
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 11, 2022 19:38:35</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 15, 2022 11:46:47</span>
       
     
   </small>

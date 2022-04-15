@@ -83,3 +83,7 @@ body
     font-family: 'Source Sans Pro', Roboto, sans-serif;
 }
 
+.iconimg {
+   height:1.2rem !important;
+   vertical-align: middle;   
+}
