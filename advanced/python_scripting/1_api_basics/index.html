@@ -217,18 +217,11 @@
   
   
   
-    
-
-  
-  
-  
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
         Advanced
       </a>
     </li>
-  
-
   
 
       
@@ -1028,6 +1021,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        ⚠️ Being updated
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -1035,18 +1042,18 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
       
       
       
       
-        <label class="md-nav__link" for="__nav_4_1">
+        <label class="md-nav__link" for="__nav_4_2">
           Python scripting
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Python scripting" data-md-level="2">
-        <label class="md-nav__title" for="__nav_4_1">
+        <label class="md-nav__title" for="__nav_4_2">
           <span class="md-nav__icon md-icon"></span>
           Python scripting
         </label>
@@ -1240,18 +1247,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_4_2">
+        <label class="md-nav__link" for="__nav_4_3">
           Node-based materials
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Node-based materials" data-md-level="2">
-        <label class="md-nav__title" for="__nav_4_2">
+        <label class="md-nav__title" for="__nav_4_3">
           <span class="md-nav__icon md-icon"></span>
           Node-based materials
         </label>
@@ -1329,18 +1336,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_4_3">
+        <label class="md-nav__link" for="__nav_4_4">
           Animation
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Animation" data-md-level="2">
-        <label class="md-nav__title" for="__nav_4_3">
+        <label class="md-nav__title" for="__nav_4_4">
           <span class="md-nav__icon md-icon"></span>
           Animation
         </label>
@@ -1418,18 +1425,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" type="checkbox" id="__nav_4_5" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_4_4">
+        <label class="md-nav__link" for="__nav_4_5">
           Mesh edit mode
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Mesh edit mode" data-md-level="2">
-        <label class="md-nav__title" for="__nav_4_4">
+        <label class="md-nav__title" for="__nav_4_5">
           <span class="md-nav__icon md-icon"></span>
           Mesh edit mode
         </label>
@@ -1479,18 +1486,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_6" type="checkbox" id="__nav_4_6" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_4_5">
+        <label class="md-nav__link" for="__nav_4_6">
           Final project
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Final project" data-md-level="2">
-        <label class="md-nav__title" for="__nav_4_5">
+        <label class="md-nav__title" for="__nav_4_6">
           <span class="md-nav__icon md-icon"></span>
           Final project
         </label>
@@ -1765,8 +1772,9 @@
 
 <h1 id="blender-api-basics">Blender API basics<a class="headerlink" href="#blender-api-basics" title="Permanent link">&para;</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
-<p>Blender contains a Python interpreter that, at startup, runs scripts to construct the interface and run internal tools. 
-The user can run scripts directly on this interpreter and also access modules provided by Blender like <code>bpy</code> and <code>mathutils</code>. 
+<p>Blender embeds a Python interpreter, which is used for multiple tasks. It is a central feature of Blender, as large parts of the
+user interface are set up and controlled from Python, as well as all add-ons (import/export, tools, etc).</p>
+<p>As a user you can run scripts directly on this interpreter and also access Python modules provided by Blender like <code>bpy</code> and <code>mathutils</code>. 
 The <code>bpy</code> module gives access to Blender's data, functions and classes. In this section we will focus on using the Python API for automation, custom data import and manipulating geometry, but this is not all that is possible with the API, of course. The <a href="https://docs.blender.org/api/current/">official API manual</a> states the following things are possible using the Python API:</p>
 <ul>
 <li>Edit any data the user interface can (Scenes, Meshes, Particles etc.).</li>
@@ -1915,7 +1923,7 @@ See <a href="https://docs.blender.org/manual/en/latest/advanced/blender_director
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 15, 2022 11:46:47</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 16, 2022 10:01:09</span>
       
     
   </small>
@@ -1938,7 +1946,7 @@ See <a href="https://docs.blender.org/manual/en/latest/advanced/blender_director
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../../../basics/animation/example_flipbook_animation/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../../" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1947,7 +1955,7 @@ See <a href="https://docs.blender.org/manual/en/latest/advanced/blender_director
               <span class="md-footer__direction">
                 Previous
               </span>
-              💻 Flipbook animation
+              ⚠️ Being updated
             </div>
           </div>
         </a>
