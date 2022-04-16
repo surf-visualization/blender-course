@@ -827,9 +827,67 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Introduction
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gpu-based-rendering-in-cycles" class="md-nav__link">
+    GPU-based rendering in Cycles
+  </a>
+  
+    <nav class="md-nav" aria-label="GPU-based rendering in Cycles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-linux" class="md-nav__link">
+    Windows, Linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos" class="md-nav__link">
+    macOS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-thing-called-eevee" class="md-nav__link">
+    A thing called EEVEE?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1555,6 +1613,48 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gpu-based-rendering-in-cycles" class="md-nav__link">
+    GPU-based rendering in Cycles
+  </a>
+  
+    <nav class="md-nav" aria-label="GPU-based rendering in Cycles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#windows-linux" class="md-nav__link">
+    Windows, Linux
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos" class="md-nav__link">
+    macOS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-thing-called-eevee" class="md-nav__link">
+    A thing called EEVEE?
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1576,12 +1676,72 @@
 </div>
 <iframe width="800" height="450" src="https://www.youtube.com/embed/_aVgZNlk_q0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+<h2 id="gpu-based-rendering-in-cycles">GPU-based rendering in Cycles<a class="headerlink" href="#gpu-based-rendering-in-cycles" title="Permanent link">&para;</a></h2>
+<p>In general GPU-based rendering with Cycles is usually a lot faster than rendering on a multi-core CPU. However, only by 
+making a comparison on your particular system can you really find out if GPU rendering is a good option for you (for example,
+you might not have a very powerful GPU in your laptop).</p>
+<p>Apart from performance there are some other aspects to consider with GPU rendering:</p>
+<ul>
+<li>When doing a GPU render your desktop environment might become less responsive, although this has become less of a problem with recent Blender versions</li>
+<li>A GPU usually has less memory available, which might cause problems with really large scenes</li>
+</ul>
+<p>In case you want to try enabling GPU rendering go to the Preferences window (<strong><code>Edit &gt; Preferences</code></strong>) and
+then the <strong><code>System</code></strong> tab. The settings available under <strong><code>Cycles Render Devices</code></strong> are
+somewhat dependent on the hardware in your system but should look a little like this:</p>
+<p><img alt="" src="../../images/cycles-gpu-settings.png" /></p>
+<p>GPU rendering in Blender has slightly different support depending on whether you're on Windows, Linux or macOS. Below, we summarize
+the options you can encounter. The most up-to-date official reference for this information is <a href="https://docs.blender.org/manual/en/latest/render/cycles/gpu_rendering.html">this page</a> from the Blender manual.</p>
+<h3 id="windows-linux">Windows, Linux<a class="headerlink" href="#windows-linux" title="Permanent link">&para;</a></h3>
+<p>By default <strong><code>None</code></strong> will be active, meaning no GPU acceleration is used for rendering
+and it all happens on the CPU.</p>
+<p>In general, on a PC/Laptop with an NVIDIA GPU the <strong><code>CUDA</code></strong> option is available and to be preferred, although <strong><code>OptiX</code></strong> might work well as an alternative 
+(but will only be available on more recent NVIDIA GPUs).</p>
+<p>On <em>Windows</em> systems with an AMD GPU the option <strong><code>HIP</code></strong> might be available and is then definitely worth a try.</p>
+<h3 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">macOS GPU rendering is still under development</p>
+<p>The Blender 3.1 <a href="https://wiki.blender.org/wiki/Reference/Release_Notes/3.1/Cycles">release notes</a> warn that the GPU rendering implementation on macOS is in an early state. Performance optimizations and support for Intel GPUs are under development. </p>
+</div>
+<p>For macOS systems only the <strong><code>Metal</code></strong> option will be available, apart from the default <strong><code>None</code></strong>.</p>
+<p>In Blender 3.1 the GPU rendering support in Cycles is based on the Metal API, which is not supported
+on all macOS systems (also depending on the system version). Only for the following two configurations
+is GPU rendering support currently available:</p>
+<ul>
+<li>Apple M1 computers running macOS 12.2 or newer</li>
+<li>Apple computers with AMD graphics cards running macOS 12.3 or newer</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">GPU rendering versus acceleration</p>
+<p>This section is about GPU <em>rendering</em> in Cycles, which is different from GPU <em>acceleration</em>
+for the Blender user interface and EEVEE (see below) rendering. So even though your macOS
+system might not provide GPU rendering in Cycles, it might still work fine for Blender usage
+with a GPU-accelerated 3D viewport, while using CPU-based rendering.</p>
+</div>
+<h2 id="a-thing-called-eevee">A thing called EEVEE?<a class="headerlink" href="#a-thing-called-eevee" title="Permanent link">&para;</a></h2>
+<p>When consulting other Blender materials, specifically on rendering, you may
+see references to EEVEE. This is another render engine available in Blender,
+which is different from the Cycles engine we will be using in this course. </p>
+<p>Even though EEVEE is meant for fast and highly interactive rendering work, even more so than the Cycles preview render 
+we showed so far, we do not use EEVEE in this course. The reasons for this are:</p>
+<ul>
+<li>We personally find Cycles to be more intuitive to work with and explain, as it is built 
+around the path tracing algorithm, which is easy to understand while providing a very versatile
+set of rendering and lighting features. EEVEE's rendering setup is somewhat more complex, as it uses a combination of different techniques
+that needs more separate controls.</li>
+<li>Cycles can render both on CPU and GPU, whereas EEVEE can only render on a GPU (more specifically, it needs OpenGL)</li>
+<li>EEVEE doesn't support headless rendering, i.e. when starting a Blender render from the command-line without showing the user interface. This is especially relevant when rendering long animations on an HPC system, or other cluster environment without a GPU-accelerated display environment.</li>
+<li>Cycles is more feature-complete, whereas EEVEE has some <a href="https://docs.blender.org/manual/en/latest/render/eevee/limitations.html">limitations</a> compared to Cycles, although that situation improves with each Blender release</li>
+<li>Although Cycles and EEVEE are getting closer in features with every Blender release they are still not fully equivalent. They also use separate controls in the UI for certain features. This would mean having to dedicate extra course material on these differences</li>
+</ul>
+<p>If you do like more information on EEVEE then please check <a href="https://docs.blender.org/manual/en/latest/render/eevee/introduction.html">this section</a>
+in the Blender manual.</p>
+
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 15, 2022 11:18:23</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 16, 2022 09:37:14</span>
       
     
   </small>
