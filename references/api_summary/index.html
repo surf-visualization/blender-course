@@ -821,6 +821,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../basics/rendering_lighting_materials/gpu_rendering/" class="md-nav__link">
+        GPU-based rendering in Cycles
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../basics/rendering_lighting_materials/rlm_assignment/" class="md-nav__link">
         💻 Rendering, lighting and materials
       </a>
@@ -2355,7 +2369,7 @@
 <h1 id="the-python-api">The Python API<a class="headerlink" href="#the-python-api" title="Permanent link">&para;</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>The Blender Python API mostly consists of a thin layer on top of the underlying Blender C/C++ data structures and methods. The underlying C/C++ code is used to automatically generate the Python API during the build process of the Blender executable, which means the API is always up-to-date with respect to the underlying code. </p>
-<p>The API isn't the only part of Blender that uses Python. Large parts of the user interface, the import/export scripts and all addons are written in Python. It is therefore relatively easy to extend Blender with, say, new UI dialogs or an importer. This is one of the strengths of the Blender Python API.</p>
+<p>The API isn't the only part of Blender that uses Python. Large parts of the user interface, most import/export functionality and all add-ons are written in Python. It is therefore relatively easy to extend Blender with, say, new UI dialogs or a custom importer. This is one of the strengths of the Blender Python API.</p>
 <div class="admonition danger">
 <p class="admonition-title">Be careful</p>
 <p>Since the API provides access to Blender internals at a very low level you can screw up the Blender state, causing unexpected behaviour, data corruption or even crashes. In the worst case you can end up with a file that will no longer load in Blender at all, although that's rare.</p>
@@ -3863,7 +3877,7 @@ layer set controls, for example, which vertex colors are visible in the 3D viewp
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 16, 2022 10:01:09</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 18, 2022 22:25:50</span>
       
     
   </small>
