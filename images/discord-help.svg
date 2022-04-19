@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="277.26285mm"
    height="153.57288mm"
    viewBox="0 0 277.26285 153.57287"
    version="1.1"
    id="svg8"
-   inkscape:version="1.0.2 (e86c870879, 2021-01-15, custom)"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
    sodipodi:docname="discord-help.svg"
    inkscape:export-filename="/home/melis/courses/blender-course/webcontent/images/discord-help.png"
    inkscape:export-xdpi="100"
-   inkscape:export-ydpi="100">
+   inkscape:export-ydpi="100"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
      id="defs2">
     <rect
@@ -35,14 +35,14 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="0.96761905"
-     inkscape:cx="433.45292"
-     inkscape:cy="225.10141"
+     inkscape:cx="507.94783"
+     inkscape:cy="225.29528"
      inkscape:document-units="mm"
      inkscape:current-layer="layer2"
      inkscape:document-rotation="0"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="989"
+     inkscape:window-height="987"
      inkscape:window-x="0"
      inkscape:window-y="33"
      inkscape:window-maximized="1"
@@ -50,7 +50,8 @@
      fit-margin-left="5"
      fit-margin-right="5"
      fit-margin-bottom="5"
-     inkscape:snap-global="false" />
+     inkscape:snap-global="false"
+     inkscape:pagecheckerboard="0" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -59,7 +60,6 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -144,7 +144,7 @@
            x="220.86281"
            y="160.80147"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Gotham Narrow';-inkscape-font-specification:'Gotham Narrow';text-align:center;baseline-shift:baseline;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:0.264583px"
-           id="tspan911">2. Messages in channel #chat-support </tspan><tspan
+           id="tspan911">2. Messages in the chat channel</tspan><tspan
            sodipodi:role="line"
            x="220.86281"
            y="168.19287"
@@ -224,6 +224,6 @@
     <text
        xml:space="preserve"
        id="text1005"
-       style="font-size:10.5833px;line-height:7.9375px;font-family:Z003;-inkscape-font-specification:Z003;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect1007);fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;" />
+       style="font-size:10.5833px;line-height:7.9375px;font-family:Z003;-inkscape-font-specification:Z003;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect1007);fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
   </g>
 </svg>
