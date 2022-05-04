@@ -1177,7 +1177,7 @@
   
     <li class="md-nav__item">
       <a href="../3_geometry_colors_and_materials/" class="md-nav__link">
-        Creating geometry, colors and materials
+        Geometry, colors and materials
       </a>
     </li>
   
@@ -1191,7 +1191,7 @@
   
     <li class="md-nav__item">
       <a href="../4_volumetric_data/" class="md-nav__link">
-        Visualizing volumetric data
+        Visualizing volumetric data through OpenVDB
       </a>
     </li>
   
@@ -1252,7 +1252,7 @@
   
     <li class="md-nav__item">
       <a href="../../advanced_materials/advanced_materials_assignment/" class="md-nav__link">
-        💻 The Shader Editor and advanced material topics
+        💻 The Shader Editor and advanced materials
       </a>
     </li>
   
@@ -1678,23 +1678,36 @@
 
 <h1 id="accessing-blender-data">Accessing Blender data<a class="headerlink" href="#accessing-blender-data" title="Permanent link">&para;</a></h1>
 <h2 id="using-bpydata">Using <code>bpy.data</code><a class="headerlink" href="#using-bpydata" title="Permanent link">&para;</a></h2>
-<iframe width="640" height="360" src="https://www.youtube.com/embed/dObIxpVbZ7k" frameborder="0" allowfullscreen></iframe>
+<p style="text-align:center">
+    <iframe width="640" height="360" src="https://www.youtube.com/embed/dObIxpVbZ7k" frameborder="0" allowfullscreen></iframe>
+</p>
 
-<p>All data in a Blender file can be accessed through <code>bpy.data</code>. This contains for example all objects (<code>bpy.data.objects</code>), all meshes (<code>bpy.data.meshes</code>), all scenes (<code>bpy.data.scenes</code>) and all materials (<code>bpy.data.materials</code>). 
-The data is stored in a data-type called <code>bpy_collection</code> whose members (data blocks) can be accessed with both an index as well as a string (this in contrary to regular Python dictionaries). 
-For example. <code>bpy.data.objects["Cube"]</code> and <code>bpy.data.objects[1]</code> will be equivalent if Cube is the second object in the collection.</p>
-<p>Attributes of data blocks (e.g an object, collection or material) can be accessed with a period. For example:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="s1">&#39;Camera&#39;</span>
+<p>All data in a Blender file can be accessed through <code>bpy.data</code>. This contains, for example, all objects (<code>bpy.data.objects</code>), all meshes (<code>bpy.data.meshes</code>), all scenes (<code>bpy.data.scenes</code>) and all materials (<code>bpy.data.materials</code>). </p>
+<p>The data is stored in a data-type called <code>bpy_collection</code> whose members (data blocks) can be accessed with both an index as well as a string (this in contrary to regular Python dictionaries). For example. <code>bpy.data.objects["Camera"]</code> and <code>bpy.data.objects[0]</code> will be equivalent if Camera is the first object in the collection:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="o">&lt;</span><span class="n">bpy_collection</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">BlendDataObjects</span><span class="o">&gt;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">)</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="mi">2</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Camera&#39;</span><span class="p">]</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Camera&#39;</span><span class="p">]</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Camera&#39;</span><span class="p">]</span>
 </code></pre></div>
-Two examples of changing attributes (note that some operations only work if Blender is in the right mode):
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Cube&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">z</span> <span class="o">+=</span> <span class="mi">1</span>              <span class="c1"># this works in both edit and object mode</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Cube&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">co</span><span class="o">.</span><span class="n">z</span> <span class="o">+=</span> <span class="mi">10</span>  <span class="c1"># this works only in object mode</span>
-</code></pre></div></p>
+<p>Attributes of data blocks (e.g an object, collection or material) can be accessed as regular Python attributes, for example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="s1">&#39;Camera&#39;</span>
+</code></pre></div>
+<p>Here's two examples of changing those attributes (note that some operations only work if Blender is in the right mode):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Cube&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">z</span> <span class="o">+=</span> <span class="mi">1</span>              <span class="c1"># this works in both edit and object mode</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Cube&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">co</span><span class="o">.</span><span class="n">z</span> <span class="o">+=</span> <span class="mi">10</span>  <span class="c1"># this works only in object mode</span>
+</code></pre></div>
 <div class="admonition tips">
 <p class="admonition-title">Tips</p>
 <ul>
-<li>Use the <em>Python Console</em> in Blender and the auto-complete functionality to see what attributes <code>bpy.data</code> has.</li>
+<li>Use the <em>Python Console</em> in Blender and the auto-complete functionality (<strong><code>TAB</code></strong>) to see what attributes <code>bpy.data</code> has.</li>
 <li>The <em>Info Editor</em> in Blender shows the python commands being executed when you do operations manually in Blender (See Fig. 2.)</li>
 <li>Hovering over buttons and input boxes in Blender shows how to access the underlying values through the Python API.</li>
 </ul>
@@ -1704,11 +1717,13 @@ Two examples of changing attributes (note that some operations only work if Blen
 </figure>
 </p>
 <h2 id="some-notes-on-bpycontext-and-bpyops">Some notes on <code>bpy.context</code> and <code>bpy.ops</code><a class="headerlink" href="#some-notes-on-bpycontext-and-bpyops" title="Permanent link">&para;</a></h2>
-<iframe width="640" height="360" src="https://www.youtube.com/embed/w9t_675NV_8" frameborder="0" allowfullscreen></iframe>
+<p style="text-align:center">
+    <iframe width="640" height="360" src="https://www.youtube.com/embed/w9t_675NV_8" frameborder="0" allowfullscreen></iframe>
+</p>
 
-<p>In this section we want to briefly introduce how you can access the so-called context and use operators in the Blender Python API. <code>bpy.context</code> stores information about a user's selections and the context Blender is in. For example, if you want to check which mode is currently active in Blender you can check the value of <code>bpy.context.mode</code>. </p>
-<p>Now if you want to change the mode, you can use an operator. Operators are tools that are usually accessed through the user interface with buttons and menus. You can access these operators with Python through <code>bpy.ops</code>. If we would like to change the mode we can do this using an operator, e.g. <code>bpy.ops.object.mode_set(mode='OBJECT')</code></p>
-<p>Of course switching to, say, edit mode, depends on which objects are selected, which can be checked with <code>bpy.context.selected_objects</code>. But keep in mind that many of the variables in the context are read-only, altering <code>bpy.context.selected_objects</code> directly is not possible. Instead, you can select an object with the <code>select_set()</code> method of the object, e.g. <code>bpy.data.objects['Cube'].select_set(True)</code>.  </p>
+<p>In this section we want to briefly introduce how you can access something called the <em>context</em>, and use operators in the Blender Python API. <code>bpy.context</code> stores information about a user's selections and the context Blender is in. For example, if you want to check which mode is currently active in Blender you can check the value of <code>bpy.context.mode</code>. </p>
+<p>Now if you want to change the mode, you can use an <em>operator</em>. Operators are tools that are usually accessed through the user interface with buttons and menus. You can access these operators with Python through <code>bpy.ops</code>. If we would like to change the mode we can do this using an operator, e.g. <code>bpy.ops.object.mode_set(mode='OBJECT')</code></p>
+<p>Of course the possibility of switching to, say, edit mode, depends on which objects are selected, which can be checked with <code>bpy.context.selected_objects</code>. But keep in mind that many of the variables in the context are read-only, for example altering <code>bpy.context.selected_objects</code> directly is not possible. Instead, you can select an object with the <code>select_set()</code> method of the object, e.g. <code>bpy.data.objects['Cube'].select_set(True)</code>.  </p>
 <h2 id="running-a-script-and-rendering-from-the-console">💻 Running a script and rendering from the console<a class="headerlink" href="#running-a-script-and-rendering-from-the-console" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Write an external script that removes the Cube object that is part of the default scene <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> </li>
@@ -1727,13 +1742,15 @@ Two examples of changing attributes (note that some operations only work if Blen
 
   <hr>
 <div class="md-source-file">
-  <small>
+  <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 11, 2022 19:38:35</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">May 4, 2022 10:47:36</span>
       
     
-  </small>
+    &bull;
+  </small>  
+  <img src="https://visualization.surf.nl/cgi-bin/pagecount.cgi?url=https%3A//surf-visualization.github.io/blender-course/advanced/python_scripting/2_accessing_data/" alt="">
 </div>
 
               
@@ -1774,7 +1791,7 @@ Two examples of changing attributes (note that some operations only work if Blen
               <span class="md-footer__direction">
                 Next
               </span>
-              Creating geometry, colors and materials
+              Geometry, colors and materials
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1821,7 +1838,7 @@ Two examples of changing attributes (note that some operations only work if Blen
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.top"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.6e54b5cd.min.js"></script>

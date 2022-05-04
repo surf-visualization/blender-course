@@ -15,7 +15,7 @@
     
     
       
-        <title>Visualizing volumetric data - Introduction to Scientific Visualization with Blender</title>
+        <title>Visualizing volumetric data through OpenVDB - Introduction to Scientific Visualization with Blender</title>
       
     
     
@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#visualizing-volumetric-data" class="md-skip">
+        <a href="#visualizing-volumetric-data-through-openvdb" class="md-skip">
           Skip to content
         </a>
       
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Visualizing volumetric data
+              Visualizing volumetric data through OpenVDB
             
           </span>
         </div>
@@ -1122,7 +1122,7 @@
   
     <li class="md-nav__item">
       <a href="../3_geometry_colors_and_materials/" class="md-nav__link">
-        Creating geometry, colors and materials
+        Geometry, colors and materials
       </a>
     </li>
   
@@ -1145,12 +1145,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Visualizing volumetric data
+          Visualizing volumetric data through OpenVDB
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Visualizing volumetric data
+        Visualizing volumetric data through OpenVDB
       </a>
       
         
@@ -1266,7 +1266,7 @@
   
     <li class="md-nav__item">
       <a href="../../advanced_materials/advanced_materials_assignment/" class="md-nav__link">
-        💻 The Shader Editor and advanced material topics
+        💻 The Shader Editor and advanced materials
       </a>
     </li>
   
@@ -1704,8 +1704,9 @@
                 
 
 
-<h1 id="visualizing-volumetric-data">Visualizing volumetric data<a class="headerlink" href="#visualizing-volumetric-data" title="Permanent link">&para;</a></h1>
+<h1 id="visualizing-volumetric-data-through-openvdb">Visualizing volumetric data through OpenVDB<a class="headerlink" href="#visualizing-volumetric-data-through-openvdb" title="Permanent link">&para;</a></h1>
 <p>In this section we will show a simple example of how to visualize custom volumetric data with Blender and Python. The current support in Blender for volumetric data is directly tied to the <em>OpenVDB</em> file format. In fact, the only way to create a volume object is to load an OpenVDB file. This is a file format and data structure that originated from the motion-picture industry, where it is often used to show clouds, smoke and fire in computer graphics like movies and games. Here's an example of such a volumetric rendering:</p>
+<p><center></p>
 <table>
 <thead>
 <tr>
@@ -1718,6 +1719,7 @@
 </tr>
 </tbody>
 </table>
+<p></center></p>
 <p>The reason OpenVDB is used for many volumetric data applications in computer graphics is that is allows sparse volumes to be stored efficiently, while also providing easy querying of the data, for example during rendering. OpenVDB is also a bit more than just a file format, as the OpenVDB library also supports more advanced operations. From the OpenVDB website:</p>
 <blockquote>
 <p>OpenVDB is an Academy Award-winning C++ library comprising a hierarchical data structure and a suite of tools for the efficient manipulation of sparse, time-varying, volumetric data discretized on three-dimensional grids. It is based on VDB, which was developed by Ken Museth at DreamWorks Animation, and it offers an effectively infinite 3D index space, compact storage, fast data access, and a collection of algorithms specifically optimized for the data structure for common tasks such as filtering, CSG, compositing, numerical simulation, sampling, and voxelization from other geometric representations.</p>
@@ -1726,7 +1728,9 @@
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <p>OpenVDB models are mostly generated with specialized software like <a href="https://www.sidefx.com/">Houdini</a> and <a href="https://jangafx.com/software/embergen/">Embergen</a>. Volumetric data in general is also used for scientific visualizations, for example in <a href="https://www.paraview.org/">ParaView</a>, but support for OpenVDB is still lacking somewhat. In this section we will explain how OpenVDB files can be made from scratch. For example for when you have you own volumetric data in your own data format and you want to visualize or animate this in Blender. To convert your data to a OpenVDB format we will use the Python package <a href="https://pypi.org/project/pyopenvdb/"><code>pyopenvdb</code></a>. </p>
 <p>First we will create data in Python and write it to an OpenVDB file using <a href="https://www.openvdb.org/">OpenVDB</a> and the Python package <a href="https://pypi.org/project/pyopenvdb/"><code>pyopenvdb</code></a>. </p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/x0Zlb7vyaO4" frameborder="0" allowfullscreen></iframe>
+<p style="text-align:center">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/x0Zlb7vyaO4" frameborder="0" allowfullscreen></iframe>
+</p>
 
 <h2 id="installation-of-pyopenvdb">Installation of <code>pyopenvdb</code><a class="headerlink" href="#installation-of-pyopenvdb" title="Permanent link">&para;</a></h2>
 <p>Installing the Python module to access the openVDB functionality can be very easy or more difficult depending on your operating system. See the installation instructions on the <a href="https://pypi.org/project/pyopenvdb/"><code>pyopenvdb website</code></a>. </p>
@@ -1753,20 +1757,20 @@
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
 <a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>            <span class="n">array</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
 </code></pre></div></p>
-<p>Now we come to the <code>openvdb</code> part, where we first need to make a grid. In this case we make a float grid (there are more grids besides a float grid for example a BoolGrid and Vec3SGrid are also standardly available).
+<p>Now we come to the <code>openvdb</code> part, where we first need to make a grid. In this case we make a float grid (there are more grids besides a float grid for example a BoolGrid and Vec3SGrid are also standardly available).</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">grid</span> <span class="o">=</span> <span class="n">vdb</span><span class="o">.</span><span class="n">FloatGrid</span><span class="p">()</span>
-</code></pre></div></p>
-<p>We now copy the values in the array into the grid:
+</code></pre></div>
+<p>We now copy the values in the array into the grid:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">grid</span><span class="o">.</span><span class="n">copyFromArray</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
-</code></pre></div></p>
-<p>The last important thing we need to do before we save it to file is to name the grid. You will use this name later when using the grid in Blender.
+</code></pre></div>
+<p>The last important thing we need to do before we save it to file is to name the grid. You will use this name later when using the grid in Blender.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">grid</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;cube&quot;</span>
-</code></pre></div></p>
-<p>The last thing left to do is to save the grid to file:
+</code></pre></div>
+<p>The last thing left to do is to save the grid to file:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">vdb</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;cube.vdb&#39;</span><span class="p">,</span> <span class="n">grids</span><span class="o">=</span><span class="p">[</span><span class="n">grid</span><span class="p">])</span>
-</code></pre></div></p>
+</code></pre></div>
 <h2 id="loading-a-vdb-file-into-blender">Loading a VDB file into Blender<a class="headerlink" href="#loading-a-vdb-file-into-blender" title="Permanent link">&para;</a></h2>
-<p>Open a new Blender file and if its there, remove the starting cube. In the <code>3D viewport</code> choose <code>Add</code> =&gt; <code>Volume</code> =&gt; <code>Import OpenVDB</code> or use the shortcut <code>Shift-A</code>. Locate the <code>cube.vdb</code> file we just made through the script. You will most likely not see anything yet, so scale the cube down using the shortcut <code>s</code> until you can see the outline of the cube. Now if you change the <code>Viewport shading</code> in the top right of the <code>3D viewport</code> to <code>Render preview</code> (see Fig. 1, #1), you will not see anything beside the outline since we still need to make a shader for the model.</p>
+<p>Open a new Blender file and if its there, remove the starting cube. In the 3D viewport choose menu option <strong><code>Add &gt; Volume &gt; Import OpenVDB</code></strong> or use the shortcut <strong><code>Shift-A</code></strong>. Locate the <code>cube.vdb</code> file we just made through the script. You will most likely not see anything yet, so scale the cube down using the shortcut <strong><code>S</code></strong> until you can see the outline of the cube. Now if you change the <code>**Viewport shading**</code> in the top right of the 3D viewport to <strong><code>Rendered</code></strong> (see Fig. 1, #1), you will not see anything beside the outline since we still need to add a shader to the model.</p>
 <table>
 <thead>
 <tr>
@@ -1779,11 +1783,11 @@
 </tr>
 </tbody>
 </table>
-<p>Change to the <code>Shading</code> workspace (see Fig. 1, #2) and in the <code>Shader editor</code> click on new to make a new material (see Fig. 1, #3). You see Blender makes a <code>Principled volume</code> and <code>Material output</code> node. To make the cube appear we need to change one thing and for this we need to know the name of the grid in the VDB file. </p>
-<p>From the Python script we know this is <code>cube</code>, but you can also figure out the grids and their names in a VDB file from within Blender. In the <code>Properties</code> panel go to <code>Object Data Properties</code> tab (see Fig. 1, #4). Here under <code>Grids</code> you can see the names of the grids in the VDB file. For now, in the <code>Principled Volume</code> node, add the name of the grid (<code>cube</code>) into the field next to <code>Density Attribute</code> (see Fig. 1, #5). This tells the node to use the values in the grid for the scattering density of the voxels.</p>
+<p>Change to the <strong><code>Shading</code></strong> workspace (see Fig. 1, #2) and in the <strong><code>Shader editor</code></strong> click on new to make a new material (see Fig. 1, #3). You see Blender makes a <strong><code>Principled volume</code></strong> and <strong><code>Material output</code></strong> node. To make the cube appear we need to change one thing and for this we need to know the name of the grid in the VDB file. </p>
+<p>From the Python script we know this is <code>cube</code>, but you can also figure out the grids and their names in a VDB file from within Blender. In the <strong><code>Properties</code></strong> panel go to <strong><code>Object Data Properties</code></strong> tab (see Fig. 1, #4). Here under <strong><code>Grids</code></strong> you can see the names of the grids in the VDB file. For now, in the <strong><code>Principled Volume</code></strong> node, add the name of the grid (<code>cube</code>) into the field next to <strong><code>Density Attribute</code></strong> (see Fig. 1, #5). This tells the node to use the values in the grid for the scattering density of the voxels.</p>
 <h2 id="coloring-the-cube">💻 Coloring the cube<a class="headerlink" href="#coloring-the-cube" title="Permanent link">&para;</a></h2>
-<p>Now make a cube similar to the one we just made, but color it blue on one side and red on the other (See Fig. 2). First alter the Python script to include a second grid in the VDB file. In this second grid set one side of the cube to value 1 and the other to zero. Use an <code>Attribute node</code> (do not forget to add the grid name to the <code>Name:</code> field in the attribute node) to feed the second grid into a <code>ColorRamp</code> node (and choose the colors you want). Now feed the <code>ColorRamp</code> into the <code>Color</code> field of the <code>Principled Volume</code>. Do not forget to set the original grid in the <code>Density Attribute</code>. </p>
-<p>Does it come out right? Maybe you need to play a bit with settings, like set the <code>Density</code> to 1. You might also need to play with the lighting. If you still have the original light in your scene, try increasing its <code>Power</code> and location. Now also see how it looks in <code>Cycles</code> compared to <code>Eevee</code>.</p>
+<p>Now make a cube similar to the one we just made, but color it blue on one side and red on the other (See Fig. 2). First alter the Python script to include a second grid in the VDB file. In this second grid set one side of the cube to value 1 and the other to zero. Use an <strong><code>Attribute node</code></strong> (do not forget to add the grid name to the <strong><code>Name:</code></strong> field in the attribute node) to feed the second grid into a <strong><code>ColorRamp</code></strong> node (and choose the colors you want). Now feed the <strong><code>ColorRamp</code></strong> into the <strong><code>Color</code></strong> field of the <strong><code>Principled Volume</code></strong>. Do not forget to set the original grid in the <strong><code>Density Attribute</code></strong>. </p>
+<p>Does it come out right? Maybe you need to play a bit with settings, like set the <strong><code>Density</code></strong> to 1. You might also need to play with the lighting. If you still have the original light in your scene, try increasing its <strong><code>Power</code></strong> and location. Now also see how it looks in Cycles compared to Eevee.</p>
 <table>
 <thead>
 <tr>
@@ -1799,13 +1803,15 @@
 
   <hr>
 <div class="md-source-file">
-  <small>
+  <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 11, 2022 19:38:35</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">May 4, 2022 10:47:36</span>
       
     
-  </small>
+    &bull;
+  </small>  
+  <img src="https://visualization.surf.nl/cgi-bin/pagecount.cgi?url=https%3A//surf-visualization.github.io/blender-course/advanced/python_scripting/4_volumetric_data/" alt="">
 </div>
 
               
@@ -1834,7 +1840,7 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Creating geometry, colors and materials
+              Geometry, colors and materials
             </div>
           </div>
         </a>
@@ -1893,7 +1899,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.top"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.6e54b5cd.min.js"></script>

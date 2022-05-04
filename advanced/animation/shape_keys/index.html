@@ -1120,7 +1120,7 @@
   
     <li class="md-nav__item">
       <a href="../../python_scripting/3_geometry_colors_and_materials/" class="md-nav__link">
-        Creating geometry, colors and materials
+        Geometry, colors and materials
       </a>
     </li>
   
@@ -1134,7 +1134,7 @@
   
     <li class="md-nav__item">
       <a href="../../python_scripting/4_volumetric_data/" class="md-nav__link">
-        Visualizing volumetric data
+        Visualizing volumetric data through OpenVDB
       </a>
     </li>
   
@@ -1195,7 +1195,7 @@
   
     <li class="md-nav__item">
       <a href="../../advanced_materials/advanced_materials_assignment/" class="md-nav__link">
-        💻 The Shader Editor and advanced material topics
+        💻 The Shader Editor and advanced materials
       </a>
     </li>
   
@@ -1683,12 +1683,12 @@
 <p>We'll now add some shape keys:</p>
 <ol>
 <li>Select the regular Bunny.</li>
-<li>Add a shape key under <code>Shape Keys</code> in the Mesh properties using the <strong><code>+</code></strong> button. The new shape keys will be called <code>Basis</code>.</li>
-<li>Add a second shape key, it will be called <code>Key 1</code> and have a default influence of 0.</li>
+<li>Add a shape key under <strong><code>Shape Keys</code></strong> in the Mesh properties using the <strong><code>+</code></strong> button. The new shape keys will be called <code>Basis</code>.</li>
+<li>Add a second shape key, it will be called <code>Key 1</code> and have a default influence of <code>0.000</code>.</li>
 <li>Select the <code>Key 1</code> shape key and enter mesh edit mode in the 3D view with <strong><code>TAB</code></strong> and make sure you're in vertex mode by pressing <strong><code>1</code></strong></li>
 <li>Select parts of the Bunny mesh and transform them as you like. The changes should be clearly visible.</li>
 <li>Exit mesh edit mode with <strong><code>TAB</code></strong>. You should notice that the mesh returns to its normal shape.</li>
-<li>Change the influence value of <code>Key 1</code> to see what happens to the resulting mesh. You can either click on it and enter a number, of click and drag the value.</li>
+<li>Change the influence <strong><code>Value</code></strong> of <code>Key 1</code> to see what happens to the resulting mesh. You can either click on it and enter a number, of click and drag the value.</li>
 </ol>
 <p>Let's add another shape key:</p>
 <ol>
@@ -1699,34 +1699,36 @@
 </ol>
 <p>Checking the difference between relative and absolute shape keys:</p>
 <ol>
-<li>Uncheck the <code>Relative</code> checkbox to switch to absolute shape keys. Notice that the influence values have now disappeared.</li>
-<li>Change the <code>Evolution Time</code> value to understand how the morphing of the meshes is done now.</li>
+<li>Uncheck the <strong><code>Relative</code></strong> checkbox to switch to absolute shape keys. Notice that the influence values have now disappeared.</li>
+<li>Change the <strong><code>Evolution Time</code></strong> value to understand how the morphing of the meshes is done now.</li>
 </ol>
 <p>Using another mesh to define a shape key:</p>
 <ol>
-<li>Delete shape keys <code>Key 1</code> and <code>Key 2</code> using the <strong><code>-</code></strong> button and change back to relative shape keys by checking the <code>Relative</code> checkbox.</li>
-<li>Select the flattened mesh and the <strong><code>Shift-click</code></strong> the Bunny mesh. </li>
-<li>Open the shape key menu using the downwards arrow below the <strong><code>+</code></strong> and <strong><code>-</code></strong> buttons. Select <strong><code>Join as Shapes</code></strong>.</li>
-<li>There should now be a new shape key called <code>flattened mesh</code>.</li>
-<li>Vary the influence of the <code>flattened mesh</code> shape key to see the Bunny melt.</li>
-<li>Delete the <code>flattened mesh</code> object in the Outliner. Does the shape key morphing to melt the Bunny still work?</li>
+<li>Delete shape keys <code>Key 1</code> and <code>Key 2</code> using the <strong><code>-</code></strong> button and change back to relative shape keys by checking the <strong><code>Relative</code></strong> checkbox.</li>
+<li>Select the flattened mesh and the <strong><code>Shift-click</code></strong> the Bunny mesh to add it to the selection and make it the active object.  </li>
+<li>Open the shape key menu using the downwards arrow below the <strong><code>+</code></strong> and <strong><code>-</code></strong> buttons. Select <strong><code>Join as Shapes</code></strong>. </li>
+<li>There should now be a new shape key called <code>flattened mesh</code>. Note that this shape key is only set on the <code>bunny</code> mesh, not on the <code>flattened mesh</code> mesh.</li>
+<li>Vary the influence of the shape key called <code>flattened mesh</code> to see the Bunny melt.</li>
+<li>Delete the <code>flattened mesh</code> object in the Outliner. Does the shape key that morphs the Bunny to its melted flat shape still work?</li>
 </ol>
 <p>Looking closer at the behaviour of the mesh morphing:</p>
 <ol>
 <li>Try to reason why the head of the Bunny is the last part to melt.</li>
 <li>Zoom in a bit to see if you can spot the twisting motion that mesh makes as it melts. </li>
-<li>Try to transform the mesh in the melted shape key in such as way as to minimize the twist. Or toy around with other mesh transforms to see what morphs come out.</li>
+<li>Try to transform the mesh in the melted shape key in such as way as to minimize the twist. Or toy around with other mesh transforms to see what morphs come out. Note that you need to make changes in edit mode.</li>
 </ol>
 
   <hr>
 <div class="md-source-file">
-  <small>
+  <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 11, 2022 19:38:35</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">May 4, 2022 12:35:56</span>
       
     
-  </small>
+    &bull;
+  </small>  
+  <img src="https://visualization.surf.nl/cgi-bin/pagecount.cgi?url=https%3A//surf-visualization.github.io/blender-course/advanced/animation/shape_keys/" alt="">
 </div>
 
               
@@ -1814,7 +1816,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.top"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
