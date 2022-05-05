@@ -15,7 +15,7 @@
     
     
       
-        <title>💻 Flipbook animation - Introduction to Scientific Visualization with Blender</title>
+        <title>Flipbook animation - Introduction to Scientific Visualization with Blender</title>
       
     
     
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              💻 Flipbook animation
+              Flipbook animation
             
           </span>
         </div>
@@ -1309,12 +1309,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          💻 Flipbook animation
+          Flipbook animation
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        💻 Flipbook animation
+        Flipbook animation
       </a>
       
         
@@ -1333,11 +1333,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#alternatives" class="md-nav__link">
-    Alternatives
+  <a href="#using-python-to-set-up-an-animated-mesh" class="md-nav__link">
+    💻 Using Python to set up an animated mesh
   </a>
   
-    <nav class="md-nav" aria-label="Alternatives">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternatives-using-modifiers" class="md-nav__link">
+    Alternatives using modifiers
+  </a>
+  
+    <nav class="md-nav" aria-label="Alternatives using modifiers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1648,11 +1655,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#alternatives" class="md-nav__link">
-    Alternatives
+  <a href="#using-python-to-set-up-an-animated-mesh" class="md-nav__link">
+    💻 Using Python to set up an animated mesh
   </a>
   
-    <nav class="md-nav" aria-label="Alternatives">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alternatives-using-modifiers" class="md-nav__link">
+    Alternatives using modifiers
+  </a>
+  
+    <nav class="md-nav" aria-label="Alternatives using modifiers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1688,18 +1702,38 @@
                 
 
 
-<h1 id="flipbook-animation">💻 Flipbook animation<a class="headerlink" href="#flipbook-animation" title="Permanent link">&para;</a></h1>
-<p>Get more familiar with the flipbook approach, in which a series of meshes is animated over time by switching a single object's mesh data 
-each frame.</p>
+<h1 id="flipbook-animation">Flipbook animation<a class="headerlink" href="#flipbook-animation" title="Permanent link">&para;</a></h1>
+<p>As mentioned in the animation chapter's video flipbook animation is a simple animation technique
+in which a mesh is changed over time. Such a changing mesh occurs quite frequently in (scientific) 
+simulations.</p>
+<p>In general there's two different situations when it comes to an animated mesh:</p>
+<ul>
+<li>The mesh topology stays fixed over time, but its vertex positions change each time step</li>
+<li>The mesh topology and its vertices change over time</li>
+</ul>
+<p>The exercise below shows a general technique how to handle any set of
+animated meshes (so for both types above), which are loaded individually from files. This technique has
+no restrictions on changing mesh topology, but is somewhat involved as it
+uses a Python script to set up the animation. </p>
+<p>Below we also describe two modifiers that are available in Blender, each usable
+for one of the types above.</p>
+<h2 id="using-python-to-set-up-an-animated-mesh">💻 Using Python to set up an animated mesh<a class="headerlink" href="#using-python-to-set-up-an-animated-mesh" title="Permanent link">&para;</a></h2>
+<p>Here, we'll get more familiar with the flipbook animation approach, in which a series of meshes is 
+animated over time by switching a single object's mesh data each frame.</p>
 <ol>
-<li>Extract <strong><code>dambreak.tar.gz</code></strong> in the same directory as <strong><code>animated_ply_imports.blend</code></strong></li>
+<li>Extract <strong><code>dambreak.tar.gz</code></strong> in the same directory as <strong><code>animated_ply_imports.blend</code></strong>. These files are located in the <code>data/advanced/animation</code> directory.</li>
 <li>
 <p>Load <strong><code>animated_ply_imports.blend</code></strong></p>
 <p>This blend file contains not only a 3D scene, but also some Python
 scripts we use to set up the flipbook animation.</p>
-<p>The first step is to load all the timesteps in the dataset using one
-of the scripts. This might take a bit of time, depending on the speed
-of your system. </p>
+</li>
+<li>
+<p>The first step is to load the whole dataset of timesteps using one
+    of the scripts. This might take a bit of time, depending on the speed
+    of your system. </p>
+<p>Execute the script that imports the PLY files for the time steps. To do
+this step make sure the script called <code>1. import ply files</code> is shown
+in the text editor panel. Then press the <img alt="" class="iconimg" src="../../images/run_script_button.png" /> button in the top bar to run the script.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>By default, only the first 100 steps are loaded. You can increase the
@@ -1708,26 +1742,22 @@ in both the import script and the animation handler script.</p>
 </div>
 </li>
 <li>
-<p>Execute the script that imports the PLY files for the time steps. To do
-   this step make sure the script called "1. import ply files" is shown
-   in the text editor panel. Then press the <img alt="" class="iconimg" src="../../images/run_script_button.png" /> button in the top bar to run the script.</p>
-</li>
-<li>
 <p>The cursor changes to a numbered black square indicating the
    percentage of loading that has been completed.
    In case you get the idea something is wrong check the console
-   output in the terminal where you started Blender.</p>
+   output in the terminal where you started Blender, to see if there
+   are any error messages.</p>
 </li>
 <li>
 <p>After all PLY files are loaded execute the script that installs the
-   frame change handler. This script is called "2. register anim handler".
+   frame change handler. This script is called <code>2. register anim handler</code>.
    Make sure the text editor is switched to this script and press the play button.</p>
 </li>
 <li>
 <p>Verify that the flipbook animation works with <strong><code>Space</code></strong> and/or
    moving the time slider in the Timeline with <strong><code>Shift-RMB</code></strong>.</p>
-<p><em>The playback speed will depend on your system's performance, but
-also on the framerate setting.</em></p>
+<p><em>The playback speed will not only depend on the framerate setting, but also
+on your system's performance</em></p>
 </li>
 <li>
 <p>Change the <strong><code>Frame Rate</code></strong> value (in the <strong><code>Output</code></strong> properties tab
@@ -1743,7 +1773,7 @@ also on the framerate setting.</em></p>
 <li>Place a surfer on the moving wave of water. You can import the PLY model <strong><code>silver_surfer_by_melic.ply</code></strong> to use as 3D model. You can
 load it in Blender with <strong><code>File &gt; Import &gt; Stanford (.ply)</code></strong>.</li>
 </ul>
-<h2 id="alternatives">Alternatives<a class="headerlink" href="#alternatives" title="Permanent link">&para;</a></h2>
+<h2 id="alternatives-using-modifiers">Alternatives using modifiers<a class="headerlink" href="#alternatives-using-modifiers" title="Permanent link">&para;</a></h2>
 <p>The above method uses a bit of a hack with Python to set up mesh changes over time. Although it's flexible (it can
 work with any type of file format by editing the import code), it is also a bit fragile, needs to load
 all meshes in memory all at once, etc.</p>
@@ -1811,7 +1841,7 @@ mesh in Blender first. After that, apply the Mesh Cache modifier and set the .pc
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">May 5, 2022 13:36:48</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">May 5, 2022 13:50:41</span>
       
     
     &bull;
