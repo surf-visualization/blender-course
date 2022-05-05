@@ -1624,13 +1624,21 @@ performance and memory usage, both for interactive work in the user interface, a
 However, there is currently in 3.1 no way to directly create a point cloud primitive by importing a file, and the only alternative is using Geometry Nodes
 to generate a point cloud primitive from a vertex-only mesh. But Geometry Nodes are not a topic in this Basics part of the course.</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Availability of importers/exporters (Linux distributions)</p>
+<p>When using the <a href="https://www.blender.org/download">official Blender binaries</a> from https://www.blender.org all supported importers and exporters will be included.</p>
+<p>But especially when using a Linux distribution's Blender package some features might not be available, usually to
+libraries not being enabled when the package was built. For example, currently (May 2022) on Arch Linux the <a href="https://bugs.archlinux.org/task/73834">USD import/export support
+is not available</a> in the Arch Blender package.</p>
+<p>If you run into such issues, please download and use the official binaries instead.</p>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 15, 2022 14:21:02</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">May 5, 2022 13:36:48</span>
       
     
     &bull;

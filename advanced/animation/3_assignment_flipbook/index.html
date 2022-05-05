@@ -1308,9 +1308,60 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          💻 Flipbook animation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         💻 Flipbook animation
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#alternatives" class="md-nav__link">
+    Alternatives
+  </a>
+  
+    <nav class="md-nav" aria-label="Alternatives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mesh-sequence-cache-modifier" class="md-nav__link">
+    Mesh Sequence Cache Modifier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesh-cache-modifier" class="md-nav__link">
+    Mesh Cache Modifier
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1590,6 +1641,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#alternatives" class="md-nav__link">
+    Alternatives
+  </a>
+  
+    <nav class="md-nav" aria-label="Alternatives">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mesh-sequence-cache-modifier" class="md-nav__link">
+    Mesh Sequence Cache Modifier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesh-cache-modifier" class="md-nav__link">
+    Mesh Cache Modifier
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1603,12 +1689,12 @@
 
 
 <h1 id="flipbook-animation">💻 Flipbook animation<a class="headerlink" href="#flipbook-animation" title="Permanent link">&para;</a></h1>
-<p>Get more familiar with the flipbook approach, in which a meshes is animated over time by switching a single object's mesh data 
+<p>Get more familiar with the flipbook approach, in which a series of meshes is animated over time by switching a single object's mesh data 
 each frame.</p>
 <ol>
 <li>Extract <strong><code>dambreak.tar.gz</code></strong> in the same directory as <strong><code>animated_ply_imports.blend</code></strong></li>
-<li>Load <strong><code>animated_ply_imports.blend</code></strong></li>
-</ol>
+<li>
+<p>Load <strong><code>animated_ply_imports.blend</code></strong></p>
 <p>This blend file contains not only a 3D scene, but also some Python
 scripts we use to set up the flipbook animation.</p>
 <p>The first step is to load all the timesteps in the dataset using one
@@ -1620,7 +1706,7 @@ of your system. </p>
 number of files to the full 300 if you like by updating the variable <strong><code>N</code></strong>
 in both the import script and the animation handler script.</p>
 </div>
-<ol>
+</li>
 <li>
 <p>Execute the script that imports the PLY files for the time steps. To do
    this step make sure the script called "1. import ply files" is shown
@@ -1640,27 +1726,92 @@ in both the import script and the animation handler script.</p>
 <li>
 <p>Verify that the flipbook animation works with <strong><code>Space</code></strong> and/or
    moving the time slider in the Timeline with <strong><code>Shift-RMB</code></strong>.</p>
+<p><em>The playback speed will depend on your system's performance, but
+also on the framerate setting.</em></p>
+</li>
+<li>
+<p>Change the <strong><code>Frame Rate</code></strong> value (in the <strong><code>Output</code></strong> properties tab
+   at the right side of the screen, icon <img alt="" class="iconimg" src="../../images/outputicon.png" />) to different values to see how your system handles it.
+   Is 60 fps feasible?</p>
 </li>
 </ol>
-<p>The playback speed will depend on your system's performance, but
-also on the framerate setting.</p>
-<ol>
-<li>Change the <strong><code>Frame Rate</code></strong> value (in the <strong><code>Output</code></strong> properties tab
-   at the right side of the screen, icon <img alt="" class="iconimg" src="../../images/outputicon.png" />) to different values to see how your system handles it.
-   Is 60 fps feasible?</li>
-</ol>
 <p>Use your skills with keyframe animation to do one of the following things (or both if you feel like it ;-)):</p>
-<p>8a. Have a camera follow the moving water in some cool way</p>
-<p>8b. Place a surfer on the moving wave of water. You can import the
-   PLY model <strong><code>silver_surfer_by_melic.ply</code></strong> to use as 3D model. You can
-   load it in Blender with <strong><code>File &gt; Import &gt; Stanford (.ply)</code></strong>.</p>
+<ul>
+<li>Have a camera follow the moving water in some cool way</li>
+</ul>
+<ul>
+<li>Place a surfer on the moving wave of water. You can import the PLY model <strong><code>silver_surfer_by_melic.ply</code></strong> to use as 3D model. You can
+load it in Blender with <strong><code>File &gt; Import &gt; Stanford (.ply)</code></strong>.</li>
+</ul>
+<h2 id="alternatives">Alternatives<a class="headerlink" href="#alternatives" title="Permanent link">&para;</a></h2>
+<p>The above method uses a bit of a hack with Python to set up mesh changes over time. Although it's flexible (it can
+work with any type of file format by editing the import code), it is also a bit fragile, needs to load
+all meshes in memory all at once, etc.</p>
+<p>In recent versions of Blender two modifiers were introduced that can be used for similar animation
+setups, although they each have their limitations. We describe them here in case they are useful for certain situations
+you might encounter.</p>
+<h3 id="mesh-sequence-cache-modifier">Mesh Sequence Cache Modifier<a class="headerlink" href="#mesh-sequence-cache-modifier" title="Permanent link">&para;</a></h3>
+<p>The <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/modify/mesh_sequence_cache.html">Mesh Sequence Cache Modifier</a> takes one or more Alembic or USD files and sets up a time-varying mesh from those.
+The animated mesh data can either come from a single file (containing multiple time steps), or from multiple files (each containing
+a single time step).</p>
+<p>The limitation of only supporting Alembic and USD file formats is somewhat unfortunate, but understandable, since those
+formats support storing animated meshes in a single file and they are used extensively in visual effects and animation.</p>
+<p>If you want to use this modifier then you need to create an Alembic or USD file (or set of files) containing your animated mesh.
+If you then import that file the Mesh Sequence Cache modifier will be added automatically to set up the animation.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>An example USD file to load can be found in <code>data/advanced/animation/animated_plane.usdc</code>. The file was created
+by exporting the example animation described below (involving <code>gen_pc2_anim.py</code>) from Blender to a USD file.</p>
+</div>
+<h3 id="mesh-cache-modifier">Mesh Cache Modifier<a class="headerlink" href="#mesh-cache-modifier" title="Permanent link">&para;</a></h3>
+<p>The <a href="https://docs.blender.org/manual/en/latest/modeling/modifiers/modify/mesh_cache.html">Mesh Cache Modifier</a> works somewhat differently in that it is applied to an existing mesh object and will 
+animate vertex positions (only) of that mesh. The modifier supports reading the animated vertex data from a MMD or PC2 
+file. </p>
+<div class="admonition warning">
+<p class="admonition-title">Fixed mesh topology</p>
+<p>The animated vertex data in the file is assumed to use the same vertex order over all time steps. The animated mesh can
+also not have a varying number of vertices, or a changing topology (i.e. how the vertices are connected).</p>
+<p>This means that, for example, the animated wave dataset from the exercise above cannot be represented as a series
+of .pc2 files, as the mesh topology changes.</p>
+</div>
+<p>The MDD file format is mostly used to exchange data with other 3D software, while the PC2 is a general and simple point cloud caching format.
+Blender contains add-ons for exporting <a href="https://docs.blender.org/manual/en/latest/addons/import_export/shape_mdd.html">MDD</a> and <a href="https://docs.blender.org/manual/en/latest/addons/import_export/pc2.html">PC2</a> files, but they are not enabled by default. When enabled you can use them to convert a mesh sequence in a different format to one of these.</p>
+<p>The PC2 file format is very simple, and can easily be written from, say, Python or C++. The format looks like this (based on information referenced <a href="https://blenderartists.org/t/point-cache-2-exporter/398999/16">here</a>, and example Python code <a href="https://gist.github.com/iyadahmed/b0ba3c375e67fc5ed0f2de560fda27d4">here</a>):</p>
+<ul>
+<li>
+<p>The start of a .pc2 file is a header containing:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>char    cacheSignature[12];   // &#39;POINTCACHE2&#39; followed by a trailing null character.
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>int32   fileVersion;          // Currently 1
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>int32   numPoints;            // Number of points (i.e. vertices) per sample
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>float   startFrame;           // Frame number where animation starts
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>float   sampleRate;           // Duration of each sample in frames
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>int32   numSamples;           // Defines how many samples are stored in the file.
+</code></pre></div>
+</li>
+</ul>
+<ul>
+<li>Following the header, each set of point positions (called a "sample") is stored consecutively. Each sample is stored one after the other as a flat array of x/y/z 32-bit floats for each point. So each sample uses <code>numPoints * sizeof(float) * 3</code> bytes.</li>
+</ul>
+<div class="admonition tips">
+<p class="admonition-title">Tips</p>
+<ul>
+<li>Note that the topology of the animated mesh is not stored in the .pc2 file and needs to be defined by creating a 
+mesh in Blender first. After that, apply the Mesh Cache modifier and set the .pc2 file to use.</li>
+</ul>
+<ul>
+<li>You can update the .pc2 file without having to re-apply the modifier. Blender will re-read the file when the frame number changes.</li>
+</ul>
+<ul>
+<li>See <code>data/advanced/animation/gen_pc2_anim.py</code> for a simple example of generating and using a .pc2 file.</li>
+</ul>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 15, 2022 11:46:47</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">May 5, 2022 13:36:48</span>
       
     
     &bull;
