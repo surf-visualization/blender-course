@@ -1799,29 +1799,32 @@ animate vertex positions (only) of that mesh. The modifier supports reading the 
 file. </p>
 <div class="admonition warning">
 <p class="admonition-title">Fixed mesh topology</p>
-<p>The animated vertex data in the file is assumed to use the same vertex order over all time steps. The animated mesh can
-also not have a varying number of vertices, or a changing topology (i.e. how the vertices are connected).</p>
+<p>The animated vertex data in the MMD or PC2 file is assumed to use the same vertex order over all time steps. The animated mesh can
+also not have a varying number of vertices, or a changing topology.</p>
 <p>This means that, for example, the animated wave dataset from the exercise above cannot be represented as a series
-of .pc2 files, as the mesh topology changes.</p>
+of .pc2 files, as the mesh size in vertices and its topology changes.</p>
 </div>
 <p>The MDD file format is mostly used to exchange data with other 3D software, while the PC2 is a general and simple point cloud caching format.
 Blender contains add-ons for exporting <a href="https://docs.blender.org/manual/en/latest/addons/import_export/shape_mdd.html">MDD</a> and <a href="https://docs.blender.org/manual/en/latest/addons/import_export/pc2.html">PC2</a> files, but they are not enabled by default. When enabled you can use them to convert a mesh sequence in a different format to one of these.</p>
 <p>The PC2 file format is very simple, and can easily be written from, say, Python or C++. The format looks like this (based on information referenced <a href="https://blenderartists.org/t/point-cache-2-exporter/398999/16">here</a>, and example Python code <a href="https://gist.github.com/iyadahmed/b0ba3c375e67fc5ed0f2de560fda27d4">here</a>):</p>
 <ul>
 <li>
-<p>The start of a .pc2 file is a header containing:</p>
+<p>The start of a .pc2 file is a 32-byte header containing:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>char    cacheSignature[12];   // &#39;POINTCACHE2&#39; followed by a trailing null character.
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>int32   fileVersion;          // Currently 1
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>int32   numPoints;            // Number of points (i.e. vertices) per sample
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>float   startFrame;           // Frame number where animation starts
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>float   sampleRate;           // Duration of each sample in frames
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>float   sampleRate;           // Duration of each sample *in frames*
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>int32   numSamples;           // Defines how many samples are stored in the file.
 </code></pre></div>
 </li>
 </ul>
 <ul>
-<li>Following the header, each set of point positions (called a "sample") is stored consecutively. Each sample is stored one after the other as a flat array of x/y/z 32-bit floats for each point. So each sample uses <code>numPoints * sizeof(float) * 3</code> bytes.</li>
+<li>Following the header, each set of point positions (collectively called a "sample") is stored consecutively. Each sample is stored one after the other as a flat array of x/y/z 32-bit floats for each point. So each sample uses <code>numPoints * sizeof(float) * 3</code> bytes.</li>
 </ul>
+<p>All in all, a .pc2 file provides a fairly compact method of storing a set of animated mesh vertices. Together
+with the Mesh Cache modifier they can be used to easily set up a mesh animation, for cases where only vertex
+positions need to be animated.</p>
 <div class="admonition tips">
 <p class="admonition-title">Tips</p>
 <ul>
@@ -1841,7 +1844,7 @@ mesh in Blender first. After that, apply the Mesh Cache modifier and set the .pc
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">May 5, 2022 13:50:41</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">May 5, 2022 15:12:31</span>
       
     
     &bull;
