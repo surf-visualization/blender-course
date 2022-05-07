@@ -1606,6 +1606,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sources-of-examples" class="md-nav__link">
+    Sources of examples
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2028,6 +2035,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#sources-of-examples" class="md-nav__link">
+    Sources of examples
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2445,6 +2459,12 @@ back when needed.</p>
 </ul>
 <h3 id="info-area">Info area<a class="headerlink" href="#info-area" title="Permanent link">&para;</a></h3>
 <p>As mentioned in the <a href="../1_api_basics/#run-scripts-within-the-blender-interface">video</a> in the introductory chapter the Info area can be useful if you want to inspect which Python calls Blender performs for certain operations. This certainly will not provide all the details in all cases, but can give some insight. You can either switch to the default Scripting workspace to check the Info area, or use the normal UI area operations to add/change an area to an Info area.</p>
+<h3 id="sources-of-examples">Sources of examples<a class="headerlink" href="#sources-of-examples" title="Permanent link">&para;</a></h3>
+<p>This chapter provides small snippets of code and serves mostly as a reference. Sometimes it can be useful to get more information or examples of how specific parts of the Blender Python API are used. Some good sources for other code are:</p>
+<ul>
+<li>The add-ons included with Blender show many uses of the Python API. They can be found in the directory <code>&lt;blender-version&gt;/scripts/addons</code> in the Blender distribution directory.</li>
+<li>A number of script templates are also included, in <code>&lt;blender-version&gt;/scripts/templates_py</code>, mostly examples of defining custom operators or UI elements.</li>
+</ul>
 <h2 id="data-blocks">Data-blocks<a class="headerlink" href="#data-blocks" title="Permanent link">&para;</a></h2>
 <p>The different types of data in Blender are stored in <a href="https://docs.blender.org/manual/en/latest/files/data_blocks.html"><em>data-blocks</em></a>. For example, there's Mesh, Object, Texture and Shader data-blocks, but there's <a href="https://docs.blender.org/manual/en/latest/files/data_blocks.html#data-system-datablock-types">quite a few more</a>. One of the clever bits in the way Blender is programmed is that data-blocks written to file contain enough information about their content (i.e. metadata) to make them readable by both older and newer versions of Blender than the one they were written with. This metadata system also makes it possible to automatically provide the Python API for accessing those data-blocks without much manual work from Blender's developers.</p>
 <p>Data-blocks are available through Python, per type, under <code>bpy.data</code>. For example, there's <code>bpy.data.objects</code> and <code>bpy.data.meshes</code>. The type of a data-block is the corresponding class under <code>bpy.types</code>:</p>
@@ -3955,7 +3975,7 @@ of that object, and so not children of its children, etc. Getting to the set of 
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">May 5, 2022 15:48:10</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">May 5, 2022 17:54:25</span>
       
     
     &bull;

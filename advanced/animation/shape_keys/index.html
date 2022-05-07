@@ -1681,8 +1681,8 @@
 <li>Verify that these meshes have the same number of vertices. Do a visual comparison in wireframe mode (<strong><code>Z &gt; Wireframe</code></strong>)</li>
 </ol>
 <p>We'll now add some shape keys:</p>
-<ol>
-<li>Select the regular Bunny.</li>
+<ol start="4">
+<li>Select the regular Bunny. </li>
 <li>Add a shape key under <strong><code>Shape Keys</code></strong> in the Mesh properties using the <strong><code>+</code></strong> button. The new shape keys will be called <code>Basis</code>.</li>
 <li>Add a second shape key, it will be called <code>Key 1</code> and have a default influence of <code>0.000</code>.</li>
 <li>Select the <code>Key 1</code> shape key and enter mesh edit mode in the 3D view with <strong><code>TAB</code></strong> and make sure you're in vertex mode by pressing <strong><code>1</code></strong></li>
@@ -1691,19 +1691,19 @@
 <li>Change the influence <strong><code>Value</code></strong> of <code>Key 1</code> to see what happens to the resulting mesh. You can either click on it and enter a number, of click and drag the value.</li>
 </ol>
 <p>Let's add another shape key:</p>
-<ol>
+<ol start="11">
 <li>Add a third shape key, it will be called <code>Key 2</code>. </li>
 <li>Select <code>Key 2</code> and apply a second set of mesh changes in edit mode.</li>
 <li>Once again exit edit mode.</li>
 <li>Play around with the influence values of both shape keys, as well as the checkboxes next to the influence values.</li>
 </ol>
 <p>Checking the difference between relative and absolute shape keys:</p>
-<ol>
+<ol start="15">
 <li>Uncheck the <strong><code>Relative</code></strong> checkbox to switch to absolute shape keys. Notice that the influence values have now disappeared.</li>
 <li>Change the <strong><code>Evolution Time</code></strong> value to understand how the morphing of the meshes is done now.</li>
 </ol>
 <p>Using another mesh to define a shape key:</p>
-<ol>
+<ol start="17">
 <li>Delete shape keys <code>Key 1</code> and <code>Key 2</code> using the <strong><code>-</code></strong> button and change back to relative shape keys by checking the <strong><code>Relative</code></strong> checkbox.</li>
 <li>Select the flattened mesh and the <strong><code>Shift-click</code></strong> the Bunny mesh to add it to the selection and make it the active object.  </li>
 <li>Open the shape key menu using the downwards arrow below the <strong><code>+</code></strong> and <strong><code>-</code></strong> buttons. Select <strong><code>Join as Shapes</code></strong>. </li>
@@ -1712,7 +1712,7 @@
 <li>Delete the <code>flattened mesh</code> object in the Outliner. Does the shape key that morphs the Bunny to its melted flat shape still work?</li>
 </ol>
 <p>Looking closer at the behaviour of the mesh morphing:</p>
-<ol>
+<ol start="23">
 <li>Try to reason why the head of the Bunny is the last part to melt.</li>
 <li>Zoom in a bit to see if you can spot the twisting motion that mesh makes as it melts. </li>
 <li>Try to transform the mesh in the melted shape key in such as way as to minimize the twist. Or toy around with other mesh transforms to see what morphs come out. Note that you need to make changes in edit mode.</li>
@@ -1723,7 +1723,7 @@
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">May 5, 2022 15:06:51</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">May 7, 2022 17:59:42</span>
       
     
     &bull;
