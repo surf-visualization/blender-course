@@ -1783,6 +1783,11 @@ to them later by name.</li>
 <p>In the text above we created a triangle, now as an exercise let's create a spherical disk. First create a ring of vertices, then create edges and a face.</p>
 <hr />
 <h2 id="adding-vertex-colors-to-a-mesh">Adding vertex colors to a mesh<a class="headerlink" href="#adding-vertex-colors-to-a-mesh" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Not seeing vertex colors?</p>
+<p>In the video below there's an essential step that's only shown near the end (around 7:00), which setting a material
+on the geometry. If the correct material isn't set the vertex colors won't show.</p>
+</div>
 <p style="text-align:center">
     <iframe width="640" height="360" src="https://www.youtube.com/embed/MPxLyyUQmuc" frameborder="0" allowfullscreen></iframe>
 </p>
@@ -1828,17 +1833,19 @@ to them later by name.</li>
 <p>In an earlier exercise we saw that <code>color_layer.data</code> contains six entries while we only have four vertices in the mesh. This is because a vertex has a color for every face it is in. So vertex <code>(0,2,0)</code> and <code>(0,1,2)</code> are each in two faces, while the other two vertices are only in one face. So the former vertices have two entries in the color layer, one for each face they are in, the latter only one color entry.</p>
 <p>The link between vertex indices in a mesh and those in the vertex color layer can be deduced from the polygons in <code>mesh.polygons</code>. Let's take one polygon from the triangles, lets say the first (<code>poly = mesh.polygons[0]</code>). Now, for one vertex in the polygon, <code>poly.vertices</code> gives you the index of the vertex in the mesh and <code>poly.loop_indices</code> gives you the index of the vertex in <code>color_layer.data</code>. See Fig. 3.</p>
 <p>
-<figure><img src="../images/link_vertex_color_indices.png" /><figcaption>Figure 3: Sketch of the two triangles from Exercise 4. For the vertices are shown the coordinates (in black italic (x, x, x)), indices of the vertex in its mesh (green, outside of the face) and the indices in the loop_indices of the polygon (red, italic and inside the faces.)</figcaption>
-</figure>{: style="width:600px" }</p>
+<figure style="width:700px"><img src="../images/link_vertex_color_indices.png" /><figcaption>Figure 3: Sketch of the two triangles from Exercise 4. For the vertices are shown the coordinates (in black italic (x, x, x)), indices of the vertex in its mesh (green, outside of the face) and the indices in the loop_indices of the polygon (red, italic and inside the faces.)</figcaption></figure>
+</p>
 <p>Once you have set colors for your vertices you need to set up the shader of the object. For this go to the <strong><code>Shading</code></strong> workspace. Create a <strong><code>Vertex Color</code></strong> node and connect it to a <strong><code>Principled BSDF</code></strong> (connect <strong><code>Color</code></strong> output to <strong><code>Base Color</code></strong> input). And then make a <strong><code>Material Output</code></strong> and connect the <strong><code>Principled BSDF</code></strong> to the <strong><code>Surface</code></strong> input of the <strong><code>Material Output</code></strong>. See Fig. 4.</p>
 <p>
-<figure><img src="../images/finding_node_type_name.png" /><figcaption>Figure 4: Shader setup for vertex colors</figcaption>
+<figure><img src="../images/vertex_color_shader_setup.png" /><figcaption>Figure 4: Shader setup for vertex colors</figcaption>
 </figure>
 </p>
 <h2 id="coloring-your-triangles">💻 Coloring your triangles<a class="headerlink" href="#coloring-your-triangles" title="Permanent link">&para;</a></h2>
-<p>Let's take the two connected triangles of exercise 4. We will color them in two different ways, using vertex coloring and Python scripting.</p>
-<p>a) Make the first triangle (face (0,1,2)) green and the second (face (1,3,2)) red.</p>
-<p>b) Now color vertex (0,0,0) and (0,3,2) red and (0,2,0) and (0,1,2) green.</p>
+<p>Let's take the two connected triangles of exercise 4. We will color them in two different ways, using vertex coloring and Python scripting:</p>
+<ul>
+<li>Make the first triangle (face (0,1,2)) green and the second (face (1,3,2)) red.</li>
+<li>Now color vertex (0,0,0) and (0,3,2) red and (0,2,0) and (0,1,2) green.</li>
+</ul>
 <h2 id="adding-a-material">Adding a material<a class="headerlink" href="#adding-a-material" title="Permanent link">&para;</a></h2>
 <p>You can also add materials through the Python API. As an example to show how you could do this, let's add a material to the triangle from exercise 4 in the last section. Materials are stored in <code>bpy.data.material</code> and we can make a new material:</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="c1"># Make material</span>
@@ -1857,8 +1864,8 @@ We will make two nodes, one Principled BSDF shader and an output node. We can ma
 </code></pre></div>
 How a node type is called you can search up in Blender in the following way. Go to the <strong><code>Shading</code></strong> workspace and open the <em>add</em> menu in the Shader Editor. Now go to <strong><code>Shader</code></strong> and hover over <strong><code>Principled BSDF</code></strong> until an information pop-up appears. In the pop-up you can find how the node type is called. See Fig. 5.</p>
 <p>
-<figure><img src="../images/finding_node_type_name.png" /><figcaption>Figure 5: The type name of a node can be found by navigating to the <code>Add</code> menu and hovering over the node of your interest</figcaption>
-</figure>{: style="width:600px" }</p>
+<figure style="width:700px"><img src="../images/finding_node_type_name.png" /><figcaption>Figure 5: The type name of a node can be found by navigating to the <code>Add</code> menu and hovering over the node of your interest</figcaption></figure>
+</p>
 <p>If you also want to organize the nodes in the Shader Editor you can place the node like this:</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">shader</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">300</span> <span class="c1"># Location in the node window</span>
 </code></pre></div>
@@ -1906,7 +1913,7 @@ Now we only need to add the material to the mesh containing the spherical disk.<
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">May 4, 2022 10:47:36</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">May 24, 2022 14:40:40</span>
       
     
     &bull;
