@@ -8,21 +8,25 @@
       
       
       
-        <link rel="canonical" href="https://surf-visualization.github.io/blender-course/basics/blender_fundamentals/4_assignment_collections/">
+        <link rel="canonical" href="https://surf-visualization.github.io/blender-course/api/bpy_data_and_friends/">
       
       
+        <link rel="prev" href="../custom_properties/">
       
       
-      <link rel="icon" href="../../../images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.3.1">
+        <link rel="next" href="../data_block_users_and_gc/">
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
     
     
       
-        <title>💻 Collections - Introduction to Scientific Visualization with Blender</title>
+        <title>A note on bpy.data, bpy.data.objects, ... - Introduction to Scientific Visualization with Blender</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.046329b4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.fad675c6.min.css">
       
       
 
@@ -41,9 +45,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../extra.css">
+      <link rel="stylesheet" href="../../extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -65,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#collections" class="md-skip">
+        <a href="#a-note-on-bpydata-bpydataobjects" class="md-skip">
           Skip to content
         </a>
       
@@ -79,9 +83,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Introduction to Scientific Visualization with Blender" class="md-header__button md-logo" aria-label="Introduction to Scientific Visualization with Blender" data-md-component="logo">
+    <a href="../.." title="Introduction to Scientific Visualization with Blender" class="md-header__button md-logo" aria-label="Introduction to Scientific Visualization with Blender" data-md-component="logo">
       
-  <img src="../../../images/surf-logo.svg" alt="logo">
+  <img src="../../images/surf-logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -98,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              💻 Collections
+              A note on bpy.data, bpy.data.objects, ...
             
           </span>
         </div>
@@ -166,7 +170,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../.." class="md-tabs__link">
+        <a href="../.." class="md-tabs__link">
           
   
   Home
@@ -184,7 +188,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../news/" class="md-tabs__link">
+        <a href="../../news/" class="md-tabs__link">
           
   
   News
@@ -202,7 +206,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../overview/introduction/" class="md-tabs__link">
+        <a href="../../overview/introduction/" class="md-tabs__link">
           
   
   Course overview
@@ -226,7 +230,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../introduction/" class="md-tabs__link">
+        <a href="../../basics/blender_fundamentals/introduction/" class="md-tabs__link">
           
   
   Basics
@@ -246,14 +250,8 @@
   
     
     
-      
-  
-  
-  
-    
-    
       <li class="md-tabs__item">
-        <a href="../../../advanced/python_scripting/1_api_basics/" class="md-tabs__link">
+        <a href="../../advanced/introduction/" class="md-tabs__link">
           
   
   Advanced
@@ -263,6 +261,23 @@
     
   
 
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../10000_foot_view/" class="md-tabs__link">
+          
+  
+  Python API
+
+        </a>
+      </li>
     
   
 
@@ -274,7 +289,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../references/interface/" class="md-tabs__link">
+        <a href="../../references/interface/" class="md-tabs__link">
           
   
   References
@@ -307,9 +322,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Introduction to Scientific Visualization with Blender" class="md-nav__button md-logo" aria-label="Introduction to Scientific Visualization with Blender" data-md-component="logo">
+    <a href="../.." title="Introduction to Scientific Visualization with Blender" class="md-nav__button md-logo" aria-label="Introduction to Scientific Visualization with Blender" data-md-component="logo">
       
-  <img src="../../../images/surf-logo.svg" alt="logo">
+  <img src="../../images/surf-logo.svg" alt="logo">
 
     </a>
     Introduction to Scientific Visualization with Blender
@@ -325,15 +340,20 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    
       
-        
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
         
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
         
-          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -357,11 +377,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    None
+    Welcome!
   </span>
   
 
@@ -386,15 +406,20 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    
       
-        
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
         
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -418,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../news/" class="md-nav__link">
+      <a href="../../news/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -440,14 +465,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
         
+          
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
             
   
@@ -472,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../news/archive/2023/" class="md-nav__link">
+      <a href="../../news/archive/2023/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -509,15 +536,20 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    
       
-        
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
         
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -541,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../overview/introduction/" class="md-nav__link">
+      <a href="../../overview/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -561,7 +593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../overview/setup/" class="md-nav__link">
+      <a href="../../overview/setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -581,7 +613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../overview/schedule/" class="md-nav__link">
+      <a href="../../overview/schedule/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -601,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../overview/support/" class="md-nav__link">
+      <a href="../../overview/support/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -621,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../overview/conventions/" class="md-nav__link">
+      <a href="../../overview/conventions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -641,7 +673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../overview/about/" class="md-nav__link">
+      <a href="../../overview/about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -670,15 +702,20 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    
       
-        
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
         
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -704,14 +741,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
         
+          
           <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
             
   
@@ -736,7 +775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../introduction/" class="md-nav__link">
+      <a href="../../basics/blender_fundamentals/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -756,7 +795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../first_steps/" class="md-nav__link">
+      <a href="../../basics/blender_fundamentals/first_steps/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -776,7 +815,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../1_assignment_interaction_selections/" class="md-nav__link">
+      <a href="../../basics/blender_fundamentals/1_assignment_interaction_selections/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -796,7 +835,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../transformations/" class="md-nav__link">
+      <a href="../../basics/blender_fundamentals/transformations/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -816,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../objects_3d_cursor_undo/" class="md-nav__link">
+      <a href="../../basics/blender_fundamentals/objects_3d_cursor_undo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -836,7 +875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../2_assignment_transformations/" class="md-nav__link">
+      <a href="../../basics/blender_fundamentals/2_assignment_transformations/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -856,7 +895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../cameras_and_views/" class="md-nav__link">
+      <a href="../../basics/blender_fundamentals/cameras_and_views/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -876,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../3_assignment_camera_and_views/" class="md-nav__link">
+      <a href="../../basics/blender_fundamentals/3_assignment_camera_and_views/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -896,7 +935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../ui/" class="md-nav__link">
+      <a href="../../basics/blender_fundamentals/ui/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -916,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../scene_hierarchy/" class="md-nav__link">
+      <a href="../../basics/blender_fundamentals/scene_hierarchy/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -936,7 +975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../avoiding_data_loss/" class="md-nav__link">
+      <a href="../../basics/blender_fundamentals/avoiding_data_loss/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -966,14 +1005,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
         
+          
           <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
             
   
@@ -998,7 +1039,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../importing_data/introduction/" class="md-nav__link">
+      <a href="../../basics/importing_data/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1018,7 +1059,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../importing_data/exercise_vertex_colors/" class="md-nav__link">
+      <a href="../../basics/importing_data/exercise_vertex_colors/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1038,7 +1079,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../importing_data/exercise_your_data/" class="md-nav__link">
+      <a href="../../basics/importing_data/exercise_your_data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1068,14 +1109,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
         
+          
           <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
             
   
@@ -1100,7 +1143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../simple_mesh_editing/introduction/" class="md-nav__link">
+      <a href="../../basics/simple_mesh_editing/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1120,7 +1163,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../simple_mesh_editing/sme_assignment/" class="md-nav__link">
+      <a href="../../basics/simple_mesh_editing/sme_assignment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1150,14 +1193,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
         
+          
           <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
             
   
@@ -1182,7 +1227,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rendering_lighting_materials/introduction/" class="md-nav__link">
+      <a href="../../basics/rendering_lighting_materials/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1202,7 +1247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rendering_lighting_materials/gpu_rendering/" class="md-nav__link">
+      <a href="../../basics/rendering_lighting_materials/gpu_rendering/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1222,7 +1267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rendering_lighting_materials/rlm_assignment/" class="md-nav__link">
+      <a href="../../basics/rendering_lighting_materials/rlm_assignment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1242,7 +1287,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../rendering_lighting_materials/composition/" class="md-nav__link">
+      <a href="../../basics/rendering_lighting_materials/composition/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1272,14 +1317,16 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
         
+          
           <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
             
   
@@ -1304,7 +1351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../animation/introduction/" class="md-nav__link">
+      <a href="../../basics/animation/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1324,7 +1371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../animation/exercise_manual_camera_orbit/" class="md-nav__link">
+      <a href="../../basics/animation/exercise_manual_camera_orbit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1344,7 +1391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../animation/exercise_parented_camera_orbit/" class="md-nav__link">
+      <a href="../../basics/animation/exercise_parented_camera_orbit/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1364,7 +1411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../animation/exercise_track_to/" class="md-nav__link">
+      <a href="../../basics/animation/exercise_track_to/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1384,7 +1431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../animation/everything/" class="md-nav__link">
+      <a href="../../basics/animation/everything/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1404,7 +1451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../animation/tradeoffs_settings_output/" class="md-nav__link">
+      <a href="../../basics/animation/tradeoffs_settings_output/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1424,7 +1471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../animation/example_flipbook_animation/" class="md-nav__link">
+      <a href="../../basics/animation/example_flipbook_animation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1461,15 +1508,20 @@
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    
       
-        
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
         
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
         
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -1492,6 +1544,28 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../advanced/introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
     
     
     
@@ -1500,10 +1574,10 @@
         
         
         
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
-        
-          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1514,8 +1588,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
             Python scripting
           </label>
@@ -1527,7 +1601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../advanced/python_scripting/1_api_basics/" class="md-nav__link">
+      <a href="../../advanced/python_scripting/1_api_basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1547,7 +1621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../advanced/python_scripting/2_accessing_data/" class="md-nav__link">
+      <a href="../../advanced/python_scripting/2_accessing_data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1567,7 +1641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../advanced/python_scripting/3_geometry_colors_and_materials/" class="md-nav__link">
+      <a href="../../advanced/python_scripting/3_geometry_colors_and_materials/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1587,7 +1661,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../advanced/python_scripting/4_volumetric_data/" class="md-nav__link">
+      <a href="../../advanced/python_scripting/4_volumetric_data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1617,29 +1691,31 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
-        
-          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
-    Node-based materials
+    Advanced materials
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
-            Node-based materials
+            Advanced materials
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -1649,7 +1725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../advanced/advanced_materials/introduction/" class="md-nav__link">
+      <a href="../../advanced/advanced_materials/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1669,7 +1745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../advanced/advanced_materials/advanced_materials_assignment/" class="md-nav__link">
+      <a href="../../advanced/advanced_materials/advanced_materials_assignment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1689,7 +1765,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../advanced/advanced_materials/vertex_colors/" class="md-nav__link">
+      <a href="../../advanced/advanced_materials/vertex_colors/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1709,7 +1785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../advanced/advanced_materials/node-wrangler/" class="md-nav__link">
+      <a href="../../advanced/advanced_materials/node-wrangler/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1739,15 +1815,17 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
-        
-          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1758,8 +1836,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             Animation
           </label>
@@ -1771,7 +1849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../advanced/animation/introduction/" class="md-nav__link">
+      <a href="../../advanced/animation/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1791,7 +1869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../advanced/animation/2_assignment_cars/" class="md-nav__link">
+      <a href="../../advanced/animation/2_assignment_cars/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1811,7 +1889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../advanced/animation/3_assignment_flipbook/" class="md-nav__link">
+      <a href="../../advanced/animation/3_assignment_flipbook/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1831,7 +1909,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../advanced/animation/shape_keys/" class="md-nav__link">
+      <a href="../../advanced/animation/shape_keys/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1861,15 +1939,17 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
-        
-          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1880,8 +1960,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
             <span class="md-nav__icon md-icon"></span>
             Mesh edit mode
           </label>
@@ -1893,7 +1973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../advanced/mesh_editing/introduction/" class="md-nav__link">
+      <a href="../../advanced/mesh_editing/introduction/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1913,7 +1993,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../advanced/mesh_editing/mesh_editing_assignment/" class="md-nav__link">
+      <a href="../../advanced/mesh_editing/mesh_editing_assignment/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1943,15 +2023,17 @@
     
     
     
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
         
         
         
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
-        
-          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -1962,8 +2044,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_5">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
             <span class="md-nav__icon md-icon"></span>
             Final project
           </label>
@@ -1975,7 +2057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../advanced/final_project/final_project/" class="md-nav__link">
+      <a href="../../advanced/final_project/final_project/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2008,19 +2090,302 @@
       
   
   
+    
+  
   
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
         
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Python API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Python API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10000_foot_view/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The 10,000 foot view
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../often_used_values_and_operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Often used values and operations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../selections/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Selections
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../meshes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Meshes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../materials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Materials
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../object_transformations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Transforms and coordinates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parenting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Parenting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operators/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operators
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom_properties/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Custom properties
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    A note on bpy.data, bpy.data.objects, ...
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_block_users_and_gc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data-block users and garbage collection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -2031,8 +2396,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             References
           </label>
@@ -2044,7 +2409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../references/interface/" class="md-nav__link">
+      <a href="../../references/interface/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2064,7 +2429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../references/cheat_sheet/" class="md-nav__link">
+      <a href="../../references/cheat_sheet/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2084,7 +2449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../references/official/" class="md-nav__link">
+      <a href="../../references/official/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2104,7 +2469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../references/community/" class="md-nav__link">
+      <a href="../../references/community/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2124,31 +2489,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../references/scene/" class="md-nav__link">
+      <a href="../../references/scene/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Scene resources (3D models, materials, textures)
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../references/api_summary/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    The Python API
   </span>
   
 
@@ -2198,71 +2543,69 @@
                   
 
 
-<h1 id="collections">💻 Collections<a class="headerlink" href="#collections" title="Permanent link">&para;</a></h1>
-<ol>
-<li>Open <strong><code>collections.blend</code></strong></li>
-</ol>
-<p>This file contains four objects in three collections.</p>
-<ol>
-<li>Check the outliner: the plane is in all collections, the other three objects area each in only one collection.</li>
-</ol>
-<p>You can change which collections are visible using the <strong><code>1</code></strong>, <strong><code>2</code></strong>, ... keys.</p>
-<ol>
-<li>
-<p>Switch among the three collections using the numeric keys, showing only the objects in one
-   specific collection. Check the outliner, specifically the eye icons next to each
-   collection and object, for how it updates when switching collections.</p>
-</li>
-<li>
-<p>Try toggling visibility of individual collections use <strong><code>Shift-1</code></strong>, etc.   </p>
-</li>
-<li>Show all collections using the numeric keys</li>
-<li>Visibility control can also be done in the outliner by clicking on the eye icons
-   right of the collection and object entries. Toggle the eye icon of <strong><code>Collection 1</code></strong>
-   by left-clicking on it.
-   Verify that this does the same as <strong><code>Shift-1</code></strong> in the 3D view.</li>
-<li>Make all collections visible again</li>
-</ol>
-<p>Moving objects between collections can be done in two ways:</p>
-<ol>
-<li>Select the cube object, move it to collection 3 using <strong><code>M</code></strong> and picking <strong><code>Collection 3</code></strong>.</li>
-<li>Another way is drag the object in the outliner. Drag the <strong><code>Cube</code></strong> object back to <strong><code>Collection 2</code></strong>.</li>
-</ol>
-<p>Adding a collection can also be useful:</p>
-<ol>
-<li>Create a new collection using <strong><code>RMB</code></strong> on the <strong><code>Scene Collection</code></strong> in the outliner, pick <strong><code>New Collection</code></strong>. Another
-    method is to select the object to place in the new collection and use the <strong><code>M</code></strong> key in the 3D view and pick <strong><code>+ New Collection</code></strong>.</li>
-</ol>
-<p>As we noted initially the plane object is present in multiple collections.
-You can place an object to multiple collection using the outliner by <em>linking</em> the object to the collection:</p>
-<ol>
-<li>
-<p><em>Link</em> the <strong><code>Suzanne</code></strong> object (the monkey head) to the newly created <strong><code>Collection 4</code></strong>
-in the outliner by clicking with <strong><code>LMB</code></strong> on the <strong><code>Suzanne</code></strong> entry and <em>holding the mouse</em>, then drag the entry
-over to <strong><code>Collection 4</code></strong>, press <strong><code>Ctrl</code></strong> and finally release the mouse and <strong><code>Ctrl</code></strong> key.</p>
-</li>
-<li>
-<p>Add an object to the scene, say a torus mesh. In which collection is it placed? Can you figure how to
-see to which collection new objects are added?</p>
-</li>
-<li>To try figure out how to change this active collection. Hint: use a specific action in the outliner.
-Also check how the numeric keys <strong><code>1</code></strong>, <strong><code>2</code></strong>, ... in the 3D view affect the active collection
-(and what the difference is with using the outliner).</li>
-</ol>
-<p>Bonus:
-14: Can you explain what a <strong><code>Shift-LMB</code></strong> click on the eye icon next to a collection does?</p>
+<h1 id="a-note-on-bpydata-bpydataobjects">A note on <code>bpy.data</code>, <code>bpy.data.objects</code>, ...<a class="headerlink" href="#a-note-on-bpydata-bpydataobjects" title="Permanent link">&para;</a></h1>
+<p>We have been using <code>bpy.data.objects</code> in most examples above to access objects in the scene. This is actually not completely clean, as <code>bpy.data.objects</code> holds all objects in the <em>Blender file</em>. Usually, the distinction doesn't matter as you only have one scene, but a Blender file can hold multiple scenes, each with their own set of objects:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># A file with two scenes, each with their own set of objects</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">scenes</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">[</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">scenes</span><span class="p">[</span><span class="s1">&#39;Scene&#39;</span><span class="p">],</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">scenes</span><span class="p">[</span><span class="s1">&#39;Scene.001&#39;</span><span class="p">]]</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Current scene</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">scenes</span><span class="p">[</span><span class="s1">&#39;Scene&#39;</span><span class="p">]</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># And its objects</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">[</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Bottom cube&#39;</span><span class="p">],</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Top Cube&#39;</span><span class="p">]]</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># &lt;Select different scene&gt;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># Different current scene</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">scenes</span><span class="p">[</span><span class="s1">&#39;Scene.001&#39;</span><span class="p">]</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="c1"># And its objects</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="p">[</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Bottom cube.001&#39;</span><span class="p">],</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Top Cube.001&#39;</span><span class="p">]]</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="c1"># All objects in the file</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="p">[</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Bottom cube&#39;</span><span class="p">],</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Bottom cube.001&#39;</span><span class="p">],</span> 
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Top Cube&#39;</span><span class="p">],</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Top Cube.001&#39;</span><span class="p">]]</span>
+</code></pre></div>
+<p>Although objects can also be shared between scenes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Two scenes</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">scenes</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">[</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">scenes</span><span class="p">[</span><span class="s1">&#39;Scene&#39;</span><span class="p">],</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">scenes</span><span class="p">[</span><span class="s1">&#39;Scene.001&#39;</span><span class="p">]]</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># First scene, cubes are local to scene, torus is shared between scenes</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">scenes</span><span class="p">[</span><span class="s1">&#39;Scene&#39;</span><span class="p">]</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">[</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Torus&#39;</span><span class="p">],</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Bottom cube&#39;</span><span class="p">],</span> 
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Top Cube&#39;</span><span class="p">]]</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1"># Second scene, different cubes, torus is shared</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">scenes</span><span class="p">[</span><span class="s1">&#39;Scene.001&#39;</span><span class="p">]</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">[</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Bottom cube.001&#39;</span><span class="p">],</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Top Cube.001&#39;</span><span class="p">],</span> 
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Torus&#39;</span><span class="p">]]</span>
+</code></pre></div>
+<p>The point here is that <code>bpy.data.objects</code>, and every other attribute under <code>bpy.data</code>, holds values of the complete <em>Blender file</em>. Per-scene values are available through attributes of a <code>Scene</code> object, e.g. <code>bpy.context.scene.objects</code>. For certain use cases this distinction matters.</p>
 
   <hr>
 <div class="md-source-file">
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 11, 2022 17:38:35</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 20, 2023 13:19:12</span>
       
     
     &bull;
   </small>  
-  <img src="https://visualization.surf.nl/cgi-bin/pagecount.cgi?url=https%3A//surf-visualization.github.io/blender-course/basics/blender_fundamentals/4_assignment_collections/" alt="">
+  <img src="https://visualization.surf.nl/cgi-bin/pagecount.cgi?url=https%3A//surf-visualization.github.io/blender-course/api/bpy_data_and_friends/" alt="">
 </div>
 
 
@@ -2277,15 +2620,53 @@ Also check how the numeric keys <strong><code>1</code></strong>, <strong><code>2
         </div>
         
           <button type="button" class="md-top md-icon" data-md-component="top" hidden>
-            
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
-            Back to top
-          </button>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
         
       </main>
       
         <footer class="md-footer">
   
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../custom_properties/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Custom properties" rel="prev">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Custom properties
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../data_block_users_and_gc/" class="md-footer__link md-footer__link--next" aria-label="Next: Data-block users and garbage collection" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Data-block users and garbage collection
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -2303,8 +2684,8 @@ Also check how the numeric keys <strong><code>1</code></strong>, <strong><code>2
     </a>
   
 </div>
-      <a href="https://www.surf.nl"><img style="height:48px" src=../../../images/surf-logo.svg></a>
-      <a href="https://eurocc-netherlands.nl/"><img style="height:64px" src=../../../images/eurocc-logo-transparent.png></a>
+      <a href="https://www.surf.nl"><img style="height:48px" src=../../images/surf-logo.svg></a>
+      <a href="https://eurocc-netherlands.nl/"><img style="height:64px" src=../../images/eurocc-logo-transparent.png></a>
       
         <div class="md-social">
   
@@ -2331,10 +2712,11 @@ Also check how the numeric keys <strong><code>1</code></strong>, <strong><code>2
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6c14ae12.min.js"></script>
       
     
   </body>

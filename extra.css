@@ -20,13 +20,22 @@
 .md-tabs
 {
 	background-color: rgb(252, 142, 76);
-    color:  white;
+    color: white;
+    opacity: 1.0;
+    font-weight: bold;
     font-family: 'Nunito', sans-serif;
 }
 
 .md-tabs__link--active 
 {
 	font-weight: bold;
+	color: black;
+}
+
+.md-tabs__item--active .md-tabs__link
+{
+	font-weight: bold;
+	color: /*black*/ /*rgb(64, 81, 181)*/ rgb(15, 20, 50);
 }
 
 .md-nav__link--active
@@ -45,7 +54,7 @@
 	color: rgb(238, 118, 40);
 }
 
-.md-typeset h2
+.md-typeset h2, .md-typeset h2 a
 {
     font-family: 'Nunito', sans-serif;
 	color: rgb(238, 118, 40);
