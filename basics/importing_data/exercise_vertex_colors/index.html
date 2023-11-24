@@ -689,6 +689,26 @@
 
               
             
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../privacy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Privacy and cookie statement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1074,6 +1094,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    💻 Vertex colors
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1083,6 +1114,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inspecting-the-vertex-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inspecting the vertex colors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#altering-vertex-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Altering vertex colors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rendering
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2534,6 +2611,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inspecting-the-vertex-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Inspecting the vertex colors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#altering-vertex-colors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Altering vertex colors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rendering
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2550,14 +2662,12 @@
 <h1 id="vertex-colors">💻 Vertex colors<a class="headerlink" href="#vertex-colors" title="Permanent link">&para;</a></h1>
 <p>This exercise uses a file exported from the <a href="https://www.paraview.org">ParaView</a> scientific visualization package, and
 uses some of the workflow needed to get it into Blender.</p>
-<ol>
-<li>
+<div class="admonition info">
+<p class="admonition-title">X3D Importer</p>
 <p>Check if you have a menu option to import X3D format. For this,
-   go to <strong><code>File -&gt; Import</code></strong> and check if there is an entry <strong><code>X3D Extensible 3D (.x3d/.wrl)</code></strong>.</p>
-</li>
-<li>
+go to <strong><code>File -&gt; Import</code></strong> and check if there is an entry <strong><code>X3D Extensible 3D (.x3d/.wrl)</code></strong>.</p>
 <p>If you do NOT have the X3D import option then perform the following steps
-   to enable the X3D add-on (otherwise continue to step 3):</p>
+to enable the X3D add-on (otherwise continue to step 3):</p>
 <ul>
 <li>Open the preferences window with <strong><code>Edit -&gt; Preferences</code></strong></li>
 <li>Switch to the <strong><code>Add-ons</code></strong> tab</li>
@@ -2567,7 +2677,8 @@ uses some of the workflow needed to get it into Blender.</p>
 <li>Close the preferences window (it saves the settings automatically)</li>
 <li>Under <strong><code>File -&gt; Import</code></strong> there should now be a new entry <strong><code>X3D Extensible 3D (.x3d/.wrl)</code></strong></li>
 </ul>
-</li>
+</div>
+<ol>
 <li>
 <p>Importing data always adds to the current scene. So start with an empty scene, i.e. delete all objects. </p>
 </li>
@@ -2582,65 +2693,68 @@ uses some of the workflow needed to get it into Blender.</p>
    <strong><code>Up: Z Up</code></strong>.</p>
 </li>
 <li>
-<p>This X3D file holds a scene exported from ParaView. Inspect the objects in the scene to get some idea of what it contains.</p>
+<p>This X3D file holds a scene exported from ParaView. Check out the objects in the scene to get some idea of what it contains.</p>
 </li>
 <li>
 <p>Delete all the lights in the scene to clear everything up a bit. Add a single sun light in return.</p>
 </li>
 </ol>
+<h2 id="inspecting-the-vertex-colors">Inspecting the vertex colors<a class="headerlink" href="#inspecting-the-vertex-colors" title="Permanent link">&para;</a></h2>
 <p>This 3D model has so-called "vertex colors". This means that each vertex of the geometry has an associated RGB color,
-which is a common way to show data values in a visualization.</p>
+which is a common way to show data values in a (scientific) visualization.</p>
 <p>There are a few ways to inspect if, and what, vertex colors a model has. First, there is the so-called Vertex Paint mode.
-In this mode vertex colors are shown when they are available and can even be edited.</p>
+In this mode vertex colors are shown when they are available and can even be edited ("painted").</p>
 <p>To enable Vertex Paint mode:</p>
-<ol>
-<li>Make the 3D arrows in the scene the single selected object</li>
+<ol start="6">
+<li>Select the 3D arrows in the scene (as the only single selected object)</li>
 <li>Open the Mode pie menu with <strong><code>Ctrl-TAB</code></strong> and switch to <strong><code>Vertex Paint</code></strong>. An alternative is
-   to use the menu showing <strong><code>Object Mode</code></strong> in the upper-left of the 3D view header.</li>
+   to use the menu showing <strong><code>Object Mode</code></strong> in the upper-left of the 3D view header and select <strong><code>Vertex Paint</code></strong> there.</li>
 <li>The 3D View should now show the arrow geometry colored by its vertex colors. The colors shown are
-   velocity values from a computational flow simulation, using the well-known rainbow color scale (blue &rarr; green &rarr; yellow &rarr; orange &rarr; red for a low-to-high value range)</li>
+   velocity values from a computational flow simulation, using the well-known rainbow color scale (low-to-high value range: blue &rarr; green &rarr; yellow &rarr; orange &rarr; red)</li>
 </ol>
-<p>Two things have changed in the interface: 1) the cursor is now a circle, 2) the tool shelf on the left now shows color operations (paint brush = Draw, drop = Blur, ...)</p>
-<p>As this is Vertex <em>Paint</em> mode you can actually <em>alter</em> the vertex colors. This works quite similar to a normal paint program, like Photoshop or the GIMP, 
-but in 3D. Although it may not make much sense to change colors that are based on simulation output (like these CFD results) it can 
-still be interesting to clean up or highlight vertex-colored geometry.</p>
-<ol>
+<h2 id="altering-vertex-colors">Altering vertex colors<a class="headerlink" href="#altering-vertex-colors" title="Permanent link">&para;</a></h2>
+<p>You might have noticed two things have changed in the interface: 1) the cursor is now a circle, and 2) the tool shelf on the left now shows color operations (paint brush = Draw, drop = Blur, ...)</p>
+<p>As this is Vertex <em>Paint</em> mode you can actually <em>alter</em> the vertex colors. This works quite similar to a normal paint program, like Photoshop or the GIMP, but in 3D. Although it may not make much sense to change colors that are based on simulation output (like these CFD results) it can 
+still be interesting to clean up or highlight vertex-colored geometry in certain situations.</p>
+<ol start="11">
 <li>Experiment with vertex painting: move the cursor over part of the arrow geometry, press and hold <strong><code>LMB</code></strong> and move the mouse. See what happens.</li>
-<li>Switch to the Active Tool and Workspace settings <img alt="" class="iconimg" src="../../images/activetoolandworkspacesettingsicon.png" /> tab in the properties area</li>
-<li>You can change the color you're painting with with the color wheel.
-   Also check out the radius and strength settings.</li>
+<li>Switch to the Active Tool and Workspace settings <img alt="" class="iconimg" src="../../images/activetoolandworkspacesettingsicon.png" /> tab in the properties area on the right-hand side of the window</li>
+<li>You can change the color you're painting with with the colored box directly right of the <code>Draw</code> in the bar at the top of the 3D view area. Click
+the color to bring up the color chooser. You can also change the radius and strength settings to influence the vertex painting.</li>
 <li>Change back to <strong><code>Object Mode</code></strong> using the <strong><code>Ctrl-TAB</code></strong> mode menu when you're done playing around. Note that the
 arrows no longer show the vertex colors.</li>
 </ol>
+<h2 id="rendering">Rendering<a class="headerlink" href="#rendering" title="Permanent link">&para;</a></h2>
 <p>The second way to use vertex colors is to apply them during rendering.</p>
-<ol>
+<ol start="15">
 <li>If you've screwed up the vertex colors really badly in the previous steps you might want to reimport the model...</li>
 <li>Make the 3D arrows in the scene the single selected object</li>
 <li>Switch to the <strong><code>Object Data</code></strong> <img alt="" class="iconimg" src="../../images/meshicon.png" /> tab in the properties</li>
-<li>Check that there is an entry "Col" in the list under <strong><code>Vertex Colors</code></strong>. A model can have multiple sets of vertex colors, but this file has only one set called "Col"</li>
+<li>Check that there is an entry "Col" in the list under <strong><code>Color Attributes</code></strong>. A model can have multiple sets of vertex colors, but this file has only one set called "Col", which has domain <code>Face Corner</code> and type <code>Byte Color</code>.</li>
 </ol>
 <p>Now we will set up a material using the vertex colors stored in the "Col" layer.</p>
-<ol>
+<ol start="19">
 <li>Go to the Material tab <img alt="" class="iconimg" src="../../images/materialsicon.png" /></li>
 <li>Select the material called "Material" in the drop-down list left of the New button. This set the (grey) material "Material" on the arrows geometry.</li>
 <li>Press <strong><code>F12</code></strong> (or use interactive render) to get a rendered view of the current scene.</li>
 </ol>
 <p>You'll notice that all the geometry is grey/white, i.e. no vertex colors are used. We'll now alter the material to use vertex colors.</p>
-<ol>
+<ol start="22">
 <li>In the settings of the material there is a field called "Base Color" with a white area right of it. This setting controls the color of the geometry.</li>
-<li>Click the button <em>right of the color area</em> (it has a small white circle in it)</li>
+<li>Click the button <em>left of the color area</em> (it has a small yellow circle in it)</li>
 <li>Pick <strong><code>Attribute</code></strong> from the left-most column labeled <strong><code>Input</code></strong>. This specifies that the material color should be based on an attribute value.</li>
-<li>Base Color is now set to <strong><code>Attribute | Color</code></strong>. Directly below the entry there is a <strong><code>Name</code></strong> field. Enter "Col" here. This specifies that the attribute to use is called "Col" (i.e. our vertex colors)</li>
+<li>Base Color is now set to <strong><code>Attribute | Color</code></strong>. Directly below the entry there is a <strong><code>Name</code></strong> field. Enter "Col" here, leave <strong><code>Type</code></strong> set to <code>Geometry</code>. This specifies that the attribute to use is called "Col" and comes from the mesh geometry (i.e. our vertex colors).</li>
 <li>Now render the scene again</li>
 <li>The rendered image should now be showing the arrow geometry colored by vertex colors</li>
 </ol>
+<p><img alt="" src="../../images/rendered_vertex_colors.png" /></p>
 
   <hr>
 <div class="md-source-file">
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">April 15, 2022 09:46:47</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 21, 2023 20:49:06</span>
       
     
     &bull;
@@ -2714,7 +2828,7 @@ arrows no longer show the vertex colors.</li>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2018-2023 SURF
+      Copyright &copy; 2018-2023 SURF &bullet; <a href=../../../privacy> Privacy Information</a>
     </div>
   
   

@@ -35,7 +35,7 @@
 .md-tabs__item--active .md-tabs__link
 {
 	font-weight: bold;
-	color: /*black*/ /*rgb(64, 81, 181)*/ rgb(15, 20, 50);
+	color: /*black*/ /*rgb(64, 81, 181)*/ rgb(15, 20, 50) /* blender blue accent color: rgb(0, 122, 204)*/  ;
 }
 
 .md-nav__link--active
