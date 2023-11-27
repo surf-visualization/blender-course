@@ -2173,26 +2173,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../often_used_values_and_operations/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Often used values and operations
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../selections/" class="md-nav__link">
         
   
@@ -2368,6 +2348,26 @@
   
   <span class="md-ellipsis">
     Data-block users and garbage collection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../often_used_values_and_operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Often used values and operations
   </span>
   
 
@@ -2564,7 +2564,7 @@
 
 
 <h1 id="a-note-on-bpydata-bpydataobjects">A note on <code>bpy.data</code>, <code>bpy.data.objects</code>, ...<a class="headerlink" href="#a-note-on-bpydata-bpydataobjects" title="Permanent link">&para;</a></h1>
-<p>We have been using <code>bpy.data.objects</code> in most examples above to access objects in the scene. This is actually not completely clean, as <code>bpy.data.objects</code> holds all objects in the <em>Blender file</em>. Usually, the distinction doesn't matter as you only have one scene, but a Blender file can hold multiple scenes, each with their own set of objects:</p>
+<p>We have been using <code>bpy.data.objects</code> in most examples above to access objects in the scene. This is actually not completely clean, as <code>bpy.data.objects</code> holds all objects in the Blender <em>file</em>. Usually, the distinction doesn't matter as you only have one scene, but a Blender file can hold multiple scenes, each with their own set of objects:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># A file with two scenes, each with their own set of objects</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">scenes</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">[</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">scenes</span><span class="p">[</span><span class="s1">&#39;Scene&#39;</span><span class="p">],</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">scenes</span><span class="p">[</span><span class="s1">&#39;Scene.001&#39;</span><span class="p">]]</span>
@@ -2587,7 +2587,7 @@
 <a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="p">[</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Bottom cube.001&#39;</span><span class="p">],</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Top Cube.001&#39;</span><span class="p">]]</span>
 <a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="c1"># All objects in the file</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="c1"># All objects in the *file*</span>
 <a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 <a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="p">[</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Bottom cube&#39;</span><span class="p">],</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Bottom cube.001&#39;</span><span class="p">],</span> 
 <a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Top Cube&#39;</span><span class="p">],</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Top Cube.001&#39;</span><span class="p">]]</span>
@@ -2620,7 +2620,7 @@
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 20, 2023 13:19:12</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 27, 2023 13:39:38</span>
       
     
     &bull;

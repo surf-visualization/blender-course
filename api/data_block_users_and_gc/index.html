@@ -14,7 +14,7 @@
         <link rel="prev" href="../bpy_data_and_friends/">
       
       
-        <link rel="next" href="../../references/interface/">
+        <link rel="next" href="../often_used_values_and_operations/">
       
       
       <link rel="icon" href="../../images/favicon.png">
@@ -2173,26 +2173,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../often_used_values_and_operations/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Often used values and operations
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../selections/" class="md-nav__link">
         
   
@@ -2362,6 +2342,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Data-block users and garbage collection
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2372,6 +2363,54 @@
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python-api-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python API support
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../often_used_values_and_operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Often used values and operations
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -2550,6 +2589,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python-api-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python API support
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2579,11 +2635,12 @@
 </ul>
 <p>Although the video only focused on materials, the way data-block lifetime is managed using the user counts is general to <em>all types of data-blocks</em> in Blender. But there are subtle differences in whether a data-block is really deleted or just has a link to it removed:</p>
 <ul>
-<li>Whenever the term "unlink" is used it means that a link to that data-block is removed and its user count decreased, but the data-block itself will still be in memory. An example of this is clicking the X next to a mesh's material in the Material Properties.</li>
+<li>Whenever the term "unlink" is used it means that a link to that data-block is removed and its user count decreased, but the data-block itself will still be in memory. An example of this is clicking the <strong><code>✕</code></strong> next to a mesh's material in the Material Properties.</li>
 </ul>
 <ul>
-<li>If the UI uses the term "delete" it means the data-block is deleted immediately from memory. Any data-blocks linked from the deleted data-block will have their users count decreased. An example of this is deleting a Camera object in the 3D view: the Camera object's data-block is deleted from memory, but the Camera <em>object data</em> data-block (containing the actual camera settings) is still in memory, which you can check in the Orphan Data mode of the outliner.</li>
+<li>If the UI uses the term "delete" it means the data-block is deleted immediately from memory. Any data-blocks linked from the deleted data-block will have their user count decreased. An example of this is deleting a Camera object in the 3D view: the Camera object's data-block is deleted from memory, but the Camera <em>object data</em> data-block (containing the actual camera settings) is still in memory, which you can check in the Orphan Data mode of the outliner.</li>
 </ul>
+<h2 id="python-api-support">Python API support<a class="headerlink" href="#python-api-support" title="Permanent link">&para;</a></h2>
 <p>The usage count of data-blocks can also be queried from Python:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Two cube meshes using the same material</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
@@ -2654,7 +2711,7 @@
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 27, 2023 10:22:26</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 27, 2023 13:39:38</span>
       
     
     &bull;
@@ -2705,13 +2762,13 @@
         
         
           
-          <a href="../../references/interface/" class="md-footer__link md-footer__link--next" aria-label="Next: User Interface elements" rel="next">
+          <a href="../often_used_values_and_operations/" class="md-footer__link md-footer__link--next" aria-label="Next: Often used values and operations" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                User Interface elements
+                Often used values and operations
               </div>
             </div>
             <div class="md-footer__button md-icon">

@@ -2173,26 +2173,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../often_used_values_and_operations/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Often used values and operations
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../selections/" class="md-nav__link">
         
   
@@ -2407,6 +2387,26 @@
   
   <span class="md-ellipsis">
     Data-block users and garbage collection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../often_used_values_and_operations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Often used values and operations
   </span>
   
 
@@ -2640,10 +2640,10 @@
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Note that operator parameters can only be passed using <a href="https://docs.blender.org/api/3.6/bpy.ops.html">keyword arguments</a>.</p>
+<p>Note that operator parameters can only be passed using <a href="https://docs.blender.org/api/3.6/bpy.ops.html#keywords-and-positional-arguments">keyword arguments</a>.</p>
 </div>
 <h2 id="operator-context">Operator context<a class="headerlink" href="#operator-context" title="Permanent link">&para;</a></h2>
-<p>This is all very nice and powerful, but operators have a few inherent properties that can make them tricky to work with.</p>
+<p>Operators are very nice and powerful, but they have a few inherent properties that can make them tricky to work with.</p>
 <p>An operator's execution crucially depends on the <em>context</em> in which it is called, where it gets most of the data it needs. As shown above simple parameter values can usually be passed, but values like the object(s) to operate on are retrieved implicitly. For example, to join a set of mesh objects into a single mesh you can call the operator <code>bpy.ops.object.join()</code>. But the current context needs to be correctly set for the operator to work:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># We have no objects selected</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">selected_objects</span>
@@ -2662,9 +2662,9 @@
 <a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 <a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
 </code></pre></div>
-<p>As can be seen above an operator only returns a value indicating the execution status. When calling the operator in the Python Console as above some extra info is printed. But when calling operators from scripts the status return value is all you have to go on, as the extra message isn't printed when the script is executed. And in some cases the reason an operator fails can be quite unclear:</p>
+<p>As can be seen above an operator call only returns a value indicating the execution status. When calling the operator in the Python Console as above some extra info is printed. But when calling operators from scripts the status return value is all you have to go on, as the extra message isn't printed when the script is executed. And in some cases the reason an operator fails can be quite unclear:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">selected_objects</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">[</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Cube&#39;</span><span class="p">],</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Camera&#39;</span><span class="p">]]</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">[</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Cube&#39;</span><span class="p">],</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Cube.001&#39;</span><span class="p">]]</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
 <a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">intersect_boolean</span><span class="p">()</span>
 <a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
@@ -2676,7 +2676,7 @@
 </code></pre></div>
 <p>This shows that the so-called <em>poll function</em> failed, but what does that mean? The poll function is used by operators to determine if they can execute in the current context. They do this by checking certain preconditions on things like the selected object(s), the type of data or an object mode. In this case the <code>bpy.ops.mesh.intersect_boolean()</code> operator can't perform a boolean intersection on multiple meshes, but only on the faces of a single object in edit mode, but this is not something you can tell from the error message (nor does the <a href="https://docs.blender.org/api/3.6/bpy.ops.mesh.html?highlight=boolean#bpy.ops.mesh.intersect_boolean">documentation</a> make that clear):</p>
 <p><img alt="" src="../images/face_intersect_operator.png" /></p>
-<p>To actually perform a boolean intersection <em>on two objects</em> from a Python script requires us to do what we would be do in the UI: add a Boolean modifier on one of the objects and set its parameters. We <em>could</em> take advantage of the Python Tooltips to see which operator we need:</p>
+<p>One way to actually perform a boolean intersection <em>on two objects</em> from a Python script is to do what we would do in the UI: add a Boolean modifier on one of the objects and set its parameters, including a reference to the second object. We can take advantage of the Python Tooltips to see which operator we need:</p>
 <p><img alt="" src="../images/boolean_modifier.png" /></p>
 <p>This would suggest that using <code>bpy.ops.modifier_add(type='BOOLEAN')</code> would be what we need, but then setting the required parameters on the modifier (i.e. the object to subtract) would become tricky. </p>
 <p>So for a boolean operation, and setting object modifiers in general, there's an easier way:</p>
@@ -2691,15 +2691,15 @@
 <a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Cube.001&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hide_viewport</span> <span class="o">=</span> <span class="kc">True</span>
 </code></pre></div>
 <p><img alt="" src="../images/boolean_result.png" /></p>
-<p>Unfortunately, certain operations can only be performed by calling operators. So there's a good chance that you will need to use them at some point when doing Python scripting. Hopefully this section gives some clues as how to work with them. See <a href="https://docs.blender.org/api/3.6/info_gotcha.html#using-operators">this section</a> for more details on all the above subtleties and issues relating to working with operators.</p>
-<p>The <a href="https://docs.blender.org/api/3.6/bpy.ops.html"><code>bpy.ops</code></a> documentation also contains useful information on operators, including how to override an operator's implicit context with values you set yourself.</p>
+<p>Unfortunately, certain operations can only be performed by calling operators. So there's a good chance that you will need to use them at some point when doing Python scripting. Hopefully this section gives some clues as how to work with them. </p>
+<p>See <a href="https://docs.blender.org/api/3.6/info_gotcha.html#using-operators">this section</a> for more details on all the above subtleties and issues relating to working with operators. The <a href="https://docs.blender.org/api/3.6/bpy.ops.html"><code>bpy.ops</code></a> documentation also contains useful information on operators, including how to <a href="https://docs.blender.org/api/3.6/bpy.ops.html#overriding-context">override an operator's implicit context</a> with values you set yourself.</p>
 
   <hr>
 <div class="md-source-file">
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 27, 2023 10:22:26</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 27, 2023 13:34:02</span>
       
     
     &bull;

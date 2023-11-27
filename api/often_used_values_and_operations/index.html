@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://surf-visualization.github.io/blender-course/api/often_used_values_and_operations/">
       
       
-        <link rel="prev" href="../10000_foot_view/">
+        <link rel="prev" href="../data_block_users_and_gc/">
       
       
-        <link rel="next" href="../selections/">
+        <link rel="next" href="../../references/interface/">
       
       
       <link rel="icon" href="../../images/favicon.png">
@@ -2171,120 +2171,6 @@
                 
   
   
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Often used values and operations
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  <span class="md-ellipsis">
-    Often used values and operations
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#scene" class="md-nav__link">
-    <span class="md-ellipsis">
-      Scene
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#objects" class="md-nav__link">
-    <span class="md-ellipsis">
-      Objects
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#camera" class="md-nav__link">
-    <span class="md-ellipsis">
-      Camera
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rendering" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rendering
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#animation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Animation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#file-io" class="md-nav__link">
-    <span class="md-ellipsis">
-      File I/O
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
   
     <li class="md-nav__item">
       <a href="../selections/" class="md-nav__link">
@@ -2456,6 +2342,120 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Often used values and operations
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Often used values and operations
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scene" class="md-nav__link">
+    <span class="md-ellipsis">
+      Scene
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objects
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      Camera
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rendering
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#animation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Animation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      File I/O
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2711,6 +2711,13 @@
 
 <h1 id="often-used-values-and-operations">Often used values and operations<a class="headerlink" href="#often-used-values-and-operations" title="Permanent link">&para;</a></h1>
 <p>Here, we list some frequently used parts of the API, for varying types of data.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Note that where values are listed as attributes of classes, such as <code>Camera.lens</code> or <code>Scene.camera</code>, you need
+to access the attribute on an <em>instance</em> of that class, not on the class itself. </p>
+<p>Example: to get the active camera access <code>bpy.context.scene.camera</code> or <code>bpy.data.scenes["myscene"]</code>
+(and not <code>Scene.camera</code>).</p>
+</div>
 <h2 id="scene">Scene<a class="headerlink" href="#scene" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Current scene: <code>bpy.context.scene</code> (read-only)</li>
@@ -2760,7 +2767,7 @@
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 27, 2023 10:22:26</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 27, 2023 13:34:02</span>
       
     
     &bull;
@@ -2794,7 +2801,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../10000_foot_view/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The 10,000 foot view" rel="prev">
+          <a href="../data_block_users_and_gc/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Data-block users and garbage collection" rel="prev">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -2804,20 +2811,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                The 10,000 foot view
+                Data-block users and garbage collection
               </div>
             </div>
           </a>
         
         
           
-          <a href="../selections/" class="md-footer__link md-footer__link--next" aria-label="Next: Selections" rel="next">
+          <a href="../../references/interface/" class="md-footer__link md-footer__link--next" aria-label="Next: User Interface elements" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Selections
+                User Interface elements
               </div>
             </div>
             <div class="md-footer__button md-icon">
