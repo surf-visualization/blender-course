@@ -3014,7 +3014,7 @@ back when needed.</p>
 <li>A number of script templates are also included, in <code>&lt;blender-version&gt;/scripts/templates_py</code>, mostly examples of defining custom operators or UI elements.</li>
 </ul>
 <h2 id="data-blocks">Data-blocks<a class="headerlink" href="#data-blocks" title="Permanent link">&para;</a></h2>
-<p>The different types of data in Blender are stored in <a href="https://docs.blender.org/manual/en/latest/files/data_blocks.html"><em>data-blocks</em></a>. For example, there's Mesh, Object, Texture and Shader data-blocks, but there's <a href="https://docs.blender.org/manual/en/latest/files/data_blocks.html#data-system-datablock-types">quite a few more</a>. One of the clever bits in the way Blender is programmed is that data-blocks written to file contain enough information about their content (i.e. metadata) to make them readable by both older and newer versions of Blender than the one they were written with. This metadata system also makes it possible to automatically provide the Python API for accessing those data-blocks without much manual work from Blender's developers.</p>
+<p>The different types of data in Blender are stored in <a href="https://docs.blender.org/manual/en/3.6/files/data_blocks.html"><em>data-blocks</em></a>. For example, there's Mesh, Object, Texture and Shader data-blocks, but there's <a href="https://docs.blender.org/manual/en/3.6/files/data_blocks.html#data-system-datablock-types">quite a few more</a>. One of the clever bits in the way Blender is programmed is that data-blocks written to file contain enough information about their content (i.e. metadata) to make them readable by both older and newer versions of Blender than the one they were written with. This metadata system also makes it possible to automatically provide the Python API for accessing those data-blocks without much manual work from Blender's developers.</p>
 <p>Data-blocks are available through Python, per type, under <code>bpy.data</code>. For example, there's <code>bpy.data.objects</code> and <code>bpy.data.meshes</code>. The type of a data-block is the corresponding class under <code>bpy.types</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">type</span><span class="p">(</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Cube&#39;</span><span class="p">])</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">bpy_types</span><span class="o">.</span><span class="n">Object</span><span class="s1">&#39;&gt;</span>
@@ -3194,7 +3194,7 @@ back when needed.</p>
 <a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">w</span><span class="o">.</span><span class="n">zxy</span>
 <a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="n">Vector</span><span class="p">((</span><span class="o">-</span><span class="mf">1.154698371887207</span><span class="p">,</span> <span class="mf">0.5773491859436035</span><span class="p">,</span> <span class="mf">0.5773491859436035</span><span class="p">))</span>
 </code></pre></div>
-<p>The builtin <a href="https://docs.blender.org/api/current/mathutils.html"><code>mathutils</code></a> module contains many useful data types and methods for working with 3D data, including vectors and matrices, but also different methods for working with transformations (like quaternion) and colors spaces.</p>
+<p>The builtin <a href="https://docs.blender.org/api/3.6/mathutils.html"><code>mathutils</code></a> module contains many useful data types and methods for working with 3D data, including vectors and matrices, but also different methods for working with transformations (like quaternion) and colors spaces.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Transformation matrix for an object with uniform scale 2 and </span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="c1"># translation in Z of 3. These values will match with the Transform UI area</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">o</span>
@@ -3240,7 +3240,7 @@ back when needed.</p>
 <a id="__codelineno-9-43" name="__codelineno-9-43" href="#__codelineno-9-43"></a><span class="n">Vector</span><span class="p">((</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
 </code></pre></div>
 <h2 id="api-quirks">API quirks<a class="headerlink" href="#api-quirks" title="Permanent link">&para;</a></h2>
-<p>Working with the Blender Python API has some peculiarities compared to your average Python scripting. These have to do with the way the API is structured, but also how it interacts with the Blender internals. The API manual contains a lengthy <a href="https://docs.blender.org/api/current/info_gotcha.html">page</a> on some gotchas, but here we list some of the common ones.</p>
+<p>Working with the Blender Python API has some peculiarities compared to your average Python scripting. These have to do with the way the API is structured, but also how it interacts with the Blender internals. The API manual contains a lengthy <a href="https://docs.blender.org/api/3.6/info_gotcha.html">page</a> on some gotchas, but here we list some of the common ones.</p>
 <h3 id="object-modes">Object modes<a class="headerlink" href="#object-modes" title="Permanent link">&para;</a></h3>
 <p>An object is always in one of several modes. These modes are the same ones you work with in the UI: Object mode, Edit mode, etc. The current mode for an object can be retrieved through the <code>mode</code> property:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">o</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Cube&#39;</span><span class="p">]</span>
@@ -3253,7 +3253,7 @@ back when needed.</p>
 <a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="s1">&#39;EDIT&#39;</span>
 </code></pre></div>
 <p><strong>Depending on the current mode of a mesh object certain data might not be up-to-date, or even unavailable, when accessing it through the Python API. This is especially true when an object is in Edit Mode</strong>. </p>
-<p>This is because the edit mode uses its own copy of the data to let you edit, which is synced with the underlying mesh data when going in and out of edit mode. See <a href="https://docs.blender.org/api/current/info_gotcha.html#modes-and-mesh-access">here</a> for the relevant section in the Blender API docs.</p>
+<p>This is because the edit mode uses its own copy of the data to let you edit, which is synced with the underlying mesh data when going in and out of edit mode. See <a href="https://docs.blender.org/api/3.6/info_gotcha.html#modes-and-mesh-access">here</a> for the relevant section in the Blender API docs.</p>
 <p>An example continuing with the Cube mesh above:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">o</span><span class="o">.</span><span class="n">mode</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="s1">&#39;OBJECT&#39;</span>
@@ -3280,7 +3280,7 @@ back when needed.</p>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">if</span> <span class="n">o</span><span class="o">.</span><span class="n">mode</span> <span class="o">!=</span> <span class="s1">&#39;OBJECT&#39;</span><span class="p">:</span>
 <a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Active object needs to be in object mode!&#39;</span><span class="p">)</span>
 </code></pre></div>
-<p>There are alternatives for still allowing a mesh to be in edit-mode when accessing its data from a script, see the <a href="https://docs.blender.org/api/current/info_gotcha.html#modes-and-mesh-access">API docs</a> for details.</p>
+<p>There are alternatives for still allowing a mesh to be in edit-mode when accessing its data from a script, see the <a href="https://docs.blender.org/api/3.6/info_gotcha.html#modes-and-mesh-access">API docs</a> for details.</p>
 <h3 id="interrupting-long-running-scripts">Interrupting (long-running) scripts<a class="headerlink" href="#interrupting-long-running-scripts" title="Permanent link">&para;</a></h3>
 <p>During script development you might get in a situation where your code is stuck in a loop, or takes much longer than you like. Interrupting a running script can usually be done by pressing <strong><code>Ctrl-C</code></strong> <em>in the terminal console window</em>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -3339,7 +3339,7 @@ back when needed.</p>
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 20, 2023 20:30:23</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 27, 2023 10:22:26</span>
       
     
     &bull;

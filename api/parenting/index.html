@@ -2708,7 +2708,7 @@
 <a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>        <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)))</span>
 </code></pre></div>
 <p>The reason for this behaviour is that when doing parenting in the 3D viewport you usually do not want the object that you are setting as the child to move. So the parenting matrices are adjusted accordingly when the parenting relationship is set up. But when we simply set <code>parent</code> from Python, the <code>matrix_local</code> value is used as is, causing our bottom cube to suddenly move up, as it is used as the transform relative to its parent, while it actually would need a different value to stay in place.</p>
-<p>There's actually quite a bit more going on with all the different parenting options available from the UI. See <a href="https://docs.blender.org/manual/en/latest/scene_layout/object/editing/parent.html">this page</a> for more details.</p>
+<p>There's actually quite a bit more going on with all the different parenting options available from the UI. See <a href="https://docs.blender.org/manual/en/3.6/scene_layout/object/editing/parent.html">this page</a> for more details.</p>
 <h2 id="children">Children<a class="headerlink" href="#children" title="Permanent link">&para;</a></h2>
 <p>To retrieve an object's children (i.e. the objects it is the parent of) can be done through its <code>children</code> property. This only returns the <em>direct</em> children of that object, and so not children of its children, etc. Getting to the set of all children of an object (direct and indirect) was made slightly easier in Blender 3.1 with the addition of the <code>children_recursive</code> attribute.</p>
 <p>For example, given a Cube, Suzanne and Torus object, where Suzanne is parented to Cube, and the Torus is parented to Suzanne:</p>
@@ -2745,7 +2745,7 @@
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 20, 2023 13:19:12</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 27, 2023 10:22:26</span>
       
     
     &bull;

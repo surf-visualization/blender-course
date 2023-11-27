@@ -2567,7 +2567,7 @@
 <p>Blender uses a system based on reference-counting to decide when data-blocks have become unused and can get purged. In the short video below we show some of the details of this scheme:</p>
 <iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/3y2652P42Wg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<p>The video shows the <code>Orphan Data</code> outliner mode, but there are several <a href="https://docs.blender.org/manual/en/latest/editors/outliner/interface.html#display-mode">modes</a> that can be used to get detailed insight into the current state of Blender internals:</p>
+<p>The video shows the <code>Orphan Data</code> outliner mode, but there are several <a href="https://docs.blender.org/manual/en/3.6/editors/outliner/interface.html#display-mode">modes</a> that can be used to get detailed insight into the current state of Blender internals:</p>
 <ul>
 <li>The <strong><code>Blender File</code></strong> mode gives a high-level overview of a file's contents, including some of the more implicit data block types, such as Workspaces.</li>
 </ul>
@@ -2645,7 +2645,7 @@
 <a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 <a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">[]</span>
 </code></pre></div>
-<p>Note that in the case of deleting object data (in this case a Mesh) any Objects referencing that object data <a href="https://docs.blender.org/manual/en/latest/files/data_blocks.html#removing-data-blocks">also get removed</a>!</p>
+<p>Note that in the case of deleting object data (in this case a Mesh) any Objects referencing that object data <a href="https://docs.blender.org/manual/en/3.6/files/data_blocks.html#removing-data-blocks">also get removed</a>!</p>
 <p>A second thing to note is the above code does not actually update the current Blender file on disk. That only happens on an explicit save action (e.g. through the <strong><code>File</code></strong> menu or using the relevant operator from Python). </p>
 </div>
 
@@ -2654,7 +2654,7 @@
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 20, 2023 13:19:12</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 27, 2023 10:22:26</span>
       
     
     &bull;

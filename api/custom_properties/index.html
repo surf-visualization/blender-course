@@ -2564,8 +2564,8 @@
 
 
 <h1 id="custom-properties">Custom properties<a class="headerlink" href="#custom-properties" title="Permanent link">&para;</a></h1>
-<p>Sometimes it can useful to be able to control certain values that you use in a script from the UI. The most flexible, but also most complex, approach would be write an <a href="https://docs.blender.org/manual/en/latest/advanced/scripting/addon_tutorial.html">add-on</a>. This allows full control over UI elements, but can be quite a bit of work to create.</p>
-<p>However, in quite a few cases there's a simpler alternative if all you need to control are simple Python values, like an <code>int</code>, <code>float</code>, <code>string</code> or <code>list</code>. From Python you can set custom properties on pretty much any Blender Python data block (see <a href="https://docs.blender.org/manual/en/latest/files/data_blocks.html#custom-properties">here</a> for more details) and then access those values from the UI:</p>
+<p>Sometimes it can useful to be able to control certain values that you use in a script from the UI. The most flexible, but also most complex, approach would be write an <a href="https://docs.blender.org/manual/en/3.6/advanced/scripting/addon_tutorial.html">add-on</a>. This allows full control over UI elements, but can be quite a bit of work to create.</p>
+<p>However, in quite a few cases there's a simpler alternative if all you need to control are simple Python values, like an <code>int</code>, <code>float</code>, <code>string</code> or <code>list</code>. From Python you can set custom properties on pretty much any Blender Python data block (see <a href="https://docs.blender.org/manual/en/3.6/files/data_blocks.html#custom-properties">here</a> for more details) and then access those values from the UI:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">o</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Cube&#39;</span><span class="p">]</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
@@ -2573,14 +2573,14 @@
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">o</span><span class="p">[</span><span class="s1">&#39;My 2nd prop&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 </code></pre></div>
 <p><img alt="" src="../images/custom_properties.png" /></p>
-<p>This works, of course, both ways: adding or editing a value from the UI will update the value(s) available through Python. You can then use these values in a script, for example to control a number of objects to create, set a 3D coordinate, etc. See <a href="https://docs.blender.org/api/current/info_quickstart.html#custom-properties">here</a> for more details and examples.</p>
+<p>This works, of course, both ways: adding or editing a value from the UI will update the value(s) available through Python. You can then use these values in a script, for example to control a number of objects to create, set a 3D coordinate, etc. See <a href="https://docs.blender.org/api/3.6/info_quickstart.html#custom-properties">here</a> for more details and examples.</p>
 
   <hr>
 <div class="md-source-file">
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 20, 2023 13:19:12</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 27, 2023 10:22:26</span>
       
     
     &bull;

@@ -2634,13 +2634,13 @@
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">[</span><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Plane&#39;</span><span class="p">]]</span>
 </code></pre></div>
-<p>Many of the operators take parameters, to influence the results. For example, with <code>bpy.ops.mesh.primitive_plane_add()</code> you can set the initial size and location of the plane (see the <a href="https://docs.blender.org/api/current/bpy.ops.mesh.html#bpy.ops.mesh.primitive_plane_add">API docs</a> for all the parameters):</p>
+<p>Many of the operators take parameters, to influence the results. For example, with <code>bpy.ops.mesh.primitive_plane_add()</code> you can set the initial size and location of the plane (see the <a href="https://docs.blender.org/api/3.6/bpy.ops.mesh.html#bpy.ops.mesh.primitive_plane_add">API docs</a> for all the parameters):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">primitive_plane_add</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span><span class="s1">&#39;FINISHED&#39;</span><span class="p">}</span>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Note that operator parameters can only be passed using <a href="https://docs.blender.org/api/current/bpy.ops.html">keyword arguments</a>.</p>
+<p>Note that operator parameters can only be passed using <a href="https://docs.blender.org/api/3.6/bpy.ops.html">keyword arguments</a>.</p>
 </div>
 <h2 id="operator-context">Operator context<a class="headerlink" href="#operator-context" title="Permanent link">&para;</a></h2>
 <p>This is all very nice and powerful, but operators have a few inherent properties that can make them tricky to work with.</p>
@@ -2674,7 +2674,7 @@
 <a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>          <span class="o">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>
 <a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="ne">RuntimeError</span><span class="p">:</span> <span class="n">Operator</span> <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">mesh</span><span class="o">.</span><span class="n">intersect_boolean</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span> <span class="n">failed</span><span class="p">,</span> <span class="n">context</span> <span class="ow">is</span> <span class="n">incorrect</span>
 </code></pre></div>
-<p>This shows that the so-called <em>poll function</em> failed, but what does that mean? The poll function is used by operators to determine if they can execute in the current context. They do this by checking certain preconditions on things like the selected object(s), the type of data or an object mode. In this case the <code>bpy.ops.mesh.intersect_boolean()</code> operator can't perform a boolean intersection on multiple meshes, but only on the faces of a single object in edit mode, but this is not something you can tell from the error message (nor does the <a href="https://docs.blender.org/api/current/bpy.ops.mesh.html?highlight=boolean#bpy.ops.mesh.intersect_boolean">documentation</a> make that clear):</p>
+<p>This shows that the so-called <em>poll function</em> failed, but what does that mean? The poll function is used by operators to determine if they can execute in the current context. They do this by checking certain preconditions on things like the selected object(s), the type of data or an object mode. In this case the <code>bpy.ops.mesh.intersect_boolean()</code> operator can't perform a boolean intersection on multiple meshes, but only on the faces of a single object in edit mode, but this is not something you can tell from the error message (nor does the <a href="https://docs.blender.org/api/3.6/bpy.ops.mesh.html?highlight=boolean#bpy.ops.mesh.intersect_boolean">documentation</a> make that clear):</p>
 <p><img alt="" src="../images/face_intersect_operator.png" /></p>
 <p>To actually perform a boolean intersection <em>on two objects</em> from a Python script requires us to do what we would be do in the UI: add a Boolean modifier on one of the objects and set its parameters. We <em>could</em> take advantage of the Python Tooltips to see which operator we need:</p>
 <p><img alt="" src="../images/boolean_modifier.png" /></p>
@@ -2691,15 +2691,15 @@
 <a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Cube.001&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hide_viewport</span> <span class="o">=</span> <span class="kc">True</span>
 </code></pre></div>
 <p><img alt="" src="../images/boolean_result.png" /></p>
-<p>Unfortunately, certain operations can only be performed by calling operators. So there's a good chance that you will need to use them at some point when doing Python scripting. Hopefully this section gives some clues as how to work with them. See <a href="https://docs.blender.org/api/current/info_gotcha.html#using-operators">this section</a> for more details on all the above subtleties and issues relating to working with operators.</p>
-<p>The <a href="https://docs.blender.org/api/current/bpy.ops.html"><code>bpy.ops</code></a> documentation also contains useful information on operators, including how to override an operator's implicit context with values you set yourself.</p>
+<p>Unfortunately, certain operations can only be performed by calling operators. So there's a good chance that you will need to use them at some point when doing Python scripting. Hopefully this section gives some clues as how to work with them. See <a href="https://docs.blender.org/api/3.6/info_gotcha.html#using-operators">this section</a> for more details on all the above subtleties and issues relating to working with operators.</p>
+<p>The <a href="https://docs.blender.org/api/3.6/bpy.ops.html"><code>bpy.ops</code></a> documentation also contains useful information on operators, including how to override an operator's implicit context with values you set yourself.</p>
 
   <hr>
 <div class="md-source-file">
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 20, 2023 20:30:23</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">November 27, 2023 10:22:26</span>
       
     
     &bull;
