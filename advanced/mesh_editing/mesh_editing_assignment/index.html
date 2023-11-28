@@ -2686,7 +2686,7 @@
 <p>Now you will be able to see all the vertices, edges and faces that make up the 3D model. You will now try to select and move around some vertices, edges and/or faces.</p>
 <ol start="2">
 <li>Change the <em>Mesh Select Mode</em> to <strong><code>Vertex</code></strong> by pressing <strong><code>1</code></strong> (or click the left icon in <img alt="" class="iconimg" src="../../images/editmodeselect.png" /> at the 3D view header). This might already be active by default but it will be highlighted on the icons in the 3D view header (<img alt="" class="iconimg" src="../../images/vertex-highlighted.png" />).</li>
-<li>Before you start selecting, de-select all all current selected vertices by pressing <strong><code>Alt-A</code></strong> or double <strong>'A'</strong> rapidly.</li>
+<li>Before you start selecting, de-select all all current selected vertices by pressing <strong><code>Alt-A</code></strong> or double <strong><code>A</code></strong> rapidly.</li>
 <li>Now try to select a single vertex by clicking on it with the <strong><code>LMB</code></strong>, or multiple with <strong><code>Shift-LMB</code></strong>. You might have to zoom in a bit to separate the vertices enough.</li>
 <li>Another method is to use the selection tools:<ol>
 <li><em>Box selection</em> by pressing <strong><code>B</code></strong> and dragging a box around the vertices you want to select. Hold <strong><code>Shift</code></strong> to de-select.</li>
@@ -2696,18 +2696,24 @@
 <li>Once you selected your vertices you can transform them the same way you can do with objects by pressing the hotkeys <strong><code>G</code></strong> for translation, <strong><code>R</code></strong> for rotation, and <strong><code>S</code></strong> for scaling, etc.</li>
 <li>Probably now you did the vertex editing the fish looks a bit scrabbled. One way to clean it up is, of course, using <strong><code>Ctrl-Z</code></strong> to undo it. Another way is simply deleting the vertices by using the Delete popup menu <strong><code>X &gt; Vertices</code></strong>. Try to remove part of the fish skin to it leaves a hole in the mesh which will reveal a part of the inside of the fish.</li>
 </ol>
-<p><strong>Tip!</strong>: If your fish has been "meshed-up" beyond repair you can always <strong><code>revert</code></strong> it to the last saved state with: <strong><code>File &gt; Revert &gt; Confirm</code></strong>. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip!</p>
+<p>If your fish has been "meshed-up" beyond repair you can always <strong><code>revert</code></strong> it to the last saved state with: <strong><code>File &gt; Revert &gt; Confirm</code></strong>. </p>
+</div>
 <h2 id="filling-the-holes">Filling the holes<a class="headerlink" href="#filling-the-holes" title="Permanent link">&para;</a></h2>
 <p>An imported mesh from a 3D visualization program can sometimes contain unwanted holes or separations in parts of the mesh, these can also be fixed in the edit mode. Conveniently the fish in the exercise file was already poked full of holes so you can fix these.</p>
 <p><strong><code>In between</code></strong>: To better inspect if there are any holes left you can switch back and forth between the <em>Object mode</em> and <em>Edit mode</em> because in the <em>Object mode</em> they are easier to see.</p>
 <ol>
-<li>First, make sure the whole mesh is selected by pressing <strong><code>a</code></strong> and then remove the small holes (the size of one triangle/quad) by pressing <strong><code>F3</code></strong> in the <em>3D viewport</em> in <em>Edit mode</em> and type in <strong><code>fill holes</code></strong> and press <strong><code>enter</code></strong> or click on it with <strong><code>LMB</code></strong> (this might take some time). Now this already cleaned up a lot of the holes in the geometry!</li>
-<li>Through inspection you might notices there are some bigger wholes that were not filled yet because they were skipped by the previous step since they were to large. To fill these they first need to be selected by first de-selecting everything with <strong><code>alt-a</code></strong> and then press <strong><code>F3</code></strong> and type in <strong><code>non manifold</code></strong> and press <strong><code>enter</code></strong> or click on it with <strong><code>LMB</code></strong>.</li>
-<li>This selected the big holes but also other non-<a href="https://en.wikipedia.org/wiki/Manifold">manifold</a> geometry. To select only one of the holes <em>hold</em> <strong><code>CTRL+SHIFT</code></strong> and drag with <strong><code>LMB</code></strong> over one of the holes. This de-selects everything excepts what was in the drag-box.</li>
-<li>Now this selected hole can easily be fixed by pressing <strong><code>f</code></strong>.</li>
+<li>First, make sure the whole mesh is selected by pressing <strong><code>A</code></strong> and then remove the small holes (the size of one triangle/quad) by pressing <strong><code>F3</code></strong> in the <em>3D viewport</em> in <em>Edit mode</em> and type in <strong><code>fill holes</code></strong> and press <strong><code>enter</code></strong> or click on it with <strong><code>LMB</code></strong> (this might take some time). Now this already cleaned up a lot of the holes in the geometry!</li>
+<li>Through inspection you might notices there are some bigger wholes that were not filled yet because they were skipped by the previous step since they were to large. To fill these they first need to be selected by first de-selecting everything with <strong><code>Alt-A</code></strong> and then press <strong><code>F3</code></strong> and type in <strong><code>non manifold</code></strong> and press <strong><code>Enter</code></strong> or click on it with <strong><code>LMB</code></strong>.</li>
+<li>This selected the big holes but also other non-<a href="https://en.wikipedia.org/wiki/Manifold">manifold</a> geometry. To select only one of the holes <em>hold</em> <strong><code>Ctrl+Shift</code></strong> and drag with <strong><code>LMB</code></strong> over one of the holes. This de-selects everything excepts what was in the drag-box.</li>
+<li>Now this selected hole can easily be fixed by pressing <strong><code>F</code></strong>.</li>
 <li>Repeat step 2 to 4 for the other 2 holes.</li>
 </ol>
-<p><strong>Tip!</strong>: The fill with <strong><code>f</code></strong> fills the hole with an n-gon, a face with more then 4 vertices. These can sometimes create shading artifacts in your final render. Another way to fill these holes is to use grid-fill (<strong><code>ctrl+f</code></strong>), this tries to fill the whole with a grid of quad shaped faces. This however might not always work for numerous reasons (uneven amount of vertices, closed loops etc) which can be fixed with additional mesh editing but the easy route would be to fill it with an n-gon face.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip!</p>
+<p>The fill with <strong><code>F</code></strong> fills the hole with an n-gon, a face with more then 4 vertices. These can sometimes create shading artifacts in your final render. Another way to fill these holes is to use grid-fill (<strong><code>Ctrl+F</code></strong>), this tries to fill the whole with a grid of quad shaped faces. This however might not always work for numerous reasons (uneven amount of vertices, closed loops etc) which can be fixed with additional mesh editing but the easy route would be to fill it with an n-gon face.</p>
+</div>
 <h2 id="separating-skin-from-bones">Separating skin from bones<a class="headerlink" href="#separating-skin-from-bones" title="Permanent link">&para;</a></h2>
 <p>Now that you got a little familiar with mesh editing you can try to separate the skin from the bones by using mesh separation.</p>
 <ol>
@@ -2717,23 +2723,27 @@ Unfortunately, this occurs frequently with this type of sensor-based 3D data.</l
 <li>In the <em>Outliner</em> double-click <strong><code>LMB</code></strong> on the mesh object <strong><code>fish.001</code></strong> to rename it to <strong><code>fishskin</code></strong>. Do the same for the <strong><code>fish</code></strong> mesh object and rename it to <strong><code>fishbones</code></strong>.</li>
 <li>If you now select the <strong><code>fishskin</code></strong> mesh object and hide it by clicking the little <img alt="" class="iconimg" src="../../images/outlinereyeicon.png" /> icon in the <em>Outliner</em> will reveal the insides of the fish.</li>
 </ol>
-<p><strong>Tips!</strong>:
-  - To reverse the separation of the mesh into bone and skin you can select both the mesh objects in <em>Object mode</em> and press <strong><code>Ctrl-J</code></strong> to join them back together into a single mesh.
-  - Sometimes X-ray mode, toggled with <strong><code>Alt-Z</code></strong> can be useful when editing a complex mesh, as it makes all geometry in a mesh partly transparent</p>
+<div class="admonition tip">
+<p class="admonition-title">Tips!</p>
+<ul>
+<li>To reverse the separation of the mesh into bone and skin you can select both the mesh objects in <em>Object mode</em> and press <strong><code>Ctrl-J</code></strong> to join them back together into a single mesh.</li>
+<li>Sometimes X-ray mode, toggled with <strong><code>Alt-Z</code></strong>, can be useful when editing a complex mesh, as it makes all geometry in a mesh partly transparent</li>
+</ul>
+</div>
 <h2 id="bonus-make-your-own-annotation-arrow">(BONUS) Make your own annotation arrow<a class="headerlink" href="#bonus-make-your-own-annotation-arrow" title="Permanent link">&para;</a></h2>
 <p>Since the content of this course is mostly geared towards imported geometry or scripted geometry, you might not directly think about manually created geometry. This bonus exercise however will show you that it is relatively easy to create your own geometry in Blender. Lets start your manual mesh creation with an annotation arrow!</p>
 <ol>
 <li>In the <em>3D viewport</em> make sure you are in <strong><code>Object mode</code></strong> and add a new cylinder with <strong><code>Shift-A &gt; Mesh &gt; Cylinder</code></strong>.</li>
 <li>Press <strong><code>/</code></strong> to isolate the mesh so that there are no distractions. This can be reversed again by pressing <strong><code>/</code></strong>.</li>
 <li>Press <strong><code>Tab</code></strong> to go into <em>Edit mode</em>.</li>
-<li>Grab the selected geometry by pressing <strong><code>g</code></strong> and press <strong><code>z</code></strong> to move it along the z-axis only and press <strong><code>1</code></strong> to move it 1 unit up so that the origin is at the bottom.</li>
+<li>Grab the selected geometry by pressing <strong><code>G</code></strong> and press <strong><code>Z</code></strong> to move it along the z-axis only and press <strong><code>1</code></strong> to move it 1 unit up so that the origin is at the bottom.</li>
 <li>De-select all the geometry with <strong><code>Alt-A</code></strong> and press <strong><code>1</code></strong> to set the select mode to Vertex and select all the bottom vertices (with <strong><code>LMB-drag</code></strong> over the vertices or with the <strong><code>b</code></strong> Box-select).</li>
-<li>Press <strong><code>s</code></strong> to scale them to a tiny point and press <strong><code>LMB</code></strong> to confirm.</li>
+<li>Press <strong><code>S</code></strong> to scale them to a tiny point and press <strong><code>LMB</code></strong> to confirm.</li>
 <li>Now select the top vertices the same way you did with the bottom vertices, make sure that none of the bottom vertices are selected.</li>
-<li>Press <strong><code>i</code></strong> to <em>inset</em> the faces and move your mouse until you are satisfied with the width of the arrow shaft.</li>
-<li>Press <strong><code>e</code></strong> to <em>extrude</em> the selection and move the mouse up until you are satisfied with the length of the arrow shaft.</li>
+<li>Press <strong><code>I</code></strong> to <em>inset</em> the faces and move your mouse until you are satisfied with the width of the arrow shaft.</li>
+<li>Press <strong><code>E</code></strong> to <em>extrude</em> the selection and move the mouse up until you are satisfied with the length of the arrow shaft.</li>
 <li>Now press <strong><code>Tab</code></strong> and admire your newly created arrow! </li>
-<li>The arrow might now be a bit too big compared to the fish so scale the arrow down with <strong><code>s</code></strong>, move it to a point of interest with <strong><code>g</code></strong> and rotate the arrow to your liking with <strong><code>r</code></strong> (which is made relatively easy because we made it so that the origin is at the point)</li>
+<li>The arrow might now be a bit too big compared to the fish so scale the arrow down with <strong><code>S</code></strong>, move it to a point of interest with <strong><code>G</code></strong> and rotate the arrow to your liking with <strong><code>R</code></strong> (which is made relatively easy because we made it so that the origin is at the point)</li>
 </ol>
 <p>Since the introduction of the <em>Edit mode</em> and switching back and forth between it and the <em>Object mode</em> you do need to make sure in which mode you are before adding new geometry or before using one of the transform operations (grab, scale and rotate). Otherwise you might add geometry to an already existing object instead of adding a new 3D object or you might move, scale or rotate 3D object geometry in the <em>Edit mode</em> and inadvertently change the origin of the object. This can be confusing sometimes but you'll get used to it! </p>
 
@@ -2742,7 +2752,7 @@ Unfortunately, this occurs frequently with this type of sensor-based 3D data.</l
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">13 May 2022 09:57:05</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">28 November 2023 16:04:35</span>
       
     
     &bull;

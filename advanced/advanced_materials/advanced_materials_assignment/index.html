@@ -2815,10 +2815,13 @@
 <li>Nothing changed because we didn't apply the scaling yet. Now add a <em>Mapping</em> node with <strong><code>Shift-A &gt; Vector &gt; Mapping</code></strong> and drag it on top of the edge between the <em>Texture Coordinate</em>-node and the <em>Image Texture</em>-node and let it go. As you can see it is automatically connected in between the nodes.</li>
 <li>Now on the <em>Mapping</em>-node change the <strong><code>Scale</code></strong> parameter <code>x</code>,<code>y</code> and <code>z</code> to <strong><code>2</code></strong>. As you can see that reduced the planks to a smaller and better size.</li>
 </ol>
-<p><strong>Tip!</strong>: With the <strong>Node Wrangler</strong> Blender add-on you can just select a texture node and press <strong><code>CTRL+T</code></strong> to automatically add the <em>Texture Coordinate</em> and <em>Mapping</em> node. <strong>Node Wrangler</strong> can be added with: <strong><code>Menu-bar Edit &gt; Preferences &gt; Add-ons tab &gt; Type 'Node Wranger' in search &gt; check Node Wrangler add-on to activate</code></strong>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip!</p>
+<p>With the <strong>Node Wrangler</strong> Blender add-on you can just select a texture node and press <strong><code>CTRL+T</code></strong> to automatically add the <em>Texture Coordinate</em> and <em>Mapping</em> node. <strong>Node Wrangler</strong> can be added with: <strong><code>Menu-bar Edit &gt; Preferences &gt; Add-ons tab &gt; Type 'Node Wranger' in search &gt; check Node Wrangler add-on to activate</code></strong>.</p>
+</div>
 <p>Now we'll roughen the planks a bit with a <em>Roughness map</em>, a texture that will be use to change the <code>Roughness</code> parameter of the Principled BSDF.</p>
 <ol start="8">
-<li>Select the previously added <em>Image Texture</em>-node and press <strong><code>SHIFT-D</code></strong> and place the new duplicated node underneath the other <em>Image Texture</em>-node.</li>
+<li>Select the previously added <em>Image Texture</em>-node and press <strong><code>Shift-D</code></strong> and place the new duplicated node underneath the other <em>Image Texture</em>-node.</li>
 <li>Connect its <code>Vector</code> input to the <code>Vector</code> output of the <em>Mapping</em>-node just like the other <em>Image Texture</em>-node and connect the <code>Color</code> output to the <code>Roughness</code> input of the <em>Principled BSDF</em>-node.</li>
 <li>As you can see became shiny, which wood is not (rotate the view around the object in the 3D Viewport to see the plane from different angles). This is because we haven't changed the texture yet. In this new <em>Image Texture</em>-node <strong><code>Open</code></strong> the <code>blue_painted_planks_rough_4k.png</code> from <code>data/wood_textures</code>.</li>
 <li>Now it is still a bit too shiny for wood. This is because the output is interpreted as an <code>sRGB</code> value. We need to change the <strong><code>Color Space</code></strong> parameter of this <em>Image Texture</em>-node to <strong><code>Non-color</code></strong>. Now the ground plane has the right rough look like wood.</li>
@@ -2872,7 +2875,7 @@
 </ol>
 <p>To properly project from view you have to choose the right view to project from. We are gonna map a photo of a carp which has been taken from the side. In order to properly map the photo on the 3D object we also need to look at it from the side.</p>
 <ol start="7">
-<li>Press <strong><code>BACK-TICK</code></strong> to open the view radial pie-menu and select <strong><code>Right</code></strong> or through the 3D Viewport menu in the header (<strong><code>View &gt; Viewpoint &gt; Camera</code></strong>).</li>
+<li>Press <strong><code>`</code></strong> (the back-tick) to open the view radial pie-menu and select <strong><code>Right</code></strong> or through the 3D Viewport menu in the header (<strong><code>View &gt; Viewpoint &gt; Camera</code></strong>).</li>
 <li>Now press <strong><code>U</code></strong> to open the <em>UV-mapping</em>-menu and select <strong><code>Project from view</code></strong>.</li>
 </ol>
 <p>Now you can see the <code>UV</code> coordinates are mapped in the <strong><code>UV Editor</code></strong> but they are not properly scaled to fit the photo of the carp.</p>
@@ -2887,7 +2890,10 @@
 <li>While grabbing, scroll with you mouse wheel to decrease or increase the <em>Proportional editing</em> radius and move your mouse to see the effect.</li>
 <li>Now with this <strong><code>Proportional editing</code></strong> try to match the UV-coordinates to the photo of the carp as good as possible.</li>
 </ol>
-<p><strong>Tip!</strong>: Whenever you are editing the UV-map in the <em>UV editor</em> it can be difficult to see how the texture is mapped on the 3D-object because of the visibility of all vertices, edges and faces because of the activated <em>Edit mode</em>. You can toggle between <em>Edit mode</em> and <em>Object mode</em> in the 3D Viewport panel to have a better look at the mapped texture.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip!</p>
+<p>Whenever you are editing the UV-map in the <em>UV editor</em> it can be difficult to see how the texture is mapped on the 3D-object because of the visibility of all vertices, edges and faces because of the activated <em>Edit mode</em>. You can toggle between <em>Edit mode</em> and <em>Object mode</em> in the 3D Viewport panel to have a better look at the mapped texture.</p>
+</div>
 <h2 id="the-moon">💻 The moon<a class="headerlink" href="#the-moon" title="Permanent link">&para;</a></h2>
 <p>This moon exercise doesn't have a prepared blend file because you are gonna make it all by yourself! So open a new blend file and start to make the moon.</p>
 <h3 id="the-basic-scene-sphere-sun-and-the-darkness-of-space">The basic scene - Sphere, sun and the darkness of space<a class="headerlink" href="#the-basic-scene-sphere-sun-and-the-darkness-of-space" title="Permanent link">&para;</a></h3>
@@ -2945,7 +2951,7 @@
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">14 May 2022 14:33:41</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">28 November 2023 16:04:35</span>
       
     
     &bull;
