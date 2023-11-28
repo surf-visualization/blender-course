@@ -301,12 +301,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://surf-visualization.github.io/blender-course/overview/contents/</loc>
+         <lastmod>2023-11-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://surf-visualization.github.io/blender-course/overview/conventions/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://surf-visualization.github.io/blender-course/overview/introduction/</loc>
+         <loc>https://surf-visualization.github.io/blender-course/overview/data_files/</loc>
+         <lastmod>2023-11-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://surf-visualization.github.io/blender-course/overview/issues_and_feedback/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -322,6 +332,16 @@
     </url>
     <url>
          <loc>https://surf-visualization.github.io/blender-course/overview/support/</loc>
+         <lastmod>2023-11-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://surf-visualization.github.io/blender-course/overview/target_audience/</loc>
+         <lastmod>2023-11-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://surf-visualization.github.io/blender-course/overview/time_investment/</loc>
          <lastmod>2023-11-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
