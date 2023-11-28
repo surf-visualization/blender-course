@@ -2577,25 +2577,25 @@ scene. We could animate the camera orientation ourselves, but there is an easier
 a constraint. A constraint operates on an object and can influence things like orientation
 or scale amount based on another object's properties.</p>
 <p>We will be using a Track To constraint here, which keeps one object pointing at another object.</p>
-<ol>
+<ol start="2">
 <li>Select the camera</li>
 <li>Switch the Properties panel to the Object Constraints tab using the <img alt="" class="iconimg" src="../../images/objectconstraintsicon.png" /> icon</li>
 <li>In the <strong><code>Add Object Constraint</code></strong> menu pick <strong><code>Track To</code></strong> under <strong><code>Tracking</code></strong></li>
 </ol>
 <p>The Track To constraint will keep the object, in this case our camera, oriented at another object all the time.
 The other object is called the Target object (in this case one of the cubes).</p>
-<ol>
+<ol start="5">
 <li>In the constraint settings under <strong><code>Target</code></strong> (the top one!) pick <strong><code>Cube</code></strong></li>
 </ol>
 <p>If you had the 3D View set to view through the active camera (the view will be named <strong><code>Camera Perspective</code></strong>) one
 of the cubes should now be nicely centered in the view. </p>
-<ol>
+<ol start="6">
 <li>Check that when playing the animation the cube indeed stays centered in the camera view.</li>
 <li>Orient the 3D view so you can see the camera's orientation in relation to the scene, specifically the targeted cube.</li>
 </ol>
 <p>There is a blue dotted line indicating the constraint between the camera and the cube.
 To understand how the Track To constraint works in this case we need to understand the basic orientation of a Blender camera.</p>
-<ol>
+<ol start="8">
 <li>Add a new Camera (<strong><code>Shift-A &gt; Camera</code></strong>)</li>
 <li>Select it and clear its rotation with <strong><code>Alt-R</code></strong>.</li>
 <li>Zoom in on the new camera so you can see along which axis it is looking. Also note which axis is the Up direction of the camera (i.e. pointing towards the top of the view as seen by this camera).</li>
@@ -2609,7 +2609,7 @@ To understand how the Track To constraint works in this case we need to understa
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">15 April 2022 09:46:47</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">28 November 2023 15:36:32</span>
       
     
     &bull;

@@ -2592,7 +2592,7 @@ applied to the camera as well.</p>
 an object's parent by selecting that object, pressing <strong><code>Alt-P</code></strong> and picking
 <strong><code>Clear Parent</code></strong>.</p>
 </div>
-<ol>
+<ol start="7">
 <li>
 <p>Verify in the outliner that the Camera object is now indeed a child of the Empty (you might have to use the little 
 white triangles to open the necessary tree entries)</p>
@@ -2603,16 +2603,17 @@ white triangles to open the necessary tree entries)</p>
     leaving the Z rotation of the empty set to zero.</p>
 </li>
 <li>
-<p>Add key frames at the beginning and end of the animation to have the empty rotate 360 degrees around
-    Z over the animation period</p>
+<p>Add key frames at the beginning and end of the animation to have the empty rotate 360 degrees around Z over the animation period</p>
 </li>
-<li>Check the camera orbit, including how it looks in the camera view. Is this orbit better?</li>
+<li>
+<p>Check the camera orbit, including how it looks in the camera view. Is this orbit better?</p>
+</li>
 </ol>
 <p>You might have noticed that, even though we now have a nice circular rotation of the camera around
 the object, the rotation speed actually isn't constant. If you select the empty and look at
 the Graph Editor you can see that the graph line representing the Z rotation value isn't straight,
 but looks like an S. This is due to the default interpolation mode that is used between key frames.</p>
-<ol>
+<ol start="11">
 <li>
 <p>To make the rotation speed constant make sure the empty is selected. Then in the Graph Editor
     select all curve points with <strong><code>A</code></strong> and press <strong><code>V</code></strong> to set the handle type, pick <strong><code>Vector</code></strong>.
@@ -2634,7 +2635,7 @@ but looks like an S. This is due to the default interpolation mode that is used 
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">05 May 2022 15:18:41</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">28 November 2023 15:36:32</span>
       
     
     &bull;

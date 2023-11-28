@@ -2688,8 +2688,8 @@ On lower end devices this can slow everything down to a crawl. In order to be ab
 <li>Click <strong><code>Add Modifier</code></strong> and add the <strong><code>Smooth</code></strong> modifier (it's in the <em>Deform</em> column).</li>
 <li>Keep the <strong><code>Factor</code></strong> at <strong><code>0.5</code></strong> but increase the <strong><code>Repeat</code></strong> to <strong><code>5</code></strong>. Watch out with using the slider, every change re-triggers the modifier and when you accidentally slide to a high number it will take a while to calculate.</li>
 </ol>
-<p>Unfortunately you will notices that the Smooth modifier creates tears along the skin model, this conveniently revealed that the underlying mesh triangles are not fully connected and are present in connected patches. These patches stems from the creation of this model where the calculation of the geometry was done in multiple processors and each patch was created by a separate process. This can be fixed in the <em>Edit-mode</em> but that will be covered in the advanced course.</p>
-<ol>
+<p>Unfortunately you will notice that the Smooth modifier creates tears along the skin model, this conveniently revealed that the underlying mesh triangles are not fully connected and are present in connected patches. These patches stem from the creation of this model where the calculation of the geometry was done in multiple processors and each patch was created by a separate process, and then combined. This can be fixed in the <em>Edit-mode</em> but that will be covered in the Advanced course.</p>
+<ol start="5">
 <li>The <strong><code>Factor</code></strong> is good as it is, but changing the value shows what kind of drastic effect it has.</li>
 <li>Once you are satisfied with the smoothness of the fishskin press <strong><code>Apply</code></strong> and try to do the same with the fishbones.</li>
 </ol>
@@ -2700,14 +2700,14 @@ On lower end devices this can slow everything down to a crawl. In order to be ab
 <li>Select the <strong><code>fishskin</code></strong> mesh object and go to the <em>Modifiers</em> tab <img alt="" class="iconimg" src="../../images/modifiersicon.png" /> in the properties editor to add a <strong><code>Boolean</code></strong> modifier (it's in the <em>Generate</em> column).</li>
 </ol>
 <p>Now that the <em>Boolean</em> modifier is added we still miss another 3D mesh object to perform the <em>Boolean</em> operation with. You are now gonna prepare the other mesh object.</p>
-<ol>
+<ol start="3">
 <li>Move the mouse into the 3D view and add a new <em>UV sphere</em> with <strong><code>Shift-A &gt; Mesh &gt; UV Sphere</code></strong></li>
 <li>Scale and translate (<strong><code>S</code></strong> and <strong><code>G</code></strong> keys) the <em>UV sphere</em> so that it overlaps a part of the fish which you want to clip away.</li>
 <li>The <em>UV sphere</em> is now shown as a solid surface, which is not desirable when you want to use it for clipping because you want to see through it. You can change the representation of an object in the 3D view using the <em>Object</em> <img alt="" class="iconimg" src="../../images/objecticon.png" /> properties under <strong><code>Viewport Display</code></strong>: set <strong><code>Display As</code></strong> to  <strong><code>Wire</code></strong>.</li>
 <li>Also when you want to look at the results in Rendered mode you need to make the sphere invisible using the <strong><code>Ray Visibility</code></strong> settings under <strong><code>Visibility</code></strong>: disable all check-boxes (Camera, Diffuse, Glossy, Transmission, Volume Scatter and Shadow)</li>
 </ol>
 <p>Now that you prepared the mesh object to preform the <em>Boolean</em> operation with, you can continue setting up the <em>Boolean</em> modifier.</p>
-<ol>
+<ol start="7">
 <li>Select the <strong><code>fishskin</code></strong> mesh object and go to the <em>Modifiers</em> tab <img alt="" class="iconimg" src="../../images/modifiersicon.png" /> in the properties editor to reveal the already added <em>Boolean</em> modifier.</li>
 <li>Now under <strong><code>Object</code></strong>, select the <strong><code>Sphere</code></strong> mesh object.</li>
 <li>Before we want to start moving the clipping Sphere around we want to change the <strong><code>Solver</code></strong> to <strong><code>Fast</code></strong>. This is more simpler and better performing solver and in our case, with the underlying broken patched mesh, also a better option since this solver is able to handle this type of geometry.</li>
@@ -2721,7 +2721,7 @@ On lower end devices this can slow everything down to a crawl. In order to be ab
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">15 April 2022 09:18:23</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">28 November 2023 15:39:06</span>
       
     
     &bull;
