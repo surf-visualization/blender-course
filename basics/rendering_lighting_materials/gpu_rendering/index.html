@@ -1399,15 +1399,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cycles-cpu-or-gpu" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cycles: CPU or GPU
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#system-specific-settings" class="md-nav__link">
     <span class="md-ellipsis">
       System-specific settings
@@ -2740,15 +2731,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cycles-cpu-or-gpu" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cycles: CPU or GPU
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#system-specific-settings" class="md-nav__link">
     <span class="md-ellipsis">
       System-specific settings
@@ -2860,14 +2842,14 @@ you might not have a very powerful GPU in your laptop or workstation).</p>
 <li>When doing a GPU render your desktop environment might become less responsive, although this has become less of a problem with recent Blender versions</li>
 <li>A GPU usually has less memory available, which might cause problems with really large scenes</li>
 </ul>
-<p>In case you want to try enabling GPU rendering go to the Preferences window (<strong><code>Edit &gt; Preferences</code></strong>) and
+<p>For the Cycles renderer the way to switch between CPU and GPU rendering is under the scene settings:</p>
+<p><img alt="" src="../../images/cycles-cpu-vs-gpu.png" /></p>
+<p>If you don't see a <code>GPU Compute</code> entry there then you first need to enable a GPU device under the global 
+system preferences. Go to the Preferences window (<strong><code>Edit &gt; Preferences</code></strong>) and
 then the <strong><code>System</code></strong> tab. The settings available under <strong><code>Cycles Render Devices</code></strong> are
 somewhat dependent on the hardware in your system but should look a little like this:</p>
 <p><img alt="" src="../../images/cycles-gpu-settings.png" /></p>
-<h2 id="cycles-cpu-or-gpu">Cycles: CPU or GPU<a class="headerlink" href="#cycles-cpu-or-gpu" title="Permanent link">&para;</a></h2>
-<p>The above controls the availability of GPU rendering device(s) for Blender as a whole. </p>
-<p>Specifically for the Cycles renderer there's a separate scene-specific setting that controls if CPU (<code>CPU</code>) or GPU rendering (<code>GPU Compute</code>) is used for the scene:</p>
-<p><img alt="" src="../../images/cycles-cpu-vs-gpu.png" /></p>
+<p>See <a href="#system-specific-settings">below</a> for the meaning of the different (system-dependent) options.</p>
 <h2 id="system-specific-settings">System-specific settings<a class="headerlink" href="#system-specific-settings" title="Permanent link">&para;</a></h2>
 <p>GPU rendering in Blender has slightly different support depending on whether you're on Windows, Linux or macOS. Below, we summarize
 the options you can encounter. The most up-to-date official reference for this information is <a href="https://docs.blender.org/manual/en/3.6/render/cycles/gpu_rendering.html">this page</a> from the Blender manual.</p>
@@ -2918,7 +2900,7 @@ in the Blender manual.</p>
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">04 December 2023 10:55:54</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">04 December 2023 11:05:31</span>
       
     
     &bull;
