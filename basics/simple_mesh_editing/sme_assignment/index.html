@@ -2824,7 +2824,7 @@ On lower end devices this can slow everything down to a crawl. In order to be ab
 <ol>
 <li>Select the fishskin by clicking on the fishskin with <strong><code>LMB</code></strong>.</li>
 <li>Once selected go the <em>Modifiers</em> tab <img alt="" class="iconimg" src="../../images/modifiersicon.png" /> in the properties editor.</li>
-<li>Click <strong><code>Add Modifier</code></strong> and add the <strong><code>Decimate</code></strong> modifier (it's in the <em>Generate</em> column).</li>
+<li>Click <strong><code>Add Modifier</code></strong> and add the <strong><code>Decimate</code></strong> modifier (it's in the <em>Generate</em> sub-menu).</li>
 <li>Keep the decimation type set to <strong><code>Collapse</code></strong>, set the <strong><code>Ratio</code></strong> to <strong><code>0.5</code></strong> and press <strong><code>Enter</code></strong>. The mesh processing will take a couple of seconds but will immediately reduce the number of triangles to ~77k, which is visible in the modifier under <strong><code>Face Count</code></strong>. You can even reduce it to a lower number but it might affect the appearance and shape of the model negatively by creating hard edges on the surface.</li>
 <li>Once you are satisfied with the results press <strong><code>Apply</code></strong>, under the dropdown-menu arrow to the right of Decimate <img alt="" class="iconimg" src="../../images/modifiermenu.png" />, or by pressing <strong><code>Ctrl-A</code></strong>, while focused on the Decimate modifier, to make the changes permanent. Again, this can take a few seconds.</li>
 <li>Now that the fishskin triangles have been reduced, select it and press <strong><code>H</code></strong> to hide it or click the <img alt="" class="iconimg" src="../../images/outlinereyeicon.png" /> icon in the <em>Outliner</em>. This simultaneously hides the fishskin and reveal the fishbones.</li>
@@ -2836,7 +2836,7 @@ On lower end devices this can slow everything down to a crawl. In order to be ab
 <ol>
 <li>Select the fishskin model by clicking on the fishskin with <strong><code>LMB</code></strong>.</li>
 <li>Go to the <em>Modifiers</em> tab <img alt="" class="iconimg" src="../../images/modifiersicon.png" /> in the properties editor.</li>
-<li>Click <strong><code>Add Modifier</code></strong> and add the <strong><code>Smooth</code></strong> modifier (it's in the <em>Deform</em> column).</li>
+<li>Click <strong><code>Add Modifier</code></strong> and add the <strong><code>Smooth</code></strong> modifier (it's in the <em>Deform</em> sub-menu).</li>
 <li>Keep the <strong><code>Factor</code></strong> at <strong><code>0.5</code></strong> but increase the <strong><code>Repeat</code></strong> to <strong><code>5</code></strong>. Watch out with using the slider, every change re-triggers the modifier and when you accidentally slide to a high number it will take a while to calculate.</li>
 </ol>
 <p>Unfortunately you will notice that the Smooth modifier creates tears along the skin model, this conveniently revealed that the underlying mesh triangles are not fully connected and are present in connected patches. These patches stem from the creation of this model where the calculation of the geometry was done in multiple processors and each patch was created by a separate process, and then combined. This can be fixed in the <em>Edit-mode</em> but that will be covered in the Advanced course.</p>
@@ -2848,7 +2848,7 @@ On lower end devices this can slow everything down to a crawl. In order to be ab
 <p>If you wanna both show the inside of the fish with the context of the outside you can use slice through the fishskin model and reveal the insides of the fish by using a <em>Boolean Modifier</em>.</p>
 <ol>
 <li>Before you add the <em>Boolean Modifier</em> you first need to reveal the <strong><code>fishskin</code></strong> mesh object again by clicking the <img alt="" class="iconimg" src="../../images/outlinereyeicon.png" /> icon in the <em>Outliner</em>.</li>
-<li>Select the <strong><code>fishskin</code></strong> mesh object and go to the <em>Modifiers</em> tab <img alt="" class="iconimg" src="../../images/modifiersicon.png" /> in the properties editor to add a <strong><code>Boolean</code></strong> modifier (it's in the <em>Generate</em> column).</li>
+<li>Select the <strong><code>fishskin</code></strong> mesh object and go to the <em>Modifiers</em> tab <img alt="" class="iconimg" src="../../images/modifiersicon.png" /> in the properties editor to add a <strong><code>Boolean</code></strong> modifier (it's in the <em>Generate</em> sub-menu).</li>
 </ol>
 <p>Now that the <em>Boolean</em> modifier is added we still miss another 3D mesh object to perform the <em>Boolean</em> operation with. You are now gonna prepare the other mesh object.</p>
 <ol start="3">
@@ -2871,7 +2871,7 @@ On lower end devices this can slow everything down to a crawl. In order to be ab
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">28 November 2023 15:39:06</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">09 April 2024 17:54:55</span>
       
     
     &bull;

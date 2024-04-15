@@ -2719,11 +2719,16 @@ Note: the material in this course is in the process of being updated to Blender 
 
 
 <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
-<p>This part of the course is all about the aesthetics, the last part of the pipeline. You know now of the basics and by now you are able to import some scientific data within Blender, the final thing that is left is how the final image will look like. What does the surface of your 3D-model will look like, what tangible texture and colors it has, how it will be illuminated and finally how it will be composed. All these things go hand-in-hand and these things need to be in balance to create an aesthetically pleasing image.</p>
+<p>This part of the course is all about the aesthetics, the last part of the pipeline. Now that you have the basic knowledge and you are able to import some scientific data within Blender, the final thing that is left is to make the final image look great. What will the surface of your 3D-model look like, what tangible texture and colors it has, how it will be illuminated and finally how it will be composed. All these things go hand-in-hand and these things need to be in balance to create an aesthetically pleasing image.</p>
 <p>Before you start with the exercises the following video will give you the theoretical and practical background to make these exercises. In this video there are some Blender walk-throughs, if you want to follow along you can use the walk-through files in the <code>walkthroughs/basics/06-rendering-lighting-and-materials</code> directory.</p>
-<div class="admonition warning">
-<p class="admonition-title">Cycles X</p>
-<p>Due to the 3.0 update of Blender and the introduction of Cycles X some details have changed when it comes to rendering with Blender. The video and exercises have been updated to accommodate this but some of these changes might have been missed, please inform us when you find one of those discrepancies.</p>
+<div class="admonition tip">
+<p class="admonition-title">Blender 4.1 changes</p>
+<p>The walkthrough has been patched to reflect the changes for Blender 3.1, however the current version (Blender 4.1) used for the this course has some additional changes and new features. Most are minor UI changes which will not conflict with the course material, however the material section of the walktahrough does have some changes. These changes are:</p>
+<ul>
+<li>In the materials walkthrough, the Principled BSDF menu subdivision into sub-menus giving it a better overview. Some settings like <code>Subsurface</code>, <code>Transmission</code> and <code>Emission</code> are now found under their corresponding sub-menu and then under either <code>Weight</code> or <code>Color</code>.</li>
+<li>The <code>Transmission roughness</code> is missing from the Principled BSDF (<a href="https://projects.blender.org/blender/blender/issues/114956">https://projects.blender.org/blender/blender/issues/114956</a>).</li>
+<li>The denoiser is significantly better and is recommended when you want to have fast renders.</li>
+</ul>
 </div>
 <iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/jnFDMdsIMoE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <hr>
@@ -2731,7 +2736,7 @@ Note: the material in this course is in the process of being updated to Blender 
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">26 September 2023 13:42:33</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">10 April 2024 15:22:19</span>
       
     
     &bull;
