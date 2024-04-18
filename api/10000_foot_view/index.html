@@ -81,18 +81,6 @@
     </div>
     <div data-md-component="announce">
       
-        <aside class="md-banner">
-          <div class="md-banner__inner md-grid md-typeset">
-            
-            
-<center><i>
-Note: the material in this course is in the process of being updated to Blender 4.1 for <a href="/blender-course/overview/schedule">upcoming courses</a> in 2024
-</i></center>
-
-          </div>
-          
-        </aside>
-      
     </div>
     
     
@@ -3110,13 +3098,6 @@ Note: the material in this course is in the process of being updated to Blender 
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>The Blender Python API mostly consists of a thin layer on top of the underlying Blender C/C++ data structures and methods. The underlying C/C++ code is used for automatically generating the Python API during the build process of the Blender executable, which means the API is always up-to-date with respect to the underlying code. </p>
 <p>The user-facing Python API isn't the only part of Blender that uses Python. Large parts of the user interface, most import/export functionality and all add-ons are written in Python. It is therefore relatively easy to extend Blender with, say, new UI dialogs or a custom importer. This is one of the strengths of the Blender Python API.</p>
-<div class="admonition warning">
-<p class="admonition-title">Be careful</p>
-<p>Since the API provides access to Blender internals at a very low level you can screw up the Blender state, causing unexpected behaviour, data corruption or even crashes. In the worst case you can end up with a file that will no longer load in Blender at all, although that's rare.</p>
-<p>So when working with Python scripting, save your session to file often, preferably in a number of incremental versions, so you can recover or go a step
-back when needed.</p>
-<p>In cases where you suspect Blender's current internal state has been corrupted you can save the current state to a <em>temporary</em> file, start a <em>second</em> instance of Blender (<strong>keeping the first Blender running!</strong>) and then open the temporary file in the second instance to help ensure you can start from a known-good state. This prevents you from saving a corrupt Blender state and overwriting your last known-good file.</p>
-</div>
 <p>Some things to be aware of:</p>
 <ul>
 <li>Blender 4.1 embeds the Python 3.11 interpreter.</li>
@@ -3124,6 +3105,13 @@ back when needed.</p>
 <li>Starting Blender from the console will allow you to see important outputs channels (warnings, exceptions, output of <strong><code>print()</code></strong> statements, etc).</li>
 </ul>
 <p>The earlier <a href="../../advanced/python_scripting/1_api_basics/">chapter</a> on the Python API provides a hands-on introduction, including basic information on <a href="../../advanced/python_scripting/1_api_basics/#good-to-know">how to execute</a> Python scripts in Blender.</p>
+<div class="admonition warning">
+<p class="admonition-title">Be careful</p>
+<p>Since the API provides access to Blender internals at a very low level you can screw up the Blender state, causing unexpected behaviour, data corruption or even crashes. In the worst case you can end up with a file that will no longer load in Blender at all, although that's rare.</p>
+<p>So when working with Python scripting, save your session to file often, preferably in a number of incremental versions, so you can recover or go a step
+back when needed.</p>
+<p>In cases where you suspect Blender's current internal state has been corrupted you can save the current state to a <em>temporary</em> file, start a <em>second</em> instance of Blender (<strong>keeping the first Blender running!</strong>) and then open the temporary file in the second instance to help ensure you can start from a known-good state. This prevents you from saving a corrupt Blender state and overwriting your last known-good file.</p>
+</div>
 <h3 id="api-modules">API modules<a class="headerlink" href="#api-modules" title="Permanent link">&para;</a></h3>
 <p>The Blender Python API is comprised of several modules, with <code>bpy</code> being the main one. But there's also useful routines in <code>mathutils</code>, <code>bmesh</code> and a few others.</p>
 <div class="admonition tip">
@@ -3497,7 +3485,7 @@ as it raises a KeyboardInterrupt:</p>
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">06 March 2024 10:40:11</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">18 April 2024 07:41:03</span>
       
     
     &bull;
