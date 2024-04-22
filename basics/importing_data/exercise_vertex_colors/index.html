@@ -55,6 +55,8 @@
     
       <link rel="stylesheet" href="../../../extra.css">
     
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -2145,7 +2147,7 @@
             
   
   <span class="md-ellipsis">
-    Mesh edit mode
+    Geometry Nodes
   </span>
   
 
@@ -2154,6 +2156,115 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Geometry Nodes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/geometry_nodes/1_introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/geometry_nodes/2_rotation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rotate that planet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/geometry_nodes/3_translation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Making a planet move
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Mesh edit mode
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
             <span class="md-nav__icon md-icon"></span>
             Mesh edit mode
           </label>
@@ -2226,10 +2337,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
         
           
-          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2240,8 +2351,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
             <span class="md-nav__icon md-icon"></span>
             Final project
           </label>
@@ -2827,9 +2938,9 @@ to enable the X3D add-on (otherwise continue to step 3):</p>
    Check the <strong><code>Render Engine</code></strong> drop-down, it should be set to <strong><code>Cycles</code></strong>.</p>
 </li>
 <li>
-<p>Import file <strong><code>glyphs.x3d</code></strong> using <strong><code>File &gt; Import &gt; X3D Extensible 3D</code></strong>. In the
-   importer settings (on the right side of the window when selecting the file to import) use <strong><code>Forward: Y Forward</code></strong>,
-   <strong><code>Up: Z Up</code></strong>.</p>
+<p>Import file <strong><code>glyphs.x3d</code></strong> using <strong><code>File &gt; Import &gt; X3D Extensible 3D</code></strong>, using the
+   importer settings (on the right side of the window when selecting the file to import): <strong><code>Forward: Y Forward</code></strong>,
+   <strong><code>Up: Z Up</code></strong>. The latter will make sure the imported model is oriented correctly.</p>
 </li>
 <li>
 <p>This X3D file holds a scene exported from ParaView. Check out the objects in the scene to get some idea of what it contains.</p>
@@ -2855,34 +2966,33 @@ In this mode vertex colors are shown when they are available and can even be edi
 <p>You might have noticed two things have changed in the interface: 1) the cursor is now a circle, and 2) the tool shelf on the left now shows color operations (paint brush = Draw, drop = Blur, ...)</p>
 <p>As this is Vertex <em>Paint</em> mode you can actually <em>alter</em> the vertex colors. This works quite similar to a normal paint program, like Photoshop or the GIMP, but in 3D. Although it may not make much sense to change colors that are based on simulation output (like these CFD results) it can 
 still be interesting to clean up or highlight vertex-colored geometry in certain situations.</p>
-<ol start="11">
+<ol start="9">
 <li>Experiment with vertex painting: move the cursor over part of the arrow geometry, press and hold <strong><code>LMB</code></strong> and move the mouse. See what happens.</li>
-<li>Switch to the Active Tool and Workspace settings <img alt="" class="iconimg" src="../../images/activetoolandworkspacesettingsicon.png" /> tab in the properties area on the right-hand side of the window</li>
-<li>You can change the color you're painting with with the colored box directly right of the <code>Draw</code> in the bar at the top of the 3D view area. Click
-the color to bring up the color chooser. You can also change the radius and strength settings to influence the vertex painting.</li>
+<li>Switch to the Tool settings <img alt="" class="iconimg" src="../../images/activetoolandworkspacesettingsicon.png" /> tab in the properties area on the right-hand side of the window </li>
+<li>You can change the color you're painting with with the colored box directly right of the <code>Draw</code> in the bar at the top of the 3D view area (it's also shown and editable in the bar at the top of the 3D view). Click the color to bring up the color chooser. You can also change the radius and strength settings to influence the vertex painting.</li>
 <li>Change back to <strong><code>Object Mode</code></strong> using the <strong><code>Ctrl-TAB</code></strong> mode menu when you're done playing around. Note that the
 arrows no longer show the vertex colors.</li>
 </ol>
 <h2 id="rendering">Rendering<a class="headerlink" href="#rendering" title="Permanent link">&para;</a></h2>
 <p>The second way to use vertex colors is to apply them during rendering.</p>
-<ol start="15">
+<ol start="13">
 <li>If you've screwed up the vertex colors really badly in the previous steps you might want to reimport the model...</li>
 <li>Make the 3D arrows in the scene the single selected object</li>
 <li>Switch to the <strong><code>Object Data</code></strong> <img alt="" class="iconimg" src="../../images/meshicon.png" /> tab in the properties</li>
 <li>Check that there is an entry "Col" in the list under <strong><code>Color Attributes</code></strong>. A model can have multiple sets of vertex colors, but this file has only one set called "Col", which has domain <code>Face Corner</code> and type <code>Byte Color</code>.</li>
 </ol>
 <p>Now we will set up a material using the vertex colors stored in the "Col" layer.</p>
-<ol start="19">
+<ol start="17">
 <li>Go to the Material tab <img alt="" class="iconimg" src="../../images/materialsicon.png" /></li>
 <li>Select the material called "Material" in the drop-down list left of the New button. This set the (grey) material "Material" on the arrows geometry.</li>
 <li>Press <strong><code>F12</code></strong> (or use interactive render) to get a rendered view of the current scene.</li>
 </ol>
 <p>You'll notice that all the geometry is grey/white, i.e. no vertex colors are used. We'll now alter the material to use vertex colors.</p>
-<ol start="22">
+<ol start="20">
 <li>In the settings of the material there is a field called "Base Color" with a white area right of it. This setting controls the color of the geometry.</li>
 <li>Click the button <em>left of the color area</em> (it has a small yellow circle in it)</li>
 <li>Pick <strong><code>Attribute</code></strong> from the left-most column labeled <strong><code>Input</code></strong>. This specifies that the material color should be based on an attribute value.</li>
-<li>Base Color is now set to <strong><code>Attribute | Color</code></strong>. Directly below the entry there is a <strong><code>Name</code></strong> field. Enter "Col" here, leave <strong><code>Type</code></strong> set to <code>Geometry</code>. This specifies that the attribute to use is called "Col" and comes from the mesh geometry (i.e. our vertex colors).</li>
+<li>Base Color is now set to <strong><code>Attribute | Color</code></strong>. Directly below the entry there is a <strong><code>Name</code></strong> field. Pick "Col" from the list. This specifies that the attribute to use is called "Col" and comes from the mesh geometry (i.e. our vertex colors).</li>
 <li>Now render the scene again</li>
 <li>The rendered image should now be showing the arrow geometry colored by vertex colors</li>
 </ol>
@@ -2892,7 +3002,7 @@ arrows no longer show the vertex colors.</li>
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">21 November 2023 21:49:06</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">22 April 2024 21:51:33</span>
       
     
     &bull;
@@ -3033,6 +3143,12 @@ arrows no longer show the vertex colors.</li>
     
     
       <script src="../../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

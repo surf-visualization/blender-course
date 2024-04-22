@@ -55,6 +55,8 @@
     
       <link rel="stylesheet" href="../../../extra.css">
     
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -2202,7 +2204,7 @@
             
   
   <span class="md-ellipsis">
-    Mesh edit mode
+    Geometry Nodes
   </span>
   
 
@@ -2211,6 +2213,115 @@
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            Geometry Nodes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/geometry_nodes/1_introduction/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/geometry_nodes/2_rotation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rotate that planet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/geometry_nodes/3_translation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Making a planet move
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Mesh edit mode
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
             <span class="md-nav__icon md-icon"></span>
             Mesh edit mode
           </label>
@@ -2283,10 +2394,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_7" >
         
           
-          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2297,8 +2408,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_7">
             <span class="md-nav__icon md-icon"></span>
             Final project
           </label>
@@ -2990,7 +3101,7 @@ file manually, of course, there is nothing special about it).</p>
 <p>Whenever Blender quits <strong>normally</strong> (i.e. not a crash) it will save the current session state to a file called <strong><code>quit.blend</code></strong> in your system's temporary directory. You can easily load this <code>quit.blend</code> file with the <strong><code>File &gt; Recover &gt; Last Session</code></strong> option (or copy it to a different location and load it as any Blender file).</p>
 <p>One of the cases where this feature might come in handy is if you quit Blender, have unsaved changed, but accidentally click the <strong><code>Don't Save</code></strong> button in the <code>Save changes before closing?</code> dialog. <strong>The <code>quit.blend</code> file in this case will contain those unsaved changes</strong>. But be sure to make a copy of it before quitting Blender again, as that will overwrite it.</p>
 <div class="admonition info">
-<p class="admonition-title">Info</p>
+<p class="admonition-title">Quit-on-save always enabled</p>
 <p>Note that there currently is no option to disable this Save-on-Quit feature. So for large scenes this will incur a (usually short) delay when exiting.</p>
 </div>
 <h3 id="blender-crash">Blender crash<a class="headerlink" href="#blender-crash" title="Permanent link">&para;</a></h3>
@@ -3001,7 +3112,7 @@ any lost work using the files available from the features described above.</p>
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">20 March 2024 11:41:20</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">22 April 2024 21:51:33</span>
       
     
     &bull;
@@ -3142,6 +3253,12 @@ any lost work using the files available from the features described above.</p>
     
     
       <script src="../../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      
+        <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
