@@ -2108,6 +2108,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -2117,6 +2128,52 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nodes-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nodes &amp; Connections
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sockets-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sockets &amp; Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewer-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewer nodes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -2802,6 +2859,41 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nodes-connections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nodes &amp; Connections
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sockets-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sockets &amp; Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewer-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Viewer nodes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2816,12 +2908,51 @@
 
 
 <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+<p>Geometry Nodes is a way to program your own <a href="" target="_blank">modifier</a> that modyfies your geometry. Some predefined modifiers (like for example Subdivision or Decimate) in Blender are introduced in the section Simple Mesh Editing in the Basics part of the course. Modifiers can be added in the Modifiers tab in the Properties Editor (see Fig. 1). But how you will most likely be working with Geometry Nodes is through the Geometry Nodes Workspace, which can be found as a tab in the top part of the interface (see Fig. 1).</p>
+<p>
+<figure><img src="../1_images/Fig_1_1_GeoNodesAsModifier.png" /><figcaption>Figure 1: ...</figcaption>
+</figure>
+</p>
+<p>When you create a new Geometry Node Group you get a Group Input and a Group Output node, see Fig. 1. The geometry on which the geometry node modifier works is inputted through the Group Input node. And in Fig. 1 you see the Group Input node as an output 'Geometry' and this output has a circular, green, output socket. This output socket is connected to the input of the Group Ouput node. This this node gives the output of the modifier and this is shown in the 3d view. </p>
+<blockquote>
+<p><strong>Exercise 1</strong></p>
+<p>See what happends when you disconnect the two Group nodes in Fig. 1. Figure out how to reconnect the two Group nodes again.</p>
+</blockquote>
+<h2 id="nodes-connections">Nodes &amp; Connections<a class="headerlink" href="#nodes-connections" title="Permanent link">&para;</a></h2>
+<p>We will start with a simple example to see how Geometry Nodes work. In Fig. 2 we use the basis shape of a circle as the basis geometry that comes in through the Group Input node. We then create a point on every vertex using a <a href="" target="_blank">Mesh to Points node</a>. And then on every point we create a cube using the <a href="" target="_blank">Instance on Points node</a> which we tell to use a cube at every point by feeding it the <a href="" target="_blank">Cube node</a>. In the 3d view you can now see a whole bunch of cubes arranged on a circle. </p>
+<p>
+<figure><img src="../1_images/Fig_1_2.png" /><figcaption>Figure 2: ..</figcaption>
+</figure>
+</p>
+<h2 id="sockets-fields">Sockets &amp; Fields<a class="headerlink" href="#sockets-fields" title="Permanent link">&para;</a></h2>
+<p>Lets do something more with the example in Fig. 2. Lets make it so that the cubes we make scale with their position on the x-axis. Fig. 3 shows how you can do this. We use the blue diamand shaped input socket named Scale of the Instances on Points node. We connect this to a couple of nodes that retrieve the x-position of the cubes. We start with a <a href="" target="_blank">Position node</a>. This outputs a position vector which we split in x, y and z component using the <a href="" target="_blank">Separate XYZ node</a>. We take the x-component and scale it using a <a href="" target="_blank">Math node</a> set to multiply. We then combine the scaled x-component with a constant y and z component using the <a href="" target="_blank">Combine XYZ node</a>. This way we scale the the cubes based on their position on the x-axis.</p>
+<p>
+<figure><img src="../1_images/Fig_1_3.png" /><figcaption>Figure 3: ..</figcaption>
+</figure>
+</p>
+<p>You can see that all the nodes building up to the Scale socket have dashed lines connection diamond shaped sockets. This in contrast to the green solid lines with round sockets that are used for the flow of the geometry. These lines are called fields and they are calculated differently from the solid lines. Field lines start with a node that generates data, in our example of Fig. 3 this is the Position node. These nodes need to know where to get the data from. What happens is that field lines are evaluated when they are connected to a node that has some geometry fed into it. In our case this happens when the field is connected to the Instance on Points node. Now the Position node outputs the position of the points corresponding to the geometry that is connected to the Points socket in the Instance on Points. </p>
+<p>Another way of saying this is that the Instance on Points node will alter the geometry that it gets from its Points socket. For this it need values for the scale of the instances it will make. At this point it executes all the nodes connected to the Scale socket. </p>
+<p>
+<figure><img src="../1_images/Fig_1_4.png" /><figcaption>Figure 4: ..</figcaption>
+</figure>
+</p>
+<p>To give an example of how fiels work, lets connect some of the same nodes connected by field lines to another geometry. In Fig. 4 you can see I added a <a href="" target="_blank">UV Sphere node</a> that connects to a <a href="" target="_blank">Delete Geometry node</a>. So will create a sphere and we will delete part of the sphere using the Selection socket of the Delete Geometry node. We will use the same Position node and Separate XYZ node as for the circle geometry, but now the position node will give the position of the vertices in the UV Sphere when I connect it to the Delete Geometry node. Here you see that you can connect the same Position node to different geometries and it will give different values. So you could also say that fields in Geometry Nodes are like functions that can be called by different nodes with different geometries.</p>
+<blockquote>
+<p><strong>Exercise 2</strong></p>
+<p>Starting with a UV Sphere. Make an egg shaped object by elongating the UV sphere along, for example the x-axis. Tip: you could use a Set Position node and some of the nodes from Fig. 3 to do this.</p>
+</blockquote>
+<h2 id="viewer-nodes">Viewer nodes<a class="headerlink" href="#viewer-nodes" title="Permanent link">&para;</a></h2>
+<p>Before we start building more geometry nodes, let me quickly tell you about the <a href="" target="_blank">Viewer node</a>. This node is very useful for debugging and inspecting parts of your node tree. In Fig. 5 you can see I connected a viewer node directly to the UV Sphere node. When the little eye is visible in the top right of the viewer node, you can see its input in the 3d view. For example you now see the UV Sphere before part of its geometry is deleted. I also connected the boolean output of the Less Then Math node to the value socket of the viewer node. Doing this lets you inspect this value in the Spreadsheet editor (see top left of Fig. 5). Also it visualises the value on the geometry in the 3d view. You can see that the top half of the UV Sphere is black (representing false) and the bottom is white (representing true). </p>
+<p>
+<figure><img src="../1_images/Fig_1_5.png" /><figcaption>Figure 5: ..</figcaption>
+</figure>
+</p>
 <hr>
 <div class="md-source-file">
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">19 April 2024 15:36:44</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">23 April 2024 15:18:53</span>
       
     
     &bull;

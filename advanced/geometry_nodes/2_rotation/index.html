@@ -2818,15 +2818,19 @@
 <h1 id="rotate-that-planet">Rotate that planet<a class="headerlink" href="#rotate-that-planet" title="Permanent link">&para;</a></h1>
 <p>In this section we will start with rotating a planet while in the next we will implement some physics to simulate the motion of a planet. Within Geometry Nodes we will use a Simulation Zone to quickly iterate over frames and easily make animations. For example see the animated gif in Fig. 1.</p>
 <p>
-<figure><img src="../images/Fig1_planet_rotation_low_cycles.gif" /><figcaption>Figure 1: rotating spheres using Geometry Nodes and Simulation Zones.</figcaption>
+<figure><img src="../2_images/Fig1_planet_rotation_low_cycles.gif" /><figcaption>Figure 1: rotating spheres using Geometry Nodes and Simulation Zones.</figcaption>
 </figure>
 </p>
 <p>The rotation you see in Fig. 1 is generated using the <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/" target="_blank">Transform Geometry Node</a> (see Fig. 2). The Transform Geometry Node nicely combines the options to translate, rotate and scale the geometry. In Fig. 2 you also see we placed the Transform Geometry Node inside a <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/simulation/simulation_zone.html" target="_blank">Simulation Zone</a>. This way you can generate an animation really easily using Geometry Nodes. </p>
 <p>
-<figure><img src="../images/Fig2_rotation_tranform_node.png" /><figcaption>Figure 2: ...</figcaption>
+<figure><img src="../2_images/Fig2_rotation_tranform_node.png" /><figcaption>Figure 2: ...</figcaption>
 </figure>
 </p>
 <p>Lets break down the Simulation Zone for a moment. As you can see in Fig. 2 the Simulation Zone consists out of two nodes, one input and one output, and an marked area inbetween them. How it works is that the geometry from the previous frame is entered at the left input Simulation node and you can do stuff with it in the marked zone. Then you pass the geometry into the right Simulation node and in the next frame you can continue with the geometry. And this way it iterates over frames and executes the nodes in the Simulation Zone every frame. When the animation starts the simualtion zone starts with the input given to the input node. In Fig. 2 we take the geometry coming from the Group Input and give it to the Simulation Zone to start with at the firtst frame. The output sockets of the output node of the Simulation Zone gives you the geometry at every frame In our example in Fig. 2 this is connected to the Group Output, so we see the geometry and how it changes at every frame. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When using simulations zones, when you make changes to the node tree, you often need to slide the animation head back to frame 1 in order for the changes to take effect.</p>
+</div>
 <p>When you have implemented this Geometry Node setup like in Fig. 2, you can go to the 3D view, set the animation timeline to frame zero and press play (or press the spacebar on your keyboard). Blender now calculates the geometry at every frame using the Geometry Nodes and you will hopefully see a nice animation!</p>
 <blockquote>
 <p><strong>Exercise: Rotation</strong></p>
@@ -2838,7 +2842,7 @@
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">19 April 2024 15:36:44</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">23 April 2024 15:18:53</span>
       
     
     &bull;
