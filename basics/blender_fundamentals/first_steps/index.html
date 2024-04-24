@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2979,7 +2988,7 @@ Please contact us if this appears to be the case.</p>
 see your mesh with all kinds of dots or lines then you might have accidentally entered the so-called
 "Edit Mode" or any of the other modes available (<strong><code>Tab</code></strong> and <strong><code>Ctrl-Tab</code></strong> are used for this). 
 Check the menu in the upper left of the 3D view, which should read <strong><code>Object Mode</code></strong>:</p>
-<p><img alt="" src="../../images/object-mode.png" /></p>
+<p><a class="glightbox" href="../../images/object-mode.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../images/object-mode.png" /></a></p>
 <p>In the Basics module we will use only Object Mode (and briefly use Vertex Paint mode
 in one of the exercises). You can use the drop-down menu shown above (or the <strong><code>Ctrl-Tab</code></strong> menu in the 3D view) and 
 pick <strong><code>Object Mode</code></strong> to get back to the correct mode.   </p>
@@ -2990,7 +2999,7 @@ pick <strong><code>Object Mode</code></strong> to get back to the correct mode. 
 completely changes the layout of your user interface. These tabs are used to switch between workspaces, where each workspace
 allows a different layout to focus on a certain task (e.g. 3D modeling, versus shader editing, versus animation). 
 The default workspace is <strong><code>Layout</code></strong> and you might have to switch back to that one:</p>
-<p><img alt="" src="../../images/workspace-tabs.png" /></p>
+<p><a class="glightbox" href="../../images/workspace-tabs.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../images/workspace-tabs.png" /></a></p>
 </div>
 <h3 id="some-user-interface-tips">Some user interface tips<a class="headerlink" href="#some-user-interface-tips" title="Permanent link">&para;</a></h3>
 <ul>
@@ -3188,5 +3197,5 @@ setting under <strong><code>Display &gt; Resolution Scale</code></strong>. If yo
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

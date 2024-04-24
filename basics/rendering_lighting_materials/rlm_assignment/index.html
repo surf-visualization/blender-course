@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2964,19 +2973,19 @@ in the 3D view</li>
 <li>Try to position and rotate the lights so that they light the objects under a bit of an angle (<strong><code>G</code></strong> and <strong><code>R</code></strong> keys).</li>
 <li>Before we change the appearance of the lights we need to switch to <strong><code>Rendered</code></strong>
 using the <strong><code>Shading</code></strong> pie menu (<strong><code>Z &gt; Rendered</code></strong>)</li>
-<li>Now adjust the <strong><code>Color</code></strong> and <strong><code>Strength</code></strong> settings under the <em>Object Data properties</em> tab <img alt="" class="iconimg" src="../../images/lighticon.png" /> in the <em>Properties panel</em>, perhaps try to give one the lights a warm yellowish sun-like color and the other a more less strong blueish and cold color.</li>
+<li>Now adjust the <strong><code>Color</code></strong> and <strong><code>Strength</code></strong> settings under the <em>Object Data properties</em> tab <a class="glightbox" href="../../images/lighticon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/lighticon.png" /></a> in the <em>Properties panel</em>, perhaps try to give one the lights a warm yellowish sun-like color and the other a more less strong blueish and cold color.</li>
 <li>In the same properties panel tab, try to adjust the <strong><code>Angle</code></strong> (or <strong><code>Radius</code></strong> or <strong><code>Size</code></strong> for the other light types) of the sun light and see how it affects the shadows. Small angles (or radii or sizes) create hard shadows, which are ideal to see minor details and large angles (or radii or sizes) create soft shadows, which is more suited to reduce the overall contrast and make it less straining on the eye.</li>
 <li>Now in the same properties editor tab, try out some different lamp types (<strong><code>Point</code></strong>, <strong><code>Sun</code></strong>, ...) to experiment with the different lighting effects they produce.</li>
 </ol>
-<p><strong>Bonus</strong>: If setting up the lamps is too cumbersome, you can go to the <strong><code>World</code></strong> tab <img alt="" class="iconimg" src="../../images/worldicon.png" /> in the properties editor and click the little <em>globe drop-down menu button</em> at the top and select the <strong><code>HDRIWorldLighting</code></strong>. This will enable predefined environment lighting using a 360 image of somebody's living room. Do make sure that you de-activate the lamps (<img alt="" class="iconimg" src="../../images/outlinereyeicon.png" /> in the <em>Outliner</em>) or remove them to see the full effect.</p>
+<p><strong>Bonus</strong>: If setting up the lamps is too cumbersome, you can go to the <strong><code>World</code></strong> tab <a class="glightbox" href="../../images/worldicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/worldicon.png" /></a> in the properties editor and click the little <em>globe drop-down menu button</em> at the top and select the <strong><code>HDRIWorldLighting</code></strong>. This will enable predefined environment lighting using a 360 image of somebody's living room. Do make sure that you de-activate the lamps (<a class="glightbox" href="../../images/outlinereyeicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/outlinereyeicon.png" /></a> in the <em>Outliner</em>) or remove them to see the full effect.</p>
 <h2 id="camera-setting-the-starting-point-of-the-light-paths-or-rather-camera-paths">Camera - Setting the starting point of the light paths (or rather camera paths)<a class="headerlink" href="#camera-setting-the-starting-point-of-the-light-paths-or-rather-camera-paths" title="Permanent link">&para;</a></h2>
 <p>With the lighting setup, we can now see what each of the camera settings does. Or from the light ray paths perspective: configure the starting point of the light rays.</p>
 <ol>
 <li>First you need to be in the camera view to be able to see the changes of the camera settings by selecting with the <strong><code>View</code></strong> pie menu (<strong><code>`</code></strong> button) the <strong><code>View Camera</code></strong> option or through the 3D view menu in the header (<strong><code>View &gt; Viewpoint &gt; Camera</code></strong>). The former way is a toggle interaction so when you are already in the camera view you will toggle it off.</li>
 <li>Try changing the camera's focal length. For this, select the camera <em>Camera</em>
-and go the <strong><code>Lens</code></strong> settings in the <em>Object Data properties</em> tab <img alt="" class="iconimg" src="../../images/cameraicon.png" /> in the <em>properties panel</em>.
+and go the <strong><code>Lens</code></strong> settings in the <em>Object Data properties</em> tab <a class="glightbox" href="../../images/cameraicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/cameraicon.png" /></a> in the <em>properties panel</em>.
 There you can find the <strong><code>Focal Length</code></strong> setting, try for example values 18, 50 and 100 and see what effect this has. Notice that when you set the <strong><code>Focal Length</code></strong> to a lower value you might see clipping (the scene is cut off from a certain distance). This can be changed by setting the <strong><code>Clip Start</code></strong> in the same <strong><code>Lens</code></strong> section to a lower value, e.g. 0.01. Finally set the focal length to the desired value.</li>
-<li>Next we are going to bring the focus to a chosen object in the scene with the depth of field settings. For this, select the camera, scroll down in the <em>Object Data properties</em> tab <img alt="" class="iconimg" src="../../images/cameraicon.png" /> in the <em>properties</em> panel to the <strong><code>Depth of Field</code></strong> settings. Check the check-box before <strong><code>Depth of Field</code></strong> to activate the depth of field. Now try to set the <strong><code>Focus on Object</code></strong> value to the <strong><code>Suzanne</code></strong> object and test different values for the <strong><code>Aperture &gt; F-Stop</code></strong> setting.</li>
+<li>Next we are going to bring the focus to a chosen object in the scene with the depth of field settings. For this, select the camera, scroll down in the <em>Object Data properties</em> tab <a class="glightbox" href="../../images/cameraicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/cameraicon.png" /></a> in the <em>properties</em> panel to the <strong><code>Depth of Field</code></strong> settings. Check the check-box before <strong><code>Depth of Field</code></strong> to activate the depth of field. Now try to set the <strong><code>Focus on Object</code></strong> value to the <strong><code>Suzanne</code></strong> object and test different values for the <strong><code>Aperture &gt; F-Stop</code></strong> setting.</li>
 <li>When you are done, disable depth of field again. This makes the material editing easier.</li>
 </ol>
 <p>If the lighting gives the desired effect looking through the configured camera then you can give the objects the look you want with materials in the next section.</p>
@@ -2984,7 +2993,7 @@ There you can find the <strong><code>Focal Length</code></strong> setting, try f
 <p>To design how the light is reflected or refracted off the objects you are going to give each object a different material.</p>
 <ol>
 <li>For each object (including ground plane and plateau):<ul>
-<li>Select the object and go to the <em>Material</em> tab <img alt="" class="iconimg" src="../../images/materialsicon.png" /> in the properties editor.</li>
+<li>Select the object and go to the <em>Material</em> tab <a class="glightbox" href="../../images/materialsicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/materialsicon.png" /></a> in the properties editor.</li>
 <li>In the <em>Material</em> tab click the <strong><code>New</code></strong> button.</li>
 <li>Then under the <strong><code>Surface</code></strong> section set the <strong><code>Surface</code></strong> parameter to either <strong><code>Diffuse BSDF</code></strong>, <strong><code>Glossy BSDF</code></strong> or <strong><code>Principled BSDF</code></strong>.</li>
 </ul>
@@ -2996,13 +3005,13 @@ There you can find the <strong><code>Focal Length</code></strong> setting, try f
 <p>Lights, camera, (materials,) set aaaaaaand action!... Now you will set the desired render settings to generate the final image!</p>
 <ol>
 <li>Go to the properties editor and set the following settings:<ul>
-<li><em>Render properties</em> tab <img alt="" class="iconimg" src="../../images/rendericon.png" /><ul>
+<li><em>Render properties</em> tab <a class="glightbox" href="../../images/rendericon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/rendericon.png" /></a><ul>
 <li>Set <strong><code>Device</code></strong> to <strong><code>GPU Compute</code></strong>. If your device doesn't have a (powerful) GPU set it to <strong><code>CPU</code></strong>.</li>
 <li><strong><code>Sampling</code></strong> section: set <strong><code>Render &gt; Samples</code></strong> to 128</li>
 <li><strong><code>Light Paths</code></strong> section: set <strong><code>Clamping &gt; Indirect Light</code></strong> to 1.0</li>
 </ul>
 </li>
-<li><em>Output</em> tab <img alt="" class="iconimg" src="../../images/outputicon.png" /><ul>
+<li><em>Output</em> tab <a class="glightbox" href="../../images/outputicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/outputicon.png" /></a><ul>
 <li><strong><code>Format</code></strong> section: set <strong><code>Resolution</code></strong> to 1920x1080, 100%.</li>
 </ul>
 </li>
@@ -3019,7 +3028,7 @@ There you can find the <strong><code>Focal Length</code></strong> setting, try f
 <ol>
 <li>Write down the render time shown in the upper left corner of the <em>Image</em> editor (Example: <code>Frame:1 | Time:00:09:84 | Mem:6.09M, Peak: 164.29M</code>).</li>
 <li>Close the <em>Image</em> editor if it is still open.</li>
-<li>Change the following settings in the <em>Render properties</em> tab <img alt="" class="iconimg" src="../../images/rendericon.png" />:<ul>
+<li>Change the following settings in the <em>Render properties</em> tab <a class="glightbox" href="../../images/rendericon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/rendericon.png" /></a>:<ul>
 <li><strong><code>Sampling</code></strong> section: set <strong><code>Render &gt; Samples</code></strong> to 32</li>
 <li><strong><code>Sampling</code></strong> section: turn on the denoiser with, <strong><code>Render &gt; Denoise</code></strong>.</li>
 </ul>
@@ -3189,5 +3198,5 @@ There you can find the <strong><code>Focal Length</code></strong> setting, try f
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -3020,7 +3029,7 @@ in both the import script and the animation handler script.</p>
 <li>
 <p>Execute the script that imports the PLY files of the time steps. To do
     this make sure the script called <code>1. import ply files</code> is shown
-    in the text editor panel. Then press the <img alt="" class="iconimg" src="../../images/run_script_button.png" /> button in the top bar to run the script.</p>
+    in the text editor panel. Then press the <a class="glightbox" href="../../images/run_script_button.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/run_script_button.png" /></a> button in the top bar to run the script.</p>
 <div class="admonition warning">
 <p class="admonition-title">Memory usage</p>
 <p>This step will import all meshes in the animation into the current
@@ -3050,7 +3059,7 @@ on your system's performance</em></p>
 </li>
 <li>
 <p>Change the <strong><code>Frame Rate</code></strong> value (in the <strong><code>Output</code></strong> properties tab
-   at the right side of the screen, icon <img alt="" class="iconimg" src="../../images/outputicon.png" />) to different values to see how your system handles it.
+   at the right side of the screen, icon <a class="glightbox" href="../../images/outputicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/outputicon.png" /></a>) to different values to see how your system handles it.
    Is 60 fps feasible?</p>
 </li>
 <li>
@@ -3286,5 +3295,5 @@ mesh in Blender first. After that, apply the Mesh Cache modifier and set the .pc
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2873,7 +2882,7 @@ but looks like an S. This is due to the default interpolation mode that is used 
     animation wraps around from frame 99 to frame 0. This happens in case you set the same visible rotation
     of the empty for frame 0 and 99 (e.g. 0 degrees for frame 0 and 360 degrees
     for frame 99). You can fix this by changing the animation length to 99 frames by setting
-    <strong><code>End</code></strong> to 98 in the Output properties <img alt="" class="iconimg" src="../../images/outputicon.png" /> panel (the value is directly below <strong><code>Frame Start</code></strong>).
+    <strong><code>End</code></strong> to 98 in the Output properties <a class="glightbox" href="../../images/outputicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/outputicon.png" /></a> panel (the value is directly below <strong><code>Frame Start</code></strong>).
     Now, the animation should wrap around smoothly.</p>
 </li>
 </ol>
@@ -3031,5 +3040,5 @@ but looks like an S. This is due to the default interpolation mode that is used 
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

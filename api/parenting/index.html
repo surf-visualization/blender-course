@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2872,7 +2881,7 @@
 <h1 id="parenting">Parenting<a class="headerlink" href="#parenting" title="Permanent link">&para;</a></h1>
 <p>An object's parent can be queried or set simply through its <code>parent</code> attribute, which needs to reference another Object (or <code>None</code>). </p>
 <p>But when parenting is involved the use of transformation matrices becomes somewhat more complex. Suppose we have two cubes above each other, the top cube transformed to Z=5 and the bottom cube to Z=2:</p>
-<p><img alt="" src="../images/parented_cubes2.png" /></p>
+<p><a class="glightbox" href="../images/parented_cubes2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/parented_cubes2.png" /></a></p>
 <p>Using the 3D viewport we'll now parent the bottom cube to the top cube (<strong><code>LMB</code></strong> click bottom cube, <strong><code>Shift-LMB</code></strong> click top cube, <strong><code>Ctrl-P</code></strong>, select <strong><code>Object</code></strong>) and inspect the values in Python:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Bottom cube&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">parent</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Top cube&#39;</span><span class="p">]</span>
@@ -2907,7 +2916,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Set parent back to the top cube, as before</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Bottom cube&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Top cube&#39;</span><span class="p">]</span>
 </code></pre></div>
-<p><img alt="" src="../images/parented_cubes3.png" /></p>
+<p><a class="glightbox" href="../images/parented_cubes3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/parented_cubes3.png" /></a></p>
 <p>The "Bottom cube" actually jumps in +Z direction as ends up on top of "Top cube". The reason for this behaviour is that when using the UI to set up a parenting relationship as earlier does more than just setting the <code>parent</code> attribute of the child object. There's also something called the <em>parent-inverse matrix</em>. Let's inspect it and the other matrix transforms we've already seen for the current (unexpected) scene:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Identity matrix, i.e. no transform</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Bottom cube&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">matrix_parent_inverse</span>
@@ -2959,7 +2968,7 @@
 </code></pre></div>
 <p>The reason for this behaviour is that when doing parenting in the 3D viewport you usually do not want the object that you are setting as the child to move, which <em>would</em> happen if the child's existing transform is suddenly interpreted as being a transform relative to its parent. To overcome this the parent-inverse matrix set during the parenting steps is used to compensate, as it sits between the parent and child transforms. But when we simply set <code>parent</code> from Python, the <code>matrix_local</code> value is used as is, causing our bottom cube to suddenly move up, as it is used as the transform relative to its parent, while it actually would need a different value to stay in place. </p>
 <p>There's actually a worse side-effect, in that the location values shown in the Transform UI no longer seem to make sense:</p>
-<p><img alt="" src="../images/transform-ui-inconsistency.png" /></p>
+<p><a class="glightbox" href="../images/transform-ui-inconsistency.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/transform-ui-inconsistency.png" /></a></p>
 <p>Yes, that's right, the cube that's lower in Z (left image) shows a <em>higher Z location value</em> than the cube that's actually higher in Z (right image). Again, this is caused by the inconsistent parent-inverse matrix from doing "manual" parenting through Python.</p>
 <p>So when setting up parenting relations through Python it's best to be careful and keep the above in mind. There's actually quite a bit more going on with all the different parenting options available from the UI. See <a href="https://docs.blender.org/manual/en/4.1/scene_layout/object/editing/parent.html">this page</a> for more details.</p>
 <h2 id="children">Children<a class="headerlink" href="#children" title="Permanent link">&para;</a></h2>
@@ -3146,5 +3155,5 @@
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

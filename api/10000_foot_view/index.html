@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -3250,7 +3259,7 @@ back when needed.</p>
 <p>When developing Python scripts in Blender it can be useful to enable a few extra settings:</p>
 <ul>
 <li>The Python Tooltips under <strong><code>Interface &gt; Display &gt; Python Tooltips</code></strong>. When enabled a tooltip will show the corresponding Python command or a path to the data for a UI element.
-    <img alt="" src="../images/menu_add_plane.png" /></li>
+    <a class="glightbox" href="../images/menu_add_plane.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/menu_add_plane.png" /></a></li>
 <li>The <a href="https://docs.blender.org/manual/en/dev/editors/preferences/interface.html#prefs-interface-dev-extras">Developer Extras</a> under <strong><code>Interface &gt; Display &gt; Developer Extras</code></strong>. When enabled this provides multiple things:<ul>
 <li>The 3D viewport overlay for a mesh in edit mode will now have an extra setting <code>Indices</code> to show the low-level indices of selected vertices/edges/faces. This can be very useful when debugging Python code that works on mesh geometry.</li>
 <li>The right-click menu for a UI item, such as a button or menu entry, will now also contain an entry called <strong><code>Online Python Reference</code></strong> linking to the relevant Python documentation page.</li>
@@ -3261,7 +3270,7 @@ back when needed.</p>
 </ul>
 <h3 id="info-area">Info area<a class="headerlink" href="#info-area" title="Permanent link">&para;</a></h3>
 <p>As mentioned in the <a href="../../advanced/python_scripting/1_api_basics/#run-scripts-within-the-blender-interface">video</a> in the introductory chapter the Info area can be useful if you want to inspect which Python calls Blender performs for certain operations. This certainly will not provide all the details in all cases, but can give some insight. You can either switch to the default Scripting workspace (using the tabs at the top of the window) to check the output, or use the normal UI area operations to add/change an area to an Info area. The latter is shown below:</p>
-<p><img alt="" src="../images/info_area.png" /></p>
+<p><a class="glightbox" href="../images/info_area.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/info_area.png" /></a></p>
 <h3 id="sources-of-examples">Sources of examples<a class="headerlink" href="#sources-of-examples" title="Permanent link">&para;</a></h3>
 <p>This chapter provides small snippets of code and serves mostly as a reference. Sometimes it can be useful to get more information or examples of how specific parts of the Blender Python API are used. Some good sources for other code are:</p>
 <ul>
@@ -3745,5 +3754,5 @@ as it raises a KeyboardInterrupt:</p>
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

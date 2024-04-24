@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -3073,7 +3082,7 @@ Object Data cannot be directly added to a scene, but needs to be referenced by a
 <a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">collection</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
 </code></pre></div>
 <p>The resulting mesh and outliner entry looks like this:</p>
-<p><img alt="" src="../images/created_mesh.png" /></p>
+<p><a class="glightbox" href="../images/created_mesh.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/created_mesh.png" /></a></p>
 <h2 id="careful-invalid-data">Careful: invalid data<a class="headerlink" href="#careful-invalid-data" title="Permanent link">&para;</a></h2>
 <p>Note that it is possible to set up a mesh with invalid/inconsistent data when setting
 the underlying arrays manually, as is the case here. This can cause weird behaviour or even crashes. </p>
@@ -3305,7 +3314,7 @@ Edges can be used to add line segments that are not part of polygons.</p>
 <a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="n">bpy</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">collection</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
 </code></pre></div>
 <p>The resulting mesh and outliner entry looks like this:</p>
-<p><img alt="" src="../images/created_mesh_with_edges.png" /></p>
+<p><a class="glightbox" href="../images/created_mesh_with_edges.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/created_mesh_with_edges.png" /></a></p>
 <p>Note that even though we specified only 3 edges explicitly the polygons in
 the mesh implicitly define 8 more. These are the edges making up those polygons, with
 shared edges being present only once. In total this results in 11 edges in the mesh:</p>
@@ -3484,7 +3493,7 @@ and <code>polygon_normals</code> only provide read-only access.</p>
 in favor of using color attributes as shown above.</p>
 </div>
 <p>Each created vertex color layer is listed under the Mesh properties both under <code>Color Attributes</code> as well as <code>Attributes</code>:</p>
-<p><img alt="" src="../images/vertexcolor_entry.png" /></p>
+<p><a class="glightbox" href="../images/vertexcolor_entry.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/vertexcolor_entry.png" /></a></p>
 <p>There are actually even more Mesh attributes than are listed in the UI, but some of these are for internal use:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">attributes</span><span class="p">)</span>
 <a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="mi">10</span>
@@ -3528,7 +3537,7 @@ in favor of using color attributes as shown above.</p>
 <a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
 <a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>        <span class="n">vcol_layer</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
-<p><img alt="" src="../images/vertex_colors.png" /></p>
+<p><a class="glightbox" href="../images/vertex_colors.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/vertex_colors.png" /></a></p>
 <p>A slightly more Blender-like (and robust) way to write the above code would be to take advantage of the polygon loop indices:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">polygons</span><span class="p">:</span>
 <a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">random</span><span class="p">()</span>
@@ -3542,14 +3551,14 @@ in favor of using color attributes as shown above.</p>
 <p>In Blender 3.2 the interpretation of vertex colors values was <a href="https://wiki.blender.org/wiki/Reference/Release_Notes/3.2/Python_API#Deprecation">changed</a>. Previously, vertex color RGB values were assumed to be in sRGB color space. But from 3.2 onwards they are assumed to be in scene linear color space. Specifically, the <code>vcol_attr.data[i].color</code> attribute assumes linear values are passed, while <code>vcol_attr.data[i].color_srgb</code> can be used to set sRGB values (the latter will use automatic conversion where needed).</p>
 <p>When passing the wrong values, i.e. sRGB instead of linear to the <code>.color</code> attribute, the difference in color can be subtle, but noticeable. Below is the same set of values, but one passed as sRGB (left), the other as linear (right):
 <center>
-<img alt="" src="../images/srgb_vs_linear.png" />
+<a class="glightbox" href="../images/srgb_vs_linear.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/srgb_vs_linear.png" /></a>
 </center></p>
 <p>To manually convert a color value between the two color spaces use the functions from <code>mathutils.Color</code>, specifically <code>from_scene_linear_to_srgb()</code> and <code>from_srgb_to_scene_linear()</code>.    </p>
 </div>
 <h3 id="active-set">Active set<a class="headerlink" href="#active-set" title="Permanent link">&para;</a></h3>
 <p>As noted above a mesh can have more than one layer of vertex colors. Among the sets present on a mesh there can be only one that is active. The active vertex color layer set controls, for example, which vertex colors are visible in the 3D viewport and are edited in Vertex Paint mode. </p>
 <p>When adding a vertex color layer through the UI (and similar for UV maps described below) the active layer is changed to the newly added layer. Also, clicking in the Vertex Color layer UI changes the active layer. Below is the UI list showing 2 vertex color layers on a mesh, of which <code>Col</code> is the active one used in vertex paint mode. </p>
-<p><img alt="" src="../images/multiple_color_attributes.png" /></p>
+<p><a class="glightbox" href="../images/multiple_color_attributes.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/multiple_color_attributes.png" /></a></p>
 <p>The camera icon right of the vertex color names controls which layer is used during <em>rendering</em> by default (and which is set independently of the active status). But in most cases the shader used on an object will explicitly choose a vertex color layer using an <code>Attribute</code> node and so override the setting in the UI list.</p>
 <p>Controlling the active vertex color (or UV map, described below) layer can be done using the <code>active_color</code> property:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">color_attributes</span><span class="p">)</span>
@@ -3907,5 +3916,5 @@ faces in a BMesh to triangles with a call to <code>bmesh.ops.triangulate()</code
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

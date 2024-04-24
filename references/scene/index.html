@@ -62,7 +62,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2983,7 +2992,7 @@ Blender as an add-on, but since Blender 3.0 this is no longer the case. You need
 for which instructions can be found <a href="https://www.blenderkit.com/get-blenderkit/">here</a>.</p>
 <p>When the add-on is installed and enabled it provides some extra elements in the Blender interface for searching, say a material or 3D model,
 by name, which can then be easily used in a Blender scene:</p>
-<p><img alt="" src="../images/blenderkit.png" /></p>
+<p><a class="glightbox" href="../images/blenderkit.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/blenderkit.png" /></a></p>
 <p>Note that many of the assets in BlenderKit are free, but some are only available by
 buying a subscription.</p>
 <p>The add-on has quite a few options and performs certain operations that you would otherwise
@@ -3143,5 +3152,5 @@ The option for packing files is <strong><code>File &gt; External Data &gt; Pack 
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

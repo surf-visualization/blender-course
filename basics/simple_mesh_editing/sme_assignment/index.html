@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2922,19 +2931,19 @@ pose a problem, so it is a good test to see if your system is able to handle thi
 On lower end devices this can slow everything down to a crawl. In order to be able to add modifiers or edit the meshes with reasonable interactivity you first need to decimate the meshes. The decimation is for reducing the number of triangles, by merging adjacent triangles together into one, iteratively.</p>
 <ol>
 <li>Select the fishskin by clicking on the fishskin with <strong><code>LMB</code></strong>.</li>
-<li>Once selected go the <em>Modifiers</em> tab <img alt="" class="iconimg" src="../../images/modifiersicon.png" /> in the properties editor.</li>
+<li>Once selected go the <em>Modifiers</em> tab <a class="glightbox" href="../../images/modifiersicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/modifiersicon.png" /></a> in the properties editor.</li>
 <li>Click <strong><code>Add Modifier</code></strong> and add the <strong><code>Decimate</code></strong> modifier (it's in the <em>Generate</em> sub-menu).</li>
 <li>Keep the decimation type set to <strong><code>Collapse</code></strong>, set the <strong><code>Ratio</code></strong> to <strong><code>0.5</code></strong> and press <strong><code>Enter</code></strong>. The mesh processing will take a couple of seconds but will immediately reduce the number of triangles to ~77k, which is visible in the modifier under <strong><code>Face Count</code></strong>. You can even reduce it to a lower number but it might affect the appearance and shape of the model negatively by creating hard edges on the surface.</li>
-<li>Once you are satisfied with the results press <strong><code>Apply</code></strong>, under the dropdown-menu arrow to the right of Decimate <img alt="" class="iconimg" src="../../images/modifiermenu.png" />, or by pressing <strong><code>Ctrl-A</code></strong>, while focused on the Decimate modifier, to make the changes permanent. Again, this can take a few seconds.</li>
-<li>Now that the fishskin triangles have been reduced, select it and press <strong><code>H</code></strong> to hide it or click the <img alt="" class="iconimg" src="../../images/outlinereyeicon.png" /> icon in the <em>Outliner</em>. This simultaneously hides the fishskin and reveal the fishbones.</li>
+<li>Once you are satisfied with the results press <strong><code>Apply</code></strong>, under the dropdown-menu arrow to the right of Decimate <a class="glightbox" href="../../images/modifiermenu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/modifiermenu.png" /></a>, or by pressing <strong><code>Ctrl-A</code></strong>, while focused on the Decimate modifier, to make the changes permanent. Again, this can take a few seconds.</li>
+<li>Now that the fishskin triangles have been reduced, select it and press <strong><code>H</code></strong> to hide it or click the <a class="glightbox" href="../../images/outlinereyeicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/outlinereyeicon.png" /></a> icon in the <em>Outliner</em>. This simultaneously hides the fishskin and reveal the fishbones.</li>
 <li>Preform the same steps the fishbones and try to reduce the triangle count significantly without affecting the appearance of the model.</li>
-<li>Now unhide the fishskin again for the next assignment by clicking the <img alt="" class="iconimg" src="../../images/outlinereyeiconclosed.png" /> icon.</li>
+<li>Now unhide the fishskin again for the next assignment by clicking the <a class="glightbox" href="../../images/outlinereyeiconclosed.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/outlinereyeiconclosed.png" /></a> icon.</li>
 </ol>
 <h2 id="smooth-ironing-the-creases">Smooth - Ironing the creases<a class="headerlink" href="#smooth-ironing-the-creases" title="Permanent link">&para;</a></h2>
 <p>The geometry of the fishskin and the fishbones both look a bit rough because of the iso-surface extraction algorithm. If that is not desired, the rough edges can be smoothed out with the <em>Smooth Modifier</em>.</p>
 <ol>
 <li>Select the fishskin model by clicking on the fishskin with <strong><code>LMB</code></strong>.</li>
-<li>Go to the <em>Modifiers</em> tab <img alt="" class="iconimg" src="../../images/modifiersicon.png" /> in the properties editor.</li>
+<li>Go to the <em>Modifiers</em> tab <a class="glightbox" href="../../images/modifiersicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/modifiersicon.png" /></a> in the properties editor.</li>
 <li>Click <strong><code>Add Modifier</code></strong> and add the <strong><code>Smooth</code></strong> modifier (it's in the <em>Deform</em> sub-menu).</li>
 <li>Keep the <strong><code>Factor</code></strong> at <strong><code>0.5</code></strong> but increase the <strong><code>Repeat</code></strong> to <strong><code>5</code></strong>. Watch out with using the slider, every change re-triggers the modifier and when you accidentally slide to a high number it will take a while to calculate.</li>
 </ol>
@@ -2946,19 +2955,19 @@ On lower end devices this can slow everything down to a crawl. In order to be ab
 <h2 id="boolean-slicing-the-geometry">Boolean - Slicing the geometry<a class="headerlink" href="#boolean-slicing-the-geometry" title="Permanent link">&para;</a></h2>
 <p>If you wanna both show the inside of the fish with the context of the outside you can use slice through the fishskin model and reveal the insides of the fish by using a <em>Boolean Modifier</em>.</p>
 <ol>
-<li>Before you add the <em>Boolean Modifier</em> you first need to reveal the <strong><code>fishskin</code></strong> mesh object again by clicking the <img alt="" class="iconimg" src="../../images/outlinereyeicon.png" /> icon in the <em>Outliner</em>.</li>
-<li>Select the <strong><code>fishskin</code></strong> mesh object and go to the <em>Modifiers</em> tab <img alt="" class="iconimg" src="../../images/modifiersicon.png" /> in the properties editor to add a <strong><code>Boolean</code></strong> modifier (it's in the <em>Generate</em> sub-menu).</li>
+<li>Before you add the <em>Boolean Modifier</em> you first need to reveal the <strong><code>fishskin</code></strong> mesh object again by clicking the <a class="glightbox" href="../../images/outlinereyeicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/outlinereyeicon.png" /></a> icon in the <em>Outliner</em>.</li>
+<li>Select the <strong><code>fishskin</code></strong> mesh object and go to the <em>Modifiers</em> tab <a class="glightbox" href="../../images/modifiersicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/modifiersicon.png" /></a> in the properties editor to add a <strong><code>Boolean</code></strong> modifier (it's in the <em>Generate</em> sub-menu).</li>
 </ol>
 <p>Now that the <em>Boolean</em> modifier is added we still miss another 3D mesh object to perform the <em>Boolean</em> operation with. You are now gonna prepare the other mesh object.</p>
 <ol start="3">
 <li>Move the mouse into the 3D view and add a new <em>UV sphere</em> with <strong><code>Shift-A &gt; Mesh &gt; UV Sphere</code></strong></li>
 <li>Scale and translate (<strong><code>S</code></strong> and <strong><code>G</code></strong> keys) the <em>UV sphere</em> so that it overlaps a part of the fish which you want to clip away.</li>
-<li>The <em>UV sphere</em> is now shown as a solid surface, which is not desirable when you want to use it for clipping because you want to see through it. You can change the representation of an object in the 3D view using the <em>Object</em> <img alt="" class="iconimg" src="../../images/objecticon.png" /> properties under <strong><code>Viewport Display</code></strong>: set <strong><code>Display As</code></strong> to  <strong><code>Wire</code></strong>.</li>
+<li>The <em>UV sphere</em> is now shown as a solid surface, which is not desirable when you want to use it for clipping because you want to see through it. You can change the representation of an object in the 3D view using the <em>Object</em> <a class="glightbox" href="../../images/objecticon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/objecticon.png" /></a> properties under <strong><code>Viewport Display</code></strong>: set <strong><code>Display As</code></strong> to  <strong><code>Wire</code></strong>.</li>
 <li>Also when you want to look at the results in Rendered mode you need to make the sphere invisible using the <strong><code>Ray Visibility</code></strong> settings under <strong><code>Visibility</code></strong>: disable all check-boxes (Camera, Diffuse, Glossy, Transmission, Volume Scatter and Shadow)</li>
 </ol>
 <p>Now that you prepared the mesh object to preform the <em>Boolean</em> operation with, you can continue setting up the <em>Boolean</em> modifier.</p>
 <ol start="7">
-<li>Select the <strong><code>fishskin</code></strong> mesh object and go to the <em>Modifiers</em> tab <img alt="" class="iconimg" src="../../images/modifiersicon.png" /> in the properties editor to reveal the already added <em>Boolean</em> modifier.</li>
+<li>Select the <strong><code>fishskin</code></strong> mesh object and go to the <em>Modifiers</em> tab <a class="glightbox" href="../../images/modifiersicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/modifiersicon.png" /></a> in the properties editor to reveal the already added <em>Boolean</em> modifier.</li>
 <li>Now under <strong><code>Object</code></strong>, select the <strong><code>Sphere</code></strong> mesh object.</li>
 <li>Before we want to start moving the clipping Sphere around we want to change the <strong><code>Solver</code></strong> to <strong><code>Fast</code></strong>. This is more simpler and better performing solver and in our case, with the underlying broken patched mesh, also a better option since this solver is able to handle this type of geometry.</li>
 <li>Now if you select the <strong><code>Sphere</code></strong> object and translate and scale it over the <strong><code>fishskin</code></strong> mesh object you can clip away any desired part as the Boolean modifier updates in real time.</li>
@@ -3119,5 +3128,5 @@ On lower end devices this can slow everything down to a crawl. In order to be ab
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

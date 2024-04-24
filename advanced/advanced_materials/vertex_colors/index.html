@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2816,12 +2825,12 @@
 
 
 <h1 id="visualizing-vertex-colors-with-the-attribute-node">Visualizing vertex colors with the Attribute node<a class="headerlink" href="#visualizing-vertex-colors-with-the-attribute-node" title="Permanent link">&para;</a></h1>
-<p>In the basics course we already introduced the use of vertex colors with the <em>Material</em>-tab <img alt="" src="../../images/materialsicon.png" style="height:30px;width:30px" /> in the <em>Properties</em>-panel. What happens under the hood is that you basically add an <em>Attribute</em>-node to the node-network and attached its <em>Color</em>-output to the <em>Base Color</em>-input of the <em>Principled BSDF shader</em>-node (see images below).</p>
+<p>In the basics course we already introduced the use of vertex colors with the <em>Material</em>-tab <a class="glightbox" href="../../images/materialsicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../images/materialsicon.png" style="height:30px;width:30px" /></a> in the <em>Properties</em>-panel. What happens under the hood is that you basically add an <em>Attribute</em>-node to the node-network and attached its <em>Color</em>-output to the <em>Base Color</em>-input of the <em>Principled BSDF shader</em>-node (see images below).</p>
 <p>
-<figure style="width:600px"><img src="../../images/attribute-node-network.png" /><figcaption>Shader Editor node-network</figcaption></figure>
+<figure style="width:600px"><a class="glightbox" href="../../images/attribute-node-network.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="../../images/attribute-node-network.png" /></a><figcaption>Shader Editor node-network</figcaption></figure>
 </p>
 <p>
-<figure style="width:600px"><img src="../../images/attribute-node-result.png" /><figcaption>3D viewport result</figcaption></figure>
+<figure style="width:600px"><a class="glightbox" href="../../images/attribute-node-result.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="../../images/attribute-node-result.png" /></a><figcaption>3D viewport result</figcaption></figure>
 </p>
 <p>The blend file for the image above, <code>vertex-color.blend</code>, can be found among the walk-through files in the <code>walkthroughs/advanced/advanced_materials</code> directory.</p>
 <hr>
@@ -2978,5 +2987,5 @@
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

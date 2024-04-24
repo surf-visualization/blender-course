@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2944,7 +2953,7 @@
 </ul>
 </div>
 <p>
-<figure><img src="../images/editors_info-editor_info-editor.png" /><figcaption>Figure 2: The Info Editor is a nice way to see what python commands are executed when you use Blender. In this figure we see that we deleted the initial cube, made a UV Sphere and translated it.</figcaption>
+<figure><a class="glightbox" href="../images/editors_info-editor_info-editor.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="../images/editors_info-editor_info-editor.png" /></a><figcaption>Figure 2: The Info Editor is a nice way to see what python commands are executed when you use Blender. In this figure we see that we deleted the initial cube, made a UV Sphere and translated it.</figcaption>
 </figure>
 </p>
 <h2 id="some-notes-on-bpycontext-and-bpyops">Some notes on <code>bpy.context</code> and <code>bpy.ops</code><a class="headerlink" href="#some-notes-on-bpycontext-and-bpyops" title="Permanent link">&para;</a></h2>
@@ -3124,5 +3133,5 @@
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

@@ -62,7 +62,16 @@
     
     
     
-  </head>
+   <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2808,7 +2817,7 @@
 
   <h1>Welcome!</h1>
 
-<p><img align="right" alt="" src="images/splash.png" width="600px" />    </p>
+<p><a class="glightbox" href="images/splash.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img align="right" alt="" src="images/splash.png" width="600px" /></a>    </p>
 <p>These pages form the main online content for the two modules of the course <em>Introduction to Scientific Visualization with Blender</em>. 
 In this course you will learn how to use the 3D rendering and animation package <a href="https://www.blender.org">Blender</a> for creating images and animations from (scientific) data. </p>
 <p>This course consists of two parts: Basics and Advanced. The Basics part assumes no knowledge of Blender, while the Advanced part
@@ -2964,5 +2973,5 @@ experiences with the first advanced Blender course we provided online in 2020. <
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

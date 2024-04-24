@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2891,7 +2900,7 @@
 
 <h1 id="shape-keys">Shape keys<a class="headerlink" href="#shape-keys" title="Permanent link">&para;</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p><img alt="" src="../../images/sphere-cube-morph.gif" /></p>
+<p><a class="glightbox" href="../../images/sphere-cube-morph.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../images/sphere-cube-morph.gif" /></a></p>
 <p>The previous chapter dealt with flipbook animation, which is a general method for animating meshes over time. It does take a bit
 of work to set up, and in some cases you might just have a single mesh with fixed topology of which only the vertex positions change over time.</p>
 <p>For this case <em>Shape keys</em> can be used, either to morph one mesh into another over time, or to blend multiple meshes together into one (static) result. This can be used, for example, to show the time-evolution of an object, or the highlight differences between two meshes. Although this is a fairly specific use case, shape keys aren't too difficult too understand and use, hence we describe them in this section.</p>
@@ -2935,7 +2944,7 @@ data, and not the Key 1 data.</li>
 <ol start="17">
 <li>Delete shape keys <code>Key 1</code> and <code>Key 2</code> using the <strong><code>-</code></strong> button and change back to relative shape keys by checking the <strong><code>Relative</code></strong> checkbox.</li>
 <li>Select the <em>flattened mesh</em> and the <strong><code>Shift-click</code></strong> the Bunny mesh to add it to the selection and make it the active object.  </li>
-<li>Open the shape key menu using the downward arrow <img alt="" src="../../images/shapekey-downward-arrow.png" /> below the <strong><code>+</code></strong> and <strong><code>-</code></strong> buttons. Select <strong><code>Join as Shapes</code></strong>. </li>
+<li>Open the shape key menu using the downward arrow <a class="glightbox" href="../../images/shapekey-downward-arrow.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../images/shapekey-downward-arrow.png" /></a> below the <strong><code>+</code></strong> and <strong><code>-</code></strong> buttons. Select <strong><code>Join as Shapes</code></strong>. </li>
 <li>There should now be a new shape key called <code>flattened mesh</code>. Note that this shape key is only set on the <code>bunny</code> mesh, not on the <code>flattened mesh</code> mesh. You can verify this by selecting either mesh and checking which shape keys they have.</li>
 <li>Vary the influence of the shape key called <code>flattened mesh</code> to see the Bunny melt.</li>
 <li>Delete the <code>flattened mesh</code> object in the Outliner. Does the shape key that morphs the Bunny to its melted flat shape still work?</li>
@@ -3100,5 +3109,5 @@ data, and not the Key 1 data.</li>
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

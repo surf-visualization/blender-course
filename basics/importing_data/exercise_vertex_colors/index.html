@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2934,7 +2943,7 @@ to enable the X3D add-on (otherwise continue to step 3):</p>
 </li>
 <li>
 <p>Make sure Blender is set to use <strong><code>Cycles</code></strong> as the renderer. For this,
-   switch to the Render tab <img alt="" class="iconimg" src="../../images/rendericon.png" /> in the properties area.
+   switch to the Render tab <a class="glightbox" href="../../images/rendericon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/rendericon.png" /></a> in the properties area.
    Check the <strong><code>Render Engine</code></strong> drop-down, it should be set to <strong><code>Cycles</code></strong>.</p>
 </li>
 <li>
@@ -2968,7 +2977,7 @@ In this mode vertex colors are shown when they are available and can even be edi
 still be interesting to clean up or highlight vertex-colored geometry in certain situations.</p>
 <ol start="9">
 <li>Experiment with vertex painting: move the cursor over part of the arrow geometry, press and hold <strong><code>LMB</code></strong> and move the mouse. See what happens.</li>
-<li>Switch to the Tool settings <img alt="" class="iconimg" src="../../images/activetoolandworkspacesettingsicon.png" /> tab in the properties area on the right-hand side of the window </li>
+<li>Switch to the Tool settings <a class="glightbox" href="../../images/activetoolandworkspacesettingsicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/activetoolandworkspacesettingsicon.png" /></a> tab in the properties area on the right-hand side of the window </li>
 <li>You can change the color you're painting with with the colored box directly right of the <code>Draw</code> in the bar at the top of the 3D view area (it's also shown and editable in the bar at the top of the 3D view). Click the color to bring up the color chooser. You can also change the radius and strength settings to influence the vertex painting.</li>
 <li>Change back to <strong><code>Object Mode</code></strong> using the <strong><code>Ctrl-TAB</code></strong> mode menu when you're done playing around. Note that the
 arrows no longer show the vertex colors.</li>
@@ -2978,12 +2987,12 @@ arrows no longer show the vertex colors.</li>
 <ol start="13">
 <li>If you've screwed up the vertex colors really badly in the previous steps you might want to reimport the model...</li>
 <li>Make the 3D arrows in the scene the single selected object</li>
-<li>Switch to the <strong><code>Object Data</code></strong> <img alt="" class="iconimg" src="../../images/meshicon.png" /> tab in the properties</li>
+<li>Switch to the <strong><code>Object Data</code></strong> <a class="glightbox" href="../../images/meshicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/meshicon.png" /></a> tab in the properties</li>
 <li>Check that there is an entry "Col" in the list under <strong><code>Color Attributes</code></strong>. A model can have multiple sets of vertex colors, but this file has only one set called "Col", which has domain <code>Face Corner</code> and type <code>Byte Color</code>.</li>
 </ol>
 <p>Now we will set up a material using the vertex colors stored in the "Col" layer.</p>
 <ol start="17">
-<li>Go to the Material tab <img alt="" class="iconimg" src="../../images/materialsicon.png" /></li>
+<li>Go to the Material tab <a class="glightbox" href="../../images/materialsicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/materialsicon.png" /></a></li>
 <li>Select the material called "Material" in the drop-down list left of the New button. This set the (grey) material "Material" on the arrows geometry.</li>
 <li>Press <strong><code>F12</code></strong> (or use interactive render) to get a rendered view of the current scene.</li>
 </ol>
@@ -2996,7 +3005,7 @@ arrows no longer show the vertex colors.</li>
 <li>Now render the scene again</li>
 <li>The rendered image should now be showing the arrow geometry colored by vertex colors</li>
 </ol>
-<p><img alt="" src="../../images/rendered_vertex_colors.png" /></p>
+<p><a class="glightbox" href="../../images/rendered_vertex_colors.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../images/rendered_vertex_colors.png" /></a></p>
 <hr>
 <div class="md-source-file">
   <small>    
@@ -3151,5 +3160,5 @@ arrows no longer show the vertex colors.</li>
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

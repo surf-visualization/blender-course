@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -3013,12 +3022,12 @@ you might not have a very powerful GPU in your laptop or workstation).</p>
 <li>A GPU usually has less memory available, which might cause problems with really large scenes</li>
 </ul>
 <p>For the Cycles renderer the way to switch between CPU and GPU rendering is under the scene settings:</p>
-<p><img alt="" src="../../images/cycles-cpu-vs-gpu.png" /></p>
+<p><a class="glightbox" href="../../images/cycles-cpu-vs-gpu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../images/cycles-cpu-vs-gpu.png" /></a></p>
 <p>If you don't see a <code>GPU Compute</code> entry there then you first need to enable a GPU device under the global 
 system preferences. Go to the Preferences window (<strong><code>Edit &gt; Preferences</code></strong>) and
 then the <strong><code>System</code></strong> tab. The settings available under <strong><code>Cycles Render Devices</code></strong> are
 somewhat dependent on the hardware in your system but should look a little like this:</p>
-<p><img alt="" src="../../images/cycles-gpu-settings.png" /></p>
+<p><a class="glightbox" href="../../images/cycles-gpu-settings.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../images/cycles-gpu-settings.png" /></a></p>
 <p>See <a href="#system-specific-settings">below</a> for the meaning of the different (system-dependent) options.</p>
 <h2 id="system-specific-settings">System-specific settings<a class="headerlink" href="#system-specific-settings" title="Permanent link">&para;</a></h2>
 <p>GPU rendering in Blender has slightly different support depending on whether you're on Windows, Linux or macOS. Below, we summarize
@@ -3217,5 +3226,5 @@ in the Blender manual.</p>
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

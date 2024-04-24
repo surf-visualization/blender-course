@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2901,7 +2910,7 @@
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>        <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)))</span>
 </code></pre></div>
 <p>Comparing this matrix with the values set in the Transform panel, you can see the Location value is stored in the right-most column of the matrix and the scaling along the diagonal. If there was a rotation set on this object some of these values would not be as recognizable anymore. </p>
-<p><img alt="" src="../images/transformed_cube.png" /></p>
+<p><a class="glightbox" href="../images/transformed_cube.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/transformed_cube.png" /></a></p>
 <p>The location, rotation (in radians) and scale values can also be inspected and set separately:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">o</span><span class="o">.</span><span class="n">location</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">Vector</span><span class="p">((</span><span class="mf">0.3065159320831299</span><span class="p">,</span> <span class="mf">2.2441697120666504</span><span class="p">,</span> <span class="mf">1.2577730417251587</span><span class="p">))</span>
@@ -2927,7 +2936,7 @@
 <p>Mesh geometry in Blender stores vertex coordinates (and other geometric information) in <em>object-space coordinates</em>. But a mesh (or object in general) will usually get transformed to a specific position, scaling and orientation in the scene. </p>
 <p>As described above the net transform from object-space to world-space coordinates, also called the object-to-world transform, is available through <code>matrix_world</code>. In cases where you need to have access to geometric data <em>in world-space</em>, say vertex coordinates, you need to apply the <code>matrix_world</code> transform manually. </p>
 <p>For example, given the cube transformed as shown above, with only vertex 7 selected (visible in white the bottom-left of the image):</p>
-<p><img alt="" src="../images/global_vertex_coordinate.png" style="width:60%" /></p>
+<p><a class="glightbox" href="../images/global_vertex_coordinate.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/global_vertex_coordinate.png" style="width:60%" /></a></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">o</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Cube&#39;</span><span class="p">]</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
@@ -3103,5 +3112,5 @@
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

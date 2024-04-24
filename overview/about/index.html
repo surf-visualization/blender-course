@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2918,7 +2927,7 @@ course was originally created for the PRACE Training Center and first provided (
 and has since been repeated at least once a year. The course is currently organized as part of the 
 <a href="https://eurocc-netherlands.nl/">EuroCC The Netherlands</a> training activities.</p>
 <h2 id="paul-melis">Paul Melis<a class="headerlink" href="#paul-melis" title="Permanent link">&para;</a></h2>
-<p><img align="left" alt="" src="../../images/paul.jpg" style="width:100px" /> </p>
+<p><a class="glightbox" href="../../images/paul.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img align="left" alt="" src="../../images/paul.jpg" style="width:100px" /></a> </p>
 <p>Paul Melis has an MSc in Computer Science from the University of Twente in The Netherlands and worked on topics in scientific visualization 
 and VR at the University of Groningen and University of Amsterdam before joining SURFsara in 2009 (which has since become part of SURF).</p>
 <p>At SURF he is involved in several activities related to visualization, including realizing
@@ -2927,11 +2936,11 @@ As part of the SURF innovation portfolio he is involved in the use of extended r
 He likes to use Blender for all things 3D, but also works with ParaView, and sometimes develops a bit of code
 in Python, C++ or Julia.</p>
 <h2 id="casper-van-leeuwen">Casper van Leeuwen<a class="headerlink" href="#casper-van-leeuwen" title="Permanent link">&para;</a></h2>
-<p><img align="left" alt="" src="../../images/casper.jpg" style="width:100px" /> </p>
+<p><a class="glightbox" href="../../images/casper.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img align="left" alt="" src="../../images/casper.jpg" style="width:100px" /></a> </p>
 <p>Casper has a MSc in Computer Science from Delft University of Technology where he graduated on the topic of medical visualization. He has been at SURFsara since 2014.</p>
 <p>He mainly works on web-based 2D/3D visualization, including Jupyter Notebooks and loves to work on Blender projects when the goal is to make something look aesthetic! Besides that he also knows his way around Unity and Unreal Engine.</p>
 <h2 id="ben-de-vries">Ben de Vries<a class="headerlink" href="#ben-de-vries" title="Permanent link">&para;</a></h2>
-<p><img align="left" alt="" src="../../images/ben.jpg" style="width:100px" /></p>
+<p><a class="glightbox" href="../../images/ben.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img align="left" alt="" src="../../images/ben.jpg" style="width:100px" /></a></p>
 <p>Ben de Vries has a PhD in Astrophysics from KU Leuven. He joined SURF in 2019.
 He focuses on 2D/3D visualization projects using Blender, Unity and general 3D programming.</p>
 <hr>
@@ -3088,5 +3097,5 @@ He focuses on 2D/3D visualization projects using Blender, Unity and general 3D p
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

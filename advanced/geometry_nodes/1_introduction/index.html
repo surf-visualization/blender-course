@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2908,42 +2917,42 @@
 
 
 <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
-<p>Geometry Nodes is a way to program your own <a href="" target="_blank">modifier</a> that modyfies your geometry. Some predefined modifiers (like for example Subdivision or Decimate) in Blender are introduced in the section Simple Mesh Editing in the Basics part of the course. Modifiers can be added in the Modifiers tab in the Properties Editor (see Fig. 1). But how you will most likely be working with Geometry Nodes is through the Geometry Nodes Workspace, which can be found as a tab in the top part of the interface (see Fig. 1).</p>
+<p>Geometry Nodes are a way to program your own <a href="https://docs.blender.org/manual/en/4.1/modeling/modifiers/index.html">modifier</a> that modifies your geometry, or generates new. Some predefined modifiers (like for example Subdivision or Decimate) in Blender were introduced in the section <a href="../../../basics/simple_mesh_editing/introduction/">Simple Mesh Editing</a> in the Basics part of the course. Modifiers can be added in the Modifiers tab in the Properties Editor (see Fig. 1). But how you will most likely be working with Geometry Nodes is through the Geometry Nodes Workspace, which can be found as a tab in the top part of the interface (see Fig. 1).</p>
 <p>
-<figure><img src="../1_images/Fig_1_1_GeoNodesAsModifier.png" /><figcaption>Figure 1: The node tree contains an input and output Group node when you create a new Geometry Node group. Indicated in yellow outlines are the Geometry Node workspace and the Modifier tab.</figcaption>
+<figure><a class="glightbox" href="../1_images/Fig_1_1_GeoNodesAsModifier.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="../1_images/Fig_1_1_GeoNodesAsModifier.png" /></a><figcaption>Figure 1: The node tree contains an input and output Group node when you create a new Geometry Node group. Indicated in yellow outlines are the Geometry Node workspace and the Modifier tab.</figcaption>
 </figure>
 </p>
-<p>When you create a new Geometry Node Group you get a Group Input and a Group Output node, see Fig. 1. The geometry on which the geometry node modifier works is inputted through the Group Input node. And in Fig. 1 you see the Group Input node as an output 'Geometry' and this output has a circular, green, output socket. This output socket is connected to the input of the Group Ouput node. This node gives the output of the modifier and this is shown in the 3d view (passed to th next modifier if more are pressent on the object). </p>
+<p>When you create a new Geometry Node Group you get a Group Input and a Group Output node, see Fig. 1. The geometry on which the geometry node modifier works is inputted through the Group Input node. And in Fig. 1 you see the Group Input node as an output 'Geometry' and this output has a circular, green, output socket. This output socket is connected to the input of the Group Output node. This node gives the output of the modifier and this is shown in the 3D view (passed to the next modifier if more are present on the object). </p>
 <blockquote>
-<p><strong>Exercise 1</strong></p>
+<p>💻 <strong>Exercise 1</strong></p>
 <p>See what happends when you disconnect the two Group nodes in Fig. 1. Figure out how to reconnect the two Group nodes again.</p>
 </blockquote>
 <h2 id="nodes-connections">Nodes &amp; Connections<a class="headerlink" href="#nodes-connections" title="Permanent link">&para;</a></h2>
-<p>We will start with a simple example to see how Geometry Nodes work. In Fig. 2 we use a standard circle (in the 3d view type shift-A and choose a circle from the Mesh menu) as the basis geometry on which we will create a Geometry Node modifier. The geometry on which the Geometry Node modifier is working comes with in through the Group Input node. We then create a point on every vertex using a <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/operations/mesh_to_points.html" target="_blank">Mesh to Points node</a>. And then on every point we create a cube using the <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/instances/instance_on_points.html" target="_blank">Instance on Points node</a> which we tell to use a cube at every point by feeding it the <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/primitives/cube.html" target="_blank">Cube node</a>. In the 3d view you can now see a whole bunch of cubes arranged on a circle. </p>
+<p>We will start with a simple example to see how Geometry Nodes work. In Fig. 2 we use a standard circle (in the 3d view type <strong><code>Shift-A</code></strong> and choose a circle from the Mesh menu) as the basis geometry on which we will create a Geometry Node modifier. The geometry on which the Geometry Node modifier is working comes with in through the Group Input node. We then create a point on every vertex using a <a href="https://docs.blender.org/manual/en/4.1/modeling/geometry_nodes/mesh/operations/mesh_to_points.html" target="_blank">Mesh to Points node</a>. And then on every point we create a cube using the <a href="https://docs.blender.org/manual/en/4.1/modeling/geometry_nodes/instances/instance_on_points.html" target="_blank">Instance on Points node</a> which we tell to use a cube at every point by feeding it the <a href="https://docs.blender.org/manual/en/4.1/modeling/geometry_nodes/mesh/primitives/cube.html" target="_blank">Cube node</a>. In the 3d view you can now see a whole bunch of cubes arranged on a circle. </p>
 <p>
-<figure><img src="../1_images/Fig_1_2.png" /><figcaption>Figure 2: A node tree to create cube instances on every vertex of an object. </figcaption>
+<figure><a class="glightbox" href="../1_images/Fig_1_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="../1_images/Fig_1_2.png" /></a><figcaption>Figure 2: A node tree to create cube instances on every vertex of an object. </figcaption>
 </figure>
 </p>
 <h2 id="sockets-fields">Sockets &amp; Fields<a class="headerlink" href="#sockets-fields" title="Permanent link">&para;</a></h2>
-<p>Lets do something more with the example in Fig. 2. Lets make it so that the cubes we make scale with their position on the x-axis. Fig. 3 shows how you can do this. We use the blue diamand shaped input socket named 'Scale' of the Instances on Points node. We connect this to a couple of nodes that retrieve the x-position of the cubes. We start with a <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/read/position.html" target="_blank">Position node</a>. This outputs a position vector which we split in x, y and z components using the <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/vector/separate_xyz.html" target="_blank">Separate XYZ node</a>. We take the x-component and scale it using a <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/math/math.html" target="_blank">Math node</a> set to multiply. We then combine the scaled x-component with a constant y and z component using the <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/utilities/vector/combine_xyz.html" target="_blank">Combine XYZ node</a>. This way we scale the the cubes based on their position on the x-axis.</p>
+<p>Lets do something more with the example in Fig. 2. Lets make it so that the cubes we make scale with their position on the x-axis. Fig. 3 shows how you can do this. We use the blue diamand shaped input socket named 'Scale' of the Instances on Points node. We connect this to a couple of nodes that retrieve the x-position of the cubes. We start with a <a href="https://docs.blender.org/manual/en/4.1/modeling/geometry_nodes/geometry/read/position.html" target="_blank">Position node</a>. This outputs a position vector which we split in x, y and z components using the <a href="https://docs.blender.org/manual/en/4.1/modeling/geometry_nodes/utilities/vector/separate_xyz.html" target="_blank">Separate XYZ node</a>. We take the x-component and scale it using a <a href="https://docs.blender.org/manual/en/4.1/modeling/geometry_nodes/utilities/math/math.html" target="_blank">Math node</a> set to multiply. We then combine the scaled x-component with a constant y and z component using the <a href="https://docs.blender.org/manual/en/4.1/modeling/geometry_nodes/utilities/vector/combine_xyz.html" target="_blank">Combine XYZ node</a>. This way we scale the the cubes based on their position on the x-axis.</p>
 <p>
-<figure><img src="../1_images/Fig_1_3.png" /><figcaption>Figure 3: In this node tree we scale the created cubes based on their x-coordinate. For this we use nodes connected through field lines (dashed connections), which work like functions.</figcaption>
+<figure><a class="glightbox" href="../1_images/Fig_1_3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="../1_images/Fig_1_3.png" /></a><figcaption>Figure 3: In this node tree we scale the created cubes based on their x-coordinate. For this we use nodes connected through field lines (dashed connections), which work like functions.</figcaption>
 </figure>
 </p>
 <p>You can see that all the nodes building up to the 'Scale' socket, have dashed lines connecting diamond shaped sockets. This in contrast to the green solid lines with round sockets that are used for the flow of the geometry. The dashed lines are called fields and they are calculated differently from the solid lines. Field lines start with a node that generates data, in our example of Fig. 3 this is the Position node. These nodes need to know where to get the data from. What happens is that field lines are evaluated when they are connected to a node that has some geometry (solid line) fed into it. In our case this happens when the field is connected to the Instance on Points node. Now the Position node outputs the position of the points/vertices corresponding to the geometry that is connected to the Points socket in the Instance on Points. If you do not get this right away, do not worry. It is quite confusing at times, but it does allow for creating kind of functions as in programming languages. </p>
 <p>
-<figure><img src="../1_images/Fig_1_4.png" /><figcaption>Figure 4: In this node tree we show that fields can be evaluated on different geometries. For example when you connect the Position node to different geometries, it gives different values depending on the geometries.</figcaption>
+<figure><a class="glightbox" href="../1_images/Fig_1_4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="../1_images/Fig_1_4.png" /></a><figcaption>Figure 4: In this node tree we show that fields can be evaluated on different geometries. For example when you connect the Position node to different geometries, it gives different values depending on the geometries.</figcaption>
 </figure>
 </p>
-<p>To give an example of how fiels work, lets connect some of the same nodes connected by field lines to another geometry. In Fig. 4 you can see I added a <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/mesh/primitives/uv_sphere.html" target="_blank">UV Sphere node</a> that connects to a <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/geometry/operations/delete_geometry.html" target="_blank">Delete Geometry node</a>. Thus we create a sphere and now we want to delete part of the sphere using the 'Selection' socket of the Delete Geometry node. We will use the same Position node and Separate XYZ node as for the circle geometry, but now the position node will give the position of the vertices in the UV Sphere when I connect it to the Delete Geometry node. Here you see that you can connect the same Position node to different geometries and it will give different values. So you could also say that fields in Geometry Nodes are like functions that can be called by different nodes with different geometries.</p>
+<p>To give an example of how fields work, lets connect some of the same nodes connected by field lines to another geometry. In Fig. 4 you can see I added a <a href="https://docs.blender.org/manual/en/4.1/modeling/geometry_nodes/mesh/primitives/uv_sphere.html" target="_blank">UV Sphere node</a> that connects to a <a href="https://docs.blender.org/manual/en/4.1/modeling/geometry_nodes/geometry/operations/delete_geometry.html" target="_blank">Delete Geometry node</a>. Thus we create a sphere and now we want to delete part of the sphere using the 'Selection' socket of the Delete Geometry node. We will use the same Position node and Separate XYZ node as for the circle geometry, but now the position node will give the position of the vertices in the UV Sphere when I connect it to the Delete Geometry node. Here you see that you can connect the same Position node to different geometries and it will give different values. So you could also say that fields in Geometry Nodes are like functions that can be called by different nodes with different geometries.</p>
 <blockquote>
-<p><strong>Exercise 2</strong></p>
+<p>💻 <strong>Exercise 2</strong></p>
 <p>Starting with a UV Sphere. Make an egg shaped object by elongating the UV sphere along, for example the x-axis. Tip: you could use a Set Position node and some of the nodes from Fig. 3 to do this.</p>
 </blockquote>
 <h2 id="viewer-nodes">Viewer nodes<a class="headerlink" href="#viewer-nodes" title="Permanent link">&para;</a></h2>
-<p>Before we start building more geometry nodes, let me quickly tell you about the <a href="https://docs.blender.org/manual/en/latest/modeling/geometry_nodes/output/viewer.html" target="_blank">Viewer node</a>. This node is very useful for debugging and inspecting parts of your node tree. In Fig. 5 you can see I connected a viewer node directly to the UV Sphere node. When the little eye is visible in the top right of the viewer node, you can see its input in the 3d view. For example you now see the UV Sphere before part of its geometry is deleted. I also connected the boolean output of the Less Then Math node to the value socket of the viewer node. Doing this lets you inspect this value in the Spreadsheet editor (see top left of Fig. 5). Also it visualises the value on the geometry in the 3d view, now you can see that the top half of the UV Sphere is black (representing false) and the bottom is white (representing true). </p>
+<p>Before we start building more geometry nodes, let me quickly tell you about the <a href="https://docs.blender.org/manual/en/4.1/modeling/geometry_nodes/output/viewer.html" target="_blank">Viewer node</a>. This node is very useful for debugging and inspecting parts of your node tree. In Fig. 5 you can see I connected a viewer node directly to the UV Sphere node. When the little eye is visible in the top right of the viewer node, you can see its input in the 3D view. For example you now see the UV Sphere before part of its geometry is deleted. I also connected the boolean output of the Less Then Math node to the value socket of the viewer node. Doing this lets you inspect this value in the Spreadsheet editor (see top left of Fig. 5). Also it visualizes the value on the geometry in the 3D view, now you can see that the top half of the UV Sphere is black (representing false) and the bottom is white (representing true). </p>
 <p>
-<figure><img src="../1_images/Fig_1_5.png" /><figcaption>Figure 5: An example of the Viewer node. It is very useful to inspect and debug you node trees.</figcaption>
+<figure><a class="glightbox" href="../1_images/Fig_1_5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="../1_images/Fig_1_5.png" /></a><figcaption>Figure 5: An example of the Viewer node. It is very useful for inspecting and debugging your node trees.</figcaption>
 </figure>
 </p>
 <hr>
@@ -2951,7 +2960,7 @@
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">24 April 2024 10:39:47</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">24 April 2024 23:09:42</span>
       
     
     &bull;
@@ -3100,5 +3109,5 @@
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

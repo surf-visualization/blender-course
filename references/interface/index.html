@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2872,7 +2881,7 @@
 <h1 id="user-interface-elements">User Interface elements<a class="headerlink" href="#user-interface-elements" title="Permanent link">&para;</a></h1>
 <p>The default layout of the Blender user interface is shown below. Note that the layout is <a href="../../basics/blender_fundamentals/ui/">fully 
 configurable</a>.</p>
-<p><img alt="" src="../images/interface_guide.png" /></p>
+<p><a class="glightbox" href="../images/interface_guide.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/interface_guide.png" /></a></p>
 <div class="admonition tip">
 <p class="admonition-title">* Scene statistics</p>
 <p>By default the status bar at the bottom only shows the Blender version number. You can
@@ -2885,7 +2894,7 @@ in the <strong><code>Editors &gt; Status Bar</code></strong> section and check a
 </div>
 <h2 id="editor-type-menu">Editor type menu<a class="headerlink" href="#editor-type-menu" title="Permanent link">&para;</a></h2>
 <p>The yellow highlight indicates often used ones for this course</p>
-<p><img alt="" src="../images/property_editors_menu.png" /></p>
+<p><a class="glightbox" href="../images/property_editors_menu.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/property_editors_menu.png" /></a></p>
 <hr>
 <div class="md-source-file">
   <small>    
@@ -3040,5 +3049,5 @@ in the <strong><code>Editors &gt; Status Bar</code></strong> section and check a
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

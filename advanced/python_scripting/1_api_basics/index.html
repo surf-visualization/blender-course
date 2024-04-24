@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -3122,9 +3131,9 @@ can find a more extensive description of often-used Python API features in the s
 <div class="admonition note">
 <p class="admonition-title">Python Console versus terminal console</p>
 <p>The Python Console is something different than the console we refer to below. The Python Console is an area within the Blender user interface in which you can enter and execute Python commands:</p>
-<p><img alt="" src="../images/blender-python-console.png" /></p>
+<p><a class="glightbox" href="../images/blender-python-console.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/blender-python-console.png" /></a></p>
 <p>While the other type of "console" is a terminal window or DOS box from which you start Blender. This console will then contain any output and exceptions from Python scripts that you run:</p>
-<p><img alt="" src="../images/console-window.png" /></p>
+<p><a class="glightbox" href="../images/console-window.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/console-window.png" /></a></p>
 </div>
 <ul>
 <li>By enabling the <strong><code>Python Tooltips</code></strong> option in the Preferences under <strong><code>Interface &gt; Display</code></strong> you can hover over almost any button, option, menu, etc and after a second a tool-tip is shown. This tool-tip shows information on how to access this element from the Python API. </li>
@@ -3171,10 +3180,10 @@ can find a more extensive description of often-used Python API features in the s
 <li>Using the built-in <em>Text Editor</em> (Fig. 1B)</li>
 </ul>
 <p>The Python Console is very useful for testing lines of Python code, and exploring the API using auto-complete (with <strong><code>TAB</code></strong>) to see what is available. The keyboard shortcuts are a bit different than you might be used to in other text editors. See <a href="https://docs.blender.org/manual/en/4.1/editors/python_console.html?highlight=python%20console#interface">this section</a> in the Blender manual for an overview of menu options and shortcut keys.</p>
-<p>Blender also has its own built-in text editor which you can use (Fig. 1B) to edit Python code and execute it by pressing the <img alt="" class="iconimg" src="../../images/run_script_button.png" /> button in the top bar, or using <strong><code>Alt-P</code></strong>. Note that you can have multiple different text blocks, each with their own code.</p>
+<p>Blender also has its own built-in text editor which you can use (Fig. 1B) to edit Python code and execute it by pressing the <a class="glightbox" href="../../images/run_script_button.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/run_script_button.png" /></a> button in the top bar, or using <strong><code>Alt-P</code></strong>. Note that you can have multiple different text blocks, each with their own code.</p>
 <p>If you want to use your own editor to edit your scripts you can do this by opening the script in both the Blender <em>Text Editor</em> and your own editor. To refresh the Blender Text Editor use <strong><code>Text &gt; Reload</code></strong> or <strong><code>Alt R</code></strong> (or <strong><code>Option R</code></strong> on the Mac). You can also make a script that you open in the Blender Text Editor that executes an external script you edit in your own editor. See for example the script in Fig. 1B.</p>
 <p>
-<figure><img src="../images/running_python_in_blender.png" /><figcaption>Figure 1: The Scripting workspace in Blender</figcaption>
+<figure><a class="glightbox" href="../images/running_python_in_blender.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="../images/running_python_in_blender.png" /></a><figcaption>Figure 1: The Scripting workspace in Blender</figcaption>
 </figure>
 </p>
 <h2 id="running-scripts-from-the-command-line">Running scripts from the command-line<a class="headerlink" href="#running-scripts-from-the-command-line" title="Permanent link">&para;</a></h2>
@@ -3420,5 +3429,5 @@ See <a href="https://docs.blender.org/manual/en/4.1/advanced/blender_directory_l
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

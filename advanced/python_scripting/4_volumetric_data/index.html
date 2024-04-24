@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2949,7 +2958,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align: center;"><img alt="" src="../images/gasoline-explosion-a-vdb.gif" style="height:250px;width:250px" /></th>
+<th style="text-align: center;"><a class="glightbox" href="../images/gasoline-explosion-a-vdb.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/gasoline-explosion-a-vdb.gif" style="height:250px;width:250px" /></a></th>
 </tr>
 </thead>
 <tbody>
@@ -2972,7 +2981,7 @@
 </p>
 
 <h2 id="installation-of-pyopenvdb">Installation of <code>pyopenvdb</code><a class="headerlink" href="#installation-of-pyopenvdb" title="Permanent link">&para;</a></h2>
-<p>Installing the Python module to access the openVDB functionality can be very easy or more difficult depending on your operating system. See the installation instructions on the <a href="https://pypi.org/project/pyopenvdb/"><code>pyopenvdb website</code></a>. </p>
+<p>Installing the Python module to access the OpenVDB functionality can be very easy or more difficult depending on your operating system. See the installation instructions on the <a href="https://pypi.org/project/pyopenvdb/"><code>pyopenvdb website</code></a>. Note that the <a href="https://github.com/AcademySoftwareFoundation/openvdb">OpenVDB source code</a> includes Python bindings, so if you know how your way around <a href="https://www.openvdb.org/documentation/doxygen/build.html">building</a> it from source you can also get Python bindings that way.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>If you cannot get it to work that way, we made a simple Docker container you can use to run it, see <a href="https://github.com/surf-visualization/pyopenvdb-docker-image">here</a> for the github repository.</p>
@@ -3009,11 +3018,11 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">vdb</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;cube.vdb&#39;</span><span class="p">,</span> <span class="n">grids</span><span class="o">=</span><span class="p">[</span><span class="n">grid</span><span class="p">])</span>
 </code></pre></div>
 <h2 id="loading-a-vdb-file-into-blender">Loading a VDB file into Blender<a class="headerlink" href="#loading-a-vdb-file-into-blender" title="Permanent link">&para;</a></h2>
-<p>Open a new Blender file and if its there, remove the starting cube. In the 3D viewport choose menu option <strong><code>Add &gt; Volume &gt; Import OpenVDB</code></strong> or use the shortcut <strong><code>Shift-A</code></strong>. Locate the <code>cube.vdb</code> file we just made through the script. You will most likely not see anything yet, so scale the cube down using the shortcut <strong><code>S</code></strong> until you can see the outline of the cube. Now if you change the <code>**Viewport shading**</code> in the top right of the 3D viewport to <strong><code>Rendered</code></strong> (see Fig. 1, #1), you will not see anything beside the outline since we still need to add a shader to the model.</p>
+<p>Open a new Blender file and if its there, remove the starting cube. In the 3D viewport choose menu option <strong><code>Add &gt; Volume &gt; Import OpenVDB...</code></strong> (or use the shortcut <strong><code>Shift-A</code></strong> to open the Add menu). Locate the <code>cube.vdb</code> file we just made through the script. You will most likely not see anything yet, so scale the cube down using the shortcut <strong><code>S</code></strong> until you can see the outline of the cube. Now if you change the <code>**Viewport shading**</code> in the top right of the 3D viewport to <strong><code>Rendered</code></strong> (see Fig. 1, #1), you will not see anything beside the outline since we still need to add a shader to the model.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: center;"><img alt="" src="../images/img_volumetrics.png" /></th>
+<th style="text-align: center;"><a class="glightbox" href="../images/img_volumetrics.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/img_volumetrics.png" /></a></th>
 </tr>
 </thead>
 <tbody>
@@ -3030,7 +3039,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align: center;"><img alt="" src="../images/exercise_volumetrics.png" /></th>
+<th style="text-align: center;"><a class="glightbox" href="../images/exercise_volumetrics.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/exercise_volumetrics.png" /></a></th>
 </tr>
 </thead>
 <tbody>
@@ -3044,7 +3053,7 @@
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">26 September 2023 15:42:33</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">24 April 2024 20:25:16</span>
       
     
     &bull;
@@ -3193,5 +3202,5 @@
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

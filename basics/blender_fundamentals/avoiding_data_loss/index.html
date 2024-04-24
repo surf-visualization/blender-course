@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -3031,10 +3040,10 @@ general expectations, and that can potentially cause you to loose work. </p>
 second version of our scene and save this as <strong><code>scene2.blend</code></strong>. Finally, we make a third version and intend to save
 this as <strong><code>scene3.blend</code></strong>, but we forget to change the file name in the save dialog and it stays at the current <strong><code>scene2.blend</code></strong>. 
 The Blender way of warning you that you are about to overwrite an existing file is really subtle:</p>
-<p><img alt="" src="../../images/overwrite-prompt.png" /></p>
+<p><a class="glightbox" href="../../images/overwrite-prompt.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../images/overwrite-prompt.png" /></a></p>
 <p>Notice the red color behind the file name? <strong>That's the signal that the file name you entered is the same as an existing
 file in the current directory.</strong> If we change the file name to something that doesn't exist yet the color becomes gray again:</p>
-<p><img alt="" src="../../images/overwrite-prompt2.png" /></p>
+<p><a class="glightbox" href="../../images/overwrite-prompt2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../images/overwrite-prompt2.png" /></a></p>
 <p>The <strong><code>File &gt; Save As</code></strong> workflow (and similar for related file dialogs) is a somewhat double-edged sword:</p>
 <ul>
 <li>If you're aware of the above signal and intend to quickly overwrite the current file you can simply press <strong><code>Enter</code></strong> once in the dialog,
@@ -3058,11 +3067,11 @@ will not get saved to the file</strong>, as it is not referenced by anything in 
 of Blender is somewhat controversial, and it is definitely good to be aware of this behaviour. </p>
 <p>For most scene elements used in the Basics part of this course garbage-collection-on-save does not really cause concern, as, for example,
 any 3D objects added to a scene are always linked from that scene. One exception is Materials (as described in the example above). For materials, and data blocks in general, you can see if they are unused by checking for a <strong><code>0</code></strong> left of their name when they appear in a list:</p>
-<p><img alt="" src="../../images/unused-material.png" /></p>
+<p><a class="glightbox" href="../../images/unused-material.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../images/unused-material.png" /></a></p>
 <p>The quick fix in case you have a material that is currently not used in the scene, but that you definitely want to have saved to file, is to use the "Fake User" option by clicking the shield icon (<strong>be sure to enable this option for the right material!</strong>):</p>
-<p><img alt="" src="../../images/fake-user-setting.png" /></p>
+<p><a class="glightbox" href="../../images/fake-user-setting.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../images/fake-user-setting.png" /></a></p>
 <p>You can verify the material now has a fake user as intended by checking for an <strong><code>F</code></strong> left of its name:</p>
-<p><img alt="" src="../../images/material-with-fake-user.png" /></p>
+<p><a class="glightbox" href="../../images/material-with-fake-user.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../images/material-with-fake-user.png" /></a></p>
 <p>Note that you can use the same Fake User option for some other types of scene elements as well, not just materials.</p>
 <p>We have a more detailed discussion of the garbage collection system in a <a href="../../../api/data_block_users_and_gc/">section</a> in the Python scripting reference. The behaviour described relates to the data block system that Blender uses internally and for normal use the description above should be sufficient, but can also be influenced from Python.</p>
 <h2 id="recovering-lost-work">Recovering lost work<a class="headerlink" href="#recovering-lost-work" title="Permanent link">&para;</a></h2>
@@ -3261,5 +3270,5 @@ any lost work using the files available from the features described above.</p>
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

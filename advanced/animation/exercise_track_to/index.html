@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2827,7 +2836,7 @@ or scale amount based on another object's properties.</p>
 <p>We will be using a Track To constraint here, which keeps one object pointing at another object.</p>
 <ol start="2">
 <li>Select the camera</li>
-<li>Switch the Properties panel to the Object Constraints tab using the <img alt="" class="iconimg" src="../../images/objectconstraintsicon.png" /> icon</li>
+<li>Switch the Properties panel to the Object Constraints tab using the <a class="glightbox" href="../../images/objectconstraintsicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/objectconstraintsicon.png" /></a> icon</li>
 <li>In the <strong><code>Add Object Constraint</code></strong> menu pick <strong><code>Track To</code></strong> under <strong><code>Tracking</code></strong></li>
 </ol>
 <p>The Track To constraint will keep the object, in this case our camera, oriented at another object all the time.
@@ -3005,5 +3014,5 @@ To understand how the Track To constraint works in this case we need to understa
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

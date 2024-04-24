@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2817,7 +2826,7 @@
 <p>We've shown use of modifiers in earlier chapters, especially for basic mesh editing. Modifiers are a very nice way of generating
 scene content or altering geometry, as they provide a non-destructive way to set up a series of operations. Modifier parameters can also easily be changed to see their effect.</p>
 <p>In the Python API there is good support to work with modifiers. The main entry point is to add a modifier to a scene object through the <code>modifiers</code> attribute. Suppose we have a scene with a Cube and Suzanne mesh, and we want to do a boolean subtraction of the monkey head from the Cube.</p>
-<p><img alt="" src="../images/boolean_scene.png" /></p>
+<p><a class="glightbox" href="../images/boolean_scene.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/boolean_scene.png" /></a></p>
 <p>We add a modifier to the Cube, and set its parameters:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">o</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;Cube&#39;</span><span class="p">]</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># Add a Boolean modifier on the object and set its parameters</span>
@@ -2836,11 +2845,11 @@ scene content or altering geometry, as they provide a non-destructive way to set
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1"># o.modifiers.remove(o.modifiers[0])</span>
 </code></pre></div>
 <p>In the viewport the result of the modifier is directly visible:</p>
-<p><img alt="" src="../images/boolean_subtraction.png" /></p>
+<p><a class="glightbox" href="../images/boolean_subtraction.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/boolean_subtraction.png" /></a></p>
 <p>We can even continue changing the modifier parameters from Python and see the result (which is analogue to setting the value through the UI):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">mod</span><span class="o">.</span><span class="n">operation</span> <span class="o">=</span> <span class="s1">&#39;INTERSECT&#39;</span>
 </code></pre></div>
-<p><img alt="" src="../images/boolean_intersection.png" /></p>
+<p><a class="glightbox" href="../images/boolean_intersection.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/boolean_intersection.png" /></a></p>
 <p>Applying a modifier, in essence updating an object to the result of the modifier and removing the modifier itself, needs to be done using an <a href="../operators/">operator</a>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># We need to pass the name of modifier to apply</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="o">&gt;&gt;&gt;</span> <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">object</span><span class="o">.</span><span class="n">modifier_apply</span><span class="p">(</span><span class="n">modifier</span><span class="o">=</span><span class="s2">&quot;boolmod&quot;</span><span class="p">)</span>
@@ -3003,5 +3012,5 @@ scene content or altering geometry, as they provide a non-destructive way to set
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2878,7 +2887,7 @@ with one of <a href="../about/">us</a>.</p>
 <p>We will be active on Discord during office hours (CET time zone) and will try to also
 be on-line outside of those hours. Note that this is all on a best-effort basis.</p>
 </div>
-<p><img alt="" src="../../images/discord-help.png" /></p>
+<p><a class="glightbox" href="../../images/discord-help.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../images/discord-help.png" /></a></p>
 <p>Depending on the course you're following (basics or advanced) you need to use the category called
 <strong><code>BASICS BLENDER COURSE</code></strong> or <strong><code>ADVANCED BLENDER COURSE</code></strong>, respectively. Within these categories you will find two support channels:</p>
 <ul>
@@ -3044,5 +3053,5 @@ as shown in the picture above and pick either the button for voice chat or video
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

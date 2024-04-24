@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2818,7 +2827,7 @@
 <h1 id="node-wrangler-reference">Node-wrangler reference<a class="headerlink" href="#node-wrangler-reference" title="Permanent link">&para;</a></h1>
 <p>The <a href="https://docs.blender.org/manual/en/4.1/addons/node/node_wrangler.html">node-wrangler</a> add-on brings a wide variety of new features and hot-keys to automate steps within the Shader Editor to make life easier. In the walk-through only 2 features where shown, the <em>Shader viewer</em> (<strong><code>Ctrl+Shift+LMB</code></strong>) and <em>Add Texture Setup</em> (<strong><code>Ctrl+T</code></strong>), two very useful hot-keys but this is only the tip of the iceberg.</p>
 <p>To see the full set of features/hotkeys that node-wrangler provides you need to go to <strong><code>Menu bar 'Edit' &gt; Preferences... &gt; Tab 'Add-ons' &gt; Search for 'Node wrangler' &gt; Show Hotkey List</code></strong> (see image below). For additional information on what each individual feature does please refer to the <a href="https://docs.blender.org/manual/en/4.1/addons/node/node_wrangler.html#description">official documentation</a>. </p>
-<p><img alt="" src="../../images/node-wrangler-hotkeys.png" /></p>
+<p><a class="glightbox" href="../../images/node-wrangler-hotkeys.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../images/node-wrangler-hotkeys.png" /></a></p>
 <hr>
 <div class="md-source-file">
   <small>    
@@ -2973,5 +2982,5 @@
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

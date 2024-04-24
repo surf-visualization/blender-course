@@ -64,7 +64,16 @@
     
     
     
-  </head>
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     <body dir="ltr">
@@ -2937,7 +2946,7 @@ the bunny's head and "Overview" further away.</p>
 </li>
 <li>Experiment with the different camera controls until you find the ones you're comfortable with</li>
 <li>Rotate away from the camera view to a 3D view that shows both cameras.</li>
-<li>In the Scene properties tab <img alt="" class="iconimg" src="../../images/sceneicon.png" /> on the <em>right-hand side of the window</em> (and <em>not</em> the similar icon in the top bar left of <em>Scene</em>) there's
+<li>In the Scene properties tab <a class="glightbox" href="../../images/sceneicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/sceneicon.png" /></a> on the <em>right-hand side of the window</em> (and <em>not</em> the similar icon in the top bar left of <em>Scene</em>) there's
     a drop-down menu <em>Camera</em> which lists the active camera. Change the
     active camera using that selection box. Apart from the name listed under the Scene properties
     do you notice how you can identify the active camera in the 3D view? Hint: it's subtle
@@ -3144,5 +3153,5 @@ will allow moving the camera sideways.</li>
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
