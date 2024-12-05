@@ -1,8 +1,10 @@
 # Introduction to Scientific Visualization with Blender
 
-These are the website pages for the course "Introduction to Scientific 
+These are the website sources for the course "Introduction to Scientific 
 Visualization with Blender" as provided by SURF since 2018, and organized
 through [EuroCC Netherlands](https://eurocc-netherlands.nl/) (and previously the PRACE Training Center).
+
+The course website can be viewed [here](https://surf-visualization.github.io/blender-course).
 
 ## License
 
