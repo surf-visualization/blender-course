@@ -3136,9 +3136,9 @@
 <h1 id="shape-keys">Shape keys<a class="headerlink" href="#shape-keys" title="Permanent link">&para;</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p><a class="glightbox" href="../../images/sphere-cube-morph.gif" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../images/sphere-cube-morph.gif" /></a></p>
-<p>The previous chapter dealt with flipbook animation, which is a general method for animating meshes over time. It does take a bit
-of work to set up, and in some cases you might just have a single mesh with fixed topology of which only the vertex positions change over time.</p>
-<p>For this case <em>Shape keys</em> can be used, either to morph one mesh into another over time, or to blend multiple meshes together into one (static) result. This can be used, for example, to show the time-evolution of an object, or the highlight differences between two meshes. Although this is a fairly specific use case, shape keys aren't too difficult too understand and use, hence we describe them in this section.</p>
+<p>The previous chapter dealt with flipbook animation, which is a general method for animating meshes over time by replacing the mesh each time step. It does take a bit
+of work to set up, and in some cases you might just have a single mesh with fixed topology of which only the vertex positions change over time, instead of the whole mesh.</p>
+<p>For this case <em>Shape keys</em> can be used, either to morph one mesh into another over time, or to blend multiple meshes together into one (static) result. This can be used, for example, to show the time-evolution of an object, or highlight differences between two meshes. Although this is a fairly specific use case, shape keys aren't too difficult too understand and use, hence we describe them in this section.</p>
 <p>There are some limitations, though, to using shape keys:</p>
 <ul>
 <li>The two meshes <strong>must</strong> have the same number of vertices</li>
@@ -3195,7 +3195,7 @@ data, and not the Key 1 data.</li>
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">20 March 2024 15:19:16</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">17 November 2025 11:49:44</span>
       
     
     &bull;
