@@ -1,14 +1,16 @@
 #!/usr/bin/env python
-# On Arch need to run this as
+# Can run under Blender as blender -b -P ./mkmummyvdb.py
+#
+# When used separately on Arch need to run this as
 # LD_PRELOAD=/usr/lib/libjemalloc.so python script.py
 # to avoid a segfault related to JEMalloc
 import tarfile
 import numpy
 from PIL import Image
 from io import BytesIO
-import pyopenvdb as vdb
+import openvdb as vdb
 
-tar = tarfile.open('../../../../data/basics/importing_data/mummy-slices.tar.gz', 'r:gz')
+tar = tarfile.open('../../../data/basics/importing_data/mummy-slices.tar.gz', 'r:gz')
 members = tar.getmembers()
 members.sort(key = lambda e: e.name)
 images = []

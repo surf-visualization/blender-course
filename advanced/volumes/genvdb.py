@@ -2,10 +2,13 @@
 # https://www.openvdb.org/documentation/doxygen/python.html
 # section Working with NumPy arrays
 #
-# On Arch need to run this as
+#
+# Can run under Blender as blender -b -P ./genvdb.py
+#
+# When used separately on Arch need to run this as
 # LD_PRELOAD=/usr/lib/libjemalloc.so python script.py
 # to avoid a segfault related to JEMalloc
-import pyopenvdb as vdb
+import openvdb as vdb
 import numpy
 
 array = numpy.random.rand(200, 200, 200)

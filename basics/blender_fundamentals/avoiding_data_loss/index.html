@@ -3277,7 +3277,8 @@ this as <strong><code>scene3.blend</code></strong>, but we forget to change the 
 The Blender way of warning you that you are about to overwrite an existing file is really subtle:</p>
 <p><a class="glightbox" href="../../images/overwrite-prompt.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../images/overwrite-prompt.png" /></a></p>
 <p>Notice the red color behind the file name? <strong>That's the signal that the file name you entered is the same as an existing
-file in the current directory.</strong> If we change the file name to something that doesn't exist yet the color becomes gray again:</p>
+file in the current directory. There is no "Are you sure you want to overwrite an existing file?" dialog, or something to that effect.</strong></p>
+<p>If we change the file name to something that doesn't exist yet the color becomes gray again:</p>
 <p><a class="glightbox" href="../../images/overwrite-prompt2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../../images/overwrite-prompt2.png" /></a></p>
 <p>The <strong><code>File &gt; Save As</code></strong> workflow (and similar for related file dialogs) is a somewhat double-edged sword:</p>
 <ul>
@@ -3325,7 +3326,7 @@ the existing <strong><code>file.blend</code></strong> to <strong><code>file.blen
 <p>You can actually have multiple previous versions kept around if you like. The preference setting for this is <strong><code>Save &amp; Load &gt; Blend Files &gt; Save Versions</code></strong>, which defaults to 1. If you would increase it then files with extensions .blend2, .blend3 and so on would be kept around.</p>
 </div>
 <h3 id="auto-save">Auto save<a class="headerlink" href="#auto-save" title="Permanent link">&para;</a></h3>
-<p>By default, Blender will automatically save your current session to a file in a temporary directory every few minutes (2 minutes by default). The settings that control this are under <strong><code>Save &amp; Load &gt; Blend Files</code></strong>, specifically the checkbox on <strong><code>Auto Save</code></strong> to enable auto-save and the <strong><code>Timer (Minutes)</code></strong> setting under <strong><code>Auto Save</code></strong>. </p>
+<p>By default, Blender will automatically save your current session to a file in a temporary directory every few minutes (2 minutes by default). The settings that control this are under <strong><code>Save &amp; Load &gt; Blend Files</code></strong>, specifically the checkbox on <strong><code>Auto-Save</code></strong> to enable auto-save and the <strong><code>Timer (Minutes)</code></strong> setting under <strong><code>Auto-Save</code></strong>.</p>
 <p>This auto-save file is stored in your system's
 <a href="https://docs.blender.org/manual/en/4.1/advanced/blender_directory_layout.html#temporary-directory">temporary directory</a>, and uses the process ID of Blender in the file name, as well as the string <strong><code>_autosave</code></strong>. Here is an example
 from a Linux system, where <strong><code>/tmp</code></strong> is used and Blender's process ID is 66597:</p>
@@ -3471,7 +3472,7 @@ any lost work using the files available from the features described above.</p>
   
 </div>
       
-      <span style="; font-size:75%"><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="./images/cc-by-sa.png" width="100" /></a><br />This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International Public License</a>.</span>
+      <span style="; font-size:75%"><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="../../../images/cc-by-sa.png" width="100" /></a><br />This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International Public License</a>.</span>
     </div>
   </div>
 </footer>
