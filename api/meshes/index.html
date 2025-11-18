@@ -3271,9 +3271,9 @@
 
 <h1 id="meshes">Meshes<a class="headerlink" href="#meshes" title="Permanent link">&para;</a></h1>
 <p>One of the more common scene data types to work with from Python are 3D meshes. Meshes in Blender can contain polygons of an arbitrary number of vertices (so-called N-gons), can contain wire edges and support extra layers of data, such as vertex colors and UV coordinates. </p>
-<p>We go into a fair amount of detail on how to create and access mesh data, in several ways. As usual, the Blender <a href="https://docs.blender.org/api/4.1/bpy.types.Mesh.html">API docs on the <code>Mesh</code> type</a> contain many more details, but we feel the discussion below is a good summary to get you started for many use cases.</p>
+<p>We go into a fair amount of detail on how to create and access mesh data, in several ways. As usual, the Blender <a href="https://docs.blender.org/api/4.5/bpy.types.Mesh.html">API docs on the <code>Mesh</code> type</a> contain many more details, but we feel the discussion below is a good summary to get you started for many use cases.</p>
 <h2 id="creating-a-mesh-high-level">Creating a mesh (high-level)<a class="headerlink" href="#creating-a-mesh-high-level" title="Permanent link">&para;</a></h2>
-<p>As shown earlier the <a href="https://docs.blender.org/api/4.1/bpy.types.Mesh.html#bpy.types.Mesh.from_pydata"><code>Mesh.from_pydata(vertices, edges, faces)</code></a> method
+<p>As shown earlier the <a href="https://docs.blender.org/api/4.5/bpy.types.Mesh.html#bpy.types.Mesh.from_pydata"><code>Mesh.from_pydata(vertices, edges, faces)</code></a> method
 allows a simple and high-level way of creating a mesh. This method doesn't offer full control over the created
 mesh and isn't very fast for large meshes, but it can be good enough in a lot of cases. </p>
 <p>It takes three lists of values, or actually, any Python iterable that matches the expected form:</p>
@@ -3842,8 +3842,8 @@ in favor of using color attributes as shown above.</p>
 </code></pre></div>
 <p>In general, UV maps are either set through importing or edited within Blender using the UV Editor, although there can be valid reasons for wanting to control them through the Python API.</p>
 <h2 id="bmesh">BMesh<a class="headerlink" href="#bmesh" title="Permanent link">&para;</a></h2>
-<p>There is another method in Blender for creating meshes and accessing their data: the so-called BMesh, which is implemented by the <code>bmesh</code> module and its <code>BMesh</code> class. BMesh is especially interesting when you want to perform more complex geometric operations on an existing mesh, or build up a mesh polygon-by-polygon instead of providing the full mesh in one go as a set of arrays as shown above. Also, a large set of high- and low-level geometric operations on BMeshes is available, such as merging vertices within a given distance, face splitting, edge collapsing or generating a convex hull. These are provided in the <a href="https://docs.blender.org/api/4.1/bmesh.ops.html"><code>bmesh.ops</code></a> and <a href="https://docs.blender.org/api/4.1/bmesh.utils.html"><code>bmesh.utils</code></a> modules. These operations would be tedious and error prone to script manually.</p>
-<p>In this section we only give a brief overview of BMesh and refer to the <a href="https://docs.blender.org/api/4.1/bmesh.html">API docs</a> for all the details.</p>
+<p>There is another method in Blender for creating meshes and accessing their data: the so-called BMesh, which is implemented by the <code>bmesh</code> module and its <code>BMesh</code> class. BMesh is especially interesting when you want to perform more complex geometric operations on an existing mesh, or build up a mesh polygon-by-polygon instead of providing the full mesh in one go as a set of arrays as shown above. Also, a large set of high- and low-level geometric operations on BMeshes is available, such as merging vertices within a given distance, face splitting, edge collapsing or generating a convex hull. These are provided in the <a href="https://docs.blender.org/api/4.5/bmesh.ops.html"><code>bmesh.ops</code></a> and <a href="https://docs.blender.org/api/4.5/bmesh.utils.html"><code>bmesh.utils</code></a> modules. These operations would be tedious and error prone to script manually.</p>
+<p>In this section we only give a brief overview of BMesh and refer to the <a href="https://docs.blender.org/api/4.5/bmesh.html">API docs</a> for all the details.</p>
 <p>The differences of BMesh compared to working with the native mesh data structure we showed above:</p>
 <ul>
 <li>A BMesh holds extra data on mesh connectivity, like the neighbours of a vertex, which can be easily queried for geometric editing. The trade-off is that a BMesh will use more memory to store all this extra data, but that is usually only a limiting factor for very large meshes. </li>
@@ -3919,9 +3919,9 @@ in favor of using color attributes as shown above.</p>
 <p>This can be useful when you're working in edit mode on a mesh and also want to run a script on it that uses BMesh, but don't want to switch in and out of edit-mode to run the script.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>There are some things to watch out for when synchronizing <code>BMesh</code> state to a <code>Mesh</code>, see <a href="https://docs.blender.org/api/4.1/bmesh.html#keeping-a-correct-state">here</a>.</p>
+<p>There are some things to watch out for when synchronizing <code>BMesh</code> state to a <code>Mesh</code>, see <a href="https://docs.blender.org/api/4.5/bmesh.html#keeping-a-correct-state">here</a>.</p>
 </div>
-<p>Some examples of the geometric queries that you can do on a <code>BMesh</code> (see <a href="https://docs.blender.org/api/4.1/bmesh.types.html">docs</a> for more):</p>
+<p>Some examples of the geometric queries that you can do on a <code>BMesh</code> (see <a href="https://docs.blender.org/api/4.5/bmesh.types.html">docs</a> for more):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">bm</span><span class="o">.</span><span class="n">verts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>                 <span class="c1"># Sequence of mesh vertices (read-only)</span>
 <a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="n">bm</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>                 <span class="c1"># Sequence of mesh edges (read-only)</span>
 <a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="n">bm</span><span class="o">.</span><span class="n">faces</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>                 <span class="c1"># Sequence of mesh faces (read-only)</span>
@@ -4002,7 +4002,7 @@ faces in a BMesh to triangles with a call to <code>bmesh.ops.triangulate()</code
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">06 March 2024 14:59:42</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">18 November 2025 15:44:40</span>
       
     
     &bull;

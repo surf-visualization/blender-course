@@ -3354,7 +3354,7 @@
 <p>Blender embeds a Python interpreter, which is used for multiple tasks. It is a central feature of Blender, as large parts of the
 user interface are set up and controlled from Python, as well as all add-ons (import/export, tools, etc) are written in Python.</p>
 <p>As a user you can run scripts directly on this interpreter and also access Python modules provided by Blender, like <code>bpy</code> and <code>mathutils</code>
-to access scene elements. The <code>bpy</code> module gives access to Blender's data, functions and classes. In this section we will focus on using the Python API for automation, custom data import and manipulating geometry, but this is not all that is possible with the API, of course. The <a href="https://docs.blender.org/api/4.1/">official API manual</a> states the following things are possible using the Python API:</p>
+to access scene elements. The <code>bpy</code> module gives access to Blender's data, functions and classes. In this section we will focus on using the Python API for automation, custom data import and manipulating geometry, but this is not all that is possible with the API, of course. The <a href="https://docs.blender.org/api/4.5/">official API manual</a> states the following things are possible using the Python API:</p>
 <ul>
 <li>Edit any data the user interface can (Scenes, Meshes, Particles etc.).</li>
 <li>Modify user preferences, key-maps and themes.</li>
@@ -3432,7 +3432,7 @@ can find a more extensive description of often-used Python API features in the s
 <li>Using the interactive <em>Python Console</em> (Fig. 1A)</li>
 <li>Using the built-in <em>Text Editor</em> (Fig. 1B)</li>
 </ul>
-<p>The Python Console is very useful for testing lines of Python code, and exploring the API using auto-complete (with <strong><code>TAB</code></strong>) to see what is available. The keyboard shortcuts are a bit different than you might be used to in other text editors. See <a href="https://docs.blender.org/manual/en/4.1/editors/python_console.html?highlight=python%20console#interface">this section</a> in the Blender manual for an overview of menu options and shortcut keys.</p>
+<p>The Python Console is very useful for testing lines of Python code, and exploring the API using auto-complete (with <strong><code>TAB</code></strong>) to see what is available. The keyboard shortcuts are a bit different than you might be used to in other text editors. See <a href="https://docs.blender.org/manual/en/4.5/editors/python_console.html?highlight=python%20console#interface">this section</a> in the Blender manual for an overview of menu options and shortcut keys.</p>
 <p>Blender also has its own built-in text editor which you can use (Fig. 1B) to edit Python code and execute it by pressing the <a class="glightbox" href="../../images/run_script_button.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/run_script_button.png" /></a> button in the top bar, or using <strong><code>Alt-P</code></strong>. Note that you can have multiple different text blocks, each with their own code.</p>
 <p>If you want to use your own editor to edit your scripts you can do this by opening the script in both the Blender <em>Text Editor</em> and your own editor. To refresh the Blender Text Editor use <strong><code>Text &gt; Reload</code></strong> or <strong><code>Alt R</code></strong> (or <strong><code>Option R</code></strong> on the Mac). You can also make a script that you open in the Blender Text Editor that executes an external script you edit in your own editor. See for example the script in Fig. 1B.</p>
 <p>
@@ -3450,7 +3450,7 @@ can find a more extensive description of often-used Python API features in the s
 <p>You can combine running a Python script with, say, rendering the first frame (<code>-f 1</code>) from an example test.blend file. The output will go to the directory of the blender file (<code>-o //...</code>) and it will generate a PNG image file (<code>-F PNG</code>):</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>blender<span class="w"> </span>-b<span class="w"> </span>test.blend<span class="w"> </span>-o<span class="w"> </span>//render_<span class="w"> </span>-F<span class="w"> </span>PNG<span class="w"> </span>-f<span class="w"> </span><span class="m">1</span>
 </code></pre></div>
-<p>More information on command line arguments is <a href="https://docs.blender.org/manual/en/4.1/advanced/command_line/arguments.html" target="_BLANK">here</a> in the Blender manual.</p>
+<p>More information on command line arguments is <a href="https://docs.blender.org/manual/en/4.5/advanced/command_line/arguments.html" target="_BLANK">here</a> in the Blender manual.</p>
 <h3 id="custom-script-arguments">Custom script arguments<a class="headerlink" href="#custom-script-arguments" title="Permanent link">&para;</a></h3>
 <p>You might want to pass extra arguments to your script, for example to provide a frame range, or file name, or anything else that makes sense for your script but not Blender. For this, Blender provides the <code>--</code> marker option. Any arguments passed to Blender that follow <code>--</code> will not get processed by Blender, but are passed in <code>sys.argv</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># useargs.py</span>
@@ -3474,7 +3474,7 @@ can find a more extensive description of often-used Python API features in the s
 <p>You can then use these arguments in your script, even parse them using a regular option parsing Python module like <a href="https://docs.python.org/3/library/argparse.html">argparse</a>. </p>
 <h2 id="using-modules-and-external-scripts">Using modules and external scripts<a class="headerlink" href="#using-modules-and-external-scripts" title="Permanent link">&para;</a></h2>
 <p>As we've shown above there's multiple ways to run Python code within Blender, either from a text editor block, the Python Console or from the command-line. Usually, you want to use Python modules or other scripts from the code you're running. Below we describe some common situations and how to handle them.</p>
-<p>See <a href="https://docs.blender.org/api/4.1/info_tips_and_tricks.html">this manual page</a> for more tips and tricks related to working with Python scripting in Blender.</p>
+<p>See <a href="https://docs.blender.org/api/4.5/info_tips_and_tricks.html">this manual page</a> for more tips and tricks related to working with Python scripting in Blender.</p>
 <div class="admonition tip">
 <p class="admonition-title">NumPy</p>
 <p>The official binaries of Blender from blender.org include the <code>numpy</code> Python
@@ -3529,21 +3529,21 @@ This is a fairly simple way of executing externally stored Python code, while st
 <p>To load the newest version of your file into Blender, you can use <strong><code>Text &gt; Reload</code></strong> (or <strong><code>Alt-R</code></strong>).</p>
 <h2 id="adding-startup-scripts">Adding startup scripts<a class="headerlink" href="#adding-startup-scripts" title="Permanent link">&para;</a></h2>
 <p>You might want to permanently run one or more Python scripts when Blender starts. You can add these
-scripts in a special configuration directory. The location to place these scripts is system-dependent (see <a href="https://docs.blender.org/manual/en/4.1/advanced/blender_directory_layout.html">this manual page</a>) 
+scripts in a special configuration directory. The location to place these scripts is system-dependent (see <a href="https://docs.blender.org/manual/en/4.5/advanced/blender_directory_layout.html">this manual page</a>)
 for details. In general you want to place the scripts within the "USER" location of the platform you're working on:</p>
 <ul>
-<li>Windows: <code>%USERPROFILE%\AppData\Roaming\Blender Foundation\Blender\4.1\</code></li>
-<li>Linux: <code>$HOME/.config/blender/4.1/</code></li>
-<li>macOS: <code>/Users/$USER/Library/Application Support/Blender/4.1/</code></li>
+<li>Windows: <code>%USERPROFILE%\AppData\Roaming\Blender Foundation\Blender\4.5\</code></li>
+<li>Linux: <code>$HOME/.config/blender/4.5/</code></li>
+<li>macOS: <code>/Users/$USER/Library/Application Support/Blender/4.5/</code></li>
 </ul>
 <p>Inside the above directory create a <strong><code>scripts/startup</code></strong> directory. Any <code>.py</code> files placed there will be automatically executed when Blender starts.
-See <a href="https://docs.blender.org/manual/en/4.1/advanced/blender_directory_layout.html#path-layout">this page</a> for other special directories within the system-specific USER directory.</p>
+See <a href="https://docs.blender.org/manual/en/4.5/advanced/blender_directory_layout.html#path-layout">this page</a> for other special directories within the system-specific USER directory.</p>
 <hr>
 <div class="md-source-file">
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">17 November 2025 11:35:44</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">18 November 2025 15:44:40</span>
       
     
     &bull;

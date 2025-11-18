@@ -3266,7 +3266,7 @@ somewhat dependent on the hardware in your system but should look a little like 
 <p>See <a href="#system-specific-settings">below</a> for the meaning of the different (system-dependent) options.</p>
 <h2 id="system-specific-settings">System-specific settings<a class="headerlink" href="#system-specific-settings" title="Permanent link">&para;</a></h2>
 <p>GPU rendering in Blender has slightly different support depending on whether you're on Windows, Linux or macOS. Below, we summarize
-the options you can encounter. The most up-to-date official reference for this information is <a href="https://docs.blender.org/manual/en/4.1/render/cycles/gpu_rendering.html">this page</a> from the Blender manual.</p>
+the options you can encounter. The most up-to-date official reference for this information is <a href="https://docs.blender.org/manual/en/4.5/render/cycles/gpu_rendering.html">this page</a> from the Blender manual.</p>
 <h3 id="windows-linux">Windows, Linux<a class="headerlink" href="#windows-linux" title="Permanent link">&para;</a></h3>
 <p>By default <strong><code>None</code></strong> will be active, meaning no GPU acceleration is used for rendering
 and it all happens on the CPU.</p>
@@ -3284,10 +3284,10 @@ system might not provide GPU rendering in Cycles, it might still work fine for B
 with a GPU-accelerated 3D viewport, while using CPU-based rendering for Cycles.</p>
 </div>
 <h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
-<p>Some <a href="https://docs.blender.org/manual/en/4.1/render/cycles/gpu_rendering.html#limitations">limitations</a> do apply, when using GPU rendering.
+<p>Some <a href="https://docs.blender.org/manual/en/4.5/render/cycles/gpu_rendering.html#limitations">limitations</a> do apply, when using GPU rendering.
 But these are very specific situations that you probably won't run into anytime soon.</p>
 <h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
-<p>See the <a href="https://docs.blender.org/manual/en/4.1/render/cycles/gpu_rendering.html#frequently-asked-questions">FAQ</a> in the Blender manual 
+<p>See the <a href="https://docs.blender.org/manual/en/4.5/render/cycles/gpu_rendering.html#frequently-asked-questions">FAQ</a> in the Blender manual
 for some common issues when using GPU rendering with Cycles.</p>
 <h2 id="a-thing-called-eevee">A thing called EEVEE?<a class="headerlink" href="#a-thing-called-eevee" title="Permanent link">&para;</a></h2>
 <p>When consulting other Blender materials, specifically on rendering, you may
@@ -3302,17 +3302,17 @@ set of rendering and lighting features. EEVEE's rendering setup is somewhat more
 that needs more separate controls.</li>
 <li>Cycles can render both on CPU and GPU, whereas EEVEE can only render on a GPU (more specifically, it needs OpenGL)</li>
 <li>EEVEE doesn't support headless rendering on Windows and macOS (and only Linux <a href="https://wiki.blender.org/wiki/Reference/Release_Notes/3.4/EEVEE">since 3.4</a>), i.e. when starting a Blender render from the command-line without showing the user interface. This is especially relevant when rendering long animations on an HPC system, or other cluster environment without a GPU-accelerated display environment.</li>
-<li>Cycles is more feature-complete, whereas EEVEE has some <a href="https://docs.blender.org/manual/en/4.1/render/eevee/limitations.html">limitations</a> compared to Cycles, although the situation improves with each Blender release</li>
+<li>Cycles is more feature-complete, whereas EEVEE has some <a href="https://docs.blender.org/manual/en/4.5render/eevee/limitations.html">limitations</a> compared to Cycles, although the situation improves with each Blender release</li>
 <li>Although Cycles and EEVEE are getting closer in features with every Blender release they are still not fully equivalent. They also use separate controls in the UI for certain features. This would mean having to dedicate extra course material on these differences</li>
 </ul>
-<p>If you do like more information on EEVEE then please check <a href="https://docs.blender.org/manual/en/4.1/render/eevee/introduction.html">this section</a>
+<p>If you do like more information on EEVEE then please check <a href="https://docs.blender.org/manual/en/4.5/render/eevee/introduction.html">this section</a>
 in the Blender manual.</p>
 <hr>
 <div class="md-source-file">
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">09 April 2024 17:54:55</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">18 November 2025 15:44:40</span>
       
     
     &bull;

@@ -3328,7 +3328,7 @@ the existing <strong><code>file.blend</code></strong> to <strong><code>file.blen
 <h3 id="auto-save">Auto save<a class="headerlink" href="#auto-save" title="Permanent link">&para;</a></h3>
 <p>By default, Blender will automatically save your current session to a file in a temporary directory every few minutes (2 minutes by default). The settings that control this are under <strong><code>Save &amp; Load &gt; Blend Files</code></strong>, specifically the checkbox on <strong><code>Auto-Save</code></strong> to enable auto-save and the <strong><code>Timer (Minutes)</code></strong> setting under <strong><code>Auto-Save</code></strong>.</p>
 <p>This auto-save file is stored in your system's
-<a href="https://docs.blender.org/manual/en/4.1/advanced/blender_directory_layout.html#temporary-directory">temporary directory</a>, and uses the process ID of Blender in the file name, as well as the string <strong><code>_autosave</code></strong>. Here is an example
+<a href="https://docs.blender.org/manual/en/4.5/advanced/blender_directory_layout.html#temporary-directory">temporary directory</a>, and uses the process ID of Blender in the file name, as well as the string <strong><code>_autosave</code></strong>. Here is an example
 from a Linux system, where <strong><code>/tmp</code></strong> is used and Blender's process ID is 66597:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>melis@juggle 22:13:/tmp$ ps aux | grep blender
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>melis      66597  1.2  5.7 1838680 463920 ?      Sl   21:54   0:14 blender
@@ -3336,7 +3336,7 @@ from a Linux system, where <strong><code>/tmp</code></strong> is used and Blende
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>melis@juggle 22:13:/tmp$ ls 66597*
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>test_66597_autosave.blend
 </code></pre></div>
-<p>See <a href="https://docs.blender.org/manual/en/4.1/troubleshooting/recover.html#auto-save">this section</a> of the Blender manual on recovering a session from an auto-save file from the <strong><code>File</code></strong> manual (you can also copy or load the
+<p>See <a href="https://docs.blender.org/manual/en/4.5/troubleshooting/recover.html#auto-save">this section</a> of the Blender manual on recovering a session from an auto-save file from the <strong><code>File</code></strong> manual (you can also copy or load the
 file manually, of course, there is nothing special about it).</p>
 <div class="admonition info">
 <p class="admonition-title">Edit mode data not saved</p>
@@ -3357,7 +3357,7 @@ any lost work using the files available from the features described above.</p>
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">17 November 2025 11:35:44</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">18 November 2025 15:44:40</span>
       
     
     &bull;

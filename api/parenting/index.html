@@ -3205,7 +3205,7 @@
 <p>There's actually a worse side-effect, in that the location values shown in the Transform UI no longer seem to make sense:</p>
 <p><a class="glightbox" href="../images/transform-ui-inconsistency.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="../images/transform-ui-inconsistency.png" /></a></p>
 <p>Yes, that's right, the cube that's lower in Z (left image) shows a <em>higher Z location value</em> than the cube that's actually higher in Z (right image). Again, this is caused by the inconsistent parent-inverse matrix from doing "manual" parenting through Python.</p>
-<p>So when setting up parenting relations through Python it's best to be careful and keep the above in mind. There's actually quite a bit more going on with all the different parenting options available from the UI. See <a href="https://docs.blender.org/manual/en/4.1/scene_layout/object/editing/parent.html">this page</a> for more details.</p>
+<p>So when setting up parenting relations through Python it's best to be careful and keep the above in mind. There's actually quite a bit more going on with all the different parenting options available from the UI. See <a href="https://docs.blender.org/manual/en/4.5/scene_layout/object/editing/parent.html">this page</a> for more details.</p>
 <h2 id="children">Children<a class="headerlink" href="#children" title="Permanent link">&para;</a></h2>
 <p>To retrieve an object's children (i.e. the objects it is the parent of) one can use its <code>children</code> property. This only returns the <em>direct</em> children of that object, and so not children of its children, etc. Getting to the set of all children of an object (direct and indirect) was made slightly easier in Blender 3.1 with the addition of the <code>children_recursive</code> attribute.</p>
 <p>For example, given a Cube, Suzanne and Torus object, where Suzanne is parented to Cube, and the Torus is parented to Suzanne:</p>
@@ -3241,7 +3241,7 @@
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">06 March 2024 16:26:37</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">18 November 2025 15:44:40</span>
       
     
     &bull;

@@ -3319,7 +3319,7 @@ all meshes in memory all at once, etc.</p>
 setups, although they each have their limitations. We describe them here in case they are useful for certain situations
 you might encounter.</p>
 <h3 id="mesh-sequence-cache-modifier-usd-and-alembic">Mesh Sequence Cache Modifier (USD and Alembic)<a class="headerlink" href="#mesh-sequence-cache-modifier-usd-and-alembic" title="Permanent link">&para;</a></h3>
-<p>The <a href="https://docs.blender.org/manual/en/4.1/modeling/modifiers/modify/mesh_sequence_cache.html">Mesh Sequence Cache Modifier</a> takes one or more Alembic or USD files and sets up a time-varying mesh from those.
+<p>The <a href="https://docs.blender.org/manual/en/4.5/modeling/modifiers/modify/mesh_sequence_cache.html">Mesh Sequence Cache Modifier</a> takes one or more Alembic or USD files and sets up a time-varying mesh from those.
 The animated mesh data can either come from a single file (containing multiple time steps), or from multiple files (each containing
 a single time step).</p>
 <p>The limitation of only supporting Alembic and USD file formats is somewhat unfortunate, but understandable, since those
@@ -3332,7 +3332,7 @@ If you then import that file the Mesh Sequence Cache modifier will be added auto
 by exporting the example animation described below (involving <code>gen_pc2_anim.py</code>) from Blender to a USD file.</p>
 </div>
 <h3 id="mesh-cache-modifier">Mesh Cache Modifier<a class="headerlink" href="#mesh-cache-modifier" title="Permanent link">&para;</a></h3>
-<p>The <a href="https://docs.blender.org/manual/en/4.1/modeling/modifiers/modify/mesh_cache.html">Mesh Cache Modifier</a> works somewhat differently in that it is applied to an existing mesh object and will 
+<p>The <a href="https://docs.blender.org/manual/en/4.5/modeling/modifiers/modify/mesh_cache.html">Mesh Cache Modifier</a> works somewhat differently in that it is applied to an existing mesh object and will
 animate vertex positions (only) of that mesh. The modifier supports reading the animated vertex data from a MMD or PC2 
 file. </p>
 <div class="admonition warning">
@@ -3343,7 +3343,7 @@ also not have a varying number of vertices, or a changing topology.</p>
 of .pc2 files, as the mesh size in vertices and its topology changes.</p>
 </div>
 <p>The MDD file format is mostly used to exchange data with other 3D software, while the PC2 is a general and simple point cloud caching format.
-Blender contains add-ons for exporting <a href="https://docs.blender.org/manual/en/4.1/addons/import_export/shape_mdd.html">MDD</a> and <a href="https://docs.blender.org/manual/en/4.1/addons/import_export/pc2.html">PC2</a> files, but they are not enabled by default. When enabled you can use them to convert a mesh sequence in a different format to one of these.</p>
+Blender contains add-ons for exporting <a href="https://docs.blender.org/manual/en/4.5/addons/import_export/shape_mdd.html">MDD</a> and <a href="https://docs.blender.org/manual/en/4.5/addons/import_export/pc2.html">PC2</a> files, but they are not enabled by default. When enabled you can use them to convert a mesh sequence in a different format to one of these.</p>
 <p>The PC2 file format is very simple, and can easily be written from, say, Python or C++. The format looks like this (based on information referenced <a href="https://blenderartists.org/t/point-cache-2-exporter/398999/16">here</a>, and example Python code <a href="https://gist.github.com/iyadahmed/b0ba3c375e67fc5ed0f2de560fda27d4">here</a>):</p>
 <ul>
 <li>
@@ -3381,7 +3381,7 @@ mesh in Blender first. After that, apply the Mesh Cache modifier and set the .pc
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">20 March 2024 15:37:36</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">18 November 2025 15:44:40</span>
       
     
     &bull;
