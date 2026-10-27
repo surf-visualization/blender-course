@@ -545,6 +545,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../news/archive/2026/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2026
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
       <a href="../../../news/archive/2025/" class="md-nav__link">
         
   
@@ -3334,9 +3357,9 @@ arrows no longer show the vertex colors.</li>
 <li>If you've screwed up the vertex colors really badly in the previous steps you might want to reimport the model...</li>
 <li>Make the 3D arrows in the scene the single selected object</li>
 <li>Switch to the <strong><code>Object Data</code></strong> <a class="glightbox" href="../../images/meshicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/meshicon.png" /></a> tab in the properties</li>
-<li>Check that there is an entry "Col" in the list under <strong><code>Color Attributes</code></strong>. A model can have multiple sets of vertex colors, but this file has only one set called "Col", which has domain <code>Face Corner</code> and type <code>Byte Color</code>.</li>
+<li>Check that there is an entry "ColorPerCorner" in the list under <strong><code>Color Attributes</code></strong>. A model can have multiple sets of vertex colors, but this file has only one set called "ColorPerCorner", which has domain <code>Face Corner</code>.</li>
 </ol>
-<p>Now we will set up a material using the vertex colors stored in the "Col" layer.</p>
+<p>Now we will set up a material using the vertex colors stored in the "ColorPerCorner" attribute.</p>
 <ol start="17">
 <li>Go to the Material tab <a class="glightbox" href="../../images/materialsicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/materialsicon.png" /></a></li>
 <li>Select the material called "Material" in the drop-down list left of the New button. This set the (grey) material "Material" on the arrows geometry.</li>
@@ -3347,7 +3370,7 @@ arrows no longer show the vertex colors.</li>
 <li>In the settings of the material there is a field called "Base Color" with a white area right of it. This setting controls the color of the geometry.</li>
 <li>Click the button <em>left of the color area</em> (it has a small yellow circle in it)</li>
 <li>Pick <strong><code>Attribute</code></strong> from the left-most column labeled <strong><code>Input</code></strong>. This specifies that the material color should be based on an attribute value.</li>
-<li>Base Color is now set to <strong><code>Attribute | Color</code></strong>. Directly below the entry there is a <strong><code>Name</code></strong> field. Pick "Col" from the list. This specifies that the attribute to use is called "Col" and comes from the mesh geometry (i.e. our vertex colors).</li>
+<li>Base Color is now set to <strong><code>Attribute | Color</code></strong>. Directly below the entry there is a <strong><code>Name</code></strong> field. Type "ColorPerCorner" in it: there is no list to pick from, so the name has to match exactly (it is case-sensitive). This specifies that the attribute to use is called "ColorPerCorner" and comes from the mesh geometry (i.e. our vertex colors).</li>
 <li>Now render the scene again</li>
 <li>The rendered image should now be showing the arrow geometry colored by vertex colors</li>
 </ol>
@@ -3357,7 +3380,7 @@ arrows no longer show the vertex colors.</li>
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">22 April 2024 21:51:33</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">01 October 2026 13:43:30</span>
       
     
     &bull;
@@ -3431,7 +3454,7 @@ arrows no longer show the vertex colors.</li>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2018-2025 SURF &bullet; <a href=../../../privacy> Privacy Information</a>
+      Copyright &copy; 2018-2026 SURF &bullet; <a href=../../../privacy> Privacy Information</a>
     </div>
   
   

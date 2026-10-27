@@ -545,6 +545,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../news/archive/2026/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2026
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
       <a href="../../../news/archive/2025/" class="md-nav__link">
         
   
@@ -3380,7 +3403,7 @@
 
 <h1 id="avoiding-data-loss">⚠️ Avoiding data loss<a class="headerlink" href="#avoiding-data-loss" title="Permanent link">&para;</a></h1>
 <p>There are some things to be aware of when working with Blender that might behave a little different from other programs, or
-general expectations, and that can potentially cause you to loose work. </p>
+general expectations, and that can potentially cause you to lose work. </p>
 <h2 id="the-file-overwrite-prompt-is-very-subtle">The file overwrite prompt is very subtle<a class="headerlink" href="#the-file-overwrite-prompt-is-very-subtle" title="Permanent link">&para;</a></h2>
 <p>Suppose we have saved our work to a file <strong><code>scene.blend</code></strong>. We then make some more changes in Blender to create a
 second version of our scene and save this as <strong><code>scene2.blend</code></strong>. Finally, we make a third version and intend to save
@@ -3439,7 +3462,7 @@ the existing <strong><code>file.blend</code></strong> to <strong><code>file.blen
 <h3 id="auto-save">Auto save<a class="headerlink" href="#auto-save" title="Permanent link">&para;</a></h3>
 <p>By default, Blender will automatically save your current session to a file in a temporary directory every few minutes (2 minutes by default). The settings that control this are under <strong><code>Save &amp; Load &gt; Blend Files</code></strong>, specifically the checkbox on <strong><code>Auto-Save</code></strong> to enable auto-save and the <strong><code>Timer (Minutes)</code></strong> setting under <strong><code>Auto-Save</code></strong>.</p>
 <p>This auto-save file is stored in your system's
-<a href="https://docs.blender.org/manual/en/4.5/advanced/blender_directory_layout.html#temporary-directory">temporary directory</a>, and uses the process ID of Blender in the file name, as well as the string <strong><code>_autosave</code></strong>. Here is an example
+<a href="https://docs.blender.org/manual/en/5.2/advanced/blender_directory_layout.html#temporary-directory">temporary directory</a>, and uses the process ID of Blender in the file name, as well as the string <strong><code>_autosave</code></strong>. Here is an example
 from a Linux system, where <strong><code>/tmp</code></strong> is used and Blender's process ID is 66597:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>melis@juggle 22:13:/tmp$ ps aux | grep blender
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>melis      66597  1.2  5.7 1838680 463920 ?      Sl   21:54   0:14 blender
@@ -3447,11 +3470,11 @@ from a Linux system, where <strong><code>/tmp</code></strong> is used and Blende
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>melis@juggle 22:13:/tmp$ ls 66597*
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>test_66597_autosave.blend
 </code></pre></div>
-<p>See <a href="https://docs.blender.org/manual/en/4.5/troubleshooting/recover.html#auto-save">this section</a> of the Blender manual on recovering a session from an auto-save file from the <strong><code>File</code></strong> manual (you can also copy or load the
+<p>See <a href="https://docs.blender.org/manual/en/5.2/troubleshooting/recover.html#auto-save">this section</a> of the Blender manual on recovering a session from an auto-save file from the <strong><code>File</code></strong> manual (you can also copy or load the
 file manually, of course, there is nothing special about it).</p>
 <div class="admonition info">
 <p class="admonition-title">Edit mode data not saved</p>
-<p>If you happend to be in edit (or sculpt) mode at the time Blender does an auto-save, then the current updated state of the mesh will not get saved. This is a limitation of the auto-save feature.</p>
+<p>If you happen to be in edit (or sculpt) mode at the time Blender does an auto-save, then the current updated state of the mesh will not get saved. This is a limitation of the auto-save feature.</p>
 </div>
 <h3 id="last-session-accidental-quit-without-saving">Last session (accidental quit without saving)<a class="headerlink" href="#last-session-accidental-quit-without-saving" title="Permanent link">&para;</a></h3>
 <p>Whenever Blender quits <strong>normally</strong> (i.e. not a crash) it will save the current session state to a file called <strong><code>quit.blend</code></strong> in your system's temporary directory. You can easily load this <code>quit.blend</code> file with the <strong><code>File &gt; Recover &gt; Last Session</code></strong> option (or copy it to a different location and load it as any Blender file).</p>
@@ -3468,7 +3491,7 @@ any lost work using the files available from the features described above.</p>
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">18 November 2025 15:44:40</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">27 October 2026 10:10:53</span>
       
     
     &bull;
@@ -3542,7 +3565,7 @@ any lost work using the files available from the features described above.</p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2018-2025 SURF &bullet; <a href=../../../privacy> Privacy Information</a>
+      Copyright &copy; 2018-2026 SURF &bullet; <a href=../../../privacy> Privacy Information</a>
     </div>
   
   

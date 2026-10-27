@@ -543,6 +543,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../news/archive/2026/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2026
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
       <a href="../../../news/archive/2025/" class="md-nav__link">
         
   
@@ -1891,9 +1914,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#texture-mapping-placing-the-fish-on-a-picknick-table" class="md-nav__link">
+  <a href="#texture-mapping-placing-the-fish-on-a-picnic-table" class="md-nav__link">
     <span class="md-ellipsis">
-      Texture mapping - Placing the fish on a picknick table
+      Texture mapping - Placing the fish on a picnic table
     </span>
   </a>
   
@@ -3306,9 +3329,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#texture-mapping-placing-the-fish-on-a-picknick-table" class="md-nav__link">
+  <a href="#texture-mapping-placing-the-fish-on-a-picnic-table" class="md-nav__link">
     <span class="md-ellipsis">
-      Texture mapping - Placing the fish on a picknick table
+      Texture mapping - Placing the fish on a picnic table
     </span>
   </a>
   
@@ -3406,13 +3429,13 @@
 <li>Now we see a graph appearing with 2 nodes a <em>Principled BSDF</em>-node and a <em>Material output</em>-node also in the side panel you will see the familiar material settings. Change the <strong><code>Base Color</code></strong> to an appropriate color of a fish.</li>
 <li>Repeat step 2 and 3 for each 3D object in the scene (see <em>Outliner</em>) and give them a color of your choice.</li>
 </ol>
-<h3 id="texture-mapping-placing-the-fish-on-a-picknick-table">Texture mapping - Placing the fish on a picknick table<a class="headerlink" href="#texture-mapping-placing-the-fish-on-a-picknick-table" title="Permanent link">&para;</a></h3>
+<h3 id="texture-mapping-placing-the-fish-on-a-picnic-table">Texture mapping - Placing the fish on a picnic table<a class="headerlink" href="#texture-mapping-placing-the-fish-on-a-picnic-table" title="Permanent link">&para;</a></h3>
 <p>Now that the scene has some color we can start applying some realistic colors and texture to the ground plane or should we say table? We will do that by adding wood textures to the ground plane and connecting those textures to their appropriate parameters of the Principle BSDF.</p>
 <ol>
 <li>Select the <code>groundplane</code> 3D object.</li>
 <li>Add a <em>Image texture</em>-node to the Shader Editor graph of the groundplane with <strong><code>Shift-A &gt; Texture &gt; Image Texture</code></strong>.</li>
 <li>Connect the <code>Color</code> output of this node to the <code>Base color</code> input of the <em>Principled BSDF</em>-node.</li>
-<li>Now the groundplane doesn't look anything like a picknick table, its pink. This pink color comes from the fact that an image is missing from the <em>Image Texture</em>-node. Open an image by pressing the <strong><code>Open</code></strong>-button on the <em>Image Texture</em>-node, this will open a file browser window. Now select the <code>blue_painted_planks_diff_4k.png</code> image from the <code>data/wood_textures/</code> directory and press <strong><code>Open Image</code></strong>.</li>
+<li>Now the groundplane doesn't look anything like a picnic table, it's pink. This pink color comes from the fact that an image is missing from the <em>Image Texture</em>-node. Open an image by pressing the <strong><code>Open</code></strong>-button on the <em>Image Texture</em>-node, this will open a file browser window. Now select the <code>blue_painted_planks_diff_4k.png</code> image from the <code>data/wood_textures/</code> directory and press <strong><code>Open Image</code></strong>.</li>
 </ol>
 <p>Now we have our first image mapped on an object! Although you might have noticed that the fish is really small or rather the planks are very big. We are gonna solve that by scaling the texture coordinates.</p>
 <ol start="5">
@@ -3525,7 +3548,7 @@
 <li>Finally connect the <em>Displacement</em>-node <code>Displacement</code> output to the <em>Material output</em>-node <code>Displacement</code> input.</li>
 <li>Open the <code>data/moon_textures/lroc_color_poles_8k.tif</code> in the <em>Image Texture</em>-node that is connected to the <code>Principled BSDF</code>-node <code>Base Color</code>.</li>
 <li>Open the <code>data/moon_textures/ldem_16.tif</code> in the <em>Image Texture</em>-node that is connected to the <em>Displacement</em>-node <code>Height</code> input.</li>
-<li>Then finaly set the <em>Image Texture</em>-node <strong><code>Color Space</code></strong>-parameter of the node with the displacement texture to <strong><code>Non-Color</code></strong>. </li>
+<li>Then finally set the <em>Image Texture</em>-node <strong><code>Color Space</code></strong>-parameter of the node with the displacement texture to <strong><code>Non-Color</code></strong>. </li>
 <li>Initially the <em>Displacement</em>-node <code>Scale</code> parameter is set way too high making the moon look horrible. Set this parameter to <strong><code>0.001</code></strong>.</li>
 </ol>
 <p>As you can see it already looks quite like the moon but with some final tweaking you will get even more realism.</p>
@@ -3555,7 +3578,7 @@
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">10 April 2024 15:22:19</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">27 October 2026 10:10:53</span>
       
     
     &bull;
@@ -3629,7 +3652,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2018-2025 SURF &bullet; <a href=../../../privacy> Privacy Information</a>
+      Copyright &copy; 2018-2026 SURF &bullet; <a href=../../../privacy> Privacy Information</a>
     </div>
   
   
