@@ -3294,17 +3294,20 @@ uses some of the workflow needed to get it into Blender.</p>
 <p class="admonition-title">X3D Importer</p>
 <p>Check if you have a menu option to import X3D format. For this,
 go to <strong><code>File -&gt; Import</code></strong> and check if there is an entry <strong><code>X3D Extensible 3D (.x3d/.wrl)</code></strong>.</p>
-<p>If you do NOT have the X3D import option then perform the following steps
-to enable the X3D add-on (otherwise continue to step 3):</p>
+<p>If you do NOT have the X3D import option then install it. Since Blender 4.2 the X3D importer
+is no longer built in, but an <em>extension</em> you install once (this needs an internet connection):</p>
 <ul>
 <li>Open the preferences window with <strong><code>Edit -&gt; Preferences</code></strong></li>
-<li>Switch to the <strong><code>Add-ons</code></strong> tab</li>
+<li>Switch to the <strong><code>Get Extensions</code></strong> tab</li>
 <li>In the search field (with the little spyglass) enter "X3D", the list should
-  get reduced to just one entry</li>
-<li>Enable the checkbox left of "Import-Export: Web3D X3D/VRML2 format"</li>
+  get reduced to just one entry: "Web3D X3D/VRML2 format"</li>
+<li>Click <strong><code>Install</code></strong> next to it</li>
 <li>Close the preferences window (it saves the settings automatically)</li>
 <li>Under <strong><code>File -&gt; Import</code></strong> there should now be a new entry <strong><code>X3D Extensible 3D (.x3d/.wrl)</code></strong></li>
 </ul>
+<p>No internet? Use <strong><code>alternative-glyphs.ply</code></strong> instead, with <strong><code>File -&gt; Import -&gt; Stanford PLY</code></strong>
+(or drag it onto the 3D view). Its color attribute is called <strong><code>Col</code></strong> instead of "ColorPerCorner",
+so use that name in the steps below.</p>
 </div>
 <ol>
 <li>
@@ -3313,7 +3316,7 @@ to enable the X3D add-on (otherwise continue to step 3):</p>
 <li>
 <p>Make sure Blender is set to use <strong><code>Cycles</code></strong> as the renderer. For this,
    switch to the Render tab <a class="glightbox" href="../../images/rendericon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/rendericon.png" /></a> in the properties area.
-   Check the <strong><code>Render Engine</code></strong> drop-down, it should be set to <strong><code>Cycles</code></strong>.</p>
+   Check the <strong><code>Render Engine</code></strong> drop-down: a new scene starts with <strong><code>EEVEE</code></strong>, so set it to <strong><code>Cycles</code></strong>.</p>
 </li>
 <li>
 <p>Import file <strong><code>glyphs.x3d</code></strong> using <strong><code>File &gt; Import &gt; X3D Extensible 3D</code></strong>, using the
@@ -3321,7 +3324,9 @@ to enable the X3D add-on (otherwise continue to step 3):</p>
    <strong><code>Up: Z Up</code></strong>. The latter will make sure the imported model is oriented correctly.</p>
 </li>
 <li>
-<p>This X3D file holds a scene exported from ParaView. Check out the objects in the scene to get some idea of what it contains.</p>
+<p>This X3D file holds a scene exported from ParaView. Check out the objects in the scene to get some idea of what it contains.
+   ParaView exports its whole scene: you'll find a camera (<code>Viewpoint</code>), five lights (<code>DirectLight</code>, ...) and two meshes.
+   The arrows are <strong><code>Shape_IndexedFaceSet.001</code></strong>.</p>
 </li>
 <li>
 <p>Delete all the lights in the scene to clear everything up a bit. Add a single sun light in return.</p>
@@ -3362,7 +3367,9 @@ arrows no longer show the vertex colors.</li>
 <p>Now we will set up a material using the vertex colors stored in the "ColorPerCorner" attribute.</p>
 <ol start="17">
 <li>Go to the Material tab <a class="glightbox" href="../../images/materialsicon.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" class="iconimg" src="../../images/materialsicon.png" /></a></li>
-<li>Select the material called "Material" in the drop-down list left of the New button. This set the (grey) material "Material" on the arrows geometry.</li>
+<li>The arrows already have a (grey) material called "Shape", which the importer created. Notice the number <strong><code>2</code></strong> right of its name: both meshes <em>share</em> this material.
+    Click that <strong><code>2</code></strong> to give the arrows their own copy (it becomes "Shape.001"). Otherwise the other mesh, which has no vertex colors, uses the same
+    material and turns black in the next steps. (Imported the PLY file instead? It has no material yet: click <strong><code>New</code></strong>.)</li>
 <li>Press <strong><code>F12</code></strong> (or use interactive render) to get a rendered view of the current scene.</li>
 </ol>
 <p>You'll notice that all the geometry is grey/white, i.e. no vertex colors are used. We'll now alter the material to use vertex colors.</p>
@@ -3380,7 +3387,7 @@ arrows no longer show the vertex colors.</li>
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">01 October 2026 13:43:30</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">22 October 2026 13:52:49</span>
       
     
     &bull;
