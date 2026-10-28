@@ -1220,9 +1220,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fly-mode" class="md-nav__link">
+  <a href="#walk-navigation" class="md-nav__link">
     <span class="md-ellipsis">
-      Fly mode
+      Walk navigation
     </span>
   </a>
   
@@ -3264,9 +3264,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#fly-mode" class="md-nav__link">
+  <a href="#walk-navigation" class="md-nav__link">
     <span class="md-ellipsis">
-      Fly mode
+      Walk navigation
     </span>
   </a>
   
@@ -3291,8 +3291,9 @@
 <ol>
 <li>
 <p>Open <strong><code>cameras.blend</code></strong></p>
-<p>This scene contains a bunny object, a sun light and two cameras: "Close-up" near
-the bunny's head and "Overview" further away.</p>
+<p>This scene contains a bunny object, a cube, a sun light and three cameras: "Close-up" near
+the bunny's head, "Overview" further away, and a spare "Close-up.001". We only use the
+first two.</p>
 </li>
 <li>
 <p>Select the Overview camera object, by either left-clicking on it in the 3D view or in the Outliner.</p>
@@ -3357,23 +3358,32 @@ will allow moving the camera sideways.</li>
     alter the view.</li>
 <li>Use the sidebar again to disable the Lock <strong><code>Camera to View</code></strong> option</li>
 </ol>
-<h2 id="fly-mode">Fly mode<a class="headerlink" href="#fly-mode" title="Permanent link">&para;</a></h2>
+<h2 id="walk-navigation">Walk navigation<a class="headerlink" href="#walk-navigation" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Add a camera to the scene (<strong><code>Shift-A &gt; Camera</code></strong>). It will be placed
     at the position of the 3D cursor (the small red-white striped circle and axes).</li>
 <li>Change the upper-right view to this camera</li>
-<li>Activate fly mode with <strong><code>Shift-`</code></strong> (backtick). Use the <strong><code>ASDWXQE</code></strong> keys
-    to move this camera close to the two bunny ears and look between them.
-    You can change the fly speed with the mouse <strong><code>Wheel</code></strong>.
-    In fly mode you can confirm the current view with <strong><code>LMB</code></strong> or press <strong><code>Enter</code></strong>.
-    Press <strong><code>Esc</code></strong> to cancel and go back to the original view.</li>
+<li>
+<p>Start walk navigation with <strong><code>Shift-`</code></strong> (backtick). Moving the mouse turns the view
+    (no button needed), <strong><code>W</code></strong>/<strong><code>A</code></strong>/<strong><code>S</code></strong>/<strong><code>D</code></strong> move forward, left, back and right,
+    and <strong><code>E</code></strong>/<strong><code>Q</code></strong> move up and down. Use this to move the camera close to the two
+    bunny ears and look between them.
+    You can change the speed with the mouse <strong><code>Wheel</code></strong>, or hold <strong><code>Shift</code></strong> to go faster.
+    Confirm the current view with <strong><code>LMB</code></strong> or <strong><code>Enter</code></strong>.
+    Press <strong><code>Esc</code></strong> to cancel and go back to the original view.</p>
+<div class="admonition note">
+<p class="admonition-title">Walk or fly?</p>
+<p>Older tutorials call this <em>fly mode</em>. The current default is <em>Walk</em> navigation;
+you can switch to Fly under <strong><code>Edit &gt; Preferences &gt; Navigation &gt; Fly &amp; Walk</code></strong>.</p>
+</div>
+</li>
 </ol>
 <hr>
 <div class="md-source-file">
   <small>    
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">15 April 2022 11:46:47</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-custom">27 October 2026 15:37:48</span>
       
     
     &bull;
